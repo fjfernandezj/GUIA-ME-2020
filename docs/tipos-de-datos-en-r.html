@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="intro.html"/>
-
+<link rel="next" href="lectura-y-manipulacion-de-datos-en-rstudio.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -153,6 +153,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.2</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.3</b> Valores Perdidos</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#que-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
+<li class="chapter" data-level="3.3" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#exploremos-los-datos-a-r"><i class="fa fa-check"></i><b>3.3</b> Exploremos los datos a R</a></li>
+<li class="chapter" data-level="3.4" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
+<li class="chapter" data-level="3.5" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html#reduccion-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#grafico-de-dispersion-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
+<li class="chapter" data-level="4.2" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
+<li class="chapter" data-level="4.3" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
+<li class="chapter" data-level="4.4" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#ejercicios"><i class="fa fa-check"></i><b>4.4</b> Ejercicios</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -310,11 +325,6 @@ cual especifica que la operación se efectué con los datos válidos excluyendo 
 <pre><code>## [1] 4.814286</code></pre>
 <p>Magia! Con una simple orden acabamos de solucionar un simple pero doloroso problema.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -323,8 +333,8 @@ cual especifica que la operación se efectué con los datos válidos excluyendo 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lectura-y-manipulacion-de-datos-en-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

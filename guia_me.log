@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.27)  23 JAN 2020 01:33
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.27)  23 JAN 2020 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -848,28 +848,1831 @@ e 529.
 
 ]
 Chapter 2.
-[15] [16] [17] [18] [19] (./guia_me.bbl [20])
+[15] [16] [17] [18] [19] [20]
+Chapter 3.
+
+Underfull \hbox (badness 1303) in paragraph at lines 863--864
+[]\TU/lmr/m/n/10 Una base de datos se puede definir como un conjunto de informa
+ción
+ []
+
+[21
+
+] [22]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ Cultivo      : Factor w/ 1 level "Arandanos": 1 1 1 1 1
+ 1 1 1 1 1 ...[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ Region       : Factor w/ 4 levels "BioBio","La_Araucani
+a",..: 4 4 4 4 4 4 4 4 4 4 ...[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ Variedad     : Factor w/ 2 levels "V1","V2": 1 1 1 1 1 
+1 1 1 1 1 ...[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ Temperatura  : num  16.8 16.9 15 15.7 15.1 15.9 16.1 15
+.6 17.4 14.7 ...[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ costo_jh     : int  13059 13026 12933 13027 13045 12949
+ 13002 12968 12978 13056 ...[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ Perdida_plaga: num  35.1 34.3 31.7 40.5 35.6 33 38.1 37
+.9 34.8 34.4 ...[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 970--970
+[]\TU/lmtt/m/n/10 ##  $ mano_de_obra : int  3080 2728 3120 3135 3276 2966 2725 
+2874 2785 3193 ...[] 
+ []
+
+[23]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ##     Cultivo   Region Variedad Hectareas Temperatura costo_
+jh rendimiento[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 1 Arandanos Ohiggins       V1    1029.9        16.8    130
+59      6866.5[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 2 Arandanos Ohiggins       V1     998.9        16.9    130
+26      7122.1[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 3 Arandanos Ohiggins       V1    1117.8        15.0    129
+33      7041.2[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 4 Arandanos Ohiggins       V1    1007.2        15.7    130
+27      6891.5[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 5 Arandanos Ohiggins       V1    1077.6        15.1    130
+45      6927.7[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1042--1042
+[]\TU/lmtt/m/n/10 ## 6 Arandanos Ohiggins       V1    1091.3        15.9    129
+49      6900.4[] 
+ []
+
+[24]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ##      Cultivo   Region Variedad Hectareas Temperatura costo
+_jh rendimiento[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 1  Arandanos Ohiggins       V1    1029.9        16.8    13
+059      6866.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 2  Arandanos Ohiggins       V1     998.9        16.9    13
+026      7122.1[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 3  Arandanos Ohiggins       V1    1117.8        15.0    12
+933      7041.2[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 4  Arandanos Ohiggins       V1    1007.2        15.7    13
+027      6891.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 5  Arandanos Ohiggins       V1    1077.6        15.1    13
+045      6927.7[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 6  Arandanos Ohiggins       V1    1091.3        15.9    12
+949      6900.4[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 7  Arandanos Ohiggins       V1    1188.9        16.1    13
+002      6943.9[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 8  Arandanos Ohiggins       V1    1111.6        15.6    12
+968      6885.7[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 9  Arandanos Ohiggins       V1    1028.8        17.4    12
+978      6724.3[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1075--1075
+[]\TU/lmtt/m/n/10 ## 10 Arandanos Ohiggins       V1    1124.2        14.7    13
+056      6920.4[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ##       Cultivo       Region Variedad Hectareas Temperatura 
+costo_jh[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 115 Arandanos La_Araucania       V2    1857.6        11.1 
+   11974[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 116 Arandanos La_Araucania       V2    1862.7        11.6 
+   11960[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 117 Arandanos La_Araucania       V2    1894.5        10.6 
+   12023[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 118 Arandanos La_Araucania       V2    1873.5        11.1 
+   11971[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 119 Arandanos La_Araucania       V2    1915.4        11.5 
+   12065[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1101--1101
+[]\TU/lmtt/m/n/10 ## 120 Arandanos La_Araucania       V2    1932.1        13.5 
+   12084[] 
+ []
+
+[25]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1116--1116
+[]\TU/lmtt/m/n/10 ## [1] "Cultivo"       "Region"        "Variedad"      "Hecta
+reas"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1116--1116
+[]\TU/lmtt/m/n/10 ## [5] "Temperatura"   "costo_jh"      "rendimiento"   "Perdi
+da_plaga"[] 
+ []
+
+[26] [27] [28] [29]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ##       Cultivo Variedad Hectareas Temperatura costo_jh rend
+imiento[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 1   Arandanos       V1    1029.9        16.8    13059     
+ 6866.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 2   Arandanos       V1     998.9        16.9    13026     
+ 7122.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 3   Arandanos       V1    1117.8        15.0    12933     
+ 7041.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 4   Arandanos       V1    1007.2        15.7    13027     
+ 6891.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 5   Arandanos       V1    1077.6        15.1    13045     
+ 6927.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 6   Arandanos       V1    1091.3        15.9    12949     
+ 6900.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 7   Arandanos       V1    1188.9        16.1    13002     
+ 6943.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 8   Arandanos       V1    1111.6        15.6    12968     
+ 6885.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 9   Arandanos       V1    1028.8        17.4    12978     
+ 6724.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 10  Arandanos       V1    1124.2        14.7    13056     
+ 6920.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 11  Arandanos       V1    1106.5        15.9    13056     
+ 7056.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 12  Arandanos       V1    1000.6        15.4    13077     
+ 6898.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 13  Arandanos       V1    1101.0        16.5    12993     
+ 6797.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 14  Arandanos       V1    1113.9        14.0    12975     
+ 6858.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 15  Arandanos       V1    1159.9        14.7    13003     
+ 7064.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 16  Arandanos       V2    1110.8        14.3    12970     
+ 7028.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 17  Arandanos       V2    1091.4        13.7    13003     
+ 7127.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 18  Arandanos       V2    1173.8        15.7    12994     
+ 7247.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 19  Arandanos       V2    1034.9        15.1    13033     
+ 6896.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 20  Arandanos       V2    1081.7        14.3    13107     
+ 6927.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 21  Arandanos       V2    1120.4        14.8    13013     
+ 6893.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 22  Arandanos       V2    1054.0        16.9    12998     
+ 6929.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 23  Arandanos       V2    1099.7        15.0    12895     
+ 7237.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 24  Arandanos       V2    1083.0        15.2    12991     
+ 6964.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 25  Arandanos       V2    1063.7        15.3    12969     
+ 6776.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 26  Arandanos       V2    1097.1        13.5    13055     
+ 7017.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 27  Arandanos       V2    1132.5        14.9    13005     
+ 7080.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 28  Arandanos       V2    1086.0        14.4    12988     
+ 7171.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 29  Arandanos       V2    1035.5        12.5    12920     
+ 7246.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 30  Arandanos       V2    1110.5        16.4    12936     
+ 6928.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 31  Arandanos       V1    3750.2        15.6    12968     
+ 5931.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 32  Arandanos       V1    3668.7        11.6    13013     
+ 6076.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 33  Arandanos       V1    3586.2        15.8    13007     
+ 6005.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 34  Arandanos       V1    3678.0        15.0    13033     
+ 5964.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 35  Arandanos       V1    3729.1        12.5    13057     
+ 6003.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 36  Arandanos       V1    3709.2        15.9    13039     
+ 6026.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 37  Arandanos       V1    3636.3        15.6    12961     
+ 5973.5[] 
+ []
+
+[30]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 38  Arandanos       V1    3749.6        13.7    13023     
+ 6046.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 39  Arandanos       V1    3644.6        12.5    12985     
+ 5960.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 40  Arandanos       V1    3634.6        14.5    13041     
+ 6011.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 41  Arandanos       V1    3649.5        15.1    12942     
+ 6012.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 42  Arandanos       V1    3788.0        13.7    13121     
+ 6100.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 43  Arandanos       V1    3699.9        15.9    12945     
+ 5932.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 44  Arandanos       V1    3718.2        14.0    12967     
+ 5876.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 45  Arandanos       V1    3645.8        13.2    13098     
+ 5745.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 46  Arandanos       V2    3699.5        14.0    13065     
+ 5890.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 47  Arandanos       V2    3627.4        13.5    13008     
+ 6078.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 48  Arandanos       V2    3685.2        16.8    13088     
+ 6062.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 49  Arandanos       V2    3770.5        14.5    13034     
+ 5852.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 50  Arandanos       V2    3711.1        15.5    13064     
+ 6016.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 51  Arandanos       V2    3758.2        13.7    12975     
+ 6112.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 52  Arandanos       V2    3685.5        12.7    13087     
+ 6032.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 53  Arandanos       V2    3619.6        13.5    12902     
+ 6139.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 54  Arandanos       V2    3724.8        14.7    12974     
+ 6008.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 55  Arandanos       V2    3735.7        13.5    12976     
+ 5936.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 56  Arandanos       V2    3672.5        15.1    12937     
+ 5929.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 57  Arandanos       V2    3657.3        15.3    12946     
+ 6036.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 58  Arandanos       V2    3657.9        13.4    12963     
+ 6084.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 59  Arandanos       V2    3721.7        15.8    12955     
+ 5848.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 60  Arandanos       V2    3762.6        16.2    13059     
+ 6125.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 61  Arandanos       V1    1642.1        13.5    12018     
+ 4957.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 62  Arandanos       V1    1823.2        13.6    12051     
+ 5025.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 63  Arandanos       V1    1801.9        12.4    12004     
+ 5118.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 64  Arandanos       V1    1742.7        12.6    12005     
+ 4980.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 65  Arandanos       V1    1731.6        13.8    12069     
+ 5024.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 66  Arandanos       V1    1601.4        11.7    11906     
+ 5007.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 67  Arandanos       V1    1793.8        13.9    11901     
+ 4825.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 68  Arandanos       V1    1766.3        14.1    11962     
+ 5164.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 69  Arandanos       V1    1793.7        14.8    11989     
+ 4767.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 70  Arandanos       V1    1742.0        11.5    11988     
+ 5013.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 71  Arandanos       V1    1656.7        14.0    11976     
+ 5013.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 72  Arandanos       V1    1659.9        14.8    12014     
+ 5102.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 73  Arandanos       V1    1573.9        14.9    12083     
+ 4924.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 74  Arandanos       V1    1781.8        13.4    11997     
+ 5061.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 75  Arandanos       V1    1724.4        12.5    11893     
+ 4892.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 76  Arandanos       V2    1800.3        13.9    11927     
+ 5129.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 77  Arandanos       V2    1683.0        11.9    12046     
+ 5115.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 78  Arandanos       V2    1733.9        13.3    11993     
+ 4992.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 79  Arandanos       V2    1803.5        13.7    11900     
+ 4962.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 80  Arandanos       V2    1679.8        14.8    11987     
+ 4905.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 81  Arandanos       V2    1743.7        15.2    12005     
+ 5037.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 82  Arandanos       V2    1664.5        14.8    11906     
+ 5107.2[] 
+ []
+
+[31]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 83  Arandanos       V2    1715.7        14.5    11962     
+ 4914.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 84  Arandanos       V2    1706.4        12.4    11985     
+ 5058.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 85  Arandanos       V2    1698.5        12.1    11919     
+ 4934.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 86  Arandanos       V2    1734.7        13.8    11997     
+ 4965.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 87  Arandanos       V2    1785.3        14.0    11967     
+ 4970.2[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 88  Arandanos       V2    1694.2        15.7    11967     
+ 5137.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 89  Arandanos       V2    1680.7        12.1    11938     
+ 5140.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 90  Arandanos       V2    1681.4        12.7    11988     
+ 5168.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 91  Arandanos       V1    1907.5        11.3    12005     
+ 4166.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 92  Arandanos       V1    1896.7        12.4    12015     
+ 4439.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 93  Arandanos       V1    1867.3        11.9    12011     
+ 4374.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 94  Arandanos       V1    1922.1        13.0    11995     
+ 4506.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 95  Arandanos       V1    1941.5        11.2    12018     
+ 4466.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 96  Arandanos       V1    1846.2        12.8    12023     
+ 4469.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 97  Arandanos       V1    1854.6        11.9    12084     
+ 4517.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 98  Arandanos       V1    1898.1        10.0    12069     
+ 4538.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 99  Arandanos       V1    1783.3        11.9    11923     
+ 4456.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 100 Arandanos       V1    1833.6        13.1    11970     
+ 4444.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 101 Arandanos       V1    1801.7        12.8    12007     
+ 4525.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 102 Arandanos       V1    1931.0        11.5    12023     
+ 4632.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 103 Arandanos       V1    1865.6        13.3    12022     
+ 4327.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 104 Arandanos       V1    1819.9        10.3    12063     
+ 4526.0[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 105 Arandanos       V1    1855.1        11.6    12042     
+ 4523.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 106 Arandanos       V2    1910.0        12.6    11924     
+ 4447.8[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 107 Arandanos       V2    1708.3        10.4    11962     
+ 4421.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 108 Arandanos       V2    1823.3        13.2    11951     
+ 4554.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 109 Arandanos       V2    1780.9        11.6    12050     
+ 4344.9[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 110 Arandanos       V2    1886.3        10.1    12020     
+ 4456.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 111 Arandanos       V2    1838.7        13.1    11961     
+ 4528.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 112 Arandanos       V2    1858.9        10.1    12038     
+ 4651.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 113 Arandanos       V2    1761.6        12.0    12037     
+ 4758.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 114 Arandanos       V2    1908.1        10.6    12055     
+ 4539.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 115 Arandanos       V2    1857.6        11.1    11974     
+ 4591.7[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 116 Arandanos       V2    1862.7        11.6    11960     
+ 4689.4[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 117 Arandanos       V2    1894.5        10.6    12023     
+ 4400.5[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 118 Arandanos       V2    1873.5        11.1    11971     
+ 4380.6[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 119 Arandanos       V2    1915.4        11.5    12065     
+ 4424.1[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1550--1550
+[]\TU/lmtt/m/n/10 ## 120 Arandanos       V2    1932.1        13.5    12084     
+ 4331.0[] 
+ []
+
+[32] [33] [34]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1565--1565
+[]\TU/lmtt/m/n/10 ##     Cultivo   Region Variedad Hectareas Temperatura costo_
+jh rendimiento[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1565--1565
+[]\TU/lmtt/m/n/10 ## 1 Arandanos Ohiggins       V1    1077.6        15.1    130
+45      6927.7[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ##     Cultivo   Region Variedad Hectareas Temperatura costo_
+jh rendimiento[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 1 Arandanos Ohiggins       V1    1117.8        15.0    129
+33      7041.2[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 2 Arandanos Ohiggins       V1    1007.2        15.7    130
+27      6891.5[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 3 Arandanos Ohiggins       V1    1077.6        15.1    130
+45      6927.7[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 4 Arandanos Ohiggins       V1    1091.3        15.9    129
+49      6900.4[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 5 Arandanos Ohiggins       V1    1188.9        16.1    130
+02      6943.9[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 6 Arandanos Ohiggins       V1    1111.6        15.6    129
+68      6885.7[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 7 Arandanos Ohiggins       V1    1028.8        17.4    129
+78      6724.3[] 
+ []
+
+[35]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1594--1594
+[]\TU/lmtt/m/n/10 ## 8 Arandanos Ohiggins       V1    1124.2        14.7    130
+56      6920.4[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1616--1616
+[]\TU/lmtt/m/n/10 ##     Cultivo       Region Variedad Hectareas Temperatura co
+sto_jh[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1616--1616
+[]\TU/lmtt/m/n/10 ## 1 Arandanos     Ohiggins       V1    1117.8        15.0   
+ 12933[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1616--1616
+[]\TU/lmtt/m/n/10 ## 2 Arandanos     Ohiggins       V1    1124.2        14.7   
+ 13056[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1616--1616
+[]\TU/lmtt/m/n/10 ## 3 Arandanos     Ohiggins       V2    1063.7        15.3   
+ 12969[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1616--1616
+[]\TU/lmtt/m/n/10 ## 4 Arandanos La_Araucania       V1    1833.6        13.1   
+ 11970[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ##      Cultivo   Region Variedad Hectareas Temperatura costo
+_jh rendimiento[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 1  Arandanos Ohiggins       V1     998.9        16.9    13
+026      7122.1[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 2  Arandanos Ohiggins       V1    1117.8        15.0    12
+933      7041.2[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 3  Arandanos Ohiggins       V1    1106.5        15.9    13
+056      7056.9[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 4  Arandanos Ohiggins       V1    1159.9        14.7    13
+003      7064.3[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 5  Arandanos Ohiggins       V2    1110.8        14.3    12
+970      7028.4[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 6  Arandanos Ohiggins       V2    1091.4        13.7    13
+003      7127.7[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 7  Arandanos Ohiggins       V2    1173.8        15.7    12
+994      7247.3[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 8  Arandanos Ohiggins       V2    1099.7        15.0    12
+895      7237.8[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 9  Arandanos Ohiggins       V2    1097.1        13.5    13
+055      7017.3[] 
+ []
+
+[36]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 10 Arandanos Ohiggins       V2    1132.5        14.9    13
+005      7080.4[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 11 Arandanos Ohiggins       V2    1086.0        14.4    12
+988      7171.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1654--1654
+[]\TU/lmtt/m/n/10 ## 12 Arandanos Ohiggins       V2    1035.5        12.5    12
+920      7246.0[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1676--1676
+[]\TU/lmtt/m/n/10 ##     Cultivo   Region Variedad Hectareas Temperatura costo_
+jh rendimiento[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1676--1676
+[]\TU/lmtt/m/n/10 ## 1 Arandanos Ohiggins       V1     998.9        16.9    130
+26      7122.1[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1676--1676
+[]\TU/lmtt/m/n/10 ## 2 Arandanos Ohiggins       V1    1117.8        15.0    129
+33      7041.2[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1676--1676
+[]\TU/lmtt/m/n/10 ## 3 Arandanos Ohiggins       V1    1106.5        15.9    130
+56      7056.9[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1676--1676
+[]\TU/lmtt/m/n/10 ## 4 Arandanos Ohiggins       V1    1159.9        14.7    130
+03      7064.3[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ##      Cultivo       Region Variedad Hectareas Temperatura c
+osto_jh[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 1  Arandanos     Ohiggins       V1    1029.9        16.8  
+  13059[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 2  Arandanos     Ohiggins       V1     998.9        16.9  
+  13026[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 3  Arandanos     Ohiggins       V1    1117.8        15.0  
+  12933[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 4  Arandanos     Ohiggins       V1    1007.2        15.7  
+  13027[] 
+ []
+
+[37]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 5  Arandanos     Ohiggins       V1    1077.6        15.1  
+  13045[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 6  Arandanos     Ohiggins       V1    1091.3        15.9  
+  12949[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 7  Arandanos     Ohiggins       V1    1188.9        16.1  
+  13002[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 8  Arandanos     Ohiggins       V1    1111.6        15.6  
+  12968[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 9  Arandanos     Ohiggins       V1    1028.8        17.4  
+  12978[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 10 Arandanos     Ohiggins       V1    1124.2        14.7  
+  13056[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 11 Arandanos     Ohiggins       V1    1106.5        15.9  
+  13056[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 12 Arandanos     Ohiggins       V1    1000.6        15.4  
+  13077[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 13 Arandanos     Ohiggins       V1    1101.0        16.5  
+  12993[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 14 Arandanos     Ohiggins       V1    1113.9        14.0  
+  12975[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 15 Arandanos     Ohiggins       V1    1159.9        14.7  
+  13003[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 16 Arandanos     Ohiggins       V2    1110.8        14.3  
+  12970[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 17 Arandanos     Ohiggins       V2    1091.4        13.7  
+  13003[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 18 Arandanos     Ohiggins       V2    1173.8        15.7  
+  12994[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 19 Arandanos     Ohiggins       V2    1099.7        15.0  
+  12895[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 20 Arandanos     Ohiggins       V2    1097.1        13.5  
+  13055[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 21 Arandanos     Ohiggins       V2    1132.5        14.9  
+  13005[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 22 Arandanos     Ohiggins       V2    1086.0        14.4  
+  12988[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 23 Arandanos     Ohiggins       V2    1035.5        12.5  
+  12920[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 24 Arandanos        Maule       V1    3750.2        15.6  
+  12968[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 25 Arandanos        Maule       V1    3668.7        11.6  
+  13013[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 26 Arandanos        Maule       V1    3586.2        15.8  
+  13007[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 27 Arandanos        Maule       V1    3678.0        15.0  
+  13033[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 28 Arandanos        Maule       V1    3729.1        12.5  
+  13057[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 29 Arandanos        Maule       V1    3709.2        15.9  
+  13039[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 30 Arandanos        Maule       V1    3636.3        15.6  
+  12961[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 31 Arandanos        Maule       V1    3749.6        13.7  
+  13023[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 32 Arandanos        Maule       V1    3644.6        12.5  
+  12985[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 33 Arandanos        Maule       V1    3634.6        14.5  
+  13041[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 34 Arandanos        Maule       V1    3649.5        15.1  
+  12942[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 35 Arandanos        Maule       V1    3788.0        13.7  
+  13121[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 36 Arandanos        Maule       V1    3699.9        15.9  
+  12945[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 37 Arandanos        Maule       V1    3718.2        14.0  
+  12967[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 38 Arandanos        Maule       V1    3645.8        13.2  
+  13098[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 39 Arandanos       BioBio       V1    1642.1        13.5  
+  12018[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 40 Arandanos       BioBio       V1    1823.2        13.6  
+  12051[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 41 Arandanos       BioBio       V1    1801.9        12.4  
+  12004[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 42 Arandanos       BioBio       V1    1742.7        12.6  
+  12005[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 43 Arandanos       BioBio       V1    1731.6        13.8  
+  12069[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 44 Arandanos       BioBio       V1    1601.4        11.7  
+  11906[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 45 Arandanos       BioBio       V1    1793.8        13.9  
+  11901[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 46 Arandanos       BioBio       V1    1766.3        14.1  
+  11962[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 47 Arandanos       BioBio       V1    1793.7        14.8  
+  11989[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 48 Arandanos       BioBio       V1    1742.0        11.5  
+  11988[] 
+ []
+
+[38]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 49 Arandanos       BioBio       V1    1656.7        14.0  
+  11976[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 50 Arandanos       BioBio       V1    1659.9        14.8  
+  12014[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 51 Arandanos       BioBio       V1    1573.9        14.9  
+  12083[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 52 Arandanos       BioBio       V1    1781.8        13.4  
+  11997[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 53 Arandanos       BioBio       V1    1724.4        12.5  
+  11893[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 54 Arandanos La_Araucania       V1    1907.5        11.3  
+  12005[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 55 Arandanos La_Araucania       V1    1896.7        12.4  
+  12015[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 56 Arandanos La_Araucania       V1    1867.3        11.9  
+  12011[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 57 Arandanos La_Araucania       V1    1922.1        13.0  
+  11995[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 58 Arandanos La_Araucania       V1    1941.5        11.2  
+  12018[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 59 Arandanos La_Araucania       V1    1846.2        12.8  
+  12023[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 60 Arandanos La_Araucania       V1    1854.6        11.9  
+  12084[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 61 Arandanos La_Araucania       V1    1898.1        10.0  
+  12069[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 62 Arandanos La_Araucania       V1    1783.3        11.9  
+  11923[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 63 Arandanos La_Araucania       V1    1833.6        13.1  
+  11970[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 64 Arandanos La_Araucania       V1    1801.7        12.8  
+  12007[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 65 Arandanos La_Araucania       V1    1931.0        11.5  
+  12023[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 66 Arandanos La_Araucania       V1    1865.6        13.3  
+  12022[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 67 Arandanos La_Araucania       V1    1819.9        10.3  
+  12063[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1825--1825
+[]\TU/lmtt/m/n/10 ## 68 Arandanos La_Araucania       V1    1855.1        11.6  
+  12042[] 
+ []
+
+[39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ##      Cultivo Region Variedad Hectareas Temperatura costo_j
+h rendimiento[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 1  Arandanos  Maule       V1    3750.2        15.6    1296
+8      5931.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 2  Arandanos  Maule       V1    3668.7        11.6    1301
+3      6076.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 3  Arandanos  Maule       V1    3586.2        15.8    1300
+7      6005.6[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 4  Arandanos  Maule       V1    3678.0        15.0    1303
+3      5964.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 5  Arandanos  Maule       V1    3729.1        12.5    1305
+7      6003.4[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 6  Arandanos  Maule       V1    3709.2        15.9    1303
+9      6026.0[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 7  Arandanos  Maule       V1    3636.3        15.6    1296
+1      5973.5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 8  Arandanos  Maule       V1    3749.6        13.7    1302
+3      6046.6[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 9  Arandanos  Maule       V1    3644.6        12.5    1298
+5      5960.2[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 10 Arandanos  Maule       V1    3634.6        14.5    1304
+1      6011.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 11 Arandanos  Maule       V1    3649.5        15.1    1294
+2      6012.2[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 12 Arandanos  Maule       V1    3788.0        13.7    1312
+1      6100.5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 13 Arandanos  Maule       V1    3699.9        15.9    1294
+5      5932.6[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 14 Arandanos  Maule       V1    3718.2        14.0    1296
+7      5876.5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 15 Arandanos  Maule       V1    3645.8        13.2    1309
+8      5745.2[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 16 Arandanos  Maule       V2    3699.5        14.0    1306
+5      5890.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 17 Arandanos  Maule       V2    3627.4        13.5    1300
+8      6078.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 18 Arandanos  Maule       V2    3685.2        16.8    1308
+8      6062.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 19 Arandanos  Maule       V2    3770.5        14.5    1303
+4      5852.9[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 20 Arandanos  Maule       V2    3711.1        15.5    1306
+4      6016.7[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 21 Arandanos  Maule       V2    3758.2        13.7    1297
+5      6112.8[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 22 Arandanos  Maule       V2    3685.5        12.7    1308
+7      6032.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 23 Arandanos  Maule       V2    3619.6        13.5    1290
+2      6139.0[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 24 Arandanos  Maule       V2    3724.8        14.7    1297
+4      6008.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 25 Arandanos  Maule       V2    3735.7        13.5    1297
+6      5936.0[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 26 Arandanos  Maule       V2    3672.5        15.1    1293
+7      5929.8[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 27 Arandanos  Maule       V2    3657.3        15.3    1294
+6      6036.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 28 Arandanos  Maule       V2    3657.9        13.4    1296
+3      6084.7[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 29 Arandanos  Maule       V2    3721.7        15.8    1295
+5      5848.1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1904--1904
+[]\TU/lmtt/m/n/10 ## 30 Arandanos  Maule       V2    3762.6        16.2    1305
+9      6125.2[] 
+ []
+
+[41] [42]
+Chapter 4.
+File: 04-lab_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-1-1.pdf>
+[43
+
+]
+File: 04-lab_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[44] [45]
+File: 04-lab_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-3-1.pdf>
+[46]
+File: 04-lab_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-4-1.pdf>
+File: 04-lab_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-5-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[47]
+File: 04-lab_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[48]
+File: 04-lab_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-7-1.pdf>
+
+Underfull \vbox (badness 3168) has occurred while \output is active []
+
+[49]
+File: 04-lab_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-8-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[50]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2139--2139
+[]\TU/lmtt/m/n/10 ## Warning in plot.window(xlim, ylim, "", ...): "Freq" is not
+ a graphical[] 
+ []
+
+[51]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2144--2144
+[]\TU/lmtt/m/n/10 ## Warning in title(main = main, sub = sub, xlab = xlab, ylab
+ = ylab, ...):[] 
+ []
+
+File: 04-lab_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use 04-lab_files/figure-latex/unnamed-chunk-9-1.pdf>
+(./guia_me.bbl [52])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 861.
-[21
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2175.
+[53
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 861.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2175.
 (./guia_me.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 861.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 861.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2175.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2175.
+
 Package rerunfilecheck Info: File `guia_me.out' has not changed.
-(rerunfilecheck)             Checksum: D0BFAB4C48F87091CB2874A58DE9F0DA.
+(rerunfilecheck)             Checksum: E59ECF7243CE7D9453F91B97409F829B.
  ) 
 Here is how much of TeX's memory you used:
- 23192 strings out of 494894
- 437321 string characters out of 6175663
- 526793 words of memory out of 5000000
- 26929 multiletter control sequences out of 15000+600000
- 545089 words of font info for 58 fonts, out of 8000000 for 9000
+ 23246 strings out of 494894
+ 439513 string characters out of 6175663
+ 535283 words of memory out of 5000000
+ 26971 multiletter control sequences out of 15000+600000
+ 545097 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 45i,5n,47p,804b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,6n,47p,804b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on guia_me.pdf (21 pages).
+Output written on guia_me.pdf (53 pages).

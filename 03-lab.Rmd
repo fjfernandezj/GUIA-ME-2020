@@ -1,0 +1,233 @@
+# Lectura y manipulación de datos en RStudio
+
+Hoy en día la información generada a partir del mundo natural se multiplica minuto a minuto. Desde un punto de vista académico y/o profesional, la correcta toma de decisiones demandará la recolección y manejo de grandes cantidades de datos, los cuales nos permitirán describir y determinar propiedades del mundo natural.
+
+Una base de datos se puede definir como un conjunto de información perteneciente a un mismo contexto y almacenada sistemáticamente para su posterior uso. Cada base de datos se compone de una tablas que guarda un conjunto de datos. Cada tabla tiene una o más columnas y filas.
+
+En este laboratorio comenzaremos a trabajar con bases de datos. Para ello abordaremos cuatro tópicos centrales:
+
+1. La preparación de los datos para poder trabajarlos en R,
+2. La importación de una base de datos a R,
+3. La edición de los datos contenidos en la base de datos,
+4. La exploración de la información contenida en nuestra base de datos.
+
+
+## Preparemos los datos para R
+Al mencionar que trabajaremos con base de datos, inmediatamente surge el desafío de como podemos ingresar nuestra información a R. Lo primero que debemos tener presente es que a R "le encantan" las bases de datos que tienen cada observación en una fila y que en cada columna incorpora una variable. Por ejemplo, si tenemos una base de datos con la altura y género de los alumnos del curso “métodos estadísticos” de la escuela de Agronomía:
+
+```{r}
+genero <- c("Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer")
+altura<-c(1.75,1.68,1.82,1.71,1.62,1.61,1.55,1.53,1.66,1.58)
+base_de_datos <- data.frame(genero,altura)
+
+```
+
+¿Cuáles son las dimensiones de esta base de datos?. La tabla tiene una dimensión de 10x2. Esto quiere decir que está compuesta de diez filas y dos columnas.
+
+**IMPORTANTE:**
+* Las filas contienen nuestras observaciones.
+* Las columnas contienen nuestras variables.
+* R reconoce puntos (".") y no comas (",") como separador de decimales.
+* Revisar que nuestra base de datos no contenga filas en blanco (sin valores). Cuando eso ocurra se recomienda rellenar el espacio con las letras `NA` ("Not available").
+
+### ¿Qué formato de archivos reconoce R?
+
+R es muy versátil para reconocer y leer múltiples formatos de archivo. Los archivos de texto plano, tales
+como TXT o CSV, son la opción más sencilla para importar datos desde hojas de cálculo. Por ejemplo, Excel
+permite guardar archivos .txt (texto delimitado por tabulaciones) o .csv (texto delimitados por comas). En
+este curso los alentamos a utilizar el formato CSV. Una ventaja de este tipo de representación es que los
+datos se pueden visualizar/editar con un editor de texto. CSV representa la información en forma de tabla
+donde las columnas se delimitan con un carácter (por defecto, con coma)* y las filas con saltos de línea.
+
+## Importemos los datos a R
+
+Para importar los datos, necesitamos especificar a R la localización (ruta) de los datos en el computador. El
+problema es que la ruta de los archivos generalmente son muy largas y difícil de memorizar. Además, si se
+equivocan al escribirla, R no la reconocerá. Es por ello que es preferible que RStudio haga ese difícil trabajo.
+
+A lo largo de nuestro curso, el método que utilizaremos para importar la base de datos se basará en la
+herramienta Import dataset. Rstudio proporciona una función de importación a través de la pestaña Import
+dataset en la parte superior derecha.
+
+[imagen 3]
+
+Esta función nos permitirá buscar el archivo de datos, seleccionarlo y finalmente para poder cargar la base de
+datos en R. Al seleccionar la opción From Text (base), podemos navegar en nuestro computador para
+encontrar nuestro archivo con la base de datos. Una vez lo seleccionamos, solamente debemos hacer clic en
+el botón Open para que la magia se haga realidad.
+
+* Para aprender sobre otros métodos de importación de datos les sugerimos visitar el siguiente [link](https://thepracticalr.wordpress.com/2016/09/23/importing-data-into-r/)
+
+Una vez seleccionado el archivo, se abrirá una ventana que entrega una vista preliminar del archivo
+seleccionado. En la parte superior izquierda, podrán observar la opción name, la cual nos permite asignar un
+nombre a nuestra base de datos (¿Recuerdan el comando `<-`?). En este caso, nuestra base de datos recibirá
+el nombre `data`. Lo único que resta por hacer es darle la orden a R para que importe la base de datos. Esto lo
+lo podemos hacer habiendo clic en el botón `Import`.
+
+[imagen 4]
+
+## Exploremos los datos a R
+Al importar nuestro archivo, lo que buscamos es analizar incluso graficar la información contenida en la
+base de datos. Sin embargo, antes de eso existe un paso sensible y crítico que jamás debemos olvidar. Es
+importante asegurarnos que importamos correctamente nuestros datos!
+
+La función `str()` nos mostrará el tipo de datos contenido en nuestra base de datos y enumerará cada variable
+de columna junto con su tipo de datos.
+
+```{r echo=FALSE, cache=FALSE}
+library(readxl)
+data <- read.csv("./datos/dataset.csv")
+
+```
+
+```{r}
+str(data)
+```
+
+Como podemos ver, nuestra base contiene variables con diferentes tipos de datos.
+
+La función `summary()` nos proporciona para cada variable un conjunto de estadísticas descriptivas, según el tipo de variable:
+
+```{r}
+summary(data)
+```
+
+1. **Variables numéricas:** `summary()` proporciona el rango, los cuartiles, la mediana y la media.
+2. **Variables factoriales:** `summary()` proporciona una tabla con frecuencias.
+3. **Variables numéricas y factoriales:** `summary()`, en caso de que existan, nos entregará información sobre el número de valores faltantes (`NAs`).
+4. **Variables de caracteres:** `summary()` solo proporciona la longitud de la variable.
+
+La función `head()` nos entregará las primeras filas de nuestra base de datos. Por defecto serán las primeras 6:
+
+```{r}
+head(data)
+```
+
+En caso de que quisiéramos ampliar el número de filas:
+
+```{r}
+head(data, 10)
+```
+
+Por otro lado, la función `tail()` nos entregará las últimas filas de nuestra base de datos. Por defecto serán
+las últimas 6:
+
+```{r}
+tail(data)
+```
+
+La función `names()` nos entregará el nombre de las variables (columnas) contenidas en nuestra base de
+datos:
+
+```{r}
+names(data)
+```
+
+En caso de que quisiéramos conocer las dimensiones (número de columnas y filas) de nuestra base de datos,
+podemos utilizar la función `dim()`:
+
+```{r}
+dim(data)
+```
+
+## Exploremos los datos R con la libreria dplyr
+
+Una de las grandes ventajas de R es la ampliación de sus funcionalidades básicas mediante paquetes
+(packages) o librerías. Las librerías de R se pueden instalar de múltiples formas. En RStudio, lo haremos de
+siguiendo una serie de sencillos pasos.
+
+Debemos hacer clic en la pestaña package ubicada en el panel inferior derecho. Al hacer clic en esta pestaña,
+aparecerá una pequeña ventana con tres campos principales: Install from, packages, and Install to Library.
+Solo necesitamos preocuparnos por el campo packages, los otros dos los dejaremos en su valor
+predeterminado.
+
+[figura 5]
+
+
+Ahora, al escribir las primeras letras del nombre de una librería (en este caso `dplyr`), Rstudio proporcionará
+una lista de librerías disponibles que coincidan con esta palabra. Después de encontrar la librería, todo lo
+que tenemos que hacer es hacer clic en el botón Install y dejar que Rstudio trabaje.
+
+[fig 6]
+
+
+A pesar de estar instalada, a menos que lo especifiquemos, R no cargará la librería en la consola. Entonces,
+debemos "llamar" a la librería que acabamos de instalar con el comando `library(dplyr)`.
+
+```{r message=FALSE}
+library(dplyr)
+```
+
+
+La librería dplyr incluye un conjunto de comandos que coinciden con las acciones más comunes que se
+realizan sobre un conjunto de datos (seleccionar filas `filter`, seleccionar columnas `select`, resumir mediante
+alguna medida numérica `summarise`, entre muchas otras). Para mayor información sobre la librería dplyr
+puedes acceder al siguiente [link](https://rpubs.com/joser/dplyr).
+
+La función `select()` selecciona columnas de nuestra base:
+
+Intentemos seleccionar la columna Region en la base de datos llamada data
+
+```{r}
+select(data, Region)
+```
+
+La función `select()` también nos permite seleccionar todas las columnas excepto una:
+
+```{r}
+select(data, -Region)
+```
+
+La función `slice()` selecciona filas de nuestra base. Intentemos seleccionar la quinta fila en la base de datos llamada data:
+
+```{r}
+slice(data, 5)
+```
+
+La función `slice()` también nos permite seleccionar una secuencia de filas. Seleccionemos desde la tercera hasta la decima en la base de datos llamada data:
+
+```{r}
+slice(data, 3:10)
+```
+
+La versatilidad de la función `slice()` es aún mayor. Por ejemplo, podemos seleccionar una secuencia de filas
+discontinua:
+
+```{r}
+slice(data, c(3,10,25,100))
+```
+
+También existe la función `filter()``, la cual nos permite seleccionar las observaciones (filas) que cumplen las
+condiciones que nos interesan. En caso de que quisiéramos seleccionar todas aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea:
+
+```{r}
+filter(data, rendimiento > 7000)
+```
+
+Si estuviésemos interesados en seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000
+toneladas/hectárea solamente para la variedad 1 de arándanos:
+
+```{r}
+filter(data, rendimiento > 7000, Variedad == "V1")
+```
+
+Ahora, intentemos seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea "o" que sean de la Variedad 1:
+
+```{r}
+filter(data, rendimiento > 7000 | Variedad == "V1")
+```
+
+## Reducción de una base de datos
+
+La importancia de estas funciones radica en que nos permiten trabajar con subconjuntos de la base de datos
+original. Por ejemplo, podemos generar una nueva base de datos que solo contenga la información referida a
+las plantaciones de arándanos provenientes de la región del Maule:
+
+```{r}
+data1 <- filter(data, Region == "Maule")
+data1
+```
+
+Ahora, podemos aplicar todas las funciones que hemos aprendido para explorar la información contenida en
+una base de datos.
+
