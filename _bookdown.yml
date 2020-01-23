@@ -1,6 +1,6 @@
-book_filename: "bookdown-start"
-chapter_name: "Chapter "
-repo: https://github.com/seankross/bookdown-start
+book_filename: "guia_me"
+chapter_name: "Capitulo "
+repo: https://github.com/fjfernandezj/GUIA-ME-2020
 output_dir: docs
 rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
 clean: [packages.bib, bookdown.bbl]
