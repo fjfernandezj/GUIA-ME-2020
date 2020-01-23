@@ -13,7 +13,4 @@ description: "Guía de Laboratorio para Métodos Estadísticos"
 
 # Bienvenidos {-}
 La presente Guía tiene el objetivo de acompañarlos en los laboratorios de Métodos Estadísticos durante todo el presente semestre de este año. A través de esta guía tendrán acceso completo a toda la materia que veremos durante el semestre y adicionalmente podrán practicar todo lo que acá veamos.
-```
-bookdown::render_book("index.Rmd")
 
---- 
