@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>A Minimal Bookdown Book</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <meta name="description" content="Everything you need (and nothing more) to start a bookdown book.">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Guía de Métodos Estadísticos 2020</title>
+  <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Bookdown Book" />
+  <meta property="og:title" content="Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://seankross.com/bookdown-start/" />
   
-  <meta property="og:description" content="Everything you need (and nothing more) to start a bookdown book." />
-  <meta name="github-repo" content="seankross/bookdown-start" />
+  
+  <meta property="og:description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Bookdown Book" />
+  <meta name="twitter:title" content="Guía de Métodos Estadísticos 2020" />
   
-  <meta name="twitter:description" content="Everything you need (and nothing more) to start a bookdown book." />
-  
-
-<meta name="author" content="Sean Kross">
-
-<meta name="date" content="2016-12-09">
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  
+  <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
 
-<link rel="next" href="introduction.html">
+<meta name="author" content="Pablo Cortes; Francisco Fernández" />
 
+
+<meta name="date" content="2020-01-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="introduction.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -58,16 +59,17 @@
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Bookdown Book</a></li>
+<li><a href="./">Guía SILB 1513</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="diving-in.html"><a href="diving-in.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
 <li class="divider"></li>
@@ -82,7 +84,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Bookdown Book</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía de Métodos Estadísticos 2020</a>
           </h1>
         </div>
 
@@ -91,14 +93,16 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">A Minimal Bookdown Book</h1>
-<h4 class="author"><em>Sean Kross</em></h4>
-<h4 class="date"><em>2016-12-09</em></h4>
+<h1 class="title">Guía de Métodos Estadísticos 2020</h1>
+<p class="author"><em>Pablo Cortes; Francisco Fernández</em></p>
+<p class="date"><em>2020-01-23</em></p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This is the very first part of the book.</p>
-
+<div id="bienvenidos" class="section level1 unnumbered">
+<h1>Bienvenidos</h1>
+<p>La presente Guía tiene el objetivo de acompañarlos en los laboratorios de Métodos Estadísticos durante todo el presente semestre de este año. A través de esta guía tendrán acceso completo a toda la materia que veremos durante el semestre y adicionalmente podrán practicar todo lo que acá veamos.
+```
+bookdown::render_book(“index.Rmd”)</p>
+<hr />
 
 </div>
             </section>
@@ -107,26 +111,30 @@
         </div>
       </div>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -134,6 +142,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
