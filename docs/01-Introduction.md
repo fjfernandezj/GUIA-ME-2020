@@ -313,8 +313,3 @@ rep(1:2,length.out=7)
 ```
  
 
-Todos los comandos presentados anteriormente también funcionan en los widgets interactivos a lo largo del libro. Puedes probarlos a continuación.
-
-
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
