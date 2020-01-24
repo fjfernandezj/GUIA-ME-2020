@@ -1,5 +1,3 @@
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-
 # Software estadístico R {#intro}
 [R](https://cran.r-project.org) es un programa estadístico _open source_ de gran versatilidad que permite analizar una amplia gama de problemas cuantitativos. Si bien R incorpora un lenguaje de programación que puede ser extremadamente complejo, vale la pena familiarizarse con esa herramienta que puede llegar a ser muy útil en el futuro, tanto dentro como fuera de la academia.  
 
@@ -255,11 +253,8 @@ vector2
 ```
 
 Intentemos generar un vector de nombre vector3 a partir de los vectores creados:  
-<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
 
-
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxPC1jKDEsNSw3KVxudmVjdG9yMjwtYyhcImNlcmV6b1wiLFwicGVyYWxcIixcInZpZFwiKSBcblxuI2dlbmVyYXIgdmVjdG9yIGxsYW1hZG8gdmVjdG9yMyBhIHBhcnRpciBkZSBsb3MgZG9zIHZlY3RvcmVzIGFudGVyaW9ybWVudGUgY3JlYWRvcyJ9</div>
+<iframe src="DCL/intro_1.html" frameborder="0" scrolling="no" style="width:100%;height:360px"></iframe>
 
 
 **IMPORTANTE**: Los datos son concatenados (combinados) utilizando el comando `c()`  
@@ -317,5 +312,9 @@ rep(1:2,length.out=7)
 ## [1] 1 2 1 2 1 2 1
 ```
  
+
+Todos los comandos presentados anteriormente también funcionan en los widgets interactivos a lo largo del libro. Puedes probarlos a continuación.
+
+
 
 You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
