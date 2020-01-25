@@ -9,7 +9,7 @@
 4. Para obtener ayuda usamos el comando help. Por ejemplo, `help(mean)` para obtener ayuda sobre el comando mean que calcula la media. 
 5. El GUI o interfaz gráfica del R tiene dos partes principales: la consola y el script. 
 
-<p align="center"><img align="center" src="https://github.com/fjfernandezj/GUIA-ME-2020/imagenes/RGui.png" width="30%" height="30%"></p>
+![interfaz gráfica de R](imagenes/RGui.png){: .center-block :}
 
 
 La _**consola**_ es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor `>` significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo `+` quiere decir que nos falta completar el comando anterior. 
