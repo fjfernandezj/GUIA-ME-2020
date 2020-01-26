@@ -9,8 +9,10 @@
 4. Para obtener ayuda usamos el comando help. Por ejemplo, `help(mean)` para obtener ayuda sobre el comando mean que calcula la media. 
 5. El GUI o interfaz gráfica del R tiene dos partes principales: la consola y el script. 
 
-![interfaz gráfica de R](imagenes/RGui.png){: .center-block :}
-
+<div class="figure" style="text-align: center">
+<img src="imagenes/RGui.png" alt="Consola de R" width="70%" />
+<p class="caption">(\#fig:rmark1)Consola de R</p>
+</div>
 
 La _**consola**_ es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor `>` significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo `+` quiere decir que nos falta completar el comando anterior. 
  
@@ -26,11 +28,15 @@ Un _**script**_ corresponde a una hoja para escribir comandos. Nos sirve para es
 Una vez instalados R y RStudio procedemos a ejecutar el programa RStudio desde cualquiera de los iconos que genera y se mostrará la siguiente pantalla: 
  
  
-[Figura 2]
+<div class="figure" style="text-align: center">
+<img src="imagenes/Rstudio.png" alt="Pantalla principal Rstudio" width="70%" />
+<p class="caption">(\#fig:rmark2)Pantalla principal Rstudio</p>
+</div>
+
 
 Esta pantalla está dividida en tres partes: 
  
-1. La ventana de la izquierda donde está el prompt “>” , llamada Consola, es el espacio de trabajo. 
+1. La ventana de la izquierda donde está el prompt `>` , llamada Consola, es el espacio de trabajo. 
  
 2. La ventana de la derecha se divide en dos: 
 * En la ventana superior derecha se encuentra el historial de objetos almacenados en memoria. Desde esta ventana también podemos:            
