@@ -1,19 +1,21 @@
 \BOOKMARK [0][-]{chapter*.2}{Bienvenidos}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Software estadístico R}{}% 2
-\BOOKMARK [1][-]{section.1.1}{Aspectos básicos de R}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.1}{Introducción a R y Rstudio}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Software estadístico R}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.2}{R\040Studio}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Trabajemos\040en\040RStudio}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Tipos\040de\040datos\040en\040R}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Objetos\040en\040R}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Tipos\040de\040Objetos}{chapter.2}% 8
-\BOOKMARK [0][-]{chapter.3}{Lectura y manipulación de datos en RStudio}{}% 9
-\BOOKMARK [1][-]{section.3.1}{Preparemos\040los\040datos\040para\040R}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Importemos\040los\040datos\040a\040R}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.3}{Exploremos\040los\040datos\040a\040R}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.4}{Exploremos\040los\040datos\040R\040con\040la\040libreria\040dplyr}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.5}{Reducción de una base de datos}{chapter.3}% 14
-\BOOKMARK [0][-]{chapter.4}{Visualización de datos en RStudio}{}% 15
-\BOOKMARK [1][-]{section.4.1}{Gráfico de dispersión o Scatterplot}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.2}{Diagrama\040de\040cajas\040o\040Boxplot}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.3}{Histogramas}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.4}{Ejercicios}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.2}{Tipos\040de\040datos\040en\040R}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Objetos\040en\040R}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Tipos\040de\040Objetos}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Lectura y manipulación de datos en RStudio}{}% 8
+\BOOKMARK [1][-]{section.3.1}{Preparemos\040los\040datos\040para\040R}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Importemos\040los\040datos\040a\040R}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Exploremos\040los\040datos\040a\040R}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.4}{Exploremos\040los\040datos\040R\040con\040la\040libreria\040dplyr}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.5}{Reducción de una base de datos}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Visualización de datos en RStudio}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Gráfico de dispersión o Scatterplot}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Diagrama\040de\040cajas\040o\040Boxplot}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Histogramas}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.4}{Ejercicios\040para\040la\040casa}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{Estadística descriptiva: Medidas de tendencia central y dispersión}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Medidas\040de\040tendencia\040central}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Medidas de dispersión}{chapter.5}% 21

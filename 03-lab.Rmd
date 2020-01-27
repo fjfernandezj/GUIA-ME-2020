@@ -13,7 +13,13 @@ En este laboratorio comenzaremos a trabajar con bases de datos. Para ello aborda
 
 
 ## Preparemos los datos para R
-Al mencionar que trabajaremos con base de datos, inmediatamente surge el desafío de como podemos ingresar nuestra información a R. Lo primero que debemos tener presente es que a R "le encantan" las bases de datos que tienen cada observación en una fila y que en cada columna incorpora una variable. Por ejemplo, si tenemos una base de datos con la altura y género de los alumnos del curso “métodos estadísticos” de la escuela de Agronomía:
+Al mencionar que trabajaremos con base de datos, inmediatamente surge el desafío de como podemos ingresar nuestra información a R. Lo primero que debemos tener presente es que a R "le encantan" las bases de datos que tienen cada observación en una fila y que en cada columna incorpora una variable. Por ejemplo, si tenemos una base de datos con la altura y género de los alumnos del curso “métodos estadísticos” de la escuela de Agronomía, esta se vería de la siguiente manera en excel:
+
+```{r rmark4, echo=FALSE, out.width='40%', fig.align='center', fig.cap='Ejemplo de base de datos en excel'}
+knitr::include_graphics("imagenes/fig4_basedatos.png")
+```
+
+Si creáramaos esta misma base de datos en Rstudio deberíamos hacer lo siguiente:
 
 ```{r}
 genero <- c("Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer")
@@ -25,9 +31,13 @@ base_de_datos <- data.frame(genero,altura)
 ¿Cuáles son las dimensiones de esta base de datos?. La tabla tiene una dimensión de 10x2. Esto quiere decir que está compuesta de diez filas y dos columnas.
 
 **IMPORTANTE:**
+
 * Las filas contienen nuestras observaciones.
+
 * Las columnas contienen nuestras variables.
+
 * R reconoce puntos (".") y no comas (",") como separador de decimales.
+ 
 * Revisar que nuestra base de datos no contenga filas en blanco (sin valores). Cuando eso ocurra se recomienda rellenar el espacio con las letras `NA` ("Not available").
 
 ### ¿Qué formato de archivos reconoce R?
@@ -49,7 +59,9 @@ A lo largo de nuestro curso, el método que utilizaremos para importar la base d
 herramienta Import dataset. Rstudio proporciona una función de importación a través de la pestaña Import
 dataset en la parte superior derecha.
 
-[imagen 3]
+```{r rmark5, echo=FALSE, out.width='80%', fig.align='center', fig.cap='Importación de datos desde Rstudio'}
+knitr::include_graphics("imagenes/fig5_imp_datos.png")
+```
 
 Esta función nos permitirá buscar el archivo de datos, seleccionarlo y finalmente para poder cargar la base de
 datos en R. Al seleccionar la opción From Text (base), podemos navegar en nuestro computador para
@@ -64,7 +76,33 @@ nombre a nuestra base de datos (¿Recuerdan el comando `<-`?). En este caso, nue
 el nombre `data`. Lo único que resta por hacer es darle la orden a R para que importe la base de datos. Esto lo
 lo podemos hacer habiendo clic en el botón `Import`.
 
-[imagen 4]
+```{r rmark6, echo=FALSE, out.width='80%', fig.align='center', fig.cap='Paso final para Importación de datos'}
+knitr::include_graphics("imagenes/fig5_import.png")
+```
+
+La base de datos que trabajaremos a lo largo del curso contiene nueve diferentes variables:
+
+1. **Cultivo**: Proporciona el cultivo sobre el cuales realizaron las observaciones.
+
+2. **Region**: Hace referencia a la división territorial de Chile en donde se realizó el muestreo.
+
+3. **Variedad**: Indica las diferentes variedades del cultivo que fueron estudiadas.
+
+4. **Hectareas**: Proporciona la superficie plantada con el cultivo (hectáreas).
+
+5. **Temperatura**: Indica el valor de temperatura ambiental promedio anual para cada sitio de muestreo.
+
+6. **costo_jh**: Indica el valor pagado por jornada hombre (pesos chilenos).
+
+7. **rendimiento**: Proporciona el rendimiento del cultivo en cada sitio de muestreo (toneladas/hectárea).
+
+8. **Perdida_plaga**: Indica las perdidas en rendimiento causadas por la presencia de insectos plaga (porcentaje).
+
+9. **mano_de_obra**: Proporciona el número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo.
+
+**Importante:**
+
+* La base de datos acá presentada es una base de datos ficticia creada sólo con fines académicos
 
 ## Exploremos los datos a R
 Al importar nuestro archivo, lo que buscamos es analizar incluso graficar la información contenida en la
@@ -93,8 +131,11 @@ summary(data)
 ```
 
 1. **Variables numéricas:** `summary()` proporciona el rango, los cuartiles, la mediana y la media.
+
 2. **Variables factoriales:** `summary()` proporciona una tabla con frecuencias.
+
 3. **Variables numéricas y factoriales:** `summary()`, en caso de que existan, nos entregará información sobre el número de valores faltantes (`NAs`).
+
 4. **Variables de caracteres:** `summary()` solo proporciona la longitud de la variable.
 
 La función `head()` nos entregará las primeras filas de nuestra base de datos. Por defecto serán las primeras 6:
@@ -141,14 +182,19 @@ aparecerá una pequeña ventana con tres campos principales: Install from, packa
 Solo necesitamos preocuparnos por el campo packages, los otros dos los dejaremos en su valor
 predeterminado.
 
-[figura 5]
+```{r rmark7, echo=FALSE, out.width='80%', fig.align='center', fig.cap='Instalación de paquete dplyr'}
+knitr::include_graphics("imagenes/fig7_dplyr.png")
+```
 
 
 Ahora, al escribir las primeras letras del nombre de una librería (en este caso `dplyr`), Rstudio proporcionará
 una lista de librerías disponibles que coincidan con esta palabra. Después de encontrar la librería, todo lo
 que tenemos que hacer es hacer clic en el botón Install y dejar que Rstudio trabaje.
 
-[fig 6]
+```{r rmark8, echo=FALSE, out.width='80%', fig.align='center', fig.cap='Instalación de paquete dplyr (2do paso)'}
+knitr::include_graphics("imagenes/fig8_dplyr.png")
+```
+
 
 
 A pesar de estar instalada, a menos que lo especifiquemos, R no cargará la librería en la consola. Entonces,
@@ -197,8 +243,9 @@ discontinua:
 slice(data, c(3,10,25,100))
 ```
 
-También existe la función `filter()``, la cual nos permite seleccionar las observaciones (filas) que cumplen las
-condiciones que nos interesan. En caso de que quisiéramos seleccionar todas aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea:
+También existe la función `filter()``, la cual nos permite seleccionar las observaciones (filas) que cumplen las condiciones que nos interesan. 
+
+En caso de que quisiéramos seleccionar todas aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea:
 
 ```{r}
 filter(data, rendimiento > 7000)

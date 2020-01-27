@@ -45,8 +45,8 @@ main = "Mi primer grafico en R",
 pch=20,
 col="red",
 cex=2,
-cex.lab=1.5,
-cex.axis=1.2)
+cex.lab=1.2,
+cex.axis=1.1)
 ```
 
 ![](04-lab_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
@@ -54,14 +54,21 @@ cex.axis=1.2)
 A simple vista, son múltiples los parámetros gráficos que hemos cambiado. A continuación, se detalla la
 lista de los parámetros utilizados y sus definiciones:
 
-`xlab` = Permite modificar el nombre del eje x
-`ylab` = Permite modificar el nombre del eje y
-`xlim` = Establece los limites del eje x
-`ylim` = Establece los limites del eje y
-`main` = Permite agregar un título a nuestro gráfico
-`pch` = Permite modificar la forma de los puntos en nuestro gráfico
-`col` = Permite modificar el color
-`cex` = Permite modificar el tamaño del texto
+* `xlab` = Permite modificar el nombre del eje x
+
+* `ylab` = Permite modificar el nombre del eje y
+
+* `xlim` = Establece los limites del eje x
+
+* `ylim` = Establece los limites del eje y
+
+* `main` = Permite agregar un título a nuestro gráfico
+
+* `pch` = Permite modificar la forma de los puntos en nuestro gráfico
+
+* `col` = Permite modificar el color
+
+* `cex` = Permite modificar el tamaño del texto
 
 Para aprender sobre otros comandos que permiten modificar parámetros les sugerimos visitar el  siguiente [link](https://www.statmethods.net/advgraphs/parameters.html).
 
@@ -90,9 +97,9 @@ ylim = c(4000,8000),
 main = "Mi primer grafico en R",
 pch=20,
 col="red",
-cex=2,
-cex.lab=1.5,
-cex.axis=1.2)
+cex=1.5,
+cex.lab=1.0,
+cex.axis=1.0)
 ```
 
 ![](04-lab_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
@@ -141,9 +148,9 @@ pch=18,
 col="red",
 col.main="red",
 cex=2,
-cex.main=3,
-cex.lab=1.5,
-cex.axis=1.2)
+cex.main=1.5,
+cex.lab=1.0,
+cex.axis=1.0)
 ```
 
 ![](04-lab_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
@@ -187,13 +194,13 @@ hist(data$rendimiento,breaks=4)
 
 ![](04-lab_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
-Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocaciones, estaremos más
+Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocasiones, estaremos más
 interesados en la densidad (probabilidad relativa de un dato) que en la frecuencia de nuestros datos. En lugar
 de contar el número de puntos de datos por intervalo, R puede dar las densidades de probabilidad usando la
 opción `freq= FALSE`, lo cual nos permite normalizar el histograma de modo que el área total es igual a 1.
 Ahora el eje y está etiquetado como densidad en lugar de frecuencia.
 
-Modifiquemos nuestro histograma de frecuencia anterior por un histograma de desnidad y grafiquemos uno
+Modifiquemos nuestro histograma de frecuencia anterior por un histograma de densidad y grafiquemos uno
 al lado del otro:
 
 ```r
@@ -207,9 +214,9 @@ xlab="Rendimiento (Ton/hect)",
 xlim=c(3500,8500),
 col="red",
 freq=FALSE,
-cex.main=2,
-cex.lab=1.5,
-cex.axis=1.2,
+cex.main=1.2,
+cex.lab=1.0,
+cex.axis=1.0,
 Freq=FALSE)
 ```
 
@@ -233,9 +240,11 @@ Freq=FALSE)
 
 ![](04-lab_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
-## Ejercicios
+## Ejercicios para la casa
 1. Generar un gráfico que permita visualizar la relación entre las variables Temperatura y rendimiento.
 El gráfico debe contener solamente los datos obtenidos de las regiones del Maule y Araucanía.
+
 2. Generar un histograma de frecuencia con los rendimientos superiores a 5000 Toneladas/hectárea.
+
 3. Generar un gráfico de cajas para la variedad 1 que muestre solamente los rendimientos superiores a
 5000 Toneladas/hectárea.

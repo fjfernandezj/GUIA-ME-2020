@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 1 Software estadístico R | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 1 Software estadístico R | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 1 Software estadístico R | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Pablo Cortes; Francisco Fernández" />
 
 
-<meta name="date" content="2020-01-26" />
+<meta name="date" content="2020-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,16 +132,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Software estadístico R</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#aspectos-basicos-de-r"><i class="fa fa-check"></i><b>1.1</b> Aspectos básicos de R</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadistico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-basicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#trabajemos-en-rstudio"><i class="fa fa-check"></i><b>1.3</b> Trabajemos en RStudio</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#objetos-de-datos"><i class="fa fa-check"></i><b>1.3.1</b> Objetos de Datos</a></li>
-<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#datos-numericos"><i class="fa fa-check"></i><b>1.3.2</b> Datos Numéricos</a></li>
-<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#vectores"><i class="fa fa-check"></i><b>1.3.3</b> Vectores</a></li>
-<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#funciones-para-generar-vectores"><i class="fa fa-check"></i><b>1.3.4</b> Funciones para generar vectores</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
@@ -150,8 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numericos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
-<li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.2</b> Data frames</a></li>
-<li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.3</b> Valores Perdidos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
+<li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
+<li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="lectura-y-manipulacion-de-datos-en-rstudio.html"><a href="lectura-y-manipulacion-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
@@ -167,7 +164,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#grafico-de-dispersion-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
-<li class="chapter" data-level="4.4" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#ejercicios"><i class="fa fa-check"></i><b>4.4</b> Ejercicios</a></li>
+<li class="chapter" data-level="4.4" data-path="visualizacion-de-datos-en-rstudio.html"><a href="visualizacion-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
+<li class="chapter" data-level="5.1" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#operadores-logicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#medidas-de-dispersion"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -190,16 +193,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Capitulo 1</span> Software estadístico R</h1>
+<h1><span class="header-section-number">Capitulo 1</span> Introducción a R y Rstudio</h1>
+<div id="software-estadistico-r" class="section level2">
+<h2><span class="header-section-number">1.1</span> Software estadístico R</h2>
 <p><a href="https://cran.r-project.org">R</a> es un programa estadístico <em>open source</em> de gran versatilidad que permite analizar una amplia gama de problemas cuantitativos. Si bien R incorpora un lenguaje de programación que puede ser extremadamente complejo, vale la pena familiarizarse con esa herramienta que puede llegar a ser muy útil en el futuro, tanto dentro como fuera de la academia.</p>
-<div id="aspectos-basicos-de-r" class="section level2">
-<h2><span class="header-section-number">1.1</span> Aspectos básicos de R</h2>
+<div id="aspectos-basicos-de-r" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Aspectos básicos de R</h3>
 <ol style="list-style-type: decimal">
-<li>R distingue mayúsculas y minúsculas.</li>
-<li>Para asignar contenido a un objeto usamos <code>&lt;-</code>. Por ejemplo, <code>x &lt;- 10</code> asigna a <code>x</code> el valor <code>10</code>. En lugar de <code>&lt;-</code> también podemos usar <code>=</code>.
-3.Para ver el contenido de un objeto simplemente escribimos su nombre.</li>
-<li>Para obtener ayuda usamos el comando help. Por ejemplo, <code>help(mean)</code> para obtener ayuda sobre el comando mean que calcula la media.</li>
-<li>El GUI o interfaz gráfica del R tiene dos partes principales: la consola y el script.</li>
+<li><p>R distingue mayúsculas y minúsculas.</p></li>
+<li><p>Para asignar contenido a un objeto usamos <code>&lt;-</code>. Por ejemplo, <code>x &lt;- 10</code> asigna a <code>x</code> el valor <code>10</code>. En lugar de <code>&lt;-</code> también podemos usar <code>=</code>.</p></li>
+</ol>
+<p>3.Para ver el contenido de un objeto simplemente escribimos su nombre.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Para obtener ayuda usamos el comando help. Por ejemplo, <code>help(mean)</code> para obtener ayuda sobre el comando mean que calcula la media.</p></li>
+<li><p>El GUI o interfaz gráfica de R tiene dos partes principales: la consola y el script.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:rmark1"></span>
 <img src="imagenes/RGui.PNG" alt="Consola de R" width="70%" />
@@ -209,6 +216,7 @@ Figure 1.1: Consola de R
 </div>
 <p>La <em><strong>consola</strong></em> es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor <code>&gt;</code> significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo <code>+</code> quiere decir que nos falta completar el comando anterior.</p>
 <p>Un <em><strong>script</strong></em> corresponde a una hoja para escribir comandos. Nos sirve para escribir solo los comandos, y cuando seleccionamos y presionamos <em>&lt;Ctrl + R&gt;</em> (juntos) se ejecuta el comando que hemos escrito y los resultados se visualizaran en la consola Dependiendo del sistema operatio utilizado, la combinación podría ser &lt;Ctrl +Enter&gt;. El script es práctico por que no solo podemos escribir comandos sino también notas personales. Las notas tienen que estar precedidas por el <code>#</code>.</p>
+</div>
 </div>
 <div id="r-studio" class="section level2">
 <h2><span class="header-section-number">1.2</span> R Studio</h2>
@@ -241,102 +249,6 @@ Figure 1.2: Pantalla principal Rstudio
 <ol start="3" style="list-style-type: decimal">
 <li>En la ventana inferior de la derecha RStudio muestra el directorio de trabajo, los gráficos que se van generando, paquetes para cargarlos e instalarlos directamente, ayuda y un visor HTML. Estas pestañas se irán describiendo a lo largo del documento</li>
 </ol>
-</div>
-</div>
-<div id="trabajemos-en-rstudio" class="section level2">
-<h2><span class="header-section-number">1.3</span> Trabajemos en RStudio</h2>
-<div id="objetos-de-datos" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Objetos de Datos</h3>
-<p>R es un lenguaje orientado a trabajar con objetos de datos (numéricos, caracteres y lógicos), los cuales se guardan en la memoria activa del ordenador (consola). Dichos objetos pueden ser:</p>
-<ol style="list-style-type: decimal">
-<li><em>Escalares</em>: Números reales que sirven para describir un fenómeno físico.</li>
-<li><em>Vectores</em>: Lista ordenada de elementos, principalmente números reales.</li>
-<li><em>Factores</em>: Es un tipo especial de vector que almacena datos de caracteres en forma de variables cualitativas.</li>
-</ol>
-<p>Para familiarizarnos con la sintaxis de R, escribamos la frase “Metodos estadisticos”. En la consola de RStudio debemos escribir lo siguiente y luego presionar &lt;Ctrl + Enter&gt;:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">x &lt;-<span class="st"> &quot;Metodos&quot;</span></a></code></pre></div>
-<p>Ahora escribamos x para ver que sucede:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">x</a></code></pre></div>
-<pre><code>## [1] &quot;Metodos&quot;</code></pre>
-<p>Lo que acabamos de hacer es asignar la palabra Metodos al objeto <code>x</code> mediante el uso del operador <code>&lt;-</code> Ahora, asignaremos la palabra estadisticos al objeto <code>y</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">y &lt;-<span class="st"> &quot;estadisticos&quot;</span></a>
-<a class="sourceLine" id="cb4-2" title="2">y</a></code></pre></div>
-<pre><code>## [1] &quot;estadisticos&quot;</code></pre>
-<p>Por último, combinaremos las dos palabras y las almacenaremos en un nuevo objeto que llamaremos <code>frase</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">frase &lt;-<span class="st"> </span><span class="kw">paste</span>(x,y)</a>
-<a class="sourceLine" id="cb6-2" title="2">frase </a></code></pre></div>
-<pre><code>## [1] &quot;Metodos estadisticos&quot;</code></pre>
-<p><strong>IMPORTANTE</strong>: Los datos de caracteres siempre deben estar encerrados entre comillas ("")</p>
-</div>
-<div id="datos-numericos" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Datos Numéricos</h3>
-<p>El objeto mas simple que podemos crear es aquel con contiene solamente un numero real. Para ello, asignamos un valor a un objeto mediante el uso del operador <code>&lt;-</code></p>
-<p>Generaremos un objeto de nombre <code>x</code> con el valor <code>5</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">x&lt;-<span class="dv">5</span> </a>
-<a class="sourceLine" id="cb8-2" title="2">x</a></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<p>R permite realizar un sin numero de operaciones algebraicas con nuestros objetos. Dichos operaciones incluyen la adición (+), sustracción (-), multiplicación (*), división (/) y potenciación (^).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">a&lt;-<span class="dv">15</span></a>
-<a class="sourceLine" id="cb10-2" title="2">a</a></code></pre></div>
-<pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">b &lt;-<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb12-2" title="2">b</a></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">a<span class="op">+</span>b</a></code></pre></div>
-<pre><code>## [1] 17</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">b<span class="op">-</span>a</a></code></pre></div>
-<pre><code>## [1] -13</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">a<span class="op">-</span>b</a></code></pre></div>
-<pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">(a<span class="op">+</span>b)<span class="op">/</span>a</a></code></pre></div>
-<pre><code>## [1] 1.133333</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">(a<span class="op">*</span>b)<span class="op">/</span>(b<span class="op">^</span>b)</a></code></pre></div>
-<pre><code>## [1] 7.5</code></pre>
-<p>Otras funciones matemáticas de importancia para nuestro curso son: la raíz cuadrada (sqrt), función exponencial (exp) y función logarítmica natural (log).</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">c &lt;-<span class="st"> </span><span class="dv">9</span></a>
-<a class="sourceLine" id="cb26-2" title="2">c</a></code></pre></div>
-<pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">sqrt</span>(c)</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">exp</span>(<span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## [1] 7.389056</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">log</span>(<span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## [1] 2.302585</code></pre>
-</div>
-<div id="vectores" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Vectores</h3>
-<p>Un vector representa una secuencia ordenada de elementos (datos) del mismo tipo. Es posible construir vectores de tipo numérico y caracteres. Para nuestros propósitos, los vectores podrán ser considerados como variables.</p>
-<p>Generaremos un vector de nombre <code>vector1</code> que contenga tres datos numéricos:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">vector1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb34-2" title="2">vector1</a></code></pre></div>
-<pre><code>## [1] 1 5 7</code></pre>
-<p>Ahora, generaremos un vector de nombre <code>vector2</code> que contenga tres caracteres:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">vector2&lt;-<span class="kw">c</span>(<span class="st">&quot;cerezo&quot;</span>,<span class="st">&quot;peral&quot;</span>,<span class="st">&quot;vid&quot;</span>) </a>
-<a class="sourceLine" id="cb36-2" title="2">vector2   </a></code></pre></div>
-<pre><code>## [1] &quot;cerezo&quot; &quot;peral&quot;  &quot;vid&quot;</code></pre>
-<p>Intentemos generar un vector de nombre vector3 a partir de los vectores creados:</p>
-<iframe src="DCL/intro_1.html" frameborder="0" scrolling="no" style="width:100%;height:360px">
-</iframe>
-<p><strong>IMPORTANTE</strong>: Los datos son concatenados (combinados) utilizando el comando <code>c()</code></p>
-</div>
-<div id="funciones-para-generar-vectores" class="section level3">
-<h3><span class="header-section-number">1.3.4</span> Funciones para generar vectores</h3>
-<p>Las funciones <code>seq</code> y <code>rep</code> nos permiten crear patrones de elementos. <code>seq</code> Crea una secuencia de números equiespaciados. Dentro del comando <code>seq</code> el comienzo (<code>from</code>), el fin (<code>to</code>), el espacio entre dos números consecutivos (<code>by</code>) o la cantidad de números en la secuencia (<code>length</code>) pueden ser especificados.</p>
-<p>Por ejemplo:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span> <span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>, <span class="dt">by=</span><span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## [1] 2 4 6 8</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>,<span class="dt">length=</span><span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## [1] 2 5 8</code></pre>
-<p>Por otra parte, el comando <code>rep</code> repite un elemento (<code>x</code>) una cantidad determinada de veces (<code>times</code>) o hasta lograr una longitud especificada (<code>length.out</code>).</p>
-<p>Por ejemplo:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">rep</span> (<span class="dv">0</span>,<span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## [1] 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">rep</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## [1] 0 1 2 0 1 2 0 1 2</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">length.out=</span><span class="dv">7</span>)</a></code></pre></div>
-<pre><code>## [1] 1 2 1 2 1 2 1</code></pre>
 
 </div>
 </div>

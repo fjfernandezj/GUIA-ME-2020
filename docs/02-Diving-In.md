@@ -2,10 +2,9 @@
 
 ## Objetos en R
 
-Hasta ahora nos hemos dedicado a escribir algunas instrucciones para que R las ejecute. A lo largo del curso
-aprenderemos muchas funciones, sin embargo existen aspectos críticos que debemos saber antes de seguir avanzando.
+Hasta ahora nos hemos dedicado a escribir algunas instrucciones para que R las ejecute. A lo largo del curso aprenderemos muchas funciones, sin embargo existen aspectos críticos que debemos saber antes de seguir avanzando.
 
-Lo primero que debemos saber (y que nos evitará que surjan en la consola los nunca agradables errores) es que todos los elementos que maneja R son objetos: un valor numérico es un objeto, un vector es un objeto, una base de datos es un objeto, una función es un objeto, un gráfico es... un objeto.
+Lo primero que debemos saber (y que nos evitará que surjan en la consola los nunca agradables errores) es que todos los elementos que maneja R son **objetos**: un valor numérico es un objeto, un vector es un objeto, una base de datos es un objeto, una función es un objeto, un gráfico es... un objeto.
 
 En este laboratorio exploraremos algunos tipos de objetos y sus propiedades básicas para trabajar en R.
 
@@ -16,20 +15,19 @@ En este laboratorio exploraremos algunos tipos de objetos y sus propiedades bás
 2. R guarda los objetos en la memoria activa del ordenador con un nombre especifico. Para ello, asignamos
 un valor a un objeto mediante el uso del operador `<-`.
 
-Generemos un objeto de nombre Asignatura que contendrá las palabras _Metodos_ y _estadisticos_. En el script
-de RStudio debemos escribir lo siguiente y luego presionar <Ctrl + enter>:
+Generemos un objeto de nombre Asignatura que contendrá las palabras _Metodos_ y _estadisticos_. En el script de RStudio debemos escribir lo siguiente y luego presionar <Ctrl + enter>:
 
 
 ```r
 Asignatura<-c("Metodos", "estadisticos")
 ```
 
-Ahora escribamos _asignatura_ y veamos que sucede:
+Ahora escribamos _asignatura_ y veamos que sucede. En tu script y consola debería aparecer lo siguiente: 
 
-
-```r
-#asignatura
-```
+<div class="figure" style="text-align: center">
+<img src="imagenes/imagen3_asignatura.png" alt="Pantalla principal Rstudio" width="70%" />
+<p class="caption">(\#fig:rmark3)Pantalla principal Rstudio</p>
+</div>
 
 Es momento de felicitarnos a nosotros mismos, ya que acabamos de cometer uno de los errores más recurrentes y básicos que se cometen al trabajar en R. ¿Qué fue lo que sucedió?. R discrimina entre letras mayúsculas y minúsculas para el nombre de un objeto, por lo cual no es lo mismo escribir _asignatura_ que _Asignatura_.
 
@@ -48,8 +46,7 @@ Asignatura
 
 ## Tipos de Objetos
 
-En este curso nos ocuparemos de aquellos objetos que R utiliza para representar datos: valores, vectores, y
-dataframes.
+En este curso nos ocuparemos de aquellos objetos que R utiliza para representar datos: valores, vectores, y dataframes.
 
 ### Objetos de valores numéricos
 
@@ -163,6 +160,95 @@ log(10)
 ```
 ## [1] 2.302585
 ```
+
+### Vectores
+Un vector representa una secuencia ordenada de elementos (datos) del mismo tipo. Es posible construir vectores de tipo numérico y caracteres. Para nuestros propósitos, los vectores podrán ser considerados como variables. 
+ 
+Generaremos un vector de nombre `vector1` que contenga tres datos numéricos:
+
+
+```r
+vector1<-c(1,5,7)
+vector1
+```
+
+```
+## [1] 1 5 7
+```
+
+Ahora, generaremos un vector de nombre `vector2` que contenga tres caracteres:
+
+
+```r
+vector2<-c("cerezo","peral","vid") 
+vector2   
+```
+
+```
+## [1] "cerezo" "peral"  "vid"
+```
+
+Intentemos generar un vector de nombre vector3 a partir de los vectores creados:  
+
+<iframe src="DCL/intro_1.html" frameborder="0" scrolling="no" style="width:100%;height:360px"></iframe>
+
+
+**IMPORTANTE**: Los datos son concatenados (combinados) utilizando el comando `c()`  
+
+#### Funciones para generar vectores
+
+Las funciones `seq` y `rep` nos permiten crear patrones de elementos. `seq` Crea una secuencia de números equiespaciados. Dentro del comando `seq` el comienzo (`from`), el fin (`to`), el espacio entre dos números consecutivos (`by`) o la cantidad de números en la secuencia  (`length`) pueden ser especificados.
+
+Por ejemplo:
+
+```r
+seq(from= 2, to= 8, by=2)
+```
+
+```
+## [1] 2 4 6 8
+```
+
+
+```r
+seq(from=2, to= 8,length=3)
+```
+
+```
+## [1] 2 5 8
+```
+
+Por otra parte, el comando `rep` repite un elemento (`x`) una cantidad determinada de veces (`times`) o hasta lograr una longitud especificada (`length.out`).
+
+Por ejemplo:
+
+```r
+rep (0,5)
+```
+
+```
+## [1] 0 0 0 0 0
+```
+
+
+```r
+rep(0:2,3)
+```
+
+```
+## [1] 0 1 2 0 1 2 0 1 2
+```
+
+
+```r
+rep(1:2,length.out=7)
+```
+
+```
+## [1] 1 2 1 2 1 2 1
+```
+ 
+
 
 ### Data frames
 
