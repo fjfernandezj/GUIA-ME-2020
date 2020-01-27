@@ -140,6 +140,7 @@ Como podemos ver, nuestra base contiene variables con diferentes tipos de datos.
 La función `summary()` nos proporciona para cada variable un conjunto de estadísticas descriptivas, según el tipo de variable:
 
 
+
 ```r
 summary(data)
 ```
@@ -167,6 +168,7 @@ summary(data)
 ##  3rd Qu.:3645  
 ##  Max.   :4274
 ```
+
 
 1. **Variables numéricas:** `summary()` proporciona el rango, los cuartiles, la mediana y la media.
 
@@ -282,6 +284,31 @@ dim(data)
 ```
 ## [1] 120   9
 ```
+
+**Tips:**
+
+Mucho de lo anteriormente visto lo podemos transformar en tablas mucho más amigables con la función `ktable` del paquete `knitr`. Por ejemplo la siguiente Tabla se obtuvo mediante el siguiente código:
+
+
+```r
+knitr::kable(
+  head(data), 
+  caption = "Ejemplo de Tabla de Datos con ktable")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-10)Ejemplo de Tabla de Datos con ktable
+
+Cultivo     Region     Variedad    Hectareas   Temperatura   costo_jh   rendimiento   Perdida_plaga   mano_de_obra
+----------  ---------  ---------  ----------  ------------  ---------  ------------  --------------  -------------
+Arandanos   Ohiggins   V1             1029.9          16.8      13059        6866.5            35.1           3080
+Arandanos   Ohiggins   V1              998.9          16.9      13026        7122.1            34.3           2728
+Arandanos   Ohiggins   V1             1117.8          15.0      12933        7041.2            31.7           3120
+Arandanos   Ohiggins   V1             1007.2          15.7      13027        6891.5            40.5           3135
+Arandanos   Ohiggins   V1             1077.6          15.1      13045        6927.7            35.6           3276
+Arandanos   Ohiggins   V1             1091.3          15.9      12949        6900.4            33.0           2966
+
 
 ## Exploremos los datos R con la libreria dplyr
 

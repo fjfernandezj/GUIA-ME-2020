@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="visualizacion-de-datos-en-rstudio.html"/>
-
+<link rel="next" href="estadistica-inferencial-pruebas-estadisticas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -171,6 +171,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#operadores-logicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#medidas-de-dispersion"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="5.3" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
+<li class="chapter" data-level="5.4" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#grafico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-parametricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
+<li class="chapter" data-level="6.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-no-parametricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
+<li class="chapter" data-level="6.3" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -207,14 +221,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>length(x)</code>: Número de elementos en <code>x</code></p></li>
 </ul>
 <p>Calculemos el promedio y la mediana de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
 <pre><code>## [1] 13.74167</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
 <pre><code>## [1] 13.75</code></pre>
 <p>Estas estimaciones las hemos realizado sobre todas las observaciones contenidas en nuestra variable. Sin embargo, en algunas ocasiones, estaremos interesados en un subconjunto de las observaciones que cumplan con alguna condición de nuestro interés. Por ejemplo, podemos estar interesados en el promedio de la temperatura ambiental en aquellas muestras que provienen solamente de la región del Maule. Para seleccionar aquellas muestras que cumplen con esta restricción podemos generar un subconjunto o subset:</p>
 <p><code>"Nombre del objeto" &lt;- "base de datos"$ "columna de interés" == "restricción"</code></p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb104-2" title="2">subset_data</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
+<a class="sourceLine" id="cb105-2" title="2">subset_data</a></code></pre></div>
 <pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
@@ -227,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p>Al revisar el contenido de nuestro objeto llamado <code>subset_data</code>, R nos dice cuál o cuáles de las observaciones cumplen (TRUE) o no cumplen (FALSE) con nuestro requerimiento. Ahora, podemos calcular el promedio de la temperatura ambiental promedio en aquellas muestras que provienen solamente de la región del Maule:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
 <pre><code>## [1] 14.42667</code></pre>
 <div id="operadores-logicos" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Operadores lógicos</h3>
@@ -242,28 +256,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>&amp;</code> “y” (ambas condiciones deben ser ciertas)</p></li>
 </ul>
 <p>Para estimar el número de observaciones que cumplen con nuestra condición podemos utilizar la función <code>length()</code>:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>Regresemos a nuestra base de datos. Pasos atrás calculamos el promedio de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos. Eso es un gran paso para describir la variable temperatura ambiental. Sin embargo, la base de datos contiene mucha información adicional que nos permitirá describir de mejor forma la temperatura ambiental registrada en nuestro estudio. Por ejemplo, podríamos preguntarnos si la temperatura ambiental difiere según la región en la que fue medida. Para ello, debemos conocer el promedio de la variable Temperatura para las cuatro diferentes regiones contenidas en la variable Region. Una opción es generar cuatro diferentes “subset”:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
-<a class="sourceLine" id="cb110-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
 <pre><code>## [1] 15.25667</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb112-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
+<a class="sourceLine" id="cb113-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
 <pre><code>## [1] 14.42667</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
-<a class="sourceLine" id="cb114-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
+<a class="sourceLine" id="cb115-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
 <pre><code>## [1] 13.54667</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
-<a class="sourceLine" id="cb116-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
 <pre><code>## [1] 11.73667</code></pre>
 <p>Afortunadamente, R nos ofrece alternativas mucho más eficientes y elegantes para realizar la misma tarea. Por ejemplo, `tapply()``aplica una función (en este caso mean()) a cada grupo de observaciones de una variable definidos por los niveles de una segunda variable:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
 <p>Incluso, R nos permite guardar nuestros cálculos en forma de objeto:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
-<a class="sourceLine" id="cb120-2" title="2">Temperatura_regional</a></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
+<a class="sourceLine" id="cb121-2" title="2">Temperatura_regional</a></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
 </div>
@@ -280,6 +294,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>max(x)</code> Máximo valor observado entre los elementos en x</p></li>
 </ul>
 <p>Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">sd</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<pre><code>## [1] 1.736972</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">var</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<pre><code>## [1] 3.017073</code></pre>
+<p>Intentemos calcular manualmente la desviación estándar a partir de la varianza:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">desvest &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(data<span class="op">$</span>Temperatura))</a></code></pre></div>
+<p>Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">desvest_temperatura &lt;-<span class="st"> </span><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,sd)</a>
+<a class="sourceLine" id="cb128-2" title="2">desvest_temperatura</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422</code></pre>
+<p>El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.</p>
+<p>En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad:</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">cv_temperatura&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Temperatura)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Temperatura))<span class="op">*</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb130-2" title="2">cv_temperatura</a></code></pre></div>
+<pre><code>## [1] 12.64019</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">cv_superficie&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Hectareas)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Hectareas))<span class="op">*</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb132-2" title="2">cv_superficie</a></code></pre></div>
+<pre><code>## [1] 46.64448</code></pre>
+<p>De acuerdo a nuestros resultados, la variable superficie cultivada (<code>Hectareas</code>) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (<code>Temperatura</code>).</p>
+</div>
+<div id="tabla-resumen" class="section level2">
+<h2><span class="header-section-number">5.3</span> Tabla Resumen</h2>
+<p>Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando <code>cbind()</code>, el cual nos permite unir diferentes columnas. Por otro lado el comando <code>rbind()</code> nos permite unir diferentes filas.</p>
+<p>Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función <code>tapply()</code>.</p>
+<p>Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
+<a class="sourceLine" id="cb134-2" title="2">promedio_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     13.54667     11.73667     14.42667     15.25667</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">mediana_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, median)</a>
+<a class="sourceLine" id="cb136-2" title="2">mediana_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##        13.75        11.60        14.50        15.15</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
+<a class="sourceLine" id="cb138-2" title="2">desvest_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">coefvar_temp&lt;-<span class="st"> </span>(desvest_temperatura<span class="op">/</span>promedio_temp)<span class="op">*</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb140-2" title="2">coefvar_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     8.386979     9.070973     8.951012     7.271716</code></pre>
+<p>Podemos genera la tabla con el comando <code>cbind()</code>. Le especificaremos a R que cada uno de nuestros objetos será una columna en nuestra tabla:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">tabla_resumen&lt;-<span class="kw">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</a>
+<a class="sourceLine" id="cb142-2" title="2">tabla_resumen</a></code></pre></div>
+<pre><code>##              promedio_temp mediana_temp desvest_temp coefvar_temp
+## BioBio            13.54667        13.75     1.136156     8.386979
+## La_Araucania      11.73667        11.60     1.064630     9.070973
+## Maule             14.42667        14.50     1.291333     8.951012
+## Ohiggins          15.25667        15.15     1.109422     7.271716</code></pre>
+<p>Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!</p>
+</div>
+<div id="grafico-de-barras" class="section level2">
+<h2><span class="header-section-number">5.4</span> Gráfico de Barras</h2>
+<p>Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje <code>y</code>) y una variable categórica (generalmente en el eje <code>x</code>). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida.</p>
+<p>Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
+<a class="sourceLine" id="cb144-2" title="2">promedio_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     13.54667     11.73667     14.42667     15.25667</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
+<a class="sourceLine" id="cb146-2" title="2">desvest_temp</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422</code></pre>
+<p>Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a></code></pre></div>
+<p><img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a>
+<a class="sourceLine" id="cb149-2" title="2"><span class="kw">arrows</span>(GRAFICO, promedio_temp <span class="op">+</span><span class="st"> </span>desvest_temp, GRAFICO, promedio_temp <span class="op">-</span><span class="st"> </span>desvest_temp,</a>
+<a class="sourceLine" id="cb149-3" title="3">       <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">code =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</a></code></pre></div>
+<p><img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -288,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualizacion-de-datos-en-rstudio.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="visualizacion-de-datos-en-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estadistica-inferencial-pruebas-estadisticas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -339,6 +425,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

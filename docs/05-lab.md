@@ -191,3 +191,190 @@ A diferencia de las medidas de tendencia central, las medidas de dispersión sir
 Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:
 
 
+```r
+sd(data$Temperatura)
+```
+
+```
+## [1] 1.736972
+```
+
+
+```r
+var(data$Temperatura)
+```
+
+```
+## [1] 3.017073
+```
+
+Intentemos calcular manualmente la desviación estándar a partir de la varianza: 
+
+
+```r
+desvest <- sqrt(var(data$Temperatura))
+```
+
+Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:
+
+
+```r
+desvest_temperatura <- tapply(data$Temperatura,data$Region,sd)
+desvest_temperatura
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422
+```
+
+El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.
+
+En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad: 
+
+
+```r
+cv_temperatura<- (sd(data$Temperatura)/mean(data$Temperatura))*100
+cv_temperatura
+```
+
+```
+## [1] 12.64019
+```
+
+
+```r
+cv_superficie<- (sd(data$Hectareas)/mean(data$Hectareas))*100
+cv_superficie
+```
+
+```
+## [1] 46.64448
+```
+
+
+De acuerdo a nuestros resultados, la variable superficie cultivada (`Hectareas`) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (`Temperatura`).
+
+## Tabla Resumen
+
+Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando `cbind()`, el cual nos permite unir diferentes columnas. Por otro lado el comando `rbind()` nos permite unir diferentes filas.
+
+Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función `tapply()`.
+
+Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:
+
+
+```r
+promedio_temp<-tapply(data$Temperatura,data$Region, mean)
+promedio_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     13.54667     11.73667     14.42667     15.25667
+```
+
+
+```r
+mediana_temp<-tapply(data$Temperatura,data$Region, median)
+mediana_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##        13.75        11.60        14.50        15.15
+```
+
+
+```r
+desvest_temp<-tapply(data$Temperatura,data$Region, sd)
+desvest_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422
+```
+ 
+
+```r
+coefvar_temp<- (desvest_temperatura/promedio_temp)*100
+coefvar_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     8.386979     9.070973     8.951012     7.271716
+```
+
+
+Podemos genera la tabla con el comando `cbind()`. Le especificaremos  a R que cada uno de nuestros objetos será una columna en nuestra tabla: 
+
+
+```r
+tabla_resumen<-cbind(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)
+tabla_resumen
+```
+
+```
+##              promedio_temp mediana_temp desvest_temp coefvar_temp
+## BioBio            13.54667        13.75     1.136156     8.386979
+## La_Araucania      11.73667        11.60     1.064630     9.070973
+## Maule             14.42667        14.50     1.291333     8.951012
+## Ohiggins          15.25667        15.15     1.109422     7.271716
+```
+
+
+Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!
+
+
+## Gráfico de Barras
+Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje `y`) y una variable categórica (generalmente en el eje `x`). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida. 
+
+Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.
+
+
+```r
+promedio_temp<-tapply(data$Temperatura,data$Region, mean)
+promedio_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     13.54667     11.73667     14.42667     15.25667
+```
+
+
+```r
+desvest_temp<-tapply(data$Temperatura,data$Region, sd)
+desvest_temp
+```
+
+```
+##       BioBio La_Araucania        Maule     Ohiggins 
+##     1.136156     1.064630     1.291333     1.109422
+```
+ 
+
+Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:
+
+
+```r
+GRAFICO<- barplot(promedio_temp, ylim=c(0,20), xlab="Region", ylab="Temperatura ambiental",col=c("indianred","red3","red4","orangered"), main= "promedio y desviacion estandar")
+```
+
+![](05-lab_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
+
+
+Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico: 
+
+
+```r
+GRAFICO<- barplot(promedio_temp, ylim=c(0,20), xlab="Region", ylab="Temperatura ambiental",col=c("indianred","red3","red4","orangered"), main= "promedio y desviacion estandar")
+arrows(GRAFICO, promedio_temp + desvest_temp, GRAFICO, promedio_temp - desvest_temp,
+       angle = 90, code = 1, length = 0.1, col = c("indianred","red3","red4","orangered"))
+```
+
+![](05-lab_files/figure-epub3/unnamed-chunk-27-1.png)<!-- -->
+
+

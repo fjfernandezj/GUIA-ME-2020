@@ -171,6 +171,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#operadores-logicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#medidas-de-dispersion"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="5.3" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
+<li class="chapter" data-level="5.4" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#grafico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-parametricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
+<li class="chapter" data-level="6.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-no-parametricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
+<li class="chapter" data-level="6.3" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -207,8 +221,8 @@ valores obtenidos para dos variables diferentes: una graficada a lo largo del ej
 largo del eje y.</p>
 <p>Existen muchas maneras de crear un gráfico de dispersión en R. La función básica es <code>plot(x,y)</code>.</p>
 <p>Por ejemplo visualicemos las variables Temperatura (eje x) y rendimiento (eje y) de la base de datos utilizada en el laboratorio 3:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/dataset.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb87-2" title="2"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura, data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/dataset.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb88-2" title="2"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura, data<span class="op">$</span>rendimiento)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Felicitaciones, acaban de generar el primero de muchos gráficos que aprenderán en este curso. Sin embargo,
 la tarea no está completa. Como podemos apreciar, el gráfico que nos entregó R es bastante “rústico”.
@@ -216,17 +230,17 @@ Siempre intenten presentar sus datos de una forma atractiva. Esto puede marcar l
 trabajo y un trabajo sobresaliente.</p>
 <p>Afortunadamente, R nos permite “enchular” nuestros gráficos. Para ello debemos ingresar comandos
 específicos para cada una de las características que queremos modificar:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb88-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
-<a class="sourceLine" id="cb88-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb88-4" title="4"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
-<a class="sourceLine" id="cb88-5" title="5"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb88-6" title="6"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
-<a class="sourceLine" id="cb88-7" title="7"><span class="dt">pch=</span><span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb88-8" title="8"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb88-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb88-10" title="10"><span class="dt">cex.lab=</span><span class="fl">1.2</span>,</a>
-<a class="sourceLine" id="cb88-11" title="11"><span class="dt">cex.axis=</span><span class="fl">1.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
+<a class="sourceLine" id="cb89-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
+<a class="sourceLine" id="cb89-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
+<a class="sourceLine" id="cb89-4" title="4"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
+<a class="sourceLine" id="cb89-5" title="5"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
+<a class="sourceLine" id="cb89-6" title="6"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
+<a class="sourceLine" id="cb89-7" title="7"><span class="dt">pch=</span><span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb89-8" title="8"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb89-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb89-10" title="10"><span class="dt">cex.lab=</span><span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb89-11" title="11"><span class="dt">cex.axis=</span><span class="fl">1.1</span>)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>A simple vista, son múltiples los parámetros gráficos que hemos cambiado. A continuación, se detalla la
 lista de los parámetros utilizados y sus definiciones:</p>
@@ -249,21 +263,21 @@ comandos necesarios para ver más de un gráfico de forma simultánea. Con la fu
 incluir la opción <code>mfrow=c()</code> para crear una matriz de filas y columnas.</p>
 <p>Utilicemos los dos scatterplot anteriores para generar una matriz gráfica que contenga dos gráficos
 ordenados en una fila y con dos columnas:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb89-2" title="2"></a>
-<a class="sourceLine" id="cb89-3" title="3"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento)</a>
-<a class="sourceLine" id="cb89-4" title="4"></a>
-<a class="sourceLine" id="cb89-5" title="5"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb89-6" title="6"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
-<a class="sourceLine" id="cb89-7" title="7"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb89-8" title="8"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
-<a class="sourceLine" id="cb89-9" title="9"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb89-10" title="10"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
-<a class="sourceLine" id="cb89-11" title="11"><span class="dt">pch=</span><span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb89-12" title="12"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb89-13" title="13"><span class="dt">cex=</span><span class="fl">1.5</span>,</a>
-<a class="sourceLine" id="cb89-14" title="14"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb89-15" title="15"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb90-2" title="2"></a>
+<a class="sourceLine" id="cb90-3" title="3"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento)</a>
+<a class="sourceLine" id="cb90-4" title="4"></a>
+<a class="sourceLine" id="cb90-5" title="5"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
+<a class="sourceLine" id="cb90-6" title="6"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
+<a class="sourceLine" id="cb90-7" title="7"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
+<a class="sourceLine" id="cb90-8" title="8"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
+<a class="sourceLine" id="cb90-9" title="9"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
+<a class="sourceLine" id="cb90-10" title="10"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
+<a class="sourceLine" id="cb90-11" title="11"><span class="dt">pch=</span><span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb90-12" title="12"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb90-13" title="13"><span class="dt">cex=</span><span class="fl">1.5</span>,</a>
+<a class="sourceLine" id="cb90-14" title="14"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
+<a class="sourceLine" id="cb90-15" title="15"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Fantástico! Tenemos ambos scatterplot graficados al mismo tiempo, uno al lado del otro. Ahora bien, en
 caso de que quisiéramos que estén un scatterplot sobre el otro, ¿¿como lo harían??</p>
@@ -275,26 +289,26 @@ caso de que quisiéramos que estén un scatterplot sobre el otro, ¿¿como lo ha
 «bigotes»). Los diagramas de caja se pueden crear para variables individuales o para grupos de variables.</p>
 <p>La función es <code>boxplot(x)</code>, donde <code>x</code> es nuestra variable a graficar:</p>
 <p>Generemos un gráfico de cajas para la información contenida en la variable rendimiento:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Ahora, generemos el diagrama para la información contenida en la variable rendimiento según la región en la
 cual se realizó el muestreo (grupo de variable):</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region)</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>En caso de que quisiéramos enchular nuestro gráfico de cajas con dos variables, solamente debemos
 modificar los parámetros gráficos:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region,</a>
-<a class="sourceLine" id="cb92-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Region&quot;</span>,</a>
-<a class="sourceLine" id="cb92-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb92-4" title="4"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb92-5" title="5"><span class="dt">main =</span> <span class="st">&quot;Diagrama de cajas&quot;</span>,</a>
-<a class="sourceLine" id="cb92-6" title="6"><span class="dt">pch=</span><span class="dv">18</span>,</a>
-<a class="sourceLine" id="cb92-7" title="7"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb92-8" title="8"><span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb92-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb92-10" title="10"><span class="dt">cex.main=</span><span class="fl">1.5</span>,</a>
-<a class="sourceLine" id="cb92-11" title="11"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb92-12" title="12"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region,</a>
+<a class="sourceLine" id="cb93-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Region&quot;</span>,</a>
+<a class="sourceLine" id="cb93-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
+<a class="sourceLine" id="cb93-4" title="4"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
+<a class="sourceLine" id="cb93-5" title="5"><span class="dt">main =</span> <span class="st">&quot;Diagrama de cajas&quot;</span>,</a>
+<a class="sourceLine" id="cb93-6" title="6"><span class="dt">pch=</span><span class="dv">18</span>,</a>
+<a class="sourceLine" id="cb93-7" title="7"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb93-8" title="8"><span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb93-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb93-10" title="10"><span class="dt">cex.main=</span><span class="fl">1.5</span>,</a>
+<a class="sourceLine" id="cb93-11" title="11"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
+<a class="sourceLine" id="cb93-12" title="12"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="histogramas" class="section level2">
@@ -309,14 +323,14 @@ mientras que las barras agrupan rangos de valores o categorías continuas en el 
 por qué los histogramas se llaman “histograma de frecuencia”.</p>
 <p>La función es <code>hist(x)</code>, donde <code>x</code> es nuestra variable a graficar.</p>
 <p>Generemos un histograma de frecuencias para la información contenida en la variable rendimiento:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Al igual que los gráficos anteriores, R nos permite modificar parámetros gráficos de los histograma de
 frecuencia. Por ejemplo, podemos especificar el número de intervalos en las cuales queremos que se agrupen
 nuestros datos. Para ello utilizamos el comando <code>breaks=</code>.</p>
 <p>Generemos un histograma de frecuencias para la información contenida en la variable rendimiento pero que
 esté agrupada solamente en 4 intervalos:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,<span class="dt">breaks=</span><span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,<span class="dt">breaks=</span><span class="dv">4</span>)</a></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocasiones, estaremos más
 interesados en la densidad (probabilidad relativa de un dato) que en la frecuencia de nuestros datos. En lugar
@@ -325,20 +339,20 @@ opción <code>freq= FALSE</code>, lo cual nos permite normalizar el histograma d
 Ahora el eje y está etiquetado como densidad en lugar de frecuencia.</p>
 <p>Modifiquemos nuestro histograma de frecuencia anterior por un histograma de densidad y grafiquemos uno
 al lado del otro:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb95-2" title="2"></a>
-<a class="sourceLine" id="cb95-3" title="3"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a>
-<a class="sourceLine" id="cb95-4" title="4"></a>
-<a class="sourceLine" id="cb95-5" title="5"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb95-6" title="6"><span class="dt">main=</span><span class="st">&quot;Histograma de densidad&quot;</span>,</a>
-<a class="sourceLine" id="cb95-7" title="7"><span class="dt">xlab=</span><span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb95-8" title="8"><span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">3500</span>,<span class="dv">8500</span>),</a>
-<a class="sourceLine" id="cb95-9" title="9"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb95-10" title="10"><span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb95-11" title="11"><span class="dt">cex.main=</span><span class="fl">1.2</span>,</a>
-<a class="sourceLine" id="cb95-12" title="12"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb95-13" title="13"><span class="dt">cex.axis=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb95-14" title="14"><span class="dt">Freq=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb96-2" title="2"></a>
+<a class="sourceLine" id="cb96-3" title="3"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a>
+<a class="sourceLine" id="cb96-4" title="4"></a>
+<a class="sourceLine" id="cb96-5" title="5"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,</a>
+<a class="sourceLine" id="cb96-6" title="6"><span class="dt">main=</span><span class="st">&quot;Histograma de densidad&quot;</span>,</a>
+<a class="sourceLine" id="cb96-7" title="7"><span class="dt">xlab=</span><span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
+<a class="sourceLine" id="cb96-8" title="8"><span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">3500</span>,<span class="dv">8500</span>),</a>
+<a class="sourceLine" id="cb96-9" title="9"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb96-10" title="10"><span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb96-11" title="11"><span class="dt">cex.main=</span><span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb96-12" title="12"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
+<a class="sourceLine" id="cb96-13" title="13"><span class="dt">cex.axis=</span><span class="fl">1.0</span>,</a>
+<a class="sourceLine" id="cb96-14" title="14"><span class="dt">Freq=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## Warning in plot.window(xlim, ylim, &quot;&quot;, ...): &quot;Freq&quot; is not a graphical
 ## parameter</code></pre>
 <pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
@@ -415,6 +429,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

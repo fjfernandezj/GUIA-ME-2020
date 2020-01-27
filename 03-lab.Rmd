@@ -126,9 +126,11 @@ Como podemos ver, nuestra base contiene variables con diferentes tipos de datos.
 
 La función `summary()` nos proporciona para cada variable un conjunto de estadísticas descriptivas, según el tipo de variable:
 
+
 ```{r}
 summary(data)
 ```
+
 
 1. **Variables numéricas:** `summary()` proporciona el rango, los cuartiles, la mediana y la media.
 
@@ -170,6 +172,17 @@ podemos utilizar la función `dim()`:
 ```{r}
 dim(data)
 ```
+
+**Tips:**
+
+Mucho de lo anteriormente visto lo podemos transformar en tablas mucho más amigables con la función `ktable` del paquete `knitr`. Por ejemplo la siguiente Tabla se obtuvo mediante el siguiente código:
+
+```{r}
+knitr::kable(
+  head(data), 
+  caption = "Ejemplo de Tabla de Datos con ktable")
+```
+
 
 ## Exploremos los datos R con la libreria dplyr
 

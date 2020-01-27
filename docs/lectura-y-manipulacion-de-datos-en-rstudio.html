@@ -171,6 +171,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#operadores-logicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#medidas-de-dispersion"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="5.3" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
+<li class="chapter" data-level="5.4" data-path="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html"><a href="estadistica-descriptiva-medidas-de-tendencia-central-y-dispersion.html#grafico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-parametricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
+<li class="chapter" data-level="6.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-no-parametricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
+<li class="chapter" data-level="6.3" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#metodo-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="estadistica-inferencial-pruebas-estadisticas.html"><a href="estadistica-inferencial-pruebas-estadisticas.html#pruebas-estadisticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -398,6 +412,95 @@ datos:</p>
 podemos utilizar la función <code>dim()</code>:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">dim</span>(data)</a></code></pre></div>
 <pre><code>## [1] 120   9</code></pre>
+<p><strong>Tips:</strong></p>
+<p>Mucho de lo anteriormente visto lo podemos transformar en tablas mucho más amigables con la función <code>ktable</code> del paquete <code>knitr</code>. Por ejemplo la siguiente Tabla se obtuvo mediante el siguiente código:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">knitr<span class="op">::</span><span class="kw">kable</span>(</a>
+<a class="sourceLine" id="cb68-2" title="2">  <span class="kw">head</span>(data), </a>
+<a class="sourceLine" id="cb68-3" title="3">  <span class="dt">caption =</span> <span class="st">&quot;Ejemplo de Tabla de Datos con ktable&quot;</span>)</a></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 3.1: </span>Ejemplo de Tabla de Datos con ktable</caption>
+<thead>
+<tr class="header">
+<th align="left">Cultivo</th>
+<th align="left">Region</th>
+<th align="left">Variedad</th>
+<th align="right">Hectareas</th>
+<th align="right">Temperatura</th>
+<th align="right">costo_jh</th>
+<th align="right">rendimiento</th>
+<th align="right">Perdida_plaga</th>
+<th align="right">mano_de_obra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1029.9</td>
+<td align="right">16.8</td>
+<td align="right">13059</td>
+<td align="right">6866.5</td>
+<td align="right">35.1</td>
+<td align="right">3080</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">998.9</td>
+<td align="right">16.9</td>
+<td align="right">13026</td>
+<td align="right">7122.1</td>
+<td align="right">34.3</td>
+<td align="right">2728</td>
+</tr>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1117.8</td>
+<td align="right">15.0</td>
+<td align="right">12933</td>
+<td align="right">7041.2</td>
+<td align="right">31.7</td>
+<td align="right">3120</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1007.2</td>
+<td align="right">15.7</td>
+<td align="right">13027</td>
+<td align="right">6891.5</td>
+<td align="right">40.5</td>
+<td align="right">3135</td>
+</tr>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1077.6</td>
+<td align="right">15.1</td>
+<td align="right">13045</td>
+<td align="right">6927.7</td>
+<td align="right">35.6</td>
+<td align="right">3276</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1091.3</td>
+<td align="right">15.9</td>
+<td align="right">12949</td>
+<td align="right">6900.4</td>
+<td align="right">33.0</td>
+<td align="right">2966</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="exploremos-los-datos-r-con-la-libreria-dplyr" class="section level2">
 <h2><span class="header-section-number">3.4</span> Exploremos los datos R con la libreria dplyr</h2>
@@ -425,14 +528,14 @@ Figure 3.5: Instalación de paquete dplyr (2do paso)
 </div>
 <p>A pesar de estar instalada, a menos que lo especifiquemos, R no cargará la librería en la consola. Entonces,
 debemos “llamar” a la librería que acabamos de instalar con el comando <code>library(dplyr)</code>.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <p>La librería dplyr incluye un conjunto de comandos que coinciden con las acciones más comunes que se
 realizan sobre un conjunto de datos (seleccionar filas <code>filter</code>, seleccionar columnas <code>select</code>, resumir mediante
 alguna medida numérica <code>summarise</code>, entre muchas otras). Para mayor información sobre la librería dplyr
 puedes acceder al siguiente <a href="https://rpubs.com/joser/dplyr">link</a>.</p>
 <p>La función <code>select()</code> selecciona columnas de nuestra base:</p>
 <p>Intentemos seleccionar la columna Region en la base de datos llamada data</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">select</span>(data, Region)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">select</span>(data, Region)</a></code></pre></div>
 <pre><code>##           Region
 ## 1       Ohiggins
 ## 2       Ohiggins
@@ -555,7 +658,7 @@ puedes acceder al siguiente <a href="https://rpubs.com/joser/dplyr">link</a>.</p
 ## 119 La_Araucania
 ## 120 La_Araucania</code></pre>
 <p>La función <code>select()</code> también nos permite seleccionar todas las columnas excepto una:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">select</span>(data, <span class="op">-</span>Region)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">select</span>(data, <span class="op">-</span>Region)</a></code></pre></div>
 <pre><code>##       Cultivo Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1   Arandanos       V1    1029.9        16.8    13059      6866.5
 ## 2   Arandanos       V1     998.9        16.9    13026      7122.1
@@ -799,13 +902,13 @@ puedes acceder al siguiente <a href="https://rpubs.com/joser/dplyr">link</a>.</p
 ## 119          35.1         3550
 ## 120          38.3         3162</code></pre>
 <p>La función <code>slice()</code> selecciona filas de nuestra base. Intentemos seleccionar la quinta fila en la base de datos llamada data:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">slice</span>(data, <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">slice</span>(data, <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1 Arandanos Ohiggins       V1    1077.6        15.1    13045      6927.7
 ##   Perdida_plaga mano_de_obra
 ## 1          35.6         3276</code></pre>
 <p>La función <code>slice()</code> también nos permite seleccionar una secuencia de filas. Seleccionemos desde la tercera hasta la decima en la base de datos llamada data:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">slice</span>(data, <span class="dv">3</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">slice</span>(data, <span class="dv">3</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1 Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
 ## 2 Arandanos Ohiggins       V1    1007.2        15.7    13027      6891.5
@@ -826,7 +929,7 @@ puedes acceder al siguiente <a href="https://rpubs.com/joser/dplyr">link</a>.</p
 ## 8          34.4         3193</code></pre>
 <p>La versatilidad de la función <code>slice()</code> es aún mayor. Por ejemplo, podemos seleccionar una secuencia de filas
 discontinua:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">slice</span>(data, <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">100</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">slice</span>(data, <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">100</span>))</a></code></pre></div>
 <pre><code>##     Cultivo       Region Variedad Hectareas Temperatura costo_jh
 ## 1 Arandanos     Ohiggins       V1    1117.8        15.0    12933
 ## 2 Arandanos     Ohiggins       V1    1124.2        14.7    13056
@@ -839,7 +942,7 @@ discontinua:</p>
 ## 4      4444.0          35.4         3105</code></pre>
 <p>También existe la función `filter()``, la cual nos permite seleccionar las observaciones (filas) que cumplen las condiciones que nos interesan.</p>
 <p>En caso de que quisiéramos seleccionar todas aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>)</a></code></pre></div>
 <pre><code>##      Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1  Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
 ## 2  Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
@@ -868,7 +971,7 @@ discontinua:</p>
 ## 12          28.3         3308</code></pre>
 <p>Si estuviésemos interesados en seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000
 toneladas/hectárea solamente para la variedad 1 de arándanos:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>, Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>, Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
 <pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1 Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
 ## 2 Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
@@ -880,7 +983,7 @@ toneladas/hectárea solamente para la variedad 1 de arándanos:</p>
 ## 3          37.9         2872
 ## 4          31.0         2609</code></pre>
 <p>Ahora, intentemos seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea “o” que sean de la Variedad 1:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span> <span class="op">|</span><span class="st"> </span>Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span> <span class="op">|</span><span class="st"> </span>Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
 <pre><code>##      Cultivo       Region Variedad Hectareas Temperatura costo_jh
 ## 1  Arandanos     Ohiggins       V1    1029.9        16.8    13059
 ## 2  Arandanos     Ohiggins       V1     998.9        16.9    13026
@@ -1025,8 +1128,8 @@ toneladas/hectárea solamente para la variedad 1 de arándanos:</p>
 <p>La importancia de estas funciones radica en que nos permiten trabajar con subconjuntos de la base de datos
 original. Por ejemplo, podemos generar una nueva base de datos que solo contenga la información referida a
 las plantaciones de arándanos provenientes de la región del Maule:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1">data1 &lt;-<span class="st"> </span><span class="kw">filter</span>(data, Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span>)</a>
-<a class="sourceLine" id="cb85-2" title="2">data1</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">data1 &lt;-<span class="st"> </span><span class="kw">filter</span>(data, Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span>)</a>
+<a class="sourceLine" id="cb86-2" title="2">data1</a></code></pre></div>
 <pre><code>##      Cultivo Region Variedad Hectareas Temperatura costo_jh rendimiento
 ## 1  Arandanos  Maule       V1    3750.2        15.6    12968      5931.1
 ## 2  Arandanos  Maule       V1    3668.7        11.6    13013      6076.3
@@ -1150,6 +1253,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

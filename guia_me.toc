@@ -18,8 +18,8 @@
 \contentsline {subsection}{\numberline {3.1.1}¿Qué formato de archivos reconoce R?}{20}{subsection.3.1.1}%
 \contentsline {section}{\numberline {3.2}Importemos los datos a R}{21}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Exploremos los datos a R}{23}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Exploremos los datos R con la libreria dplyr}{26}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Reducción de una base de datos}{41}{section.3.5}%
+\contentsline {section}{\numberline {3.4}Exploremos los datos R con la libreria dplyr}{27}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Reducción de una base de datos}{42}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Visualización de datos en RStudio}{45}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Gráfico de dispersión o \emph {Scatterplot}}{45}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Diagrama de cajas o \emph {Boxplot}}{49}{section.4.2}%
@@ -29,3 +29,14 @@
 \contentsline {section}{\numberline {5.1}Medidas de tendencia central}{55}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Operadores lógicos}{57}{subsection.5.1.1}%
 \contentsline {section}{\numberline {5.2}Medidas de dispersión}{58}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Tabla Resumen}{60}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Gráfico de Barras}{61}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Estadística inferencial: Pruebas estadísticas}{65}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Pruebas paramétricas.}{65}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Pruebas no-paramétricas}{66}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Normalidad}{66}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Método visual: histograma de frecuencia}{66}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Pruebas estadísticas: prueba de Shapiro-Wilk}{67}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Homocedasticidad}{68}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Método visual: boxplot}{68}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Pruebas estadísticas: Prueba de Levene}{69}{subsection.6.4.2}%
