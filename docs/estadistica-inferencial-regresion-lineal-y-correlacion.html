@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 2 Tipos de datos en R | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 8 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 2 Tipos de datos en R | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 8 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 2 Tipos de datos en R | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 8 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="lectura-y-manipulacion-de-datos-en-rstudio.html"/>
+<link rel="prev" href="estadistica-inferencial-chi-cuadrado.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,176 +223,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tipos-de-datos-en-r" class="section level1">
-<h1><span class="header-section-number">Capitulo 2</span> Tipos de datos en R</h1>
-<div id="objetos-en-r" class="section level2">
-<h2><span class="header-section-number">2.1</span> Objetos en R</h2>
-<p>Hasta ahora nos hemos dedicado a escribir algunas instrucciones para que R las ejecute. A lo largo del curso aprenderemos muchas funciones, sin embargo existen aspectos críticos que debemos saber antes de seguir avanzando.</p>
-<p>Lo primero que debemos saber (y que nos evitará que surjan en la consola los nunca agradables errores) es que todos los elementos que maneja R son <strong>objetos</strong>: un valor numérico es un objeto, un vector es un objeto, una base de datos es un objeto, una función es un objeto, un gráfico es… un objeto.</p>
-<p>En este laboratorio exploraremos algunos tipos de objetos y sus propiedades básicas para trabajar en R.</p>
-<div id="propiedades-de-los-objetos" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> Propiedades de los objetos</h3>
-<ol style="list-style-type: decimal">
-<li><p>Los objetos están compuestos por uno o más elementos. Los elementos pueden ser caracteres alfabéticos y/o numéricos. En este curso, los elementos serán considerados datos.</p></li>
-<li><p>R guarda los objetos en la memoria activa del ordenador con un nombre especifico. Para ello, asignamos
-un valor a un objeto mediante el uso del operador <code>&lt;-</code>.</p></li>
-</ol>
-<p>Generemos un objeto de nombre Asignatura que contendrá las palabras <em>Metodos</em> y <em>estadisticos</em>. En el script de RStudio debemos escribir lo siguiente y luego presionar &lt;Ctrl + enter&gt;:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">Asignatura&lt;-<span class="kw">c</span>(<span class="st">&quot;Metodos&quot;</span>, <span class="st">&quot;estadisticos&quot;</span>)</a></code></pre></div>
-<p>Ahora escribamos <em>asignatura</em> y veamos que sucede. En tu script y consola debería aparecer lo siguiente:</p>
-<div class="figure" style="text-align: center"><span id="fig:rmark3"></span>
-<img src="imagenes/imagen3_asignatura.png" alt="Pantalla principal Rstudio" width="70%" />
-<p class="caption">
-Figure 2.1: Pantalla principal Rstudio
-</p>
-</div>
-<p>Es momento de felicitarnos a nosotros mismos, ya que acabamos de cometer uno de los errores más recurrentes y básicos que se cometen al trabajar en R. ¿Qué fue lo que sucedió?. R discrimina entre letras mayúsculas y minúsculas para el nombre de un objeto, por lo cual no es lo mismo escribir <em>asignatura</em> que <em>Asignatura</em>.</p>
-<p>Ahora escribamos <em>Asignatura</em> y veamos que sucede:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">Asignatura</a></code></pre></div>
-<pre><code>## [1] &quot;Metodos&quot;      &quot;estadisticos&quot;</code></pre>
-<p><strong>IMPORTANTE</strong>: Los datos de caracteres siempre deben estar encerrados entre comillas (<code>""</code>) y los datos son concatenados (combinados) utilizando el comando <code>c()</code></p>
-</div>
-</div>
-<div id="tipos-de-objetos" class="section level2">
-<h2><span class="header-section-number">2.2</span> Tipos de Objetos</h2>
-<p>En este curso nos ocuparemos de aquellos objetos que R utiliza para representar datos: valores, vectores, y dataframes.</p>
-<div id="objetos-de-valores-numericos" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Objetos de valores numéricos</h3>
-<p>El objeto mas simple que podemos crear es aquel con contiene solamente un numero real. Generaremos un objeto de nombre <code>x</code> con el valor <code>5</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">x&lt;-<span class="dv">5</span></a>
-<a class="sourceLine" id="cb4-2" title="2">x</a></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<p>R permite realizar un sin número de operaciones algebraicas con nuestros objetos. Dichos operaciones
-incluyen la adición (<code>+</code>), sustracción (<code>-</code>), multiplicación (<code>*</code>), división (<code>/</code>) y potenciación (<code>^</code>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># crear objeto a</span></a>
-<a class="sourceLine" id="cb6-2" title="2">a&lt;-<span class="dv">15</span></a>
-<a class="sourceLine" id="cb6-3" title="3">a</a></code></pre></div>
-<pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># crear objeto b</span></a>
-<a class="sourceLine" id="cb8-2" title="2">b&lt;-<span class="dv">2</span></a>
-<a class="sourceLine" id="cb8-3" title="3">b</a></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># sumar a + b</span></a>
-<a class="sourceLine" id="cb10-2" title="2">a<span class="op">+</span>b</a></code></pre></div>
-<pre><code>## [1] 17</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># restar b-a</span></a>
-<a class="sourceLine" id="cb12-2" title="2">b<span class="op">-</span>a</a></code></pre></div>
-<pre><code>## [1] -13</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># restar a - b</span></a>
-<a class="sourceLine" id="cb14-2" title="2">a<span class="op">-</span>b</a></code></pre></div>
-<pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># otras operaciones</span></a>
-<a class="sourceLine" id="cb16-2" title="2">(a<span class="op">+</span>b)<span class="op">/</span>a</a></code></pre></div>
-<pre><code>## [1] 1.133333</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">(a<span class="op">*</span>b)<span class="op">/</span>(b<span class="op">^</span>b)</a></code></pre></div>
-<pre><code>## [1] 7.5</code></pre>
-<p>Otras funciones matemáticas de importancia para nuestro curso son: la raíz cuadrada (<code>sqrt</code>), función
-exponencial (<code>exp</code>) y función logarítmica natural (<code>log</code>).</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co"># Raíz cuadrada</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># exponencial</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="kw">exp</span>(<span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## [1] 7.389056</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co"># logaritmo</span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="kw">log</span>(<span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## [1] 2.302585</code></pre>
-</div>
-<div id="vectores" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Vectores</h3>
-<p>Un vector representa una secuencia ordenada de elementos (datos) del mismo tipo. Es posible construir vectores de tipo numérico y caracteres. Para nuestros propósitos, los vectores podrán ser considerados como variables.</p>
-<p>Generaremos un vector de nombre <code>vector1</code> que contenga tres datos numéricos:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">vector1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb26-2" title="2">vector1</a></code></pre></div>
-<pre><code>## [1] 1 5 7</code></pre>
-<p>Ahora, generaremos un vector de nombre <code>vector2</code> que contenga tres caracteres:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">vector2&lt;-<span class="kw">c</span>(<span class="st">&quot;cerezo&quot;</span>,<span class="st">&quot;peral&quot;</span>,<span class="st">&quot;vid&quot;</span>) </a>
-<a class="sourceLine" id="cb28-2" title="2">vector2   </a></code></pre></div>
-<pre><code>## [1] &quot;cerezo&quot; &quot;peral&quot;  &quot;vid&quot;</code></pre>
-<p>Intentemos generar un vector de nombre vector3 a partir de los vectores creados:</p>
-<iframe src="DCL/intro_1.html" frameborder="0" scrolling="no" style="width:100%;height:360px">
-</iframe>
-<p><strong>IMPORTANTE</strong>: Los datos son concatenados (combinados) utilizando el comando <code>c()</code></p>
-<div id="funciones-para-generar-vectores" class="section level4">
-<h4><span class="header-section-number">2.2.2.1</span> Funciones para generar vectores</h4>
-<p>Las funciones <code>seq</code> y <code>rep</code> nos permiten crear patrones de elementos. <code>seq</code> Crea una secuencia de números equiespaciados. Dentro del comando <code>seq</code> el comienzo (<code>from</code>), el fin (<code>to</code>), el espacio entre dos números consecutivos (<code>by</code>) o la cantidad de números en la secuencia (<code>length</code>) pueden ser especificados.</p>
-<p>Por ejemplo:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span> <span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>, <span class="dt">by=</span><span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## [1] 2 4 6 8</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>,<span class="dt">length=</span><span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## [1] 2 5 8</code></pre>
-<p>Por otra parte, el comando <code>rep</code> repite un elemento (<code>x</code>) una cantidad determinada de veces (<code>times</code>) o hasta lograr una longitud especificada (<code>length.out</code>).</p>
-<p>Por ejemplo:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">rep</span> (<span class="dv">0</span>,<span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## [1] 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">rep</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## [1] 0 1 2 0 1 2 0 1 2</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">length.out=</span><span class="dv">7</span>)</a></code></pre></div>
-<pre><code>## [1] 1 2 1 2 1 2 1</code></pre>
-</div>
-</div>
-<div id="data-frames" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Data frames</h3>
-<p>Un <code>data.frame</code> es un tipo especial de objeto que permite organizar diferentes tipos de vectores
-(alfanuméricos). La estructura de un <code>data.frame</code> es muy similar a una hoja de datos, en donde la información
-se organiza en filas (observaciones de cada vector) y columnas (vector).</p>
-<p>El siguiente ejemplo nos muestra como crear un <code>data.frame</code> llamado <code>Notas</code> a partir de los datos obtenidos de una muestra a 8 alumnos, para cada una de las cuales se ha registrado su edad, género y nota obtenida en la primera prueba parcial del curso Métodos Estadísticos.</p>
-<p>Primero, debemos generar los 3 vectores (variables) que utilizaremos para crear nuestro <code>data.frame</code>:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">edad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</a>
-<a class="sourceLine" id="cb40-2" title="2">genero &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</a>
-<a class="sourceLine" id="cb40-3" title="3">nota&lt;-<span class="kw">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="fl">4.5</span>)</a></code></pre></div>
-<p>A continuación, generaremos el <code>data.frame</code> llamado <code>Notas</code>. Es importante tener presente que el lenguaje de R es bastante intuitivo, a tal punto que la función que permite generar un data.frame es <code>data.frame ()</code></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">Notas &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad,genero,nota)</a></code></pre></div>
-<p>Un fuerte aplauso para nosotros mismos, acabamos de generar nuestro primer <code>data.frame</code>. Para corroborar si
-lo hicimos bien, y al mismo tiempo ver su contenido, simplemente tenemos que llamarlo su nombre:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">Notas</a></code></pre></div>
-<pre><code>##   edad genero nota
-## 1   22      M  3.4
-## 2   21      F  6.0
-## 3   21      F  5.1
-## 4   25      M  4.5
-## 5   19      M  4.6
-## 6   22      F  6.1
-## 7   23      F  4.0
-## 8   24      M  4.5</code></pre>
-<p>En caso de que quisiéramos saber la estructura de nuestro data.frame, podemos utilizar la función:
-<code>str()</code></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">str</span>(Notas)</a></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    8 obs. of  3 variables:
-##  $ edad  : num  22 21 21 25 19 22 23 24
-##  $ genero: Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 1 2 2 1 1 2
-##  $ nota  : num  3.4 6 5.1 4.5 4.6 6.1 4 4.5</code></pre>
-<p>R nos acaba de confirmar que Notas es un data.frame de tres variables con 8 observaciones cada una. R
-también nos informa además de que dos variables son numéricas y la tercera, el genero, es un factor con dos
-valores, “F” y “M”.</p>
-<p>En caso de que quisiéramos que R nos entregue el nombre de las variables contenidas en el Notas podemos
-utilizar la función <code>names()</code>:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">names</span>(Notas)</a></code></pre></div>
-<pre><code>## [1] &quot;edad&quot;   &quot;genero&quot; &quot;nota&quot;</code></pre>
-</div>
-<div id="valores-perdidos" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> Valores Perdidos</h3>
-<p>En algunos casos los elementos que componen un objeto son desconocidos. En estos casos, debemos
-especificar que el elemento desconocido se encuentra “not available” (<code>NA</code>) , entonces a esa observación le
-asignamos el valor especial <code>NA</code>. Es importante tener presente que una operación con elementos <code>NA</code> resulta
-<code>NA</code>, ya que por defecto R no incluyen la especificación que omite o remueve las observaciones faltantes.
-Para estar seguros de esto, podemos generar un nuevo <code>data.frame</code> llamado <code>Notas1</code> a partir de los datos
-obtenidos de una muestra a 8 alumnos.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">edad1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</a>
-<a class="sourceLine" id="cb48-2" title="2">genero1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</a>
-<a class="sourceLine" id="cb48-3" title="3">nota1&lt;-<span class="kw">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb48-4" title="4">Notas1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad1,genero1,nota1)</a></code></pre></div>
-<p>Apliquemos una operación básica a la información contenida en Notas1. Podemos estimar la nota promedio
-de los 8 alumnos, para ello utilizaremos la función <code>mean()</code>, la cual exploraremos más adelante en nuestro
-curso:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">mean</span>(Notas1<span class="op">$</span>nota1)</a></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<p>Lo que obtuvimos como resultado fue <code>NA</code>. Esto se debe a que no le especificamos a R que debe omitir los
-NAs en nuestro data.frame. Una forma de solucionar este problema es utilizar la operación <code>na.rm=TRUE</code>, la
-cual especifica que la operación se efectué con los datos válidos excluyendo los NAs:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">mean</span>(Notas1<span class="op">$</span>nota1, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## [1] 4.814286</code></pre>
-<p>Magia! Con una simple orden acabamos de solucionar un simple pero doloroso problema.</p>
+<div id="estadistica-inferencial-regresion-lineal-y-correlacion" class="section level1">
+<h1><span class="header-section-number">Capitulo 8</span> Estadística inferencial: Regresión lineal y correlación</h1>
+<p>Antes de comenzar con este práctico es importante tomarnos un tiempo para recordar que la estadística comienza con un problema, continúa con la toma de datos, sigue con la inspección y visualización de los datos y termina con el análisis de los mismos. Esto nos permitirá sacar conclusiones fundamentadas sobre nuestro problema inicial.</p>
+<p>En el presente curso hemos establecido una receta de trabajo al momento de realizar inferencias estadísticas:</p>
+<ul>
+<li><p><strong>Paso 1: Graficar nuestros datos.</strong> El objetivo es evaluar posibles tendencias en nuestros datos.</p></li>
+<li><p><strong>Paso 2: Definir la hipótesis que queremos poner a prueba.</strong> Debemos establecer la hipótesis nula y la(s) alternativa(s).</p></li>
+<li><p><strong>Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</strong>El modelo estará determinado por nuestras variables (importante diferenciar entre variables continuas y categóricas).</p></li>
+<li><p><strong>Paso 4: Evaluar los supuestos del modelo.</strong> Es relevante para saber si podemos (o no) utilizar métodos paramétricos.</p></li>
+<li><p><strong>Paso 5: Interpretar los resultados del modelo.</strong> Debemos evaluar el valor de probabilidad asociado a la prueba estadística.</p></li>
+</ul>
+<div id="modelos-lineales-generales" class="section level2">
+<h2><span class="header-section-number">8.1</span> Modelos Lineales generales</h2>
+<p>En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.</p>
+<p>Los modelos lineales generales describen una variable respuesta (<span class="math inline">\(y\)</span>) en términos de todos sus factores contribuyentes (<span class="math inline">\(xβ\)</span>) en una combinación lineal, mientras que también incorpora el aporte de error (<span class="math inline">\(e\)</span>).</p>
+<p><span class="math display" id="eq:ecuacion1">\[\begin{equation} 
+  Y  = β_{0} + β_{1}X_{1} + e 
+  \tag{8.1}
+\end{equation}\]</span></p>
+<p>Esta clase de modelos estadísticos incluye la regresión lineal, regresión múltiple, ANOVA y ANCOVA.</p>
+<p>En R, todos los análisis univariados (una variable respuesta) de este tipo se ajustan utilizando una única función <code>lm()</code>.</p>
+<p>El análisis de regresión lineal se usa para explicar o modelar la relación entre una variable continua <code>Y</code>, llamada variable respuesta o variable dependiente, y una variable continua <code>X~1~</code>, llamada variable explicativa o independiente. Cuando hay más de una variable continua explicativa (X<sub>1</sub>, X<sub>2</sub>,… X<sub>p</sub>) el análisis se denomina <strong>regresión múltiple</strong>.</p>
+<p>Si la variable explicativa es categórica en vez de continua, entonces el análisis a realizar es un <strong>ANOVA</strong> (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina <strong>análisis de varianza de 2-vías</strong>. Es fácil imaginar como se llamará el análisis en caso de tener 3 o más variables categóricas explicativas, ¿no?.</p>
+<p>Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de <strong>covarianza</strong> o <strong>ANCOVA</strong>.</p>
+<div id="correlacion-producto-momento-de-pearson" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Correlación producto-momento de Pearson</h3>
+<p>Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La correlación producto-momento de Pearson (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).</p>
+<p>El coeficiente de correlación de Pearson (r) es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.</p>
+<p>Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.</p>
+<p>Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente (H<sub>0</sub>) o entonces, de forma alternativa, de forma conjunta (H<sub>1</sub>).</p>
+<p>Recuerden importar la nueva base de datos data.csv!</p>
+<p>Trabajaremos con la superficie de territorio plantada con Vid y con Olivo. Recordemos que nunca debemos comenzar un análisis estadístico con una prueba estadística, siempre debemos comenzar con una figura de nuestros datos!!!</p>
 
 </div>
 </div>
@@ -402,8 +264,8 @@ cual especifica que la operación se efectué con los datos válidos excluyendo 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lectura-y-manipulacion-de-datos-en-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estadistica-inferencial-chi-cuadrado.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

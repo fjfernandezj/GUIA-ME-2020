@@ -40,3 +40,16 @@
 \contentsline {section}{\numberline {6.4}Homocedasticidad}{68}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Método visual: boxplot}{68}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Pruebas estadísticas: Prueba de Levene}{69}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}Estadística inferencial: Chi-cuadrado}{71}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Prueba de chi-cuadrado (X\textsuperscript {2})}{71}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Prueba de X\textsuperscript {2} en R}{72}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Manos a la obra}{72}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Paso 0. Graficar los datos}{74}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Expresar la pregunta o hipótesis de investigación como una hipótesis estadística}{77}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Elegir la prueba estadística de acuerdo a la hipótesis estadística y el tipo de datos}{78}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Elegir nivel de significancia (\(\alpha \)) de la prueba para rechazar H\textsubscript {0}}{78}{subsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.3.5}Paso 4. Calcular el estadistico y la probabilidad de la prueba estadística}{78}{subsection.7.3.5}%
+\contentsline {subsection}{\numberline {7.3.6}Paso 5. Interpretar los resultados de la prueba estadística}{79}{subsection.7.3.6}%
+\contentsline {chapter}{\numberline {8}Estadística inferencial: Regresión lineal y correlación}{81}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Modelos Lineales generales}{82}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Correlación producto-momento de Pearson}{82}{subsection.8.1.1}%

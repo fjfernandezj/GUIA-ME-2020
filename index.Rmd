@@ -1,7 +1,7 @@
 --- 
 title: "Guía de Métodos Estadísticos 2020"
-author: "Pablo Cortes; Francisco Fernández"
-date: "`r Sys.Date()`"
+author: ["Pablo Cortes", "Francisco Fernández"]    
+date: "`r Sys.Date()`"  
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -11,7 +11,13 @@ github-repo: fjfernandezj/GUIA-ME-2020
 description: "Guía de Laboratorio para Métodos Estadísticos"
 ---
 
+::: {.infobox .caution data-latex="{caution}"}
+La presente Guía está en una etapa **muy temprana** de desarrollo. Si bien, está disponible para quien la necesite (alumnos o profesores de otras instituciones), es importante que tengan en cuenta lo indicado. Si tienen alguna sugerencia o comentario recuerden que esta Guía está en "Open Review". Queremos sus comentarios o sugerencias para que esta sea mejor para usted y para otros estudiantes. Adicionalmente, si tiene alguna sugerencia sobre lo que debería incluirse, por favor ponganse en contacto a través de [GitHub](https://github.com/fjfernandezj/GUIA-ME-2020/issues/new).
+:::
+
+
 # Bienvenidos {-}
+
 La presente Guía tiene el objetivo de proporcionar a los estudiantes de **Métodos Estadísiticos (SILB 1513)** de la [**Escuela de Agronomía de la Universidad Mayor**](https://www.umayor.cl/um/carreras/agronomia-santiago/10000) una herramienta para el desarrollo de los laboratorios de la asignatura durante todo el semestre de este año. A través de esta guía tendrán acceso completo a toda la materia que veremos durante el semestre y adicionalmente podrán poner en práctica todo lo que acá veamos.
 
  

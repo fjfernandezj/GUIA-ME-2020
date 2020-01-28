@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: subsection
       before: |
-        <li><a href="./">Guía SILB 1513</a></li>
+        <li><center><img src="imagenes/umayor.png" alt="umayor" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 bookdown::pdf_book:
