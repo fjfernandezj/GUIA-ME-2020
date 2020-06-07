@@ -1,27 +1,131 @@
-# Estadística inferencial: Chi-cuadrado
+# Prueba de chi-cuadrado ($\chi^2$)
+La prueba de $\chi^2$ es una de las técnicas estadísticas más utilizadas en la evaluación de datos de conteo o frecuencias, principalmente en los análisis de tablas de contingencia (f x c) donde se resumen **datos categóricos**.
 
-Es momento de comenzar a analizar la información contenida en nuestra muestra y así poder inferir propiedades poblacionales.
+Existen dos tareas principales en las que podemos utilizar una prueba de Chi-cuadrado: Una prueba de bondad de ajuste (para una variable categórica) y una prueba de independencia (2 variables categóricas).
 
-En el práctico anterior aprendimos que en estadística inferencial existen dos grandes familias de pruebas estadísticas, las pruebas paramétricas y las no paramétricas. En este  práctico trabajaremos con una prueba de tipo no paramétrica llamada Prueba de chi-cuadrado (X^2^)
+Es importante tener en cuenta que para utilizar una distribución $\chi^2$ como una aproximación teórica de distribucion, necesitamos chequear la condición de que cada uno de los conteos esperados sea al menos 5 
 
+## Prueba de bondad de ajuste
+Esta variante de $\chi^2$ permite determinar qué tan bien una muestra de datos categóricos se ajusta a una distribución teórica ($\chi^2$).
 
-## Prueba de chi-cuadrado (X^2^)
+Para ilustrar el uso del test de ($\chi^2$) consideremos el siguiente ejemplo:
 
-La prueba de _X^2^_ es una de las técnicas estadísticas más utilizadas en la evaluación de datos de conteo o frecuencias, principalmente en los análisis de tablas de contingencia (f x c) donde se resumen datos categóricos.
-
-* **1. Prueba de bondad de ajuste de _X^2^_**
-
-Esta variante de _X^2^_ permite determinar qué tan bien una muestra de datos categóricos se ajusta a una distribución teórica.
-
-* **2. Prueba de independencia de _X^2^_**
-
-Esta variante de _X^2^_ permite determinar si el valor observado de una variable depende del valor observado de otra variable. Dicho de otro modo, se evalúa la existencia de **independencia** entre las categorías de las dos variables.
-
-Los conteos o frecuencias de ambas variables se representan en una tabla bidimensional (filas x columnas), conocida como tabla de contingencia. Cada fila y cada columna corresponden a una submuestra particular.
+### Creemos nuestros datos
+Supongamos que deseamos probar el modelo de que los nacimientos masculinos y femeninos son igualmente probables para una raza particular de una especie y que una muestra aleatoria de nacimientos da como resultado 32 machos y 41 hembras. 
 
 
+```r
+# Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology
+sexo_nacimientos <- c(rep("Macho", 32), rep("Hembra", 41)) 
+muestra <- seq(1:73)
 
-## Prueba de X^2^ en R
+data_1 <- data.frame(muestra, sexo_nacimientos)
+```
+
+
+```r
+head(data_1)
+```
+
+```
+##   muestra sexo_nacimientos
+## 1       1            Macho
+## 2       2            Macho
+## 3       3            Macho
+## 4       4            Macho
+## 5       5            Macho
+## 6       6            Macho
+```
+
+```r
+tail(data_1)
+```
+
+```
+##    muestra sexo_nacimientos
+## 68      68           Hembra
+## 69      69           Hembra
+## 70      70           Hembra
+## 71      71           Hembra
+## 72      72           Hembra
+## 73      73           Hembra
+```
+
+### Analicemos nuestros datos
+
+Empecemos por ver un resumen de nuestros datos 
+
+
+```r
+library(tidyverse)
+```
+
+```
+## -- Attaching packages ------------------------------------------------------------------------------------------------------------------------------------ tidyverse 1.2.1 --
+```
+
+```
+## v ggplot2 3.3.1     v purrr   0.3.4
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.6.3
+```
+
+```
+## Warning: package 'tidyr' was built under R version 3.6.3
+```
+
+```
+## Warning: package 'purrr' was built under R version 3.6.3
+```
+
+```
+## -- Conflicts --------------------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+tabla <- data_1 %>% 
+  group_by(sexo_nacimientos) %>% 
+  summarise(n=n()) %>% 
+  mutate(proporcion = n/sum(n))
+
+tabla
+```
+
+```
+## # A tibble: 2 x 3
+##   sexo_nacimientos     n proporcion
+##   <fct>            <int>      <dbl>
+## 1 Hembra              41      0.562
+## 2 Macho               32      0.438
+```
+
+También podemos graficar nuestros datos para tener una idea visual de nuestra muestra. Para esto podemos aplicar la función barplot() para generar un grafico con las frecuencias de las categorías de la variable. Ya que la función barplot() no muestra directamente las frecuencias de una variable categórica. Es necesario calcular previamente dichas frecuencias, para lo cual usaremos la función table()
+
+
+```r
+barplot(table(data_1$sexo_nacimientos))
+```
+
+<img src="07-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+
+### Expresar la hipótesis de investigación 
+Para este ejemplo vamos a considerar la variable `sexo_nacimientos` de nuestra base de datos que creamos anteriormente (`data`). De estos 73 nacimientos, esperaríamos que la mitad fueran machos y la otra mitad hembras. Por lo tanto, para esto nos gustaría estudiar la siguiente hipotesis:
+
+$$
+H_0: p_{\text{Hembra}} = 0.5, p_{\text{Macho}} = 0.5\\
+H_a: \text{Las proporciones son diferentes}
+$$
+
+### Calculemos $\chi^2$ y el p-value
+
 En R, la función `chisq.test` permite realizar pruebas de bondad de ajuste y de independencia de dos variables categóricas.
 
 * `chisq.test(x, y = NULL)` 
@@ -48,12 +152,43 @@ Además, es posible extraer la siguiente información a partir del modelo genera
 
 * `$residuals` Los residuos del modelo. Se calculan como (observado - esperado) / sqrt (esperado).
 
-## Manos a la obra
-
-Llegó el momento de aplicar lo aprendido. Primero, revisemos el tipo de variables contenidas en nuestra base de datos data. Recordemos que la función `str()` nos permite visualizar la estructura interna de un objeto en R. Otra función de diagnostico alternativa a `str()` es `summary()`.
+Para probar si se cumple estadísticamente nuestras hipotesis usaremos la función `chisq.test`. Para este caso recuerden que debemos utilizar el conteo de cada categoría (Hembra y Macho).
 
 
- 
+```r
+res_ajuste <- chisq.test(tabla$n, p = c(0.5,0.5))
+res_ajuste
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  tabla$n
+## X-squared = 1.1096, df = 1, p-value = 0.2922
+```
+
+Nuestra prueba estadística fue de 1.1096, con 1 grado de libertad y con un p-value de 0.29222
+
+### Conclusión del test
+
+Ya que nuestro valor de probabilidad (`p-value`) es mayor a 0.05 no se rechaza la hipotesis nula. Por lo tanto, encontramos que los datos de nuestro modelo no proporcionan evidencia estadísticamente significativa para rechazar la hipotesis nula de que los nacimientos masculinos y femeninos son igualmente probables. 
+
+## Prueba de Independencia
+Esta variante de $\chi^2$ permite determinar si el valor observado de una variable depende del valor observado de otra variable. Dicho de otro modo, se evalúa la relación entre dos variables categóricas.
+
+Para esto consideremos los datos de siempre.
+
+### Cargar nuestros datos
+Recuerden que necesitaremos cargar nuestros datos `dataset.csv`. Recuerden que podemos hacer esto a través del comando `read.csv` 
+
+
+```r
+data <- read.csv("./datos/dataset.csv")
+```
+
+Primero, revisemos el tipo de variables contenidas en nuestra base de datos data. Recordemos que la función `str()` nos permite visualizar la estructura interna de un objeto en R. Otra función de diagnostico alternativa a `str()` es `summary()`.
+
 
 ```r
 str(data)
@@ -72,51 +207,64 @@ str(data)
 ##  $ mano_de_obra : int  3080 2728 3120 3135 3276 2966 2725 2874 2785 3193 ...
 ```
 
-La función `str()` nos muestra que nuestra base de datos posee tres diferentes variables categóricas (Factor) (Revisar práctico 3 para las definiciones de variables en R). 
+```r
+summary(data)
+```
 
-Detengan todo… algo no está bien. De acuerdo a `str()`, data solamente contiene nueve variables. Sin embargo, el diseño experimental original contemplaba la medición de doce variables. Las tres variables faltantes derivaban de una encuesta que se les hizo a los trabajadores en cada uno de los sitios de muestreo. 
+```
+##       Cultivo             Region   Variedad   Hectareas     
+##  Arandanos:120   BioBio      :30   V1:60    Min.   : 998.9  
+##                  La_Araucania:30   V2:60    1st Qu.:1477.7  
+##                  Maule       :30            Median :1797.0  
+##                  Ohiggins    :30            Mean   :2090.7  
+##                                             3rd Qu.:2352.7  
+##                                             Max.   :3788.0  
+##   Temperatura       costo_jh      rendimiento   Perdida_plaga  
+##  Min.   :10.00   Min.   :11893   Min.   :4166   Min.   :24.70  
+##  1st Qu.:12.50   1st Qu.:11997   1st Qu.:4765   1st Qu.:32.95  
+##  Median :13.75   Median :12490   Median :5457   Median :34.60  
+##  Mean   :13.74   Mean   :12500   Mean   :5617   Mean   :34.66  
+##  3rd Qu.:15.10   3rd Qu.:13002   3rd Qu.:6285   3rd Qu.:37.30  
+##  Max.   :17.40   Max.   :13121   Max.   :7247   Max.   :42.80  
+##   mano_de_obra 
+##  Min.   :2609  
+##  1st Qu.:3092  
+##  Median :3312  
+##  Mean   :3384  
+##  3rd Qu.:3645  
+##  Max.   :4274
+```
+
+#### Agreguemos nuevas variables
+Agreguemos a nuestra base de datos la medición de 2 nuevas variables derivadas de una encuesta que se les hizo a los trabajadores en cada uno de los sitios de muestreo.
 
 A ellos se les hicieron las siguientes preguntas:
 
-a) Durante los últimos seis meses ¿Usted ha aplicado algún tipo de herbicida de forma manual?
+a. Durante los últimos seis meses ¿Usted ha aplicado algún tipo de herbicida de forma manual?
 
-b) Durante el mismo periodo de tiempo ¿Usted ha experimentado algún problema de salud?
+b. Durante el mismo periodo de tiempo ¿Usted ha experimentado algún problema de salud?
 
-c) ¿Cuál es su equipo de fútbol favorito?
-
-Para solucionar el problema, tendremos que agregar las tres variables a data. Primero debemos generar tres objetos en R y luego los agregamos como columnas a data.
-
-a) Variable uso de herbicida por parte del trabajador
+Los resultados de la encuesta fueron los siguientes:
 
 
 ```r
+#¿Ha aplicado algún herbicida de forma manual?
 data$Uso_herbicida<-rep(c("SI","SI","SI","SI","NO","NO"),20)
-```
 
- 
-b) Variable estado de salud del trabajador
-
-
-```r
+# ¿Usted ha experimentado algún problema de salud?
 data$Estado_salud<-rep(c("Enfermo","Enfermo","Sano"),40)
 ```
 
-c) Variable equipo de futbol favorito
+Revisemos nuestra nueva base de datos
 
 
 ```r
-data$Equipo<-rep(c("UC","UC","UdeChile","UdeChile","UdeChile","Colo-Colo","Colo-Colo","Colo-Colo","Colo-Colo","Colo-Colo"),12) 
-```
-
-¿Funcionó?...revisemos:
-
-
-```r
+# Utilice str()
 str(data)
 ```
 
 ```
-## 'data.frame':	120 obs. of  12 variables:
+## 'data.frame':	120 obs. of  11 variables:
 ##  $ Cultivo      : Factor w/ 1 level "Arandanos": 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Region       : Factor w/ 4 levels "BioBio","La_Araucania",..: 4 4 4 4 4 4 4 4 4 4 ...
 ##  $ Variedad     : Factor w/ 2 levels "V1","V2": 1 1 1 1 1 1 1 1 1 1 ...
@@ -128,98 +276,70 @@ str(data)
 ##  $ mano_de_obra : int  3080 2728 3120 3135 3276 2966 2725 2874 2785 3193 ...
 ##  $ Uso_herbicida: chr  "SI" "SI" "SI" "SI" ...
 ##  $ Estado_salud : chr  "Enfermo" "Enfermo" "Sano" "Enfermo" ...
-##  $ Equipo       : chr  "UC" "UC" "UdeChile" "UdeChile" ...
 ```
 
-Fantástico!!!... acabamos de agregar tres nuevas variables categóricas a nuestra base de datos. Ahora, llegó el momento de hacer nuestra primera prueba de _X^2^_. Para ello, consideremos las variables uso de herbicida y estado de salud del trabajador. 
+### Analicemos nuestros datos
+Estamos interesado en el bienestar de los trabajadores y nos preguntamos si el estado de salud de los trabajadores está asociado con la manipulación de herbicidas durante la jornada laboral. Para contestar esta pregunta, el investigador decide evaluar estadísticamente la (in)dependencia entre ambas variables. ¿Cómo lo hará?
 
-Hagamos volar nuestra imaginación. Es posible que un investigador esté interesado en el bienestar de los trabajadores y se pregunte si el estado de salud de los trabajadores está asociado con la manipulación de herbicidas durante la jornada laboral. Para contestar esta pregunta, el investigador decide evaluar estadísticamente la (in)dependencia entre ambas variables.  ¿Cómo lo hará?
+Antes de realizar cualquier prueba estadística, es de extrema importancia analizar nuestros datos. Esto nos permitirá entender y evaluar la información contenida en nuestras variables.
 
-### Paso 0. Graficar los datos
-Siempre, antes de realizar cualquier prueba estadística, es de extrema importancia realizar un gráfico. Esto nos permitirá entender y evaluar la información contenida en nuestras variables. 
-
-Una forma de representar gráficamente una variable categórica es mediante el uso de barras. En R, la función `barplot()`  nos permite visualizar la distribución o frecuencia de cada una de las categorías de una variable categórica.
-
-* `barplot(height, space = NULL, horiz = FALSE)`
-
-
-* `height` Es un vector numérico o una matriz que describe las barras que forman el gráfico. El gráfico consistirá en una  secuencia de barras rectangulares con alturas dadas por los valores en el vector o matriz. 
-
-* `space` Es la cantidad de espacio (como una fracción del ancho promedio de la barra) que queda antes de cada barra. Se puede asignar un solo número para todas las barras o se puede especificar para cada barra.
-
-* `horiz` Es un valor lógico. Si es `FALSE`, las barras se dibujan verticalmente con la primera barra a la izquierda. Si es `TRUE`, las barras se dibujan horizontalmente con la primera barra en la parte inferior.
-
-Por ejemplo, podemos aplicar la función `barplot()` para generar un grafico con las frecuencias de las categorías de la variable estado de salud. Ya que la función `barplot()` no muestra directamente las frecuencias de una variable categórica. Es necesario calcular previamente dichas frecuencias, para lo cual usaremos la función `table()` : 
+Empecemos por ver un resumen de nuestros datos 
 
 
 ```r
-barplot(table(data$Estado_salud))
+tabla_ind <- data %>% 
+  group_by(Uso_herbicida,Estado_salud) %>% 
+  summarise(n=n()) %>% 
+  spread(Estado_salud,n)
+
+tabla_ind
 ```
 
-![](07-lab_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+```
+## # A tibble: 2 x 3
+## # Groups:   Uso_herbicida [2]
+##   Uso_herbicida Enfermo  Sano
+##   <chr>           <int> <int>
+## 1 NO                 20    20
+## 2 SI                 60    20
+```
 
-Recuerden que para mejorar el aspecto de este gráfico podemos utilizar los parámetros `xlab()`, `ylab()`, `col()`, `name()`, entre muchos otros.
 
-Ahora, intentemos graficar las dos variables categóricas de interés al mismo tiempo. Recordemos que `barplot()`  funciona tanto para vectores como matrices.  Para que R sepa que es una matriz, en height   incluiremos una tabla de contingencia con nuestras dos variables de interés:
+Otra forma de análisis es a través de un gráfico. Una forma de representar gráficamente una variable categórica es mediante el uso de barras. En R, la función barplot() nos permite visualizar la distribución o frecuencia de cada una de las categorías de una variable categórica.
+
+Esta vez realicemos un gráfico a través de ggplot
+
+```r
+# Para graficar necesitaremos reordenar nuestros datos 
+ggplot(data, aes(x=Estado_salud, fill=Uso_herbicida)) + 
+  geom_bar()
+```
+
+<img src="07-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+### Expresar la hipótesis de investigación 
+El siguiente paso contempla expresar la pregunta o hipótesis de investigación en al menos dos hipótesis estadísticas contrastantes:  nuestra hipótesis nula $H_0$ y nuestra hipótesis alternativa $H_A$. 
+
+Para evaluar estadísticamente la relación entre ambas variables, podemos establecer el siguiente par de hipótesis:
+
+
+$$
+H_0: \text{No hay relación entre las variables Uso de Herbicida y Estado de Salud}\\
+H_a: \text{Hay relación entre las variables}
+$$
+
+El objetivo es testear la veracidad de la $H_0$. Para poner a prueba la $H_0$, es necesario realizar una prueba estadística.
+
+### Calculemos $\chi^2$ y el p-value
+
+Las diferentes pruebas de hipótesis utilizan diferentes estadísticos de prueba según la distribución de probabilidad asumida en la $H_0$. En el caso de la prueba de independencia de $\chi^2$ , el estadístico de la prueba se llamará estadístico de $\chi^2$.
+
+Calculemos el estadístico de $\chi^2$ y el `p-valor` para una prueba de independencia de utilizando las variables categóricas estado de salud y uso de herbicida:
 
 
 ```r
-barplot(table(data$Uso_herbicida,data$Estado_salud))
-```
-
-![](07-lab_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
-
-Fantástico!, lo logramos!!!. Sin embargo, en su estado actual el gráfico es poco informativo ¿no?. Lo que podemos hacer es modificar algunos parámetros gráficos para mejorar la calidad del gráfico.
-
-
-```r
-barplot(table(data$Uso_herbicida,data$Estado_salud),
-        ylab="Frecuencia",
-        col=c("red","blue"),
-        legend.text=c("No","Si"))
-```
-
-![](07-lab_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
-
-A partir del gráfico que hemos hecho ¿Es posible hacer inferencias sobre la relación entre las variables estado de salud  y la variable uso de herbicida? ¿Cuales?
-
-### Expresar la pregunta o hipótesis de investigación como una hipótesis estadística
-
-El siguiente paso contempla expresar la pregunta o hipótesis de investigación en al menos dos hipótesis estadísticas contrastantes llamadas hipótesis nula (H~0~) e hipótesis alternativa (H~A~). En algunos casos, es posible establecer más de una hipótesis alternativa. Recordemos además que la H~0~ nunca se considera verdadera, aunque si puede ser rechazada por los datos.
-
-Para evaluar estadísticamente la (in)dependencia entre ambas variables, podemos establecer el siguiente par de hipótesis:
- 
-* H~O~:  Las variables `X` e `Y` son independientes. No existen diferencias en el estado de salud respecto del uso de herbicidas
-
-* H~A~:  Las variables `X` e `Y` no son independientes. Si existen diferencias en el estado de salud respecto del uso de herbicidas
-
-El objetivo es testear la veracidad de la H~O~. Para poner a prueba la H~O~, es necesario realizar una prueba estadística.
-
-### Elegir la prueba estadística de acuerdo a la hipótesis estadística y el tipo de datos
-
-En líneas generales, las pruebas estadísticas representan un instrumento para validar o rechazar las hipótesis estadísticas. Si nuestro objetivo es poner a prueba una H~O~ de independencia entre dos variables categóricas, la prueba de independencia de _X^2^_ es nuestra  mejor opción.
-
-### Elegir nivel de significancia ($\alpha$) de la prueba para rechazar H~0~ 
-
-En estadística, el nivel de significación de una prueba representa la probabilidad de tomar la decisión de rechazar la hipótesis nula cuando ésta es verdadera (error tipo I). Por convención, 0.05, 0.01 y 0.001 son los niveles de significancia más utilizados. Por ejemplo un nivel de significación de 0.05 indica un riesgo del 5% de concluir que existe una diferencia cuando no hay una diferencia real. En este curso utilizaremos $\alpha=0.05$ como nivel de significancia.
-
-Por otro lado, el valor de probabilidad de la prueba estadística (`p-valor`) es la probabilidad de obtener un efecto al menos tan extremo como el de los datos de la muestra, asumiendo la veracidad de la hipótesis nula.
-
-Cuando realizamos un contraste de hipótesis, es posible rechazar la H~0~ cuando el `p-valor` es menor a $α$. En aquellos casos en los cuales nuestros datos nos permitan rechazar H~0~, hablamos de un resultado estadísticamente significativo. 
-
-
-### Paso 4. Calcular el estadistico y la probabilidad de la prueba estadística 
-
-Una vez elegida la prueba estadística y el nivel de significancia, podemos pedirle a R que realice las estimaciones del estadístico de la prueba y el `p-valor`. Es importante mencionar que tanto el estadístico de la prueba como el `p-valor` dependerán de nuestros datos. El valor observado puede variar aleatoriamente entre  diferentes muestras aleatorias. 
-
-Las diferentes pruebas de hipótesis utilizan diferentes estadísticos de prueba según la distribución de probabilidad asumida en la H~0~. En el caso de la prueba de independencia de _X^2^_ , el estadístico de la prueba se llamará… wait for it… estadístico de _X^2^_.
-
-Calculemos el estadístico de _X^2^_ y el `p-valor` para una prueba de independencia de _X^2^_ utilizando las variables categóricas estado de salud  y uso de herbicida:
-
-
-```r
-chtest <- chisq.test(data$Uso_herbicida,data$Estado_salud)
-chtest
+res_ind <- chisq.test(data$Uso_herbicida, data$Estado_salud)
+res_ind
 ```
 
 ```
@@ -229,18 +349,7 @@ chtest
 ## data:  data$Uso_herbicida and data$Estado_salud
 ## X-squared = 6.4172, df = 1, p-value = 0.0113
 ```
+Nuestro estadistico $\chi^2$ es igual a 6.4172, nuestros grados de libertad son 1 y el valor de probabilidad es de 0.0113 
 
-R nos acaba de entregar valiosa información para tomar la decisión de rechazar (o no) nuestra hipótesis de independencia entre las variables categóricas estado de salud y uso de herbicida:
-
-* `X-squared` = 6.4171875 Es el estadístico de la prueba 
-
-* `df` = 1 Grados de libertad
-
-* `p-value` = 0.0113021 p-valor
-
-
-### Paso 5. Interpretar los resultados de la prueba estadística
-
-Los resultados de la prueba realizada muestran que el `p-valor` es menor a 0.05. Entonces, tenemos suficiente evidencia para rechazar la hipótesis nula de independencia entre las variables estudiadas. La forma correcta de reportar los resultados de nuestro análisis es la siguiente:
-
-Nuestro análisis nos permite concluir que la proporción de trabajadores enfermos fue significativamente mayor en trabajadores que manipularon herbicidas durante la jornada laboral en comparación a aquellos trabajadores que no manipularon herbicidas (X^2^ ~(1)~ = 6.4171875, p< 0.05). 
+### Conclusion del test
+Se rechaza la hipotesis nula. Por lo tanto, tenemos evidencia para sugerir que hay relación entre las variables Uso de Herbicida y Estado de Salud

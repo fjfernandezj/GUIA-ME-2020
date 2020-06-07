@@ -33,7 +33,7 @@ tail(data_1)
 Empecemos por ver un resumen de nuestros datos 
 
 ```{r}
-summary(data_1)
+library(tidyverse)
 
 tabla <- data_1 %>% 
   group_by(sexo_nacimientos) %>% 
@@ -199,7 +199,6 @@ Calculemos el estadístico de $\chi^2$ y el `p-valor` para una prueba de indepen
 res_ind <- chisq.test(data$Uso_herbicida, data$Estado_salud)
 res_ind
 
-chis
 
 ```
 Nuestro estadistico $\chi^2$ es igual a 6.4172, nuestros grados de libertad son 1 y el valor de probabilidad es de 0.0113 
