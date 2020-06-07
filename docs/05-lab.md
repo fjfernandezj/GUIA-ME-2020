@@ -363,7 +363,7 @@ Ahora, utilizaremos el primero de los objetos creados para graficar el promedio 
 GRAFICO<- barplot(promedio_temp, ylim=c(0,20), xlab="Region", ylab="Temperatura ambiental",col=c("indianred","red3","red4","orangered"), main= "promedio y desviacion estandar")
 ```
 
-<img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](05-lab_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
 
 
 Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico: 
@@ -375,6 +375,6 @@ arrows(GRAFICO, promedio_temp + desvest_temp, GRAFICO, promedio_temp - desvest_t
        angle = 90, code = 1, length = 0.1, col = c("indianred","red3","red4","orangered"))
 ```
 
-<img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](05-lab_files/figure-epub3/unnamed-chunk-27-1.png)<!-- -->
 
 

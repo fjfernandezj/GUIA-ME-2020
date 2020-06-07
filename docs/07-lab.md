@@ -156,7 +156,7 @@ Por ejemplo, podemos aplicar la función `barplot()` para generar un grafico con
 barplot(table(data$Estado_salud))
 ```
 
-<img src="07-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](07-lab_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 Recuerden que para mejorar el aspecto de este gráfico podemos utilizar los parámetros `xlab()`, `ylab()`, `col()`, `name()`, entre muchos otros.
 
@@ -167,7 +167,7 @@ Ahora, intentemos graficar las dos variables categóricas de interés al mismo t
 barplot(table(data$Uso_herbicida,data$Estado_salud))
 ```
 
-<img src="07-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](07-lab_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
 Fantástico!, lo logramos!!!. Sin embargo, en su estado actual el gráfico es poco informativo ¿no?. Lo que podemos hacer es modificar algunos parámetros gráficos para mejorar la calidad del gráfico.
 
@@ -179,7 +179,7 @@ barplot(table(data$Uso_herbicida,data$Estado_salud),
         legend.text=c("No","Si"))
 ```
 
-<img src="07-lab_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](07-lab_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 A partir del gráfico que hemos hecho ¿Es posible hacer inferencias sobre la relación entre las variables estado de salud  y la variable uso de herbicida? ¿Cuales?
 

@@ -24,7 +24,7 @@ data <- read.csv("./datos/dataset.csv")
 plot(data$Temperatura, data$rendimiento)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-1-1.png)<!-- -->
 
 Felicitaciones, acaban de generar el primero de muchos gráficos que aprenderán en este curso. Sin embargo,
 la tarea no está completa. Como podemos apreciar, el gráfico que nos entregó R es bastante "rústico".
@@ -49,7 +49,7 @@ cex.lab=1.2,
 cex.axis=1.1)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
 
 A simple vista, son múltiples los parámetros gráficos que hemos cambiado. A continuación, se detalla la
 lista de los parámetros utilizados y sus definiciones:
@@ -102,7 +102,7 @@ cex.lab=1.0,
 cex.axis=1.0)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
 Fantástico! Tenemos ambos scatterplot graficados al mismo tiempo, uno al lado del otro. Ahora bien, en
 caso de que quisiéramos que estén un scatterplot sobre el otro, ¿¿como lo harían??
@@ -122,7 +122,7 @@ Generemos un gráfico de cajas para la información contenida en la variable ren
 boxplot(data$rendimiento)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
 
 Ahora, generemos el diagrama para la información contenida en la variable rendimiento según la región en la
 cual se realizó el muestreo (grupo de variable):
@@ -132,7 +132,7 @@ cual se realizó el muestreo (grupo de variable):
 boxplot(data$rendimiento ~ data$Region)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
 En caso de que quisiéramos enchular nuestro gráfico de cajas con dos variables, solamente debemos
 modificar los parámetros gráficos:
@@ -153,7 +153,7 @@ cex.lab=1.0,
 cex.axis=1.0)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
 
 
 ## Histogramas
@@ -178,7 +178,7 @@ Generemos un histograma de frecuencias para la información contenida en la vari
 hist(data$rendimiento)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 Al igual que los gráficos anteriores, R nos permite modificar parámetros gráficos de los histograma de
 frecuencia. Por ejemplo, podemos especificar el número de intervalos en las cuales queremos que se agrupen
@@ -192,7 +192,7 @@ esté agrupada solamente en 4 intervalos:
 hist(data$rendimiento,breaks=4)
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
 Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocasiones, estaremos más
 interesados en la densidad (probabilidad relativa de un dato) que en la frecuencia de nuestros datos. En lugar
@@ -238,9 +238,12 @@ Freq=FALSE)
 ## Warning in axis(2, ...): "Freq" is not a graphical parameter
 ```
 
-<img src="04-lab_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](04-lab_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 ## Ejercicios para la casa
+
+<iframe src="DCL/intro_2.html" frameborder="0" scrolling="no" style="width:100%;height:360px"></iframe>
+
 1. Generar un gráfico que permita visualizar la relación entre las variables Temperatura y rendimiento.
 El gráfico debe contener solamente los datos obtenidos de las regiones del Maule y Araucanía.
 
