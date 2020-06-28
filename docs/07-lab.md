@@ -113,7 +113,7 @@ También podemos graficar nuestros datos para tener una idea visual de nuestra m
 barplot(table(data_1$sexo_nacimientos))
 ```
 
-![](07-lab_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="07-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
 ### Expresar la hipótesis de investigación 
@@ -315,7 +315,7 @@ ggplot(data, aes(x=Estado_salud, fill=Uso_herbicida)) +
   geom_bar()
 ```
 
-![](07-lab_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="07-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ### Expresar la hipótesis de investigación 
 El siguiente paso contempla expresar la pregunta o hipótesis de investigación en al menos dos hipótesis estadísticas contrastantes:  nuestra hipótesis nula $H_0$ y nuestra hipótesis alternativa $H_A$. 

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitulo 6 Estadística inferencial: Pruebas estadísticas | Guía de Métodos Estadísticos 2020</title>
+  <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitulo 6 Estadística inferencial: Pruebas estadísticas | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitulo 6 Estadística inferencial: Pruebas estadísticas | Guía de Métodos Estadísticos 2020" />
+  
+  <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  
+
+<meta name="author" content="Pablo Cortes" />
+<meta name="author" content="Francisco Fernández" />
+
+
+<meta name="date" content="2020-06-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"/>
+<link rel="next" href="prueba-de-chi-cuadrado-chi2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css\box.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><img src="imagenes/umayor.png" alt="umayor" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
+<li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
+<li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
+<li class="chapter" data-level="3.3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-a-r"><i class="fa fa-check"></i><b>3.3</b> Exploremos los datos a R</a></li>
+<li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
+<li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
+<li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
+<li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
+<li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
+<li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
+<li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
+<li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
+<li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
+<li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
+<li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
+<li class="chapter" data-level="7.2.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value-1"><i class="fa fa-check"></i><b>7.2.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
+<li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="8.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>8.1</b> Modelos Lineales generales</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>8.1.1</b> Correlación producto-momento de Pearson</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía de Métodos Estadísticos 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estadística-inferencial-pruebas-estadísticas" class="section level1">
+<h1><span class="header-section-number">Capitulo 6</span> Estadística inferencial: Pruebas estadísticas</h1>
+<p>La Estadística inferencial es la rama de la Estadística que comprende los métodos empleados para deducir propiedades (hacer inferencias) de una población, a partir de una pequeña parte de la misma (muestra). También permite comparar muestras de diferentes poblaciones. Generalmente comprende las pruebas de estimación (puntual o por intervalos de confianza), y las pruebas de hipótesis.</p>
+<p>En estadística inferencial existen dos grandes familias de pruebas estadísticas, las pruebas paramétricas y las no paramétricas.</p>
+<div id="pruebas-paramétricas." class="section level2">
+<h2><span class="header-section-number">6.1</span> Pruebas paramétricas.</h2>
+<p>Asumen que las muestras provienen de una población con una distribución conocida (generalmente distribución normal).</p>
+<p>Para utilizar estas pruebas estadísticas, se deben cumplir algunas condiciones o supuestos:</p>
+<p><strong>a. Normalidad</strong></p>
+<p>Las pruebas paramétricas suponen que los datos se extraen de poblaciones que siguen una distribución normal. Es decir, los datos se distribuyen normalmente una vez que se tienen en cuenta los efectos de las variables en el modelo. En la práctica, esto significa que los residuos del análisis deberían distribuirse normalmente.</p>
+<p><strong>b. Homogeneidad (homocedasticdad) de varianzas</strong></p>
+<p>Las pruebas paramétricas consideran que la varianza es constante (no varía) en los diferentes grupos (niveles) de una variable (factor). Homoscedasticidad significa “tener la misma dispersión”. Lo contrario es la heterocedasticidad (“dispersión diferente”). Datos atípicos modifican la varianza.</p>
+<p><strong>c. Independencia</strong></p>
+<p>Los datos deben ser independientes unos de otros.</p>
+</div>
+<div id="pruebas-no-paramétricas" class="section level2">
+<h2><span class="header-section-number">6.2</span> Pruebas no-paramétricas</h2>
+<p>Las pruebas no paramétricas no asumen una distribución a priori y generalmente utilizan rangos en las estimaciones. Estas pruebas tienden a ser menos potentes que la prueba paramétrica correspondiente cuando se cumple el supuesto de normalidad. Por lo tanto, es menos probable que usted rechace la hipótesis nula cuando sea falsa si los datos provienen de la distribución normal.</p>
+<p>En el presente laboratorio evaluaremos si las variables incluidas en nuestra base de datos cumplen con los supuestos de normalidad y homocedasticidad. Ambos supuestos pueden ser evaluados mediante una inspección visual o mediante un contraste de hipótesis (pruebas estadísticas).</p>
+</div>
+<div id="normalidad" class="section level2">
+<h2><span class="header-section-number">6.3</span> Normalidad</h2>
+<div id="método-visual-histograma-de-frecuencia" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Método visual: histograma de frecuencia</h3>
+<p>Graficar un histograma de la variable de interés nos dará una idea de la forma de la distribución que siguen nuestros datos. Recordemos que la distribución normal alcanza su punto máximo en el medio y es simétrica respecto del media. No es necesario que los datos se distribuyan de manera perfectamente normal para que las pruebas sean confiables.</p>
+<p>Evaluemos visualmente si los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo se distribuyen de forma normal:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>mano_de_obra)</a></code></pre></div>
+<p><img src="06-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>A simple vista podemos establecer que los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo siguen una distribución normal. Este tipo de aproximación es útil como herramienta exploratoria. Sin embargo, el análisis visual es subjetivo porque dependemos de la interpretación personal de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contraste de hipótesis.</p>
+</div>
+<div id="pruebas-estadísticas-prueba-de-shapiro-wilk" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Pruebas estadísticas: prueba de Shapiro-Wilk</h3>
+<p>En estadística, la prueba de Shapiro–Wilk permite para contrastar la normalidad de un conjunto de datos. Se pondrán a prueba las siguientes hipótesis:</p>
+<ul>
+<li><p>Hipótesis nula (H~0) = Los datos provienen de una distribución normal</p></li>
+<li><p>Hipótesis alternativa (H~a) = Los datos <strong>NO</strong> provienen de una distribución normal</p></li>
+</ul>
+<p>Recuerden que el <strong><em>p-value</em></strong> asociado al análisis nos permitirá rechazar (<span class="math inline">\(p &lt; 0.05\)</span>) o no (<span class="math inline">\(p &gt; 0.05\)</span>) nuestra hipótesis nula o de igualdad. Entonces, si el valor de probabilidad es mayor a 0.05, no rechazamos la hipótesis nula y asumimos que los datos provienen de una distribución normal.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1">stest &lt;-<span class="kw">shapiro.test</span>(data<span class="op">$</span>mano_de_obra)</a>
+<a class="sourceLine" id="cb151-2" title="2">stest</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  data$mano_de_obra
+## W = 0.96107, p-value = 0.001544</code></pre>
+<p>El valor de probabilidad asociado a nuestro análisis (0.0015442. es decir <span class="math inline">\(p&lt;0.05\)</span>) sugiere que los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo <strong>No</strong> siguen una distribución normal. ¿qué podemos hacer? Bueno, existen dos opciones:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Podemos transformar nuestra variable y volver a aplicar los métodos para comprobar normalidad. Las transformaciones más comunes incluyen aplicar logaritmo o estimar la raíz cuadrada de la variable.</p></li>
+<li><p>Utilizar pruebas no-paramétricas.</p></li>
+</ol>
+</div>
+</div>
+<div id="homocedasticidad" class="section level2">
+<h2><span class="header-section-number">6.4</span> Homocedasticidad</h2>
+<div id="método-visual-boxplot" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Método visual: boxplot</h3>
+<p>Visualizar un gráfico de cajas de la variable de interés nos dará una idea de la dispersión de los datos en torno a una medida de tendencia central. Para ello podemos considerar el tamaño de los bigotes de nuestro gráfico de cajas.</p>
+<p>Evaluemos visualmente si los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha presentan varianzas similares dependiendo de la región en las cual trabajan:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>mano_de_obra<span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region)</a></code></pre></div>
+<p><img src="06-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Nuestro análisis visual muestra que los datos del número de personas contratadas para realizar las labores según la región presentan niveles similares de dispersión entorno a la mediana para todas las regiones evaluadas. Sin embargo, pequeñas diferencias se observan en las regiones de O’Higgins y La Araucanía.</p>
+<p>Otra opción es comparar directamente los valores de las varianza entre los grupos de interés. Para ello utilizaremos la función <code>tapply</code>:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>mano_de_obra, data<span class="op">$</span>Region, var)</a></code></pre></div>
+<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
+##     29011.08     34126.69     38013.66     37485.26</code></pre>
+<p>Los valores muestran que la varianza es relativamente similar solamente en tres de las cuatro regiones comparadas. Para evaluar de mejor forma la posible igualdad de varianzas entre las cuatro regiones, podemos realizar una prueba estadística basada en contraste de hipótesis.</p>
+</div>
+<div id="pruebas-estadísticas-prueba-de-levene" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Pruebas estadísticas: Prueba de Levene</h3>
+<p>En estadística, la prueba de Levene permite evaluar la igualdad de las varianzas (homocedasticidad) para una variable calculada para dos o más grupos. Se pondrán a prueba las siguientes hipótesis:</p>
+<ul>
+<li><p>Hipótesis nula (H0) = Las varianzas poblacionales de los grupos son iguales.</p></li>
+<li><p>Hipótesis alternativa (HA) = Las varianzas poblacionales de los grupos <strong>NO</strong> son iguales.</p></li>
+</ul>
+<p>Recuerden que el p-value asociado al análisis nos permitirá rechazar (<span class="math inline">\(p &lt; 0.05\)</span>) o no (<span class="math inline">\(p &gt; 0.05\)</span>) nuestra hipótesis nula. Si el p-value resultante de la prueba de Levene es inferior a 0.05 es poco probable que las diferencias obtenidas en las variaciones de la muestra se hayan producido sobre la base de un muestreo aleatorio de una población con varianzas iguales. Por lo tanto, la hipótesis nula de igualdad de varianzas se rechaza y se concluye que hay una diferencia entre las variaciones en la población.</p>
+<p>La función <code>leveneTest</code> es parte de la librería <code>car</code>. Es por ello que necesitamos instalar y cargar esta librería antes de hacer el análisis.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">library</span>(car)</a></code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1">ltest &lt;-<span class="st"> </span><span class="kw">leveneTest</span>(data<span class="op">$</span>mano_de_obra<span class="op">~</span>data<span class="op">$</span>Region)</a>
+<a class="sourceLine" id="cb158-2" title="2">ltest</a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   3  0.3247 0.8075
+##       116</code></pre>
+<p>El valor de probabilidad (<span class="math inline">\(p &gt; 0.05\)</span>) asociado a nuestro análisis sugiere que las varianzas del número de personas contratadas para realizar las labores son estadísticamente similares para las muestras de la cuatro regiones analizadas.</p>
+<p>Dado que la variable analizada no cumple con el supuesto de normalidad, no podemos aplicar métodos estadísticos paramétricos sobre ella.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prueba-de-chi-cuadrado-chi2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["guia_me.pdf", "guia_me.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

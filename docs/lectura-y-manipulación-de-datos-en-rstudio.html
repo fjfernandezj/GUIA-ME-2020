@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitulo 3 Lectura y manipulación de datos en RStudio | Guía de Métodos Estadísticos 2020</title>
+  <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitulo 3 Lectura y manipulación de datos en RStudio | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitulo 3 Lectura y manipulación de datos en RStudio | Guía de Métodos Estadísticos 2020" />
+  
+  <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
+  
+
+<meta name="author" content="Pablo Cortes" />
+<meta name="author" content="Francisco Fernández" />
+
+
+<meta name="date" content="2020-06-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tipos-de-datos-en-r.html"/>
+<link rel="next" href="visualización-de-datos-en-rstudio.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css\box.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><img src="imagenes/umayor.png" alt="umayor" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
+<li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
+<li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
+<li class="chapter" data-level="3.3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-a-r"><i class="fa fa-check"></i><b>3.3</b> Exploremos los datos a R</a></li>
+<li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
+<li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
+<li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
+<li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
+<li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
+<li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
+<li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
+<li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
+<li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
+<li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
+<li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
+<li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
+<li class="chapter" data-level="7.2.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value-1"><i class="fa fa-check"></i><b>7.2.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
+<li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="8.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>8.1</b> Modelos Lineales generales</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>8.1.1</b> Correlación producto-momento de Pearson</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía de Métodos Estadísticos 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lectura-y-manipulación-de-datos-en-rstudio" class="section level1">
+<h1><span class="header-section-number">Capitulo 3</span> Lectura y manipulación de datos en RStudio</h1>
+<p>Hoy en día la información generada a partir del mundo natural se multiplica minuto a minuto. Desde un punto de vista académico y/o profesional, la correcta toma de decisiones demandará la recolección y manejo de grandes cantidades de datos, los cuales nos permitirán describir y determinar propiedades del mundo natural.</p>
+<p>Una base de datos se puede definir como un conjunto de información perteneciente a un mismo contexto y almacenada sistemáticamente para su posterior uso. Cada base de datos se compone de una tablas que guarda un conjunto de datos. Cada tabla tiene una o más columnas y filas.</p>
+<p>En este laboratorio comenzaremos a trabajar con bases de datos. Para ello abordaremos cuatro tópicos centrales:</p>
+<ol style="list-style-type: decimal">
+<li>La preparación de los datos para poder trabajarlos en R,</li>
+<li>La importación de una base de datos a R,</li>
+<li>La edición de los datos contenidos en la base de datos,</li>
+<li>La exploración de la información contenida en nuestra base de datos.</li>
+</ol>
+<div id="preparemos-los-datos-para-r" class="section level2">
+<h2><span class="header-section-number">3.1</span> Preparemos los datos para R</h2>
+<p>Al mencionar que trabajaremos con base de datos, inmediatamente surge el desafío de como podemos ingresar nuestra información a R. Lo primero que debemos tener presente es que a R “le encantan” las bases de datos que tienen cada observación en una fila y que en cada columna incorpora una variable. Por ejemplo, si tenemos una base de datos con la altura y género de los alumnos del curso “métodos estadísticos” de la escuela de Agronomía, esta se vería de la siguiente manera en excel:</p>
+<div class="figure" style="text-align: center"><span id="fig:rmark4"></span>
+<img src="imagenes/fig4_basedatos.png" alt="Ejemplo de base de datos en excel" width="40%" />
+<p class="caption">
+Figure 3.1: Ejemplo de base de datos en excel
+</p>
+</div>
+<p>Si creáramaos esta misma base de datos en Rstudio deberíamos hacer lo siguiente:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">genero &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Mujer&quot;</span>,<span class="st">&quot;Mujer&quot;</span>)</a>
+<a class="sourceLine" id="cb53-2" title="2">altura&lt;-<span class="kw">c</span>(<span class="fl">1.75</span>,<span class="fl">1.68</span>,<span class="fl">1.82</span>,<span class="fl">1.71</span>,<span class="fl">1.62</span>,<span class="fl">1.61</span>,<span class="fl">1.55</span>,<span class="fl">1.53</span>,<span class="fl">1.66</span>,<span class="fl">1.58</span>)</a>
+<a class="sourceLine" id="cb53-3" title="3">base_de_datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(genero,altura)</a></code></pre></div>
+<p>¿Cuáles son las dimensiones de esta base de datos?. La tabla tiene una dimensión de 10x2. Esto quiere decir que está compuesta de diez filas y dos columnas.</p>
+<p><strong>IMPORTANTE:</strong></p>
+<ul>
+<li><p>Las filas contienen nuestras observaciones.</p></li>
+<li><p>Las columnas contienen nuestras variables.</p></li>
+<li><p>R reconoce puntos (“.”) y no comas (“,”) como separador de decimales.</p></li>
+<li><p>Revisar que nuestra base de datos no contenga filas en blanco (sin valores). Cuando eso ocurra se recomienda rellenar el espacio con las letras <code>NA</code> (“Not available”).</p></li>
+</ul>
+<div id="qué-formato-de-archivos-reconoce-r" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> ¿Qué formato de archivos reconoce R?</h3>
+<p>R es muy versátil para reconocer y leer múltiples formatos de archivo. Los archivos de texto plano, tales
+como TXT o CSV, son la opción más sencilla para importar datos desde hojas de cálculo. Por ejemplo, Excel
+permite guardar archivos .txt (texto delimitado por tabulaciones) o .csv (texto delimitados por comas). En
+este curso los alentamos a utilizar el formato CSV. Una ventaja de este tipo de representación es que los
+datos se pueden visualizar/editar con un editor de texto. CSV representa la información en forma de tabla
+donde las columnas se delimitan con un carácter (por defecto, con coma)* y las filas con saltos de línea.</p>
+</div>
+</div>
+<div id="importemos-los-datos-a-r" class="section level2">
+<h2><span class="header-section-number">3.2</span> Importemos los datos a R</h2>
+<p>Para importar los datos, necesitamos especificar a R la localización (ruta) de los datos en el computador. El
+problema es que la ruta de los archivos generalmente son muy largas y difícil de memorizar. Además, si se
+equivocan al escribirla, R no la reconocerá. Es por ello que es preferible que RStudio haga ese difícil trabajo.</p>
+<p>A lo largo de nuestro curso, el método que utilizaremos para importar la base de datos se basará en la
+herramienta Import dataset. Rstudio proporciona una función de importación a través de la pestaña Import
+dataset en la parte superior derecha.</p>
+<div class="figure" style="text-align: center"><span id="fig:rmark5"></span>
+<img src="imagenes/fig5_imp_datos.png" alt="Importación de datos desde Rstudio" width="80%" />
+<p class="caption">
+Figure 3.2: Importación de datos desde Rstudio
+</p>
+</div>
+<p>Esta función nos permitirá buscar el archivo de datos, seleccionarlo y finalmente para poder cargar la base de
+datos en R. Al seleccionar la opción From Text (base), podemos navegar en nuestro computador para
+encontrar nuestro archivo con la base de datos. Una vez lo seleccionamos, solamente debemos hacer clic en
+el botón Open para que la magia se haga realidad.</p>
+<ul>
+<li>Para aprender sobre otros métodos de importación de datos les sugerimos visitar el siguiente <a href="https://thepracticalr.wordpress.com/2016/09/23/importing-data-into-r/">link</a></li>
+</ul>
+<p>Una vez seleccionado el archivo, se abrirá una ventana que entrega una vista preliminar del archivo
+seleccionado. En la parte superior izquierda, podrán observar la opción name, la cual nos permite asignar un
+nombre a nuestra base de datos (¿Recuerdan el comando <code>&lt;-</code>?). En este caso, nuestra base de datos recibirá
+el nombre <code>data</code>. Lo único que resta por hacer es darle la orden a R para que importe la base de datos. Esto lo
+lo podemos hacer habiendo clic en el botón <code>Import</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:rmark6"></span>
+<img src="imagenes/fig5_import.png" alt="Paso final para Importación de datos" width="80%" />
+<p class="caption">
+Figure 3.3: Paso final para Importación de datos
+</p>
+</div>
+<p>La base de datos que trabajaremos a lo largo del curso contiene nueve diferentes variables:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Cultivo</strong>: Proporciona el cultivo sobre el cuales realizaron las observaciones.</p></li>
+<li><p><strong>Region</strong>: Hace referencia a la división territorial de Chile en donde se realizó el muestreo.</p></li>
+<li><p><strong>Variedad</strong>: Indica las diferentes variedades del cultivo que fueron estudiadas.</p></li>
+<li><p><strong>Hectareas</strong>: Proporciona la superficie plantada con el cultivo (hectáreas).</p></li>
+<li><p><strong>Temperatura</strong>: Indica el valor de temperatura ambiental promedio anual para cada sitio de muestreo.</p></li>
+<li><p><strong>costo_jh</strong>: Indica el valor pagado por jornada hombre (pesos chilenos).</p></li>
+<li><p><strong>rendimiento</strong>: Proporciona el rendimiento del cultivo en cada sitio de muestreo (toneladas/hectárea).</p></li>
+<li><p><strong>Perdida_plaga</strong>: Indica las perdidas en rendimiento causadas por la presencia de insectos plaga (porcentaje).</p></li>
+<li><p><strong>mano_de_obra</strong>: Proporciona el número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo.</p></li>
+</ol>
+<p><strong>Importante:</strong></p>
+<ul>
+<li>La base de datos acá presentada es una base de datos ficticia creada sólo con fines académicos</li>
+</ul>
+</div>
+<div id="exploremos-los-datos-a-r" class="section level2">
+<h2><span class="header-section-number">3.3</span> Exploremos los datos a R</h2>
+<p>Al importar nuestro archivo, lo que buscamos es analizar incluso graficar la información contenida en la
+base de datos. Sin embargo, antes de eso existe un paso sensible y crítico que jamás debemos olvidar. Es
+importante asegurarnos que importamos correctamente nuestros datos!</p>
+<p>La función <code>str()</code> nos mostrará el tipo de datos contenido en nuestra base de datos y enumerará cada variable
+de columna junto con su tipo de datos.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1"><span class="kw">str</span>(data)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    120 obs. of  9 variables:
+##  $ Cultivo      : Factor w/ 1 level &quot;Arandanos&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Region       : Factor w/ 4 levels &quot;BioBio&quot;,&quot;La_Araucania&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
+##  $ Variedad     : Factor w/ 2 levels &quot;V1&quot;,&quot;V2&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Hectareas    : num  1030 999 1118 1007 1078 ...
+##  $ Temperatura  : num  16.8 16.9 15 15.7 15.1 15.9 16.1 15.6 17.4 14.7 ...
+##  $ costo_jh     : int  13059 13026 12933 13027 13045 12949 13002 12968 12978 13056 ...
+##  $ rendimiento  : num  6866 7122 7041 6892 6928 ...
+##  $ Perdida_plaga: num  35.1 34.3 31.7 40.5 35.6 33 38.1 37.9 34.8 34.4 ...
+##  $ mano_de_obra : int  3080 2728 3120 3135 3276 2966 2725 2874 2785 3193 ...</code></pre>
+<p>Como podemos ver, nuestra base contiene variables con diferentes tipos de datos.</p>
+<p>La función <code>summary()</code> nos proporciona para cada variable un conjunto de estadísticas descriptivas, según el tipo de variable:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">summary</span>(data)</a></code></pre></div>
+<pre><code>##       Cultivo             Region   Variedad   Hectareas     
+##  Arandanos:120   BioBio      :30   V1:60    Min.   : 998.9  
+##                  La_Araucania:30   V2:60    1st Qu.:1477.7  
+##                  Maule       :30            Median :1797.0  
+##                  Ohiggins    :30            Mean   :2090.7  
+##                                             3rd Qu.:2352.7  
+##                                             Max.   :3788.0  
+##   Temperatura       costo_jh      rendimiento   Perdida_plaga  
+##  Min.   :10.00   Min.   :11893   Min.   :4166   Min.   :24.70  
+##  1st Qu.:12.50   1st Qu.:11997   1st Qu.:4765   1st Qu.:32.95  
+##  Median :13.75   Median :12490   Median :5457   Median :34.60  
+##  Mean   :13.74   Mean   :12500   Mean   :5617   Mean   :34.66  
+##  3rd Qu.:15.10   3rd Qu.:13002   3rd Qu.:6285   3rd Qu.:37.30  
+##  Max.   :17.40   Max.   :13121   Max.   :7247   Max.   :42.80  
+##   mano_de_obra 
+##  Min.   :2609  
+##  1st Qu.:3092  
+##  Median :3312  
+##  Mean   :3384  
+##  3rd Qu.:3645  
+##  Max.   :4274</code></pre>
+<ol style="list-style-type: decimal">
+<li><p><strong>Variables numéricas:</strong> <code>summary()</code> proporciona el rango, los cuartiles, la mediana y la media.</p></li>
+<li><p><strong>Variables factoriales:</strong> <code>summary()</code> proporciona una tabla con frecuencias.</p></li>
+<li><p><strong>Variables numéricas y factoriales:</strong> <code>summary()</code>, en caso de que existan, nos entregará información sobre el número de valores faltantes (<code>NAs</code>).</p></li>
+<li><p><strong>Variables de caracteres:</strong> <code>summary()</code> solo proporciona la longitud de la variable.</p></li>
+</ol>
+<p>La función <code>head()</code> nos entregará las primeras filas de nuestra base de datos. Por defecto serán las primeras 6:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">head</span>(data)</a></code></pre></div>
+<pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1 Arandanos Ohiggins       V1    1029.9        16.8    13059      6866.5
+## 2 Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
+## 3 Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
+## 4 Arandanos Ohiggins       V1    1007.2        15.7    13027      6891.5
+## 5 Arandanos Ohiggins       V1    1077.6        15.1    13045      6927.7
+## 6 Arandanos Ohiggins       V1    1091.3        15.9    12949      6900.4
+##   Perdida_plaga mano_de_obra
+## 1          35.1         3080
+## 2          34.3         2728
+## 3          31.7         3120
+## 4          40.5         3135
+## 5          35.6         3276
+## 6          33.0         2966</code></pre>
+<p>En caso de que quisiéramos ampliar el número de filas:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw">head</span>(data, <span class="dv">10</span>)</a></code></pre></div>
+<pre><code>##      Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1  Arandanos Ohiggins       V1    1029.9        16.8    13059      6866.5
+## 2  Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
+## 3  Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
+## 4  Arandanos Ohiggins       V1    1007.2        15.7    13027      6891.5
+## 5  Arandanos Ohiggins       V1    1077.6        15.1    13045      6927.7
+## 6  Arandanos Ohiggins       V1    1091.3        15.9    12949      6900.4
+## 7  Arandanos Ohiggins       V1    1188.9        16.1    13002      6943.9
+## 8  Arandanos Ohiggins       V1    1111.6        15.6    12968      6885.7
+## 9  Arandanos Ohiggins       V1    1028.8        17.4    12978      6724.3
+## 10 Arandanos Ohiggins       V1    1124.2        14.7    13056      6920.4
+##    Perdida_plaga mano_de_obra
+## 1           35.1         3080
+## 2           34.3         2728
+## 3           31.7         3120
+## 4           40.5         3135
+## 5           35.6         3276
+## 6           33.0         2966
+## 7           38.1         2725
+## 8           37.9         2874
+## 9           34.8         2785
+## 10          34.4         3193</code></pre>
+<p>Por otro lado, la función <code>tail()</code> nos entregará las últimas filas de nuestra base de datos. Por defecto serán
+las últimas 6:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">tail</span>(data)</a></code></pre></div>
+<pre><code>##       Cultivo       Region Variedad Hectareas Temperatura costo_jh
+## 115 Arandanos La_Araucania       V2    1857.6        11.1    11974
+## 116 Arandanos La_Araucania       V2    1862.7        11.6    11960
+## 117 Arandanos La_Araucania       V2    1894.5        10.6    12023
+## 118 Arandanos La_Araucania       V2    1873.5        11.1    11971
+## 119 Arandanos La_Araucania       V2    1915.4        11.5    12065
+## 120 Arandanos La_Araucania       V2    1932.1        13.5    12084
+##     rendimiento Perdida_plaga mano_de_obra
+## 115      4591.7          33.2         3439
+## 116      4689.4          38.1         3566
+## 117      4400.5          24.7         3552
+## 118      4380.6          37.6         3449
+## 119      4424.1          35.1         3550
+## 120      4331.0          38.3         3162</code></pre>
+<p>La función <code>names()</code> nos entregará el nombre de las variables (columnas) contenidas en nuestra base de
+datos:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw">names</span>(data)</a></code></pre></div>
+<pre><code>## [1] &quot;Cultivo&quot;       &quot;Region&quot;        &quot;Variedad&quot;      &quot;Hectareas&quot;    
+## [5] &quot;Temperatura&quot;   &quot;costo_jh&quot;      &quot;rendimiento&quot;   &quot;Perdida_plaga&quot;
+## [9] &quot;mano_de_obra&quot;</code></pre>
+<p>En caso de que quisiéramos conocer las dimensiones (número de columnas y filas) de nuestra base de datos,
+podemos utilizar la función <code>dim()</code>:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">dim</span>(data)</a></code></pre></div>
+<pre><code>## [1] 120   9</code></pre>
+<p><strong>Tips:</strong></p>
+<p>Mucho de lo anteriormente visto lo podemos transformar en tablas mucho más amigables con la función <code>ktable</code> del paquete <code>knitr</code>. Por ejemplo la siguiente Tabla se obtuvo mediante el siguiente código:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">knitr<span class="op">::</span><span class="kw">kable</span>(</a>
+<a class="sourceLine" id="cb68-2" title="2">  <span class="kw">head</span>(data), </a>
+<a class="sourceLine" id="cb68-3" title="3">  <span class="dt">caption =</span> <span class="st">&quot;Ejemplo de Tabla de Datos con ktable&quot;</span>)</a></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 3.1: </span>Ejemplo de Tabla de Datos con ktable</caption>
+<thead>
+<tr class="header">
+<th align="left">Cultivo</th>
+<th align="left">Region</th>
+<th align="left">Variedad</th>
+<th align="right">Hectareas</th>
+<th align="right">Temperatura</th>
+<th align="right">costo_jh</th>
+<th align="right">rendimiento</th>
+<th align="right">Perdida_plaga</th>
+<th align="right">mano_de_obra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1029.9</td>
+<td align="right">16.8</td>
+<td align="right">13059</td>
+<td align="right">6866.5</td>
+<td align="right">35.1</td>
+<td align="right">3080</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">998.9</td>
+<td align="right">16.9</td>
+<td align="right">13026</td>
+<td align="right">7122.1</td>
+<td align="right">34.3</td>
+<td align="right">2728</td>
+</tr>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1117.8</td>
+<td align="right">15.0</td>
+<td align="right">12933</td>
+<td align="right">7041.2</td>
+<td align="right">31.7</td>
+<td align="right">3120</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1007.2</td>
+<td align="right">15.7</td>
+<td align="right">13027</td>
+<td align="right">6891.5</td>
+<td align="right">40.5</td>
+<td align="right">3135</td>
+</tr>
+<tr class="odd">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1077.6</td>
+<td align="right">15.1</td>
+<td align="right">13045</td>
+<td align="right">6927.7</td>
+<td align="right">35.6</td>
+<td align="right">3276</td>
+</tr>
+<tr class="even">
+<td align="left">Arandanos</td>
+<td align="left">Ohiggins</td>
+<td align="left">V1</td>
+<td align="right">1091.3</td>
+<td align="right">15.9</td>
+<td align="right">12949</td>
+<td align="right">6900.4</td>
+<td align="right">33.0</td>
+<td align="right">2966</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exploremos-los-datos-r-con-la-libreria-dplyr" class="section level2">
+<h2><span class="header-section-number">3.4</span> Exploremos los datos R con la libreria dplyr</h2>
+<p>Una de las grandes ventajas de R es la ampliación de sus funcionalidades básicas mediante paquetes
+(packages) o librerías. Las librerías de R se pueden instalar de múltiples formas. En RStudio, lo haremos de
+siguiendo una serie de sencillos pasos.</p>
+<p>Debemos hacer clic en la pestaña package ubicada en el panel inferior derecho. Al hacer clic en esta pestaña,
+aparecerá una pequeña ventana con tres campos principales: Install from, packages, and Install to Library.
+Solo necesitamos preocuparnos por el campo packages, los otros dos los dejaremos en su valor
+predeterminado.</p>
+<div class="figure" style="text-align: center"><span id="fig:rmark7"></span>
+<img src="imagenes/fig7_dplyr.png" alt="Instalación de paquete dplyr" width="80%" />
+<p class="caption">
+Figure 3.4: Instalación de paquete dplyr
+</p>
+</div>
+<p>Ahora, al escribir las primeras letras del nombre de una librería (en este caso <code>dplyr</code>), Rstudio proporcionará
+una lista de librerías disponibles que coincidan con esta palabra. Después de encontrar la librería, todo lo
+que tenemos que hacer es hacer clic en el botón Install y dejar que Rstudio trabaje.</p>
+<div class="figure" style="text-align: center"><span id="fig:rmark8"></span>
+<img src="imagenes/fig8_dplyr.png" alt="Instalación de paquete dplyr (2do paso)" width="80%" />
+<p class="caption">
+Figure 3.5: Instalación de paquete dplyr (2do paso)
+</p>
+</div>
+<p>A pesar de estar instalada, a menos que lo especifiquemos, R no cargará la librería en la consola. Entonces,
+debemos “llamar” a la librería que acabamos de instalar con el comando <code>library(dplyr)</code>.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<p>La librería dplyr incluye un conjunto de comandos que coinciden con las acciones más comunes que se
+realizan sobre un conjunto de datos (seleccionar filas <code>filter</code>, seleccionar columnas <code>select</code>, resumir mediante
+alguna medida numérica <code>summarise</code>, entre muchas otras). Para mayor información sobre la librería dplyr
+puedes acceder al siguiente <a href="https://rpubs.com/joser/dplyr">link</a>.</p>
+<p>La función <code>select()</code> selecciona columnas de nuestra base:</p>
+<p>Intentemos seleccionar la columna Region en la base de datos llamada data</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">select</span>(data, Region)</a></code></pre></div>
+<pre><code>##           Region
+## 1       Ohiggins
+## 2       Ohiggins
+## 3       Ohiggins
+## 4       Ohiggins
+## 5       Ohiggins
+## 6       Ohiggins
+## 7       Ohiggins
+## 8       Ohiggins
+## 9       Ohiggins
+## 10      Ohiggins
+## 11      Ohiggins
+## 12      Ohiggins
+## 13      Ohiggins
+## 14      Ohiggins
+## 15      Ohiggins
+## 16      Ohiggins
+## 17      Ohiggins
+## 18      Ohiggins
+## 19      Ohiggins
+## 20      Ohiggins
+## 21      Ohiggins
+## 22      Ohiggins
+## 23      Ohiggins
+## 24      Ohiggins
+## 25      Ohiggins
+## 26      Ohiggins
+## 27      Ohiggins
+## 28      Ohiggins
+## 29      Ohiggins
+## 30      Ohiggins
+## 31         Maule
+## 32         Maule
+## 33         Maule
+## 34         Maule
+## 35         Maule
+## 36         Maule
+## 37         Maule
+## 38         Maule
+## 39         Maule
+## 40         Maule
+## 41         Maule
+## 42         Maule
+## 43         Maule
+## 44         Maule
+## 45         Maule
+## 46         Maule
+## 47         Maule
+## 48         Maule
+## 49         Maule
+## 50         Maule
+## 51         Maule
+## 52         Maule
+## 53         Maule
+## 54         Maule
+## 55         Maule
+## 56         Maule
+## 57         Maule
+## 58         Maule
+## 59         Maule
+## 60         Maule
+## 61        BioBio
+## 62        BioBio
+## 63        BioBio
+## 64        BioBio
+## 65        BioBio
+## 66        BioBio
+## 67        BioBio
+## 68        BioBio
+## 69        BioBio
+## 70        BioBio
+## 71        BioBio
+## 72        BioBio
+## 73        BioBio
+## 74        BioBio
+## 75        BioBio
+## 76        BioBio
+## 77        BioBio
+## 78        BioBio
+## 79        BioBio
+## 80        BioBio
+## 81        BioBio
+## 82        BioBio
+## 83        BioBio
+## 84        BioBio
+## 85        BioBio
+## 86        BioBio
+## 87        BioBio
+## 88        BioBio
+## 89        BioBio
+## 90        BioBio
+## 91  La_Araucania
+## 92  La_Araucania
+## 93  La_Araucania
+## 94  La_Araucania
+## 95  La_Araucania
+## 96  La_Araucania
+## 97  La_Araucania
+## 98  La_Araucania
+## 99  La_Araucania
+## 100 La_Araucania
+## 101 La_Araucania
+## 102 La_Araucania
+## 103 La_Araucania
+## 104 La_Araucania
+## 105 La_Araucania
+## 106 La_Araucania
+## 107 La_Araucania
+## 108 La_Araucania
+## 109 La_Araucania
+## 110 La_Araucania
+## 111 La_Araucania
+## 112 La_Araucania
+## 113 La_Araucania
+## 114 La_Araucania
+## 115 La_Araucania
+## 116 La_Araucania
+## 117 La_Araucania
+## 118 La_Araucania
+## 119 La_Araucania
+## 120 La_Araucania</code></pre>
+<p>La función <code>select()</code> también nos permite seleccionar todas las columnas excepto una:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">select</span>(data, <span class="op">-</span>Region)</a></code></pre></div>
+<pre><code>##       Cultivo Variedad Hectareas Temperatura costo_jh rendimiento
+## 1   Arandanos       V1    1029.9        16.8    13059      6866.5
+## 2   Arandanos       V1     998.9        16.9    13026      7122.1
+## 3   Arandanos       V1    1117.8        15.0    12933      7041.2
+## 4   Arandanos       V1    1007.2        15.7    13027      6891.5
+## 5   Arandanos       V1    1077.6        15.1    13045      6927.7
+## 6   Arandanos       V1    1091.3        15.9    12949      6900.4
+## 7   Arandanos       V1    1188.9        16.1    13002      6943.9
+## 8   Arandanos       V1    1111.6        15.6    12968      6885.7
+## 9   Arandanos       V1    1028.8        17.4    12978      6724.3
+## 10  Arandanos       V1    1124.2        14.7    13056      6920.4
+## 11  Arandanos       V1    1106.5        15.9    13056      7056.9
+## 12  Arandanos       V1    1000.6        15.4    13077      6898.6
+## 13  Arandanos       V1    1101.0        16.5    12993      6797.2
+## 14  Arandanos       V1    1113.9        14.0    12975      6858.2
+## 15  Arandanos       V1    1159.9        14.7    13003      7064.3
+## 16  Arandanos       V2    1110.8        14.3    12970      7028.4
+## 17  Arandanos       V2    1091.4        13.7    13003      7127.7
+## 18  Arandanos       V2    1173.8        15.7    12994      7247.3
+## 19  Arandanos       V2    1034.9        15.1    13033      6896.8
+## 20  Arandanos       V2    1081.7        14.3    13107      6927.3
+## 21  Arandanos       V2    1120.4        14.8    13013      6893.3
+## 22  Arandanos       V2    1054.0        16.9    12998      6929.0
+## 23  Arandanos       V2    1099.7        15.0    12895      7237.8
+## 24  Arandanos       V2    1083.0        15.2    12991      6964.5
+## 25  Arandanos       V2    1063.7        15.3    12969      6776.9
+## 26  Arandanos       V2    1097.1        13.5    13055      7017.3
+## 27  Arandanos       V2    1132.5        14.9    13005      7080.4
+## 28  Arandanos       V2    1086.0        14.4    12988      7171.5
+## 29  Arandanos       V2    1035.5        12.5    12920      7246.0
+## 30  Arandanos       V2    1110.5        16.4    12936      6928.1
+## 31  Arandanos       V1    3750.2        15.6    12968      5931.1
+## 32  Arandanos       V1    3668.7        11.6    13013      6076.3
+## 33  Arandanos       V1    3586.2        15.8    13007      6005.6
+## 34  Arandanos       V1    3678.0        15.0    13033      5964.3
+## 35  Arandanos       V1    3729.1        12.5    13057      6003.4
+## 36  Arandanos       V1    3709.2        15.9    13039      6026.0
+## 37  Arandanos       V1    3636.3        15.6    12961      5973.5
+## 38  Arandanos       V1    3749.6        13.7    13023      6046.6
+## 39  Arandanos       V1    3644.6        12.5    12985      5960.2
+## 40  Arandanos       V1    3634.6        14.5    13041      6011.1
+## 41  Arandanos       V1    3649.5        15.1    12942      6012.2
+## 42  Arandanos       V1    3788.0        13.7    13121      6100.5
+## 43  Arandanos       V1    3699.9        15.9    12945      5932.6
+## 44  Arandanos       V1    3718.2        14.0    12967      5876.5
+## 45  Arandanos       V1    3645.8        13.2    13098      5745.2
+## 46  Arandanos       V2    3699.5        14.0    13065      5890.1
+## 47  Arandanos       V2    3627.4        13.5    13008      6078.3
+## 48  Arandanos       V2    3685.2        16.8    13088      6062.3
+## 49  Arandanos       V2    3770.5        14.5    13034      5852.9
+## 50  Arandanos       V2    3711.1        15.5    13064      6016.7
+## 51  Arandanos       V2    3758.2        13.7    12975      6112.8
+## 52  Arandanos       V2    3685.5        12.7    13087      6032.1
+## 53  Arandanos       V2    3619.6        13.5    12902      6139.0
+## 54  Arandanos       V2    3724.8        14.7    12974      6008.3
+## 55  Arandanos       V2    3735.7        13.5    12976      5936.0
+## 56  Arandanos       V2    3672.5        15.1    12937      5929.8
+## 57  Arandanos       V2    3657.3        15.3    12946      6036.1
+## 58  Arandanos       V2    3657.9        13.4    12963      6084.7
+## 59  Arandanos       V2    3721.7        15.8    12955      5848.1
+## 60  Arandanos       V2    3762.6        16.2    13059      6125.2
+## 61  Arandanos       V1    1642.1        13.5    12018      4957.5
+## 62  Arandanos       V1    1823.2        13.6    12051      5025.6
+## 63  Arandanos       V1    1801.9        12.4    12004      5118.6
+## 64  Arandanos       V1    1742.7        12.6    12005      4980.2
+## 65  Arandanos       V1    1731.6        13.8    12069      5024.6
+## 66  Arandanos       V1    1601.4        11.7    11906      5007.0
+## 67  Arandanos       V1    1793.8        13.9    11901      4825.8
+## 68  Arandanos       V1    1766.3        14.1    11962      5164.7
+## 69  Arandanos       V1    1793.7        14.8    11989      4767.4
+## 70  Arandanos       V1    1742.0        11.5    11988      5013.5
+## 71  Arandanos       V1    1656.7        14.0    11976      5013.0
+## 72  Arandanos       V1    1659.9        14.8    12014      5102.8
+## 73  Arandanos       V1    1573.9        14.9    12083      4924.8
+## 74  Arandanos       V1    1781.8        13.4    11997      5061.5
+## 75  Arandanos       V1    1724.4        12.5    11893      4892.4
+## 76  Arandanos       V2    1800.3        13.9    11927      5129.7
+## 77  Arandanos       V2    1683.0        11.9    12046      5115.4
+## 78  Arandanos       V2    1733.9        13.3    11993      4992.5
+## 79  Arandanos       V2    1803.5        13.7    11900      4962.0
+## 80  Arandanos       V2    1679.8        14.8    11987      4905.3
+## 81  Arandanos       V2    1743.7        15.2    12005      5037.2
+## 82  Arandanos       V2    1664.5        14.8    11906      5107.2
+## 83  Arandanos       V2    1715.7        14.5    11962      4914.6
+## 84  Arandanos       V2    1706.4        12.4    11985      5058.8
+## 85  Arandanos       V2    1698.5        12.1    11919      4934.8
+## 86  Arandanos       V2    1734.7        13.8    11997      4965.1
+## 87  Arandanos       V2    1785.3        14.0    11967      4970.2
+## 88  Arandanos       V2    1694.2        15.7    11967      5137.6
+## 89  Arandanos       V2    1680.7        12.1    11938      5140.9
+## 90  Arandanos       V2    1681.4        12.7    11988      5168.7
+## 91  Arandanos       V1    1907.5        11.3    12005      4166.3
+## 92  Arandanos       V1    1896.7        12.4    12015      4439.0
+## 93  Arandanos       V1    1867.3        11.9    12011      4374.1
+## 94  Arandanos       V1    1922.1        13.0    11995      4506.7
+## 95  Arandanos       V1    1941.5        11.2    12018      4466.9
+## 96  Arandanos       V1    1846.2        12.8    12023      4469.6
+## 97  Arandanos       V1    1854.6        11.9    12084      4517.0
+## 98  Arandanos       V1    1898.1        10.0    12069      4538.1
+## 99  Arandanos       V1    1783.3        11.9    11923      4456.1
+## 100 Arandanos       V1    1833.6        13.1    11970      4444.0
+## 101 Arandanos       V1    1801.7        12.8    12007      4525.9
+## 102 Arandanos       V1    1931.0        11.5    12023      4632.6
+## 103 Arandanos       V1    1865.6        13.3    12022      4327.5
+## 104 Arandanos       V1    1819.9        10.3    12063      4526.0
+## 105 Arandanos       V1    1855.1        11.6    12042      4523.7
+## 106 Arandanos       V2    1910.0        12.6    11924      4447.8
+## 107 Arandanos       V2    1708.3        10.4    11962      4421.7
+## 108 Arandanos       V2    1823.3        13.2    11951      4554.1
+## 109 Arandanos       V2    1780.9        11.6    12050      4344.9
+## 110 Arandanos       V2    1886.3        10.1    12020      4456.3
+## 111 Arandanos       V2    1838.7        13.1    11961      4528.3
+## 112 Arandanos       V2    1858.9        10.1    12038      4651.1
+## 113 Arandanos       V2    1761.6        12.0    12037      4758.3
+## 114 Arandanos       V2    1908.1        10.6    12055      4539.7
+## 115 Arandanos       V2    1857.6        11.1    11974      4591.7
+## 116 Arandanos       V2    1862.7        11.6    11960      4689.4
+## 117 Arandanos       V2    1894.5        10.6    12023      4400.5
+## 118 Arandanos       V2    1873.5        11.1    11971      4380.6
+## 119 Arandanos       V2    1915.4        11.5    12065      4424.1
+## 120 Arandanos       V2    1932.1        13.5    12084      4331.0
+##     Perdida_plaga mano_de_obra
+## 1            35.1         3080
+## 2            34.3         2728
+## 3            31.7         3120
+## 4            40.5         3135
+## 5            35.6         3276
+## 6            33.0         2966
+## 7            38.1         2725
+## 8            37.9         2874
+## 9            34.8         2785
+## 10           34.4         3193
+## 11           37.9         2872
+## 12           30.0         2983
+## 13           37.3         2932
+## 14           33.9         2965
+## 15           31.0         2609
+## 16           33.0         3104
+## 17           36.4         2790
+## 18           33.9         2720
+## 19           27.2         3099
+## 20           37.9         2868
+## 21           41.8         3307
+## 22           36.9         3155
+## 23           36.0         3093
+## 24           34.6         2928
+## 25           29.5         2996
+## 26           29.9         3002
+## 27           34.7         3285
+## 28           38.2         3068
+## 29           28.3         3308
+## 30           32.6         2724
+## 31           27.5         3446
+## 32           34.5         3204
+## 33           38.0         3225
+## 34           36.9         2979
+## 35           33.2         3222
+## 36           36.1         3504
+## 37           37.7         3349
+## 38           36.4         3066
+## 39           34.3         3186
+## 40           35.6         3205
+## 41           38.5         3080
+## 42           29.2         3463
+## 43           36.9         3410
+## 44           31.5         2956
+## 45           38.5         3316
+## 46           35.5         3027
+## 47           34.2         2980
+## 48           38.1         3319
+## 49           33.5         3640
+## 50           32.1         2891
+## 51           37.5         3559
+## 52           33.5         3278
+## 53           33.3         3356
+## 54           37.9         3159
+## 55           40.2         3363
+## 56           34.2         3341
+## 57           33.3         3094
+## 58           37.8         3480
+## 59           30.7         3088
+## 60           30.0         3434
+## 61           33.6         3914
+## 62           32.8         3901
+## 63           27.6         3673
+## 64           36.3         3953
+## 65           35.7         4171
+## 66           32.1         4013
+## 67           34.2         3864
+## 68           34.2         3947
+## 69           34.0         3908
+## 70           33.4         3764
+## 71           34.6         4029
+## 72           29.6         4132
+## 73           35.0         4030
+## 74           31.4         3882
+## 75           41.8         3698
+## 76           37.7         3880
+## 77           34.6         3785
+## 78           35.6         4175
+## 79           39.3         3660
+## 80           36.7         3832
+## 81           34.6         4087
+## 82           31.6         4101
+## 83           37.1         4205
+## 84           41.2         3755
+## 85           37.0         3889
+## 86           34.6         4036
+## 87           37.5         4274
+## 88           33.3         4101
+## 89           31.7         4250
+## 90           33.5         3938
+## 91           33.2         3198
+## 92           33.6         3303
+## 93           37.6         3207
+## 94           37.8         3484
+## 95           37.1         3212
+## 96           33.4         3356
+## 97           31.8         3408
+## 98           34.9         3319
+## 99           42.8         3280
+## 100          35.4         3105
+## 101          37.4         3404
+## 102          32.0         3258
+## 103          31.4         2927
+## 104          33.6         3028
+## 105          31.1         3004
+## 106          32.8         3403
+## 107          37.6         3503
+## 108          35.0         3300
+## 109          37.3         3325
+## 110          29.8         3160
+## 111          34.1         3553
+## 112          30.4         3614
+## 113          32.8         3208
+## 114          34.1         3595
+## 115          33.2         3439
+## 116          38.1         3566
+## 117          24.7         3552
+## 118          37.6         3449
+## 119          35.1         3550
+## 120          38.3         3162</code></pre>
+<p>La función <code>slice()</code> selecciona filas de nuestra base. Intentemos seleccionar la quinta fila en la base de datos llamada data:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">slice</span>(data, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1 Arandanos Ohiggins       V1    1077.6        15.1    13045      6927.7
+##   Perdida_plaga mano_de_obra
+## 1          35.6         3276</code></pre>
+<p>La función <code>slice()</code> también nos permite seleccionar una secuencia de filas. Seleccionemos desde la tercera hasta la decima en la base de datos llamada data:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">slice</span>(data, <span class="dv">3</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
+<pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1 Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
+## 2 Arandanos Ohiggins       V1    1007.2        15.7    13027      6891.5
+## 3 Arandanos Ohiggins       V1    1077.6        15.1    13045      6927.7
+## 4 Arandanos Ohiggins       V1    1091.3        15.9    12949      6900.4
+## 5 Arandanos Ohiggins       V1    1188.9        16.1    13002      6943.9
+## 6 Arandanos Ohiggins       V1    1111.6        15.6    12968      6885.7
+## 7 Arandanos Ohiggins       V1    1028.8        17.4    12978      6724.3
+## 8 Arandanos Ohiggins       V1    1124.2        14.7    13056      6920.4
+##   Perdida_plaga mano_de_obra
+## 1          31.7         3120
+## 2          40.5         3135
+## 3          35.6         3276
+## 4          33.0         2966
+## 5          38.1         2725
+## 6          37.9         2874
+## 7          34.8         2785
+## 8          34.4         3193</code></pre>
+<p>La versatilidad de la función <code>slice()</code> es aún mayor. Por ejemplo, podemos seleccionar una secuencia de filas
+discontinua:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">slice</span>(data, <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">100</span>))</a></code></pre></div>
+<pre><code>##     Cultivo       Region Variedad Hectareas Temperatura costo_jh
+## 1 Arandanos     Ohiggins       V1    1117.8        15.0    12933
+## 2 Arandanos     Ohiggins       V1    1124.2        14.7    13056
+## 3 Arandanos     Ohiggins       V2    1063.7        15.3    12969
+## 4 Arandanos La_Araucania       V1    1833.6        13.1    11970
+##   rendimiento Perdida_plaga mano_de_obra
+## 1      7041.2          31.7         3120
+## 2      6920.4          34.4         3193
+## 3      6776.9          29.5         2996
+## 4      4444.0          35.4         3105</code></pre>
+<p>También existe la función `filter()``, la cual nos permite seleccionar las observaciones (filas) que cumplen las condiciones que nos interesan.</p>
+<p>En caso de que quisiéramos seleccionar todas aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>)</a></code></pre></div>
+<pre><code>##      Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1  Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
+## 2  Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
+## 3  Arandanos Ohiggins       V1    1106.5        15.9    13056      7056.9
+## 4  Arandanos Ohiggins       V1    1159.9        14.7    13003      7064.3
+## 5  Arandanos Ohiggins       V2    1110.8        14.3    12970      7028.4
+## 6  Arandanos Ohiggins       V2    1091.4        13.7    13003      7127.7
+## 7  Arandanos Ohiggins       V2    1173.8        15.7    12994      7247.3
+## 8  Arandanos Ohiggins       V2    1099.7        15.0    12895      7237.8
+## 9  Arandanos Ohiggins       V2    1097.1        13.5    13055      7017.3
+## 10 Arandanos Ohiggins       V2    1132.5        14.9    13005      7080.4
+## 11 Arandanos Ohiggins       V2    1086.0        14.4    12988      7171.5
+## 12 Arandanos Ohiggins       V2    1035.5        12.5    12920      7246.0
+##    Perdida_plaga mano_de_obra
+## 1           34.3         2728
+## 2           31.7         3120
+## 3           37.9         2872
+## 4           31.0         2609
+## 5           33.0         3104
+## 6           36.4         2790
+## 7           33.9         2720
+## 8           36.0         3093
+## 9           29.9         3002
+## 10          34.7         3285
+## 11          38.2         3068
+## 12          28.3         3308</code></pre>
+<p>Si estuviésemos interesados en seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000
+toneladas/hectárea solamente para la variedad 1 de arándanos:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span>, Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
+<pre><code>##     Cultivo   Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1 Arandanos Ohiggins       V1     998.9        16.9    13026      7122.1
+## 2 Arandanos Ohiggins       V1    1117.8        15.0    12933      7041.2
+## 3 Arandanos Ohiggins       V1    1106.5        15.9    13056      7056.9
+## 4 Arandanos Ohiggins       V1    1159.9        14.7    13003      7064.3
+##   Perdida_plaga mano_de_obra
+## 1          34.3         2728
+## 2          31.7         3120
+## 3          37.9         2872
+## 4          31.0         2609</code></pre>
+<p>Ahora, intentemos seleccionar aquellas observaciones en donde el rendimiento fue mayor 7000 toneladas/hectárea “o” que sean de la Variedad 1:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">filter</span>(data, rendimiento <span class="op">&gt;</span><span class="st"> </span><span class="dv">7000</span> <span class="op">|</span><span class="st"> </span>Variedad <span class="op">==</span><span class="st"> &quot;V1&quot;</span>)</a></code></pre></div>
+<pre><code>##      Cultivo       Region Variedad Hectareas Temperatura costo_jh
+## 1  Arandanos     Ohiggins       V1    1029.9        16.8    13059
+## 2  Arandanos     Ohiggins       V1     998.9        16.9    13026
+## 3  Arandanos     Ohiggins       V1    1117.8        15.0    12933
+## 4  Arandanos     Ohiggins       V1    1007.2        15.7    13027
+## 5  Arandanos     Ohiggins       V1    1077.6        15.1    13045
+## 6  Arandanos     Ohiggins       V1    1091.3        15.9    12949
+## 7  Arandanos     Ohiggins       V1    1188.9        16.1    13002
+## 8  Arandanos     Ohiggins       V1    1111.6        15.6    12968
+## 9  Arandanos     Ohiggins       V1    1028.8        17.4    12978
+## 10 Arandanos     Ohiggins       V1    1124.2        14.7    13056
+## 11 Arandanos     Ohiggins       V1    1106.5        15.9    13056
+## 12 Arandanos     Ohiggins       V1    1000.6        15.4    13077
+## 13 Arandanos     Ohiggins       V1    1101.0        16.5    12993
+## 14 Arandanos     Ohiggins       V1    1113.9        14.0    12975
+## 15 Arandanos     Ohiggins       V1    1159.9        14.7    13003
+## 16 Arandanos     Ohiggins       V2    1110.8        14.3    12970
+## 17 Arandanos     Ohiggins       V2    1091.4        13.7    13003
+## 18 Arandanos     Ohiggins       V2    1173.8        15.7    12994
+## 19 Arandanos     Ohiggins       V2    1099.7        15.0    12895
+## 20 Arandanos     Ohiggins       V2    1097.1        13.5    13055
+## 21 Arandanos     Ohiggins       V2    1132.5        14.9    13005
+## 22 Arandanos     Ohiggins       V2    1086.0        14.4    12988
+## 23 Arandanos     Ohiggins       V2    1035.5        12.5    12920
+## 24 Arandanos        Maule       V1    3750.2        15.6    12968
+## 25 Arandanos        Maule       V1    3668.7        11.6    13013
+## 26 Arandanos        Maule       V1    3586.2        15.8    13007
+## 27 Arandanos        Maule       V1    3678.0        15.0    13033
+## 28 Arandanos        Maule       V1    3729.1        12.5    13057
+## 29 Arandanos        Maule       V1    3709.2        15.9    13039
+## 30 Arandanos        Maule       V1    3636.3        15.6    12961
+## 31 Arandanos        Maule       V1    3749.6        13.7    13023
+## 32 Arandanos        Maule       V1    3644.6        12.5    12985
+## 33 Arandanos        Maule       V1    3634.6        14.5    13041
+## 34 Arandanos        Maule       V1    3649.5        15.1    12942
+## 35 Arandanos        Maule       V1    3788.0        13.7    13121
+## 36 Arandanos        Maule       V1    3699.9        15.9    12945
+## 37 Arandanos        Maule       V1    3718.2        14.0    12967
+## 38 Arandanos        Maule       V1    3645.8        13.2    13098
+## 39 Arandanos       BioBio       V1    1642.1        13.5    12018
+## 40 Arandanos       BioBio       V1    1823.2        13.6    12051
+## 41 Arandanos       BioBio       V1    1801.9        12.4    12004
+## 42 Arandanos       BioBio       V1    1742.7        12.6    12005
+## 43 Arandanos       BioBio       V1    1731.6        13.8    12069
+## 44 Arandanos       BioBio       V1    1601.4        11.7    11906
+## 45 Arandanos       BioBio       V1    1793.8        13.9    11901
+## 46 Arandanos       BioBio       V1    1766.3        14.1    11962
+## 47 Arandanos       BioBio       V1    1793.7        14.8    11989
+## 48 Arandanos       BioBio       V1    1742.0        11.5    11988
+## 49 Arandanos       BioBio       V1    1656.7        14.0    11976
+## 50 Arandanos       BioBio       V1    1659.9        14.8    12014
+## 51 Arandanos       BioBio       V1    1573.9        14.9    12083
+## 52 Arandanos       BioBio       V1    1781.8        13.4    11997
+## 53 Arandanos       BioBio       V1    1724.4        12.5    11893
+## 54 Arandanos La_Araucania       V1    1907.5        11.3    12005
+## 55 Arandanos La_Araucania       V1    1896.7        12.4    12015
+## 56 Arandanos La_Araucania       V1    1867.3        11.9    12011
+## 57 Arandanos La_Araucania       V1    1922.1        13.0    11995
+## 58 Arandanos La_Araucania       V1    1941.5        11.2    12018
+## 59 Arandanos La_Araucania       V1    1846.2        12.8    12023
+## 60 Arandanos La_Araucania       V1    1854.6        11.9    12084
+## 61 Arandanos La_Araucania       V1    1898.1        10.0    12069
+## 62 Arandanos La_Araucania       V1    1783.3        11.9    11923
+## 63 Arandanos La_Araucania       V1    1833.6        13.1    11970
+## 64 Arandanos La_Araucania       V1    1801.7        12.8    12007
+## 65 Arandanos La_Araucania       V1    1931.0        11.5    12023
+## 66 Arandanos La_Araucania       V1    1865.6        13.3    12022
+## 67 Arandanos La_Araucania       V1    1819.9        10.3    12063
+## 68 Arandanos La_Araucania       V1    1855.1        11.6    12042
+##    rendimiento Perdida_plaga mano_de_obra
+## 1       6866.5          35.1         3080
+## 2       7122.1          34.3         2728
+## 3       7041.2          31.7         3120
+## 4       6891.5          40.5         3135
+## 5       6927.7          35.6         3276
+## 6       6900.4          33.0         2966
+## 7       6943.9          38.1         2725
+## 8       6885.7          37.9         2874
+## 9       6724.3          34.8         2785
+## 10      6920.4          34.4         3193
+## 11      7056.9          37.9         2872
+## 12      6898.6          30.0         2983
+## 13      6797.2          37.3         2932
+## 14      6858.2          33.9         2965
+## 15      7064.3          31.0         2609
+## 16      7028.4          33.0         3104
+## 17      7127.7          36.4         2790
+## 18      7247.3          33.9         2720
+## 19      7237.8          36.0         3093
+## 20      7017.3          29.9         3002
+## 21      7080.4          34.7         3285
+## 22      7171.5          38.2         3068
+## 23      7246.0          28.3         3308
+## 24      5931.1          27.5         3446
+## 25      6076.3          34.5         3204
+## 26      6005.6          38.0         3225
+## 27      5964.3          36.9         2979
+## 28      6003.4          33.2         3222
+## 29      6026.0          36.1         3504
+## 30      5973.5          37.7         3349
+## 31      6046.6          36.4         3066
+## 32      5960.2          34.3         3186
+## 33      6011.1          35.6         3205
+## 34      6012.2          38.5         3080
+## 35      6100.5          29.2         3463
+## 36      5932.6          36.9         3410
+## 37      5876.5          31.5         2956
+## 38      5745.2          38.5         3316
+## 39      4957.5          33.6         3914
+## 40      5025.6          32.8         3901
+## 41      5118.6          27.6         3673
+## 42      4980.2          36.3         3953
+## 43      5024.6          35.7         4171
+## 44      5007.0          32.1         4013
+## 45      4825.8          34.2         3864
+## 46      5164.7          34.2         3947
+## 47      4767.4          34.0         3908
+## 48      5013.5          33.4         3764
+## 49      5013.0          34.6         4029
+## 50      5102.8          29.6         4132
+## 51      4924.8          35.0         4030
+## 52      5061.5          31.4         3882
+## 53      4892.4          41.8         3698
+## 54      4166.3          33.2         3198
+## 55      4439.0          33.6         3303
+## 56      4374.1          37.6         3207
+## 57      4506.7          37.8         3484
+## 58      4466.9          37.1         3212
+## 59      4469.6          33.4         3356
+## 60      4517.0          31.8         3408
+## 61      4538.1          34.9         3319
+## 62      4456.1          42.8         3280
+## 63      4444.0          35.4         3105
+## 64      4525.9          37.4         3404
+## 65      4632.6          32.0         3258
+## 66      4327.5          31.4         2927
+## 67      4526.0          33.6         3028
+## 68      4523.7          31.1         3004</code></pre>
+</div>
+<div id="reducción-de-una-base-de-datos" class="section level2">
+<h2><span class="header-section-number">3.5</span> Reducción de una base de datos</h2>
+<p>La importancia de estas funciones radica en que nos permiten trabajar con subconjuntos de la base de datos
+original. Por ejemplo, podemos generar una nueva base de datos que solo contenga la información referida a
+las plantaciones de arándanos provenientes de la región del Maule:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">data1 &lt;-<span class="st"> </span><span class="kw">filter</span>(data, Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span>)</a>
+<a class="sourceLine" id="cb86-2" title="2">data1</a></code></pre></div>
+<pre><code>##      Cultivo Region Variedad Hectareas Temperatura costo_jh rendimiento
+## 1  Arandanos  Maule       V1    3750.2        15.6    12968      5931.1
+## 2  Arandanos  Maule       V1    3668.7        11.6    13013      6076.3
+## 3  Arandanos  Maule       V1    3586.2        15.8    13007      6005.6
+## 4  Arandanos  Maule       V1    3678.0        15.0    13033      5964.3
+## 5  Arandanos  Maule       V1    3729.1        12.5    13057      6003.4
+## 6  Arandanos  Maule       V1    3709.2        15.9    13039      6026.0
+## 7  Arandanos  Maule       V1    3636.3        15.6    12961      5973.5
+## 8  Arandanos  Maule       V1    3749.6        13.7    13023      6046.6
+## 9  Arandanos  Maule       V1    3644.6        12.5    12985      5960.2
+## 10 Arandanos  Maule       V1    3634.6        14.5    13041      6011.1
+## 11 Arandanos  Maule       V1    3649.5        15.1    12942      6012.2
+## 12 Arandanos  Maule       V1    3788.0        13.7    13121      6100.5
+## 13 Arandanos  Maule       V1    3699.9        15.9    12945      5932.6
+## 14 Arandanos  Maule       V1    3718.2        14.0    12967      5876.5
+## 15 Arandanos  Maule       V1    3645.8        13.2    13098      5745.2
+## 16 Arandanos  Maule       V2    3699.5        14.0    13065      5890.1
+## 17 Arandanos  Maule       V2    3627.4        13.5    13008      6078.3
+## 18 Arandanos  Maule       V2    3685.2        16.8    13088      6062.3
+## 19 Arandanos  Maule       V2    3770.5        14.5    13034      5852.9
+## 20 Arandanos  Maule       V2    3711.1        15.5    13064      6016.7
+## 21 Arandanos  Maule       V2    3758.2        13.7    12975      6112.8
+## 22 Arandanos  Maule       V2    3685.5        12.7    13087      6032.1
+## 23 Arandanos  Maule       V2    3619.6        13.5    12902      6139.0
+## 24 Arandanos  Maule       V2    3724.8        14.7    12974      6008.3
+## 25 Arandanos  Maule       V2    3735.7        13.5    12976      5936.0
+## 26 Arandanos  Maule       V2    3672.5        15.1    12937      5929.8
+## 27 Arandanos  Maule       V2    3657.3        15.3    12946      6036.1
+## 28 Arandanos  Maule       V2    3657.9        13.4    12963      6084.7
+## 29 Arandanos  Maule       V2    3721.7        15.8    12955      5848.1
+## 30 Arandanos  Maule       V2    3762.6        16.2    13059      6125.2
+##    Perdida_plaga mano_de_obra
+## 1           27.5         3446
+## 2           34.5         3204
+## 3           38.0         3225
+## 4           36.9         2979
+## 5           33.2         3222
+## 6           36.1         3504
+## 7           37.7         3349
+## 8           36.4         3066
+## 9           34.3         3186
+## 10          35.6         3205
+## 11          38.5         3080
+## 12          29.2         3463
+## 13          36.9         3410
+## 14          31.5         2956
+## 15          38.5         3316
+## 16          35.5         3027
+## 17          34.2         2980
+## 18          38.1         3319
+## 19          33.5         3640
+## 20          32.1         2891
+## 21          37.5         3559
+## 22          33.5         3278
+## 23          33.3         3356
+## 24          37.9         3159
+## 25          40.2         3363
+## 26          34.2         3341
+## 27          33.3         3094
+## 28          37.8         3480
+## 29          30.7         3088
+## 30          30.0         3434</code></pre>
+<p>Ahora, podemos aplicar todas las funciones que hemos aprendido para explorar la información contenida en
+una base de datos.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tipos-de-datos-en-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualización-de-datos-en-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["guia_me.pdf", "guia_me.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
