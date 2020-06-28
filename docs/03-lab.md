@@ -15,10 +15,14 @@ En este laboratorio comenzaremos a trabajar con bases de datos. Para ello aborda
 ## Preparemos los datos para R
 Al mencionar que trabajaremos con base de datos, inmediatamente surge el desafío de como podemos ingresar nuestra información a R. Lo primero que debemos tener presente es que a R "le encantan" las bases de datos que tienen cada observación en una fila y que en cada columna incorpora una variable. Por ejemplo, si tenemos una base de datos con la altura y género de los alumnos del curso “métodos estadísticos” de la escuela de Agronomía, esta se vería de la siguiente manera en excel:
 
-<div class="figure" style="text-align: center">
-<img src="imagenes/fig4_basedatos.png" alt="Ejemplo de base de datos en excel" width="40%" />
-<p class="caption">(\#fig:rmark4)Ejemplo de base de datos en excel</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{imagenes/fig4_basedatos} 
+
+}
+
+\caption{Ejemplo de base de datos en excel}(\#fig:rmark4)
+\end{figure}
 
 Si creáramaos esta misma base de datos en Rstudio deberíamos hacer lo siguiente:
 
@@ -60,10 +64,14 @@ A lo largo de nuestro curso, el método que utilizaremos para importar la base d
 herramienta Import dataset. Rstudio proporciona una función de importación a través de la pestaña Import
 dataset en la parte superior derecha.
 
-<div class="figure" style="text-align: center">
-<img src="imagenes/fig5_imp_datos.png" alt="Importación de datos desde Rstudio" width="80%" />
-<p class="caption">(\#fig:rmark5)Importación de datos desde Rstudio</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{imagenes/fig5_imp_datos} 
+
+}
+
+\caption{Importación de datos desde Rstudio}(\#fig:rmark5)
+\end{figure}
 
 Esta función nos permitirá buscar el archivo de datos, seleccionarlo y finalmente para poder cargar la base de
 datos en R. Al seleccionar la opción From Text (base), podemos navegar en nuestro computador para
@@ -78,10 +86,14 @@ nombre a nuestra base de datos (¿Recuerdan el comando `<-`?). En este caso, nue
 el nombre `data`. Lo único que resta por hacer es darle la orden a R para que importe la base de datos. Esto lo
 lo podemos hacer habiendo clic en el botón `Import`.
 
-<div class="figure" style="text-align: center">
-<img src="imagenes/fig5_import.png" alt="Paso final para Importación de datos" width="80%" />
-<p class="caption">(\#fig:rmark6)Paso final para Importación de datos</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{imagenes/fig5_import} 
+
+}
+
+\caption{Paso final para Importación de datos}(\#fig:rmark6)
+\end{figure}
 
 La base de datos que trabajaremos a lo largo del curso contiene nueve diferentes variables:
 
@@ -296,18 +308,28 @@ knitr::kable(
   caption = "Ejemplo de Tabla de Datos con ktable")
 ```
 
+\begin{table}[t]
 
-
-Table: (\#tab:unnamed-chunk-10)Ejemplo de Tabla de Datos con ktable
-
-Cultivo     Region     Variedad    Hectareas   Temperatura   costo_jh   rendimiento   Perdida_plaga   mano_de_obra
-----------  ---------  ---------  ----------  ------------  ---------  ------------  --------------  -------------
-Arandanos   Ohiggins   V1             1029.9          16.8      13059        6866.5            35.1           3080
-Arandanos   Ohiggins   V1              998.9          16.9      13026        7122.1            34.3           2728
-Arandanos   Ohiggins   V1             1117.8          15.0      12933        7041.2            31.7           3120
-Arandanos   Ohiggins   V1             1007.2          15.7      13027        6891.5            40.5           3135
-Arandanos   Ohiggins   V1             1077.6          15.1      13045        6927.7            35.6           3276
-Arandanos   Ohiggins   V1             1091.3          15.9      12949        6900.4            33.0           2966
+\caption{(\#tab:unnamed-chunk-10)Ejemplo de Tabla de Datos con ktable}
+\centering
+\begin{tabular}{l|l|l|r|r|r|r|r|r}
+\hline
+Cultivo & Region & Variedad & Hectareas & Temperatura & costo\_jh & rendimiento & Perdida\_plaga & mano\_de\_obra\\
+\hline
+Arandanos & Ohiggins & V1 & 1029.9 & 16.8 & 13059 & 6866.5 & 35.1 & 3080\\
+\hline
+Arandanos & Ohiggins & V1 & 998.9 & 16.9 & 13026 & 7122.1 & 34.3 & 2728\\
+\hline
+Arandanos & Ohiggins & V1 & 1117.8 & 15.0 & 12933 & 7041.2 & 31.7 & 3120\\
+\hline
+Arandanos & Ohiggins & V1 & 1007.2 & 15.7 & 13027 & 6891.5 & 40.5 & 3135\\
+\hline
+Arandanos & Ohiggins & V1 & 1077.6 & 15.1 & 13045 & 6927.7 & 35.6 & 3276\\
+\hline
+Arandanos & Ohiggins & V1 & 1091.3 & 15.9 & 12949 & 6900.4 & 33.0 & 2966\\
+\hline
+\end{tabular}
+\end{table}
 
 
 ## Exploremos los datos R con la libreria dplyr
@@ -321,20 +343,28 @@ aparecerá una pequeña ventana con tres campos principales: Install from, packa
 Solo necesitamos preocuparnos por el campo packages, los otros dos los dejaremos en su valor
 predeterminado.
 
-<div class="figure" style="text-align: center">
-<img src="imagenes/fig7_dplyr.png" alt="Instalación de paquete dplyr" width="80%" />
-<p class="caption">(\#fig:rmark7)Instalación de paquete dplyr</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{imagenes/fig7_dplyr} 
+
+}
+
+\caption{Instalación de paquete dplyr}(\#fig:rmark7)
+\end{figure}
 
 
 Ahora, al escribir las primeras letras del nombre de una librería (en este caso `dplyr`), Rstudio proporcionará
 una lista de librerías disponibles que coincidan con esta palabra. Después de encontrar la librería, todo lo
 que tenemos que hacer es hacer clic en el botón Install y dejar que Rstudio trabaje.
 
-<div class="figure" style="text-align: center">
-<img src="imagenes/fig8_dplyr.png" alt="Instalación de paquete dplyr (2do paso)" width="80%" />
-<p class="caption">(\#fig:rmark8)Instalación de paquete dplyr (2do paso)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{imagenes/fig8_dplyr} 
+
+}
+
+\caption{Instalación de paquete dplyr (2do paso)}(\#fig:rmark8)
+\end{figure}
 
 
 

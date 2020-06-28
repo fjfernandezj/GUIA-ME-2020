@@ -24,7 +24,7 @@ data <- read.csv("./datos/dataset.csv")
 plot(data$Temperatura, data$rendimiento)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-1-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 Felicitaciones, acaban de generar el primero de muchos gráficos que aprenderán en este curso. Sin embargo,
 la tarea no está completa. Como podemos apreciar, el gráfico que nos entregó R es bastante "rústico".
@@ -49,7 +49,7 @@ cex.lab=1.2,
 cex.axis=1.1)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 A simple vista, son múltiples los parámetros gráficos que hemos cambiado. A continuación, se detalla la
 lista de los parámetros utilizados y sus definiciones:
@@ -102,7 +102,7 @@ cex.lab=1.0,
 cex.axis=1.0)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 Fantástico! Tenemos ambos scatterplot graficados al mismo tiempo, uno al lado del otro. Ahora bien, en
 caso de que quisiéramos que estén un scatterplot sobre el otro, ¿¿como lo harían??
@@ -122,7 +122,7 @@ Generemos un gráfico de cajas para la información contenida en la variable ren
 boxplot(data$rendimiento)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 Ahora, generemos el diagrama para la información contenida en la variable rendimiento según la región en la
 cual se realizó el muestreo (grupo de variable):
@@ -132,7 +132,7 @@ cual se realizó el muestreo (grupo de variable):
 boxplot(data$rendimiento ~ data$Region)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 En caso de que quisiéramos enchular nuestro gráfico de cajas con dos variables, solamente debemos
 modificar los parámetros gráficos:
@@ -153,7 +153,7 @@ cex.lab=1.0,
 cex.axis=1.0)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 
 ## Histogramas
@@ -178,7 +178,7 @@ Generemos un histograma de frecuencias para la información contenida en la vari
 hist(data$rendimiento)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 Al igual que los gráficos anteriores, R nos permite modificar parámetros gráficos de los histograma de
 frecuencia. Por ejemplo, podemos especificar el número de intervalos en las cuales queremos que se agrupen
@@ -192,7 +192,7 @@ esté agrupada solamente en 4 intervalos:
 hist(data$rendimiento,breaks=4)
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocasiones, estaremos más
 interesados en la densidad (probabilidad relativa de un dato) que en la frecuencia de nuestros datos. En lugar
@@ -238,7 +238,7 @@ Freq=FALSE)
 ## Warning in axis(2, ...): "Freq" is not a graphical parameter
 ```
 
-![](04-lab_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](04-lab_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 ## Ejercicios para la casa
 

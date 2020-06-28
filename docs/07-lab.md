@@ -61,7 +61,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ----------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -84,7 +84,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ----------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts -------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -113,7 +113,7 @@ También podemos graficar nuestros datos para tener una idea visual de nuestra m
 barplot(table(data_1$sexo_nacimientos))
 ```
 
-<img src="07-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](07-lab_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 
 ### Expresar la hipótesis de investigación 
@@ -315,7 +315,7 @@ ggplot(data, aes(x=Estado_salud, fill=Uso_herbicida)) +
   geom_bar()
 ```
 
-<img src="07-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](07-lab_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 ### Expresar la hipótesis de investigación 
 El siguiente paso contempla expresar la pregunta o hipótesis de investigación en al menos dos hipótesis estadísticas contrastantes:  nuestra hipótesis nula $H_0$ y nuestra hipótesis alternativa $H_A$. 
