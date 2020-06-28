@@ -24,14 +24,10 @@ Asignatura<-c("Metodos", "estadisticos")
 
 Ahora escribamos _asignatura_ y veamos que sucede. En tu script y consola debería aparecer lo siguiente: 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{imagenes/imagen3_asignatura} 
-
-}
-
-\caption{Pantalla principal Rstudio}(\#fig:rmark3)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="imagenes/imagen3_asignatura.png" alt="Pantalla principal Rstudio" width="70%" />
+<p class="caption">(\#fig:rmark3)Pantalla principal Rstudio</p>
+</div>
 
 Es momento de felicitarnos a nosotros mismos, ya que acabamos de cometer uno de los errores más recurrentes y básicos que se cometen al trabajar en R. ¿Qué fue lo que sucedió?. R discrimina entre letras mayúsculas y minúsculas para el nombre de un objeto, por lo cual no es lo mismo escribir _asignatura_ que _Asignatura_.
 

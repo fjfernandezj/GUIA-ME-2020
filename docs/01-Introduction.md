@@ -15,14 +15,10 @@
 
 5. El GUI o interfaz gráfica de R tiene dos partes principales: la consola y el script. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{imagenes/RGui} 
-
-}
-
-\caption{Consola de R}(\#fig:rmark1)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="imagenes/RGui.png" alt="Consola de R" width="70%" />
+<p class="caption">(\#fig:rmark1)Consola de R</p>
+</div>
 
 La _**consola**_ es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor `>` significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo `+` quiere decir que nos falta completar el comando anterior. 
  
@@ -38,14 +34,10 @@ Un _**script**_ corresponde a una hoja para escribir comandos. Nos sirve para es
 Una vez instalados R y RStudio procedemos a ejecutar el programa RStudio desde cualquiera de los iconos que genera y se mostrará la siguiente pantalla: 
  
  
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{imagenes/Rstudio} 
-
-}
-
-\caption{Pantalla principal Rstudio}(\#fig:rmark2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="imagenes/Rstudio.png" alt="Pantalla principal Rstudio" width="70%" />
+<p class="caption">(\#fig:rmark2)Pantalla principal Rstudio</p>
+</div>
 
 
 Esta pantalla está dividida en tres partes: 
