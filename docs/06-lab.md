@@ -44,7 +44,7 @@ Evaluemos visualmente si los datos del número de personas contratadas para real
 hist(data$mano_de_obra)
 ```
 
-<img src="06-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](06-lab_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 A simple vista podemos establecer que los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo siguen una distribución normal. Este tipo de aproximación es útil como herramienta exploratoria. Sin embargo, el análisis visual es subjetivo porque dependemos de la interpretación personal de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contraste de hipótesis.
 
@@ -90,7 +90,7 @@ Evaluemos visualmente si los datos del número de personas contratadas para real
 boxplot(data$mano_de_obra~ data$Region)
 ```
 
-<img src="06-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](06-lab_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 Nuestro análisis visual muestra que los datos del número de personas contratadas para realizar las labores según la región presentan niveles similares de dispersión entorno a la mediana para todas las regiones evaluadas. Sin embargo, pequeñas diferencias se observan en las regiones de O’Higgins y La Araucanía. 
 
