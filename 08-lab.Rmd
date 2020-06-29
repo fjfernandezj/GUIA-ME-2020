@@ -65,8 +65,9 @@ tabla
 Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?
 
 $$
+
 H_0: \text{Las medias de dos grupos son iguales} \\
-H_a: \text{Las medias de dos grupos NO son iguales.} \\
+H_a: \text{Las medias de dos grupos NO son iguales} \\
 
 o \\
 
