@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 9 Modelos lineales generales | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 9 Modelos lineales generales | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 9 Modelos lineales generales | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -25,15 +25,14 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="tipos-de-datos-en-r.html"/>
+<link rel="prev" href="estadística-inferencial-regresión-lineal-y-correlación.html"/>
+<link rel="next" href="correlación-producto-momento-de-pearson.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -204,23 +203,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a><ul>
-<li class="chapter" data-level="8.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>8.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="8.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>8.2</b> Correlación producto-momento de Pearson</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Carguemos nuestros datos</a></li>
-<li class="chapter" data-level="8.2.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
-<li class="chapter" data-level="8.2.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>8.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
-<li class="chapter" data-level="8.2.4" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico."><i class="fa fa-check"></i><b>8.2.4</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
-<li class="chapter" data-level="8.2.5" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo."><i class="fa fa-check"></i><b>8.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
-<li class="chapter" data-level="8.2.6" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>8.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
+<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a></li>
+<li class="chapter" data-level="9" data-path="modelos-lineales-generales.html"><a href="modelos-lineales-generales.html"><i class="fa fa-check"></i><b>9</b> Modelos lineales generales</a></li>
+<li class="chapter" data-level="10" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html"><i class="fa fa-check"></i><b>10</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.1</b> Carguemos nuestros datos</a></li>
+<li class="chapter" data-level="10.2" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2</b> Paso 1: Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="10.3" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
+<li class="chapter" data-level="10.4" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico."><i class="fa fa-check"></i><b>10.4</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
+<li class="chapter" data-level="10.5" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-4-evaluar-los-supuestos-del-modelo."><i class="fa fa-check"></i><b>10.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
+<li class="chapter" data-level="10.6" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>8.3</b> Regresión Lineal Simple</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>8.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
-<li class="chapter" data-level="8.3.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>8.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
-<li class="chapter" data-level="8.3.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>8.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
-<li class="chapter" data-level="8.3.4" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>8.3.4</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
-<li class="chapter" data-level="8.3.5" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo.-1"><i class="fa fa-check"></i><b>8.3.5</b> Paso 5: Interpretar los resultados del modelo.</a></li>
-</ul></li>
+<li class="chapter" data-level="11" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>11</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="11.1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>11.1</b> Paso 1: Graficar nuestros datos.</a></li>
+<li class="chapter" data-level="11.2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>11.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
+<li class="chapter" data-level="11.3" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>11.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
+<li class="chapter" data-level="11.4" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>11.4</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
+<li class="chapter" data-level="11.5" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-5-interpretar-los-resultados-del-modelo.-1"><i class="fa fa-check"></i><b>11.5</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -242,74 +240,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Capitulo 1</span> Introducción a R y Rstudio</h1>
-<div id="software-estadístico-r" class="section level2">
-<h2><span class="header-section-number">1.1</span> Software estadístico R</h2>
-<p><a href="https://cran.r-project.org">R</a> es un programa estadístico <em>open source</em> de gran versatilidad que permite analizar una amplia gama de problemas cuantitativos. Si bien R incorpora un lenguaje de programación que puede ser extremadamente complejo, vale la pena familiarizarse con esa herramienta que puede llegar a ser muy útil en el futuro, tanto dentro como fuera de la academia.</p>
-<div id="aspectos-básicos-de-r" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Aspectos básicos de R</h3>
-<ol style="list-style-type: decimal">
-<li><p>R distingue mayúsculas y minúsculas.</p></li>
-<li><p>Para asignar contenido a un objeto usamos <code>&lt;-</code>. Por ejemplo, <code>x &lt;- 10</code> asigna a <code>x</code> el valor <code>10</code>. En lugar de <code>&lt;-</code> también podemos usar <code>=</code>.</p></li>
-</ol>
-<p>3.Para ver el contenido de un objeto simplemente escribimos su nombre.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><p>Para obtener ayuda usamos el comando help. Por ejemplo, <code>help(mean)</code> para obtener ayuda sobre el comando mean que calcula la media.</p></li>
-<li><p>El GUI o interfaz gráfica de R tiene dos partes principales: la consola y el script.</p></li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:rmark1"></span>
-<img src="imagenes/RGui.PNG" alt="Consola de R" width="70%" />
-<p class="caption">
-Figure 1.1: Consola de R
-</p>
-</div>
-<p>La <em><strong>consola</strong></em> es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor <code>&gt;</code> significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo <code>+</code> quiere decir que nos falta completar el comando anterior.</p>
-<p>Un <em><strong>script</strong></em> corresponde a una hoja para escribir comandos. Nos sirve para escribir solo los comandos, y cuando seleccionamos y presionamos <em>&lt;Ctrl + R&gt;</em> (juntos) se ejecuta el comando que hemos escrito y los resultados se visualizaran en la consola Dependiendo del sistema operatio utilizado, la combinación podría ser &lt;Ctrl +Enter&gt;. El script es práctico por que no solo podemos escribir comandos sino también notas personales. Las notas tienen que estar precedidas por el <code>#</code>.</p>
-</div>
-</div>
-<div id="r-studio" class="section level2">
-<h2><span class="header-section-number">1.2</span> R Studio</h2>
-<p><a href="http://www.rstudio.org">RStudio</a> es una interfaz que permite acceder de manera sencilla a todas las funciones de R. Para utilizar RStudio se requiere haber instalado R previamente. La instalación de RStudio se puede realizar desde la <a href="http://www.rstudio.org">página oficial del programa</a>.</p>
-<div id="conociendo-a-rstudio" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Conociendo a Rstudio</h3>
-<p>Una vez instalados R y RStudio procedemos a ejecutar el programa RStudio desde cualquiera de los iconos que genera y se mostrará la siguiente pantalla:</p>
-<div class="figure" style="text-align: center"><span id="fig:rmark2"></span>
-<img src="imagenes/Rstudio.png" alt="Pantalla principal Rstudio" width="70%" />
-<p class="caption">
-Figure 1.2: Pantalla principal Rstudio
-</p>
-</div>
-<p>Esta pantalla está dividida en tres partes:</p>
-<ol style="list-style-type: decimal">
-<li><p>La ventana de la izquierda donde está el prompt <code>&gt;</code> , llamada Consola, es el espacio de trabajo.</p></li>
-<li><p>La ventana de la derecha se divide en dos:</p></li>
-</ol>
-<ul>
-<li>En la ventana superior derecha se encuentra el historial de objetos almacenados en memoria. Desde esta ventana también podemos:<br />
-</li>
-</ul>
-<ol style="list-style-type: lower-alpha">
-<li>Limpiar nuestro historial<br />
-</li>
-<li>Importar datos<br />
-</li>
-<li>Muestra los comandos y funciones implementadas de los informes con los que se han trabajado.</li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
-<li>En la ventana inferior de la derecha RStudio muestra el directorio de trabajo, los gráficos que se van generando, paquetes para cargarlos e instalarlos directamente, ayuda y un visor HTML. Estas pestañas se irán describiendo a lo largo del documento</li>
-</ol>
-
-</div>
-</div>
+<div id="modelos-lineales-generales" class="section level1">
+<h1><span class="header-section-number">Capitulo 9</span> Modelos lineales generales</h1>
+<p>En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.</p>
+<p>Los modelos lineales generales describen una variable respuesta (<span class="math inline">\(Y\)</span>) en términos de todos sus factores contribuyentes (<span class="math inline">\(xβ\)</span>) en una combinación lineal, mientras que también incorpora el aporte de error (<span class="math inline">\(\epsilon\)</span>).</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1x_1 + \epsilon 
+\]</span></p>
+<p>Esta clase de modelos estadísticos incluye la regresión lineal, regresión múltiple, ANOVA y ANCOVA.</p>
+<p>En R, todos los análisis univariados (una variable respuesta) de este tipo se ajustan utilizando una única función lm().</p>
+<p>El análisis de regresión lineal se usa para explicar o modelar la relación entre una variable continua <span class="math inline">\(Y\)</span>, llamada variable respuesta o variable dependiente, y otra variable continua <span class="math inline">\(x_1\)</span>, llamada variable explicativa o independiente. Cuando hay más de una variable continua explicativa (<span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>,… <span class="math inline">\(X_p\)</span>) el análisis se denomina regresión múltiple.</p>
+<p>Si la variable explicativa es categórica en vez de continua, entonces el análisis a realizar es un ANOVA (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina análisis de varianza de 2-vías.</p>
+<p>Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de covarianza o ANCOVA.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tipos-de-datos-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estadística-inferencial-regresión-lineal-y-correlación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correlación-producto-momento-de-pearson.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

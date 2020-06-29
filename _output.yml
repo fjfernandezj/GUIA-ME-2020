@@ -3,7 +3,6 @@ bookdown::gitbook:
   split_by: chapter
   config:
     toc:
-      collapse: subsection
       before: |
         <li><center><img src="imagenes/umayor.png" alt="umayor" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
       after: |

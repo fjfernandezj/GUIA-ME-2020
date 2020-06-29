@@ -1,0 +1,7 @@
+---
+output:
+   pdf_document:
+     latex_engine: pdflatex
+---
+
+Hello! This is pdflatex

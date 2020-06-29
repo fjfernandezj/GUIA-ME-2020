@@ -1,0 +1,8 @@
+---
+output:
+   pdf_document:
+     template: template.tex
+     latex_engine: lualatex
+---
+
+Hello! This is lualatex

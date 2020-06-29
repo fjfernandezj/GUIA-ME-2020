@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 10 Correlación producto-momento de Pearson | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 10 Correlación producto-momento de Pearson | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 1 Introducción a R y Rstudio | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 10 Correlación producto-momento de Pearson | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -25,15 +25,14 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="tipos-de-datos-en-r.html"/>
+<link rel="prev" href="modelos-lineales-generales.html"/>
+<link rel="next" href="regresión-lineal-simple.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -204,23 +203,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a><ul>
-<li class="chapter" data-level="8.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>8.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="8.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>8.2</b> Correlación producto-momento de Pearson</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Carguemos nuestros datos</a></li>
-<li class="chapter" data-level="8.2.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
-<li class="chapter" data-level="8.2.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>8.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
-<li class="chapter" data-level="8.2.4" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico."><i class="fa fa-check"></i><b>8.2.4</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
-<li class="chapter" data-level="8.2.5" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo."><i class="fa fa-check"></i><b>8.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
-<li class="chapter" data-level="8.2.6" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>8.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
+<li class="chapter" data-level="8" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>8</b> Estadística inferencial: Regresión lineal y correlación</a></li>
+<li class="chapter" data-level="9" data-path="modelos-lineales-generales.html"><a href="modelos-lineales-generales.html"><i class="fa fa-check"></i><b>9</b> Modelos lineales generales</a></li>
+<li class="chapter" data-level="10" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html"><i class="fa fa-check"></i><b>10</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.1</b> Carguemos nuestros datos</a></li>
+<li class="chapter" data-level="10.2" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2</b> Paso 1: Analicemos nuestros datos</a></li>
+<li class="chapter" data-level="10.3" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
+<li class="chapter" data-level="10.4" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico."><i class="fa fa-check"></i><b>10.4</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
+<li class="chapter" data-level="10.5" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-4-evaluar-los-supuestos-del-modelo."><i class="fa fa-check"></i><b>10.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
+<li class="chapter" data-level="10.6" data-path="correlación-producto-momento-de-pearson.html"><a href="correlación-producto-momento-de-pearson.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>8.3</b> Regresión Lineal Simple</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>8.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
-<li class="chapter" data-level="8.3.2" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>8.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
-<li class="chapter" data-level="8.3.3" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>8.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
-<li class="chapter" data-level="8.3.4" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>8.3.4</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
-<li class="chapter" data-level="8.3.5" data-path="estadística-inferencial-regresión-lineal-y-correlación.html"><a href="estadística-inferencial-regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo.-1"><i class="fa fa-check"></i><b>8.3.5</b> Paso 5: Interpretar los resultados del modelo.</a></li>
-</ul></li>
+<li class="chapter" data-level="11" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>11</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="11.1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>11.1</b> Paso 1: Graficar nuestros datos.</a></li>
+<li class="chapter" data-level="11.2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>11.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
+<li class="chapter" data-level="11.3" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>11.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
+<li class="chapter" data-level="11.4" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>11.4</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
+<li class="chapter" data-level="11.5" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#paso-5-interpretar-los-resultados-del-modelo.-1"><i class="fa fa-check"></i><b>11.5</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -242,65 +240,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Capitulo 1</span> Introducción a R y Rstudio</h1>
-<div id="software-estadístico-r" class="section level2">
-<h2><span class="header-section-number">1.1</span> Software estadístico R</h2>
-<p><a href="https://cran.r-project.org">R</a> es un programa estadístico <em>open source</em> de gran versatilidad que permite analizar una amplia gama de problemas cuantitativos. Si bien R incorpora un lenguaje de programación que puede ser extremadamente complejo, vale la pena familiarizarse con esa herramienta que puede llegar a ser muy útil en el futuro, tanto dentro como fuera de la academia.</p>
-<div id="aspectos-básicos-de-r" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Aspectos básicos de R</h3>
-<ol style="list-style-type: decimal">
-<li><p>R distingue mayúsculas y minúsculas.</p></li>
-<li><p>Para asignar contenido a un objeto usamos <code>&lt;-</code>. Por ejemplo, <code>x &lt;- 10</code> asigna a <code>x</code> el valor <code>10</code>. En lugar de <code>&lt;-</code> también podemos usar <code>=</code>.</p></li>
-</ol>
-<p>3.Para ver el contenido de un objeto simplemente escribimos su nombre.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><p>Para obtener ayuda usamos el comando help. Por ejemplo, <code>help(mean)</code> para obtener ayuda sobre el comando mean que calcula la media.</p></li>
-<li><p>El GUI o interfaz gráfica de R tiene dos partes principales: la consola y el script.</p></li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:rmark1"></span>
-<img src="imagenes/RGui.PNG" alt="Consola de R" width="70%" />
-<p class="caption">
-Figure 1.1: Consola de R
-</p>
+<div id="correlación-producto-momento-de-pearson" class="section level1">
+<h1><span class="header-section-number">Capitulo 10</span> Correlación producto-momento de Pearson</h1>
+<p>Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La <strong>correlación producto-momento de Pearson</strong> (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).</p>
+<p>El <strong>coeficiente de correlación de Pearson (r)</strong> es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.</p>
+<p>Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.</p>
+<p>Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_1\)</span>).</p>
+<p>Para el laboratorio de Hoy ujtilizaremos el ejemplo 9.1 de Mead et al. (1993). El cual indica:</p>
+<p>El siguiente experimento busca establecer la absorción de <span class="math inline">\(CO_2\)</span> de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 <span class="math inline">\(°C\)</span> y se mide la absorción de <span class="math inline">\(CO_2\)</span> por parte de las hojas de estas. Los valores de absorción (<span class="math inline">\(y\)</span>) para diecisiete hojas, a diferentes concentraciones (<span class="math inline">\(x\)</span>) se obtienen y son los datos que se encuentran en el archivo “trigo_co2.csv”.</p>
+<div id="carguemos-nuestros-datos" class="section level2">
+<h2><span class="header-section-number">10.1</span> Carguemos nuestros datos</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;./datos/trigo_co2.csv&quot;</span>)</a></code></pre></div>
 </div>
-<p>La <em><strong>consola</strong></em> es el corazón de R, allí podemos pedirle cosas y es donde se nos entregan los resultados. También nos avisa de posibles errores (generalmente en color rojo). La consola es lo primero que observamos cuando abrimos el programa. Cuando la consola tiene el cursor <code>&gt;</code> significa que le podemos dar comandos para ejecutar. Si es que tiene el símbolo <code>+</code> quiere decir que nos falta completar el comando anterior.</p>
-<p>Un <em><strong>script</strong></em> corresponde a una hoja para escribir comandos. Nos sirve para escribir solo los comandos, y cuando seleccionamos y presionamos <em>&lt;Ctrl + R&gt;</em> (juntos) se ejecuta el comando que hemos escrito y los resultados se visualizaran en la consola Dependiendo del sistema operatio utilizado, la combinación podría ser &lt;Ctrl +Enter&gt;. El script es práctico por que no solo podemos escribir comandos sino también notas personales. Las notas tienen que estar precedidas por el <code>#</code>.</p>
+<div id="paso-1-analicemos-nuestros-datos" class="section level2">
+<h2><span class="header-section-number">10.2</span> Paso 1: Analicemos nuestros datos</h2>
+<p>Generemos un gráfico exploratorio de nuestras variables con ggplot:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span> Concentracion, <span class="dt">y=</span> Absorcion))<span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st">        </span><span class="kw">theme_bw</span> ()</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>A simple vista se ve una estrecha relación (relación positiva) entre nuestros datos de concentracion de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo.</p>
 </div>
+<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba." class="section level2">
+<h2><span class="header-section-number">10.3</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h2>
+<p>Nuestro interés es conocer si las variables Concentracion y Absorción cambian de forma simultánea (están relacionados). Para ello establecemos las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0 = \text{Las variables Concentración y Absorción cambian de forma independiente} \\
+H_A = \text{Las variables Concentración y Absorción cambian de forma conjunta}
+\]</span></p>
 </div>
-<div id="r-studio" class="section level2">
-<h2><span class="header-section-number">1.2</span> R Studio</h2>
-<p><a href="http://www.rstudio.org">RStudio</a> es una interfaz que permite acceder de manera sencilla a todas las funciones de R. Para utilizar RStudio se requiere haber instalado R previamente. La instalación de RStudio se puede realizar desde la <a href="http://www.rstudio.org">página oficial del programa</a>.</p>
-<div id="conociendo-a-rstudio" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Conociendo a Rstudio</h3>
-<p>Una vez instalados R y RStudio procedemos a ejecutar el programa RStudio desde cualquiera de los iconos que genera y se mostrará la siguiente pantalla:</p>
-<div class="figure" style="text-align: center"><span id="fig:rmark2"></span>
-<img src="imagenes/Rstudio.png" alt="Pantalla principal Rstudio" width="70%" />
-<p class="caption">
-Figure 1.2: Pantalla principal Rstudio
-</p>
+<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico." class="section level2">
+<h2><span class="header-section-number">10.4</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h2>
+<p>El siguiente paso involucra poner a prueba si existe relación estadísticamente significativa entre Concentración y Absorción. Para ello empleamos la <strong>correlación de Pearson</strong> para determinar si las dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_A\)</span>).</p>
 </div>
-<p>Esta pantalla está dividida en tres partes:</p>
-<ol style="list-style-type: decimal">
-<li><p>La ventana de la izquierda donde está el prompt <code>&gt;</code> , llamada Consola, es el espacio de trabajo.</p></li>
-<li><p>La ventana de la derecha se divide en dos:</p></li>
-</ol>
+<div id="paso-4-evaluar-los-supuestos-del-modelo." class="section level2">
+<h2><span class="header-section-number">10.5</span> Paso 4: Evaluar los supuestos del modelo.</h2>
+<p>R
+ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos subyacentes, y estos supuestos siempre deben confirmarse antes de utilizar estas pruebas.</p>
+<p>Existen dos supuestos principales subyacentes a la correlación producto-momento de Pearson:</p>
 <ul>
-<li>En la ventana superior derecha se encuentra el historial de objetos almacenados en memoria. Desde esta ventana también podemos:<br />
-</li>
+<li><strong>Supuesto 1:</strong> Los datos de cada una de las 2 variables siguen una distribución normal.</li>
 </ul>
-<ol style="list-style-type: lower-alpha">
-<li>Limpiar nuestro historial<br />
-</li>
-<li>Importar datos<br />
-</li>
-<li>Muestra los comandos y funciones implementadas de los informes con los que se han trabajado.</li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
-<li>En la ventana inferior de la derecha RStudio muestra el directorio de trabajo, los gráficos que se van generando, paquetes para cargarlos e instalarlos directamente, ayuda y un visor HTML. Estas pestañas se irán describiendo a lo largo del documento</li>
-</ol>
-
+<p>Veamos para la variable Concentración</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Concentracion)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  data$Concentracion
+## W = 0.94734, p-value = 0.4158</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de Concentración siguen una distribución normal</p>
+<p>Veamos ahora para el caso de la variable Absorción</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Absorcion)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  data$Absorcion
+## W = 0.95391, p-value = 0.5212</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de la variable Absorción siguen una distribución normal.</p>
+<ul>
+<li><strong>Supuesto 2:</strong> las observaciones representan una muestra aleatoria de la población y las observaciones son independientes entre sí.</li>
+</ul>
 </div>
+<div id="paso-5-interpretar-los-resultados-del-modelo." class="section level2">
+<h2><span class="header-section-number">10.6</span> Paso 5: Interpretar los resultados del modelo.</h2>
+<p>Ahora que hemos comprobado que los supuestos requeridos se cumplen, vamos a proceder a realizar la correlación de Pearson para nuestras variables de interés:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">cor.test</span>(data<span class="op">$</span>Concentracion, data<span class="op">$</span>Absorcion, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  data$Concentracion and data$Absorcion
+## t = 21.108, df = 15, p-value = 1.442e-12
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9538904 0.9942099
+## sample estimates:
+##       cor 
+## 0.9835807</code></pre>
+<p>En el resultado anterior:
+* <code>t</code>: es el valor estadístico de la prueba t (t = 21.108),
+* <code>df</code>: son los grados de libertad (df = 15),
+* <code>p-value</code>: es el nivel de significancia de la prueba t (p-value = 1.442e-12).
+* Sample estimates: es el coeficiente de correlación (r = 0.9835).</p>
+<p>Con este resultado, rechazamos la hipótesis de que estas dos variables varían de forma independiente y concluimos que hay una correlación entre las dos. Podemos describir este resultado de la siguiente forma: Hemos detectado una correlación entre la concentración de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo (<span class="math inline">\(r_15\)</span> = 0.9835, P = 1.442e-12).</p>
 </div>
 </div>
             </section>
@@ -308,8 +343,8 @@ Figure 1.2: Pantalla principal Rstudio
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tipos-de-datos-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelos-lineales-generales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresión-lineal-simple.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
