@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 9 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 8 Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 9 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 8 Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 9 Estadística inferencial: Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 8 Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estadística-inferencial-prueba-de-t-compración-paramétrica-entre-dos-grupos.html"/>
-
+<link rel="prev" href="prueba-de-chi-cuadrado-chi2.html"/>
+<link rel="next" href="estadística-inferencial-regresión-lineal-y-correlación.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -263,46 +263,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estadística-inferencial-regresión-lineal-y-correlación" class="section level1">
-<h1><span class="header-section-number">Capitulo 9</span> Estadística inferencial: Regresión lineal y correlación</h1>
-<p>Antes de comenzar con este práctico es importante tomarnos un tiempo para recordar que la estadística comienza con un problema, continúa con la toma de datos, sigue con la inspección y visualización de los datos y termina con el análisis de los mismos. Esto nos permitirá sacar conclusiones fundamentadas sobre nuestro problema inicial.</p>
-<p>En el presente curso hemos establecido una receta de trabajo al momento de realizar inferencias estadísticas:</p>
-<ul>
-<li><p><strong>Paso 1:</strong> Analizar nuestros datos a través de gráficos o tablas. El objetivo es evaluar posibles tendencias en nuestros datos.</p></li>
-<li><p><strong>Paso 2:</strong> Definir la hipótesis que queremos poner a prueba. Debemos establecer la hipótesis nula y la(s) alternativa(s).</p></li>
-<li><p><strong>Paso 3:</strong> Transformar la hipótesis en un modelo (prueba) estadístico. El modelo estará determinado por nuestras variables (importante diferenciar entre variables continuas y categóricas).</p></li>
-<li><p><strong>Paso 4:</strong> Evaluar los supuestos del modelo. Es relevante para saber si podemos (o no) utilizar métodos paramétricos.</p></li>
-<li><p><strong>Paso 5:</strong> Interpretar los resultados del modelo. Debemos evaluar el valor de probabilidad asociado a la prueba estadística.</p></li>
-</ul>
-<div id="modelos-lineales-generales" class="section level2">
-<h2><span class="header-section-number">9.1</span> Modelos lineales generales</h2>
-<p>En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.</p>
-<p>Los modelos lineales generales describen una variable respuesta (<span class="math inline">\(Y\)</span>) en términos de todos sus factores contribuyentes (<span class="math inline">\(xβ\)</span>) en una combinación lineal, mientras que también incorpora el aporte de error (<span class="math inline">\(\epsilon\)</span>).</p>
+<div id="estadística-inferencial-prueba-de-t-compración-paramétrica-entre-dos-grupos" class="section level1">
+<h1><span class="header-section-number">Capitulo 8</span> Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos)</h1>
+<p>Uno de los análisis estadísticos más comunes es la prueba de t, la cual se utiliza para comparar la media de dos muestras dadas. Una prueba t se utiliza cuando no se conocen los parámetros de la población (media y desviación estándar).</p>
+<p>La prueba t te dice cuán significativas son las diferencias entre los grupos, es decir, permite saber si esas diferencias (medidas en medias / promedios) podrían haber ocurrido por casualidad.</p>
+<p>Hay tres versiones de prueba t</p>
+<ol style="list-style-type: decimal">
+<li><p>Prueba t de muestras independientes que compara la media de dos grupos</p></li>
+<li><p>Prueba t de muestra pareada que compara medias del mismo grupo en diferentes momentos
+Ejemplo:</p></li>
+<li><p>Una prueba t de muestra que prueba la media de un solo grupo contra una media conocida.</p></li>
+</ol>
+<p>El estadístico para esta prueba de hipótesis se denomina estadístico t y se calcula como:</p>
 <p><span class="math display">\[
-Y = \beta_0 + \beta_1x_1 + \epsilon 
+t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 \]</span></p>
-<p>Esta clase de modelos estadísticos incluye la regresión lineal, regresión múltiple, ANOVA y ANCOVA.</p>
-<p>En R, todos los análisis univariados (una variable respuesta) de este tipo se ajustan utilizando una única función lm().</p>
-<p>El análisis de regresión lineal se usa para explicar o modelar la relación entre una variable continua <span class="math inline">\(Y\)</span>, llamada variable respuesta o variable dependiente, y otra variable continua <span class="math inline">\(x_1\)</span>, llamada variable explicativa o independiente. Cuando hay más de una variable continua explicativa (<span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>,… <span class="math inline">\(X_p\)</span>) el análisis se denomina regresión múltiple.</p>
-<p>Si la variable explicativa es categórica en vez de continua, entonces el análisis a realizar es un ANOVA (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina análisis de varianza de 2-vías.</p>
-<p>Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de covarianza o ANCOVA.</p>
+<p>donde:
+<span class="math inline">\(x_1\)</span>: es la media de muestra 1</p>
+<p><span class="math inline">\(x_2\)</span>: es la media de la muestra 2</p>
+<p><span class="math inline">\(\sigma /\sqrt{n_1} + \sigma /\sqrt{n_2}\)</span>: es el error estandar de la diferencia de medias</p>
+<p>Recuerden que este método nos permite examinar la relación entre una <strong>variable numérica</strong> y una <strong>variable explicativa categórica</strong></p>
+<p>En el siguiente laboratorio veremos 2 ejemplos para muestras independientes</p>
+<div id="ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro" class="section level2">
+<h2><span class="header-section-number">8.1</span> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</h2>
+<div id="creemos-nuestros-datos-1" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Creemos nuestros datos</h3>
+<p>ara ilustrar el uso de la prueba t, considere la muestra de seis rendimientos de una nueva variedad de trigo. Los rendimientos obtenidos fueron: 2.5, 2.1, 2.4, 2.0, 2.6 y 2.2 toneladas por hectárea. Suponga que, además de sus seis estimaciones de rendimiento con la nueva variedad, el agricultor tiene diez áreas similares con su variedad estándar con los siguientes rendimientos: 2.2, 1.9, 1.8, 2.1, 2.1, 1.7 también en toneladas por hectárea.</p>
+<p>Para este ejemplo asumiremos que se cumplen las condiciones para efectuar un análisis parámetrico (Normalidad, Hemoscedasticidad, Independencia)</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1"><span class="co"># Creemos el vector rendimiento</span></a>
+<a class="sourceLine" id="cb190-2" title="2"><span class="co"># Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology</span></a>
+<a class="sourceLine" id="cb190-3" title="3">rendimiento &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.5</span>, <span class="fl">2.1</span>, <span class="fl">2.4</span>, <span class="fl">2.0</span>, <span class="fl">2.6</span>, <span class="fl">2.2</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.1</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span> )</a>
+<a class="sourceLine" id="cb190-4" title="4">variedad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;var1&quot;</span>, <span class="dv">6</span>), <span class="kw">rep</span>(<span class="st">&quot;var2&quot;</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb190-5" title="5"></a>
+<a class="sourceLine" id="cb190-6" title="6">datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(rendimiento, variedad)</a></code></pre></div>
 </div>
-<div id="correlación-producto-momento-de-pearson" class="section level2">
-<h2><span class="header-section-number">9.2</span> Correlación producto-momento de Pearson</h2>
-<p>Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La <strong>correlación producto-momento de Pearson</strong> (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).</p>
-<p>El <strong>coeficiente de correlación de Pearson (r)</strong> es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.</p>
-<p>Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.</p>
-<p>Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_1\)</span>).</p>
-<p>Para el laboratorio de Hoy ujtilizaremos el ejemplo 9.1 de Mead et al. (1993). El cual indica:</p>
-<p>El siguiente experimento busca establecer la absorción de <span class="math inline">\(CO_2\)</span> de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 <span class="math inline">\(°C\)</span> y se mide la absorción de <span class="math inline">\(CO_2\)</span> por parte de las hojas de estas. Los valores de absorción (<span class="math inline">\(y\)</span>) para diecisiete hojas, a diferentes concentraciones (<span class="math inline">\(x\)</span>) se obtienen y son los datos que se encuentran en el archivo “trigo_co2.csv”.</p>
-<div id="carguemos-nuestros-datos" class="section level3">
-<h3><span class="header-section-number">9.2.1</span> Carguemos nuestros datos</h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;./datos/trigo_co2.csv&quot;</span>)</a></code></pre></div>
-</div>
-<div id="paso-1-analicemos-nuestros-datos" class="section level3">
-<h3><span class="header-section-number">9.2.2</span> Paso 1: Analicemos nuestros datos</h3>
-<p>Generemos un gráfico exploratorio de nuestras variables con ggplot:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div id="analicemos-nuestros-datos-2" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Analicemos nuestros datos</h3>
+<p>Veamos un resumen de nuestros datos</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
 ## v tibble  2.1.3     v dplyr   0.8.3
@@ -314,225 +312,209 @@ Y = \beta_0 + \beta_1x_1 + \epsilon
 <pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span> Concentracion, <span class="dt">y=</span> Absorcion))<span class="op">+</span></a>
-<a class="sourceLine" id="cb231-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb231-3" title="3"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb231-4" title="4"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb231-5" title="5"><span class="st">        </span><span class="kw">theme_bw</span> ()</a></code></pre></div>
-<p><img src="09-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>A simple vista se ve una estrecha relación (relación positiva) entre nuestros datos de concentracion de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">summary</span>(datos)</a></code></pre></div>
+<pre><code>##   rendimiento    variedad
+##  Min.   :1.700   var1:6  
+##  1st Qu.:1.975   var2:6  
+##  Median :2.100           
+##  Mean   :2.133           
+##  3rd Qu.:2.250           
+##  Max.   :2.600</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">tabla &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb200-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(variedad) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb200-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">rendimiento_promedio =</span> <span class="kw">mean</span>(rendimiento))</a>
+<a class="sourceLine" id="cb200-4" title="4">tabla</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   variedad rendimiento_promedio
+##   &lt;fct&gt;                   &lt;dbl&gt;
+## 1 var1                     2.3 
+## 2 var2                     1.97</code></pre>
 </div>
-<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba." class="section level3">
-<h3><span class="header-section-number">9.2.3</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
-<p>Nuestro interés es conocer si las variables Concentracion y Absorción cambian de forma simultánea (están relacionados). Para ello establecemos las siguientes hipótesis:</p>
-<p><span class="math display">\[
-H_0 = \text{Las variables Concentración y Absorción cambian de forma independiente} \\
-H_A = \text{Las variables Concentración y Absorción cambian de forma conjunta}
-\]</span></p>
+<div id="expresar-la-hipótesis-de-investigación-2" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Expresar la hipótesis de investigación</h3>
+<p>Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?</p>
+<p>$$
+H_0:  \
+H_a:  \</p>
+<p>o \</p>
+<p>H_0: _1 = _2 \
+H_a: _1 _2 \</p>
+<p>$$</p>
 </div>
-<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico." class="section level3">
-<h3><span class="header-section-number">9.2.4</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
-<p>El siguiente paso involucra poner a prueba si existe relación estadísticamente significativa entre Concentración y Absorción. Para ello empleamos la <strong>correlación de Pearson</strong> para determinar si las dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_A\)</span>).</p>
-</div>
-<div id="paso-4-evaluar-los-supuestos-del-modelo." class="section level3">
-<h3><span class="header-section-number">9.2.5</span> Paso 4: Evaluar los supuestos del modelo.</h3>
-<p>R
-ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos subyacentes, y estos supuestos siempre deben confirmarse antes de utilizar estas pruebas.</p>
-<p>Existen dos supuestos principales subyacentes a la correlación producto-momento de Pearson:</p>
-<ul>
-<li><strong>Supuesto 1:</strong> Los datos de cada una de las 2 variables siguen una distribución normal.</li>
-</ul>
-<p>Veamos para la variable Concentración</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Concentracion)</a></code></pre></div>
+<div id="realicemos-nuestra-prueba-de-t" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Realicemos nuestra prueba de t</h3>
+<p>Ahora analicemos nuestros datos a través de la prueba de t</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">res_ttest &lt;-<span class="st"> </span><span class="kw">t.test</span>(rendimiento<span class="op">~</span>variedad, <span class="dt">data =</span> datos, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb202-2" title="2">res_ttest</a></code></pre></div>
 <pre><code>## 
-##  Shapiro-Wilk normality test
+##  Welch Two Sample t-test
 ## 
-## data:  data$Concentracion
-## W = 0.94734, p-value = 0.4158</code></pre>
-<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de Concentración siguen una distribución normal</p>
-<p>Veamos ahora para el caso de la variable Absorción</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Absorcion)</a></code></pre></div>
-<pre><code>## 
-##  Shapiro-Wilk normality test
-## 
-## data:  data$Absorcion
-## W = 0.95391, p-value = 0.5212</code></pre>
-<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de la variable Absorción siguen una distribución normal.</p>
-<ul>
-<li><strong>Supuesto 2:</strong> las observaciones representan una muestra aleatoria de la población y las observaciones son independientes entre sí.</li>
-</ul>
-</div>
-<div id="paso-5-interpretar-los-resultados-del-modelo." class="section level3">
-<h3><span class="header-section-number">9.2.6</span> Paso 5: Interpretar los resultados del modelo.</h3>
-<p>Ahora que hemos comprobado que los supuestos requeridos se cumplen, vamos a proceder a realizar la correlación de Pearson para nuestras variables de interés:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">cor.test</span>(data<span class="op">$</span>Concentracion, data<span class="op">$</span>Absorcion, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s product-moment correlation
-## 
-## data:  data$Concentracion and data$Absorcion
-## t = 21.108, df = 15, p-value = 1.442e-12
-## alternative hypothesis: true correlation is not equal to 0
+## data:  rendimiento by variedad
+## t = 2.6537, df = 9.6756, p-value = 0.0248
+## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  0.9538904 0.9942099
+##  0.05218059 0.61448608
 ## sample estimates:
-##       cor 
-## 0.9835807</code></pre>
-<p>En el resultado anterior:</p>
+## mean in group var1 mean in group var2 
+##           2.300000           1.966667</code></pre>
+<p>Nuestra prueba estadística fue de 2.6537 con un p-value de 0.0248</p>
+</div>
+<div id="conclusión-del-test-1" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Conclusión del test</h3>
+<p>Ya que nuestro valor de probabilidad (<code>p-value</code>) es menor a 0.05 se rechaza la hipotesis nula. Por lo tanto, encontramos que los datos de nuestro modelo proporcionan evidencia estadísticamente significativa para sugerir que la media de los rendimientos de ambas variedades no son iguales.</p>
+</div>
+</div>
+<div id="ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen" class="section level2">
+<h2><span class="header-section-number">8.2</span> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</h2>
+<div id="importemos-nuestros-datos" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Importemos nuestros datos</h3>
+<p>En este práctico comenzaremos a trabajar
+con una nueva base de datos que incluye las siguientes variables:</p>
 <ul>
-<li><p><code>t</code>: es el valor estadístico de la prueba t (t = 21.108),</p></li>
-<li><p><code>df</code>: son los grados de libertad (df = 15),</p></li>
-<li><p><code>p-value</code>: es el nivel de significancia de la prueba t (p-value = 1.442e-12).</p></li>
-<li><p>Sample estimates: es el coeficiente de correlación (r = 0.9835).</p></li>
+<li><p>Zona: Se refiere a zonas geográficas de nuestro país.</p></li>
+<li><p>Region: Se refiere a divisiones territoriales oficiales de nuestro país.</p></li>
+<li><p>Temporada: Año en que se realizan las mediciones.</p></li>
+<li><p>Olivo: Superficie de territorio plantada con Olivos. Medida en hectáreas.</p></li>
+<li><p>Chirimoyo: Superficie de territorio plantada con Chirimoyos. Medida en hectáreas</p></li>
+<li><p>Vid: Superficie de territorio plantada con Vid de mesa. Medida en hectáreas.</p></li>
+<li><p>Temperatura: Temperatura promedio anual en los puntos de muestreos. Medida en ºC.</p></li>
 </ul>
-<p>Con este resultado, rechazamos la hipótesis de que estas dos variables varían de forma independiente y concluimos que hay una correlación entre las dos. Podemos describir este resultado de la siguiente forma: Hemos detectado una correlación entre la concentración de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo (<span class="math inline">\(r_15\)</span> = 0.9835, P = 1.442e-12).</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">datos_p9 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/datosnuevos.csv&quot;</span>)</a></code></pre></div>
 </div>
-</div>
-<div id="regresión-lineal-simple" class="section level2">
-<h2><span class="header-section-number">9.3</span> Regresión Lineal Simple</h2>
-<p>Al igual que la correlación de Pearson, la regresión lineal explora la relación entre dos variables continuas. Mientras que la correlación analiza si dos variables continuas cambian de forma simultánea (están relacionadas), la regresión analiza la relación causal entre un predictor (variable independiente) y una variable de respuesta (dependiente).</p>
-<p>La función básica para construir un modelo lineal (como la regresión lineal) en R es usar la función <code>lm()</code>, la que proporciona una fórmula en forma de <code>y ~ x</code>.</p>
-<p>Trabajaremos con la misma información anterior. Recordemos que nunca debemos comenzar un análisis estadístico con una prueba estadística, siempre debemos comenzar con una figura de nuestros datos!!!</p>
-<div id="paso-1-graficar-nuestros-datos." class="section level3">
-<h3><span class="header-section-number">9.3.1</span> Paso 1: Graficar nuestros datos.</h3>
-<p>Ya que estamos trabajando con el mismo ejemplo anterior no es necesario volver a realizar el mismo gráfico anterior.</p>
-</div>
-<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1" class="section level3">
-<h3><span class="header-section-number">9.3.2</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
-<p>Ahora si, el proceso cambia en compración con la correlación vista anteriormente.</p>
-<p>Nuestro interés es conocer si concentración de <span class="math inline">\(co_2\)</span> en el aire predice la absorción de este por parte de las hojas de trigo.</p>
-<p>Para ello establecemos las siguientes hipótesis:</p>
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Analicemos nuestros datos (Cuando las condiciones se cumplen)</h3>
+<div id="normalidad-1" class="section level4">
+<h4><span class="header-section-number">8.2.2.1</span> Normalidad</h4>
+<p>######Método visual: Histograma de frecuencia</p>
+<p>Graficar un histograma de la variable de interés nos dará una idea de la forma de la distribución que siguen nuestros datos. Recordemos que la distribución normal alcanza su punto máximo en el medio y es simétrica respecto a la media. No es necesario que los datos se distribuyan de manera perfectamente normal para que las pruebas sean confiables.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Nuestro análisis visual sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal. Sin embargo, esto no se cumple para el número de hectáreas plantadas con chirimoyos.</p>
+<p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contrastes de hipótesis</p>
+<div id="pruebas-estadísticas-test-de-shapiro-wilk" class="section level5">
+<h5><span class="header-section-number">8.2.2.1.1</span> Pruebas estadísticas: Test de Shapiro-Wilk</h5>
+<p>En estadística, el test de Shapiro–Wilk se usa para contrastar la normalidad de un conjunto de datos. Se pondrán a prueba las siguientes hipótesis:</p>
 <p><span class="math display">\[
-H_0 = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es igual a cero} \\  
-H_A = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es diferente de cero}  
-\\
-o \\
-β1  = 0 \\
-β1\neq 0
+H_0 = \text{Los datos provienen de una distribución normal}\\
+H_A = \text{Los datos NO provienen de una distribución normal}
 \]</span></p>
-</div>
-<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1" class="section level3">
-<h3><span class="header-section-number">9.3.3</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
-<p>El siguiente paso involucra poner a prueba si la variación en Concentración de CO2 predice absorción de este por parte de la planta. Para ello ajustaremos un modelo de regresión lineal para determinar si las dos variables cambian de forma independiente (H0) o entonces, de forma alternativa, de forma conjunta (H1).</p>
-<p>Para ellos vamos a construir nuestro modelo de regresión lineal utilizando la función <code>lm()</code>:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Absorcion <span class="op">~</span><span class="st"> </span>Concentracion, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb238-2" title="2">model1</a></code></pre></div>
+<p>Recuerden si el valor de probabilidad es mayor a 0.05, no rechazamos la hipótesis nula y asumimos que los datos provienen de una distribución normal.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">shapiro.test</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
 <pre><code>## 
-## Call:
-## lm(formula = Absorcion ~ Concentracion, data = data)
+##  Shapiro-Wilk normality test
 ## 
-## Coefficients:
-##   (Intercept)  Concentracion  
-##      -2.04267        0.02494</code></pre>
-<p>En el resultado anterior podemos ver los siguientes coeficientes:
-* <strong>Intercepto:</strong> Valor predicho de la variable dependiente cuando la variable independiente es 0
-* <strong>Pendiente:</strong> Entrega el aumento predicho en la variable dependiente para un aumento unitario en X</p>
-<p>Con estos resultados podríamos escribir la ecuación de esta linea</p>
+## data:  datos_p9$Olivo
+## W = 0.98212, p-value = 0.112</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal.</p>
+</div>
+</div>
+<div id="homocedasticidad-1" class="section level4">
+<h4><span class="header-section-number">8.2.2.2</span> Homocedasticidad</h4>
+<p>Visualizar un gráfico de cajas de la variable de interés nos dará una idea de la dispersión de los datos en torno a una medida de tendencia central. Para ello podemos considerar el tamaño de los bigotes de nuestro gráfico de cajas.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">boxplot</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Nuestro análisis visual muestra que los datos del número de hectáreas plantadas con olivos presentan niveles similares de dispersión entorno a la mediana.</p>
+<p>Otra opción es comparar directamente los valores de las varianza entre los grupos de interés. Para ello utilizaremos la función tapply:</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">tapply</span>(datos_p9<span class="op">$</span>Olivo, datos_p9<span class="op">$</span>Zona, var)</a></code></pre></div>
+<pre><code>##   centro    norte 
+## 6797.021 7222.925</code></pre>
+<p>Los valores muestran que la varianza del número de hectáreas plantadas con olivos es 6% mayor en plantaciones de la zona norte en comparación a la zona sur.</p>
+<p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de pruebas estadísticas basadas en contraste de hipótesis.</p>
+<div id="pruebas-estadísticas-test-levene" class="section level5">
+<h5><span class="header-section-number">8.2.2.2.1</span> Pruebas estadísticas: Test Levene</h5>
+<p>En estadística, el test de Shapiro–Wilk se usa para evaluar la igualdad de las varianzas (homocedasticidad) para una variable calculada para dos o más grupos. Se pondrán a prueba las siguientes hipótesis:</p>
 <p><span class="math display">\[
-\hat{y} = -2.04267 + 0.02494\cdot\text{Concentracion}
+H_0 = \text{Las varianzas poblacionales de los grupos son iguales} \\
+H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
 \]</span></p>
-<p>¿Cómo interpretaríamos el coeficiente <span class="math inline">\(\beta_1\)</span> (la pendiente)?</p>
-<p>Para una unidad adicional en la concentración de CO2 en el aire esperaríamos ver un aumento de 0.025 unidades adicionales de absorción de co2 por parte de las hojas de las plantas de trigo.</p>
-</div>
-<div id="paso-4-evaluar-los-supuestos-del-modelo.-1" class="section level3">
-<h3><span class="header-section-number">9.3.4</span> Paso 4: Evaluar los supuestos del modelo.</h3>
-<p>La regresión lineal hace varias suposiciones sobre los datos, tales como:</p>
-<ul>
-<li><p><strong>Supuesto 1:</strong> Linealidad de los datos.
-Se asume que la relación entre el predictor (x) y el resultado (y) es lineal.</p></li>
-<li><p><strong>Supuesto 2:</strong> Normalidad de los residuos.
-Se asume que los errores residuales están normalmente distribuidos.</p></li>
-<li><p><strong>Supuesto 3:</strong> Homogeneidad de la varianza de los residuos.
-Se asume que los residuos tienen una variación constante (homoscedasticidad)</p></li>
-<li><p><strong>Supuesto 4:</strong> Independencia de los términos de error de residuos.</p></li>
-</ul>
-<p>Todos estos supuestos y posibles problemas pueden verificarse generando algunos gráficos de diagnóstico que visualizan los residuales. El gráfico de “residuos versus valores ajustados” es un diagrama de dispersión de los residuos en el eje “y” y los valores ajustados (respuestas estimadas) en el eje “x”. La gráfica se utiliza</p>
-<p>para detectar la no linealidad, las variaciones de error desiguales y los valores atípicos (outliers).</p>
-<p>Estas son las características de un buen gráfico de “residuos versus ajustes” y lo que sugieren sobre la idoneidad del modelo de regresión lineal simple:</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Los residuos “se mueven al azar” alrededor de la línea 0. Esto sugiere que el supuesto de que la relación es lineal es razonable.</p></li>
-<li><p>Los residuos forman aproximadamente una “banda horizontal” alrededor de la línea 0. Esto sugiere que las variaciones de los términos de error son iguales.</p></li>
-<li><p>Ningún residuo “se destaca” del patrón aleatorio básico de residuos. Esto sugiere que no hay valores atípicos.</p></li>
-</ol>
-<p>Entonces, generemos un gráfico “residuos versus valores ajustados” con nuestros datos. Para ello, debemos generar dos objetos que contengan los valores ajustados (valores predichos por el modelo) y los residuos (valor observado - valor ajustado) a partir de nuestro modelo:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1">ajustados &lt;-<span class="st"> </span><span class="kw">fitted</span>(model1)</a>
-<a class="sourceLine" id="cb240-2" title="2"></a>
-<a class="sourceLine" id="cb240-3" title="3">residuos &lt;-<span class="st"> </span><span class="kw">residuals</span>(model1)</a></code></pre></div>
-<p>Ahora, generamos un diagrama de dispersión y agregamos una línea de intercepto = 0 y pendiente = 0:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">plot</span>(ajustados,residuos)</a>
-<a class="sourceLine" id="cb241-2" title="2"><span class="kw">abline</span>(<span class="dv">0</span>, <span class="dv">0</span>)</a></code></pre></div>
-<p><img src="09-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>En líneas generales, el análisis gráfico sugiere que nuestras variables tienden a cumplir con los supuestos establecidos para una regresión lineal. A modo de diagnostico podríamos decir que:</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Los residuos “se mueven al azar” alrededor de la línea 0.</p></li>
-<li><p>Los residuos forman aproximadamente una “banda horizontal” alrededor de la línea 0.</p></li>
-<li><p>Existen algunos residuos que “se alejan” del patrón aleatorio básico de residuos. Esto sugiere que unos pocos valores atípicos.</p></li>
-</ol>
-</div>
-<div id="paso-5-interpretar-los-resultados-del-modelo.-1" class="section level3">
-<h3><span class="header-section-number">9.3.5</span> Paso 5: Interpretar los resultados del modelo.</h3>
-<p>Usando la función summary () obtenemos toda la información sobre nuestro modelo:</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<p>Recuerden que el p-value asociado al análisis nos permitirá rechazar (p &lt; 0.05) o no (p &gt; 0.05) nuestra hipótesis nula.</p>
+<p>Recuerden que la función leveneTest es parte de la librería car. Es por ello que necesitamos instalar y cargar esta librería antes de hacer el análisis.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">library</span>(car)</a></code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
 <pre><code>## 
-## Call:
-## lm(formula = Absorcion ~ Concentracion, data = data)
+## Attaching package: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.49631 -0.14851  0.04928  0.15149  0.35590 
+##     recode</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
-## Coefficients:
-##                Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   -2.042668   0.197917  -10.32 3.29e-08 ***
-## Concentracion  0.024945   0.001182   21.11 1.44e-12 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 0.2457 on 15 degrees of freedom
-## Multiple R-squared:  0.9674, Adjusted R-squared:  0.9653 
-## F-statistic: 445.6 on 1 and 15 DF,  p-value: 1.442e-12</code></pre>
-<p>En el resultado anterior nos entrega la siguiente información:</p>
-<ul>
-<li>La fórmula del modelo: lm(formula = Absorcion ~ Concentracion)</li>
-<li>El valor del intercepto: Intercept = -2.042</li>
-<li>El valor de la pendiente: data$Concentración = 0.0249</li>
-<li>df: son los grados de libertad (df = 5),</li>
-<li>p-value: es el nivel de significancia de la pendiente (p-value = 1.442e-12).</li>
-<li>Coeficiente de determinación (<span class="math inline">\(R^2\)</span>): Rendimiento general del modelo (R-squared = 0.9674).</li>
-</ul>
-<p>Con esta información podemos hacer inferencia para la regresión. Para esto debemos tener claro ciertos aspectos. Por ejemplo:</p>
-<p><strong>¿Cuál es nuestro estadístico de Prueba? y ¿Cuál es el error estandar?</strong></p>
-<p>Nuestro estadístico de prueba es el valor de t, (el cual es el estadístico de prueba utilizado como una aproximación de distribución cuando havemos inferencia para regresión) y su valor es 21.11. Nuestro error estandar es 0.001182</p>
-<p><strong>¿Cuál es la conclusión general de nuestro test?</strong></p>
-<p>Nuestro valor de probabilidad es 1.442e-12, lo que significa que que es altamente significativo, por lo cual rechazamos la hipotesis nula.</p>
-<p><strong>¿Como interpretamos esta conclusión general en el contexto de este experimento?</strong></p>
-<p>Tenemos fuerte evidencia para sugeriri que existe relación entre la Concentración de CO2 en el aire y los niveles de CO2 absorvidos por la hoja de la planta de trigo</p>
-<p><strong>¿Cuál es el valor de <span class="math inline">\(R^2\)</span>?</strong></p>
-<p>Dado que el coeficiente de determinación representa la cantidad de variación en la variable y explicada por la variable x, el 96% de la variación en la Absorción de CO2 por parte de las hojas de trigo puede explicarse por la Concentración de CO2 en el aire.</p>
-<p>Con base a los resultados, podemos concluir: De acuerdo a una regresión lineal, Abssorción de CO2 cambia con Concentración de CO2 en el aire de acuerdo a la siguiente función:</p>
+##     some</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="kw">leveneTest</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.0169 0.8969
+##       118</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que las varianzas poblacionales del número de hectáreas plantadas con olivos son estadísticamente iguales para las muestras de la zona norte y central.</p>
+<p>Dado que nuestra variable número de hectáreas plantadas con olivos cumple con los supuestos de normalidad y homocedasticidad, podemos aplicar métodos estadísticos paramétricos sobre ella.</p>
+</div>
+</div>
+</div>
+<div id="expresar-la-hipótesis-de-investigación-3" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Expresar la hipótesis de investigación</h3>
+<p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. Podemos hacerlo con una prueba de t si y solo si se cumplen los supuestos de normalidad de homogeneidad de varianza.</p>
 <p><span class="math display">\[
-Absorcion = -2.042+0.0249\cdot\text{Concentración}  \\ 
-(R^2 = 0.96, t_{(1,15)} = 21.11, p &lt; 0.05). 
+H_0: \text{Las medias en el número de hectáreas en ambas zonas son iguales} \\
+H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.} \\
 \]</span></p>
-<p>Ahora podemos graficar los datos e incorporar la línea de regresión con geom_smooth (intercepto, pendiente):</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span>Concentracion, <span class="dt">y=</span>Absorcion))<span class="op">+</span></a>
-<a class="sourceLine" id="cb244-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb244-3" title="3"><span class="st">        </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb244-4" title="4"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb244-5" title="5"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb244-6" title="6"><span class="st">        </span><span class="kw">theme_bw</span>() </a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="09-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>Finalmente, con estos datos podemos hacer estimaciones puntuales. Por ejemplo, El valor medio predicho de <span class="math inline">\(\hat{y}\)</span> para una concentración dada, digamos x = 150 es:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1"><span class="fl">-2.042</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0249</span> <span class="op">*</span><span class="st"> </span><span class="dv">150</span>  </a></code></pre></div>
-<pre><code>## [1] 1.693</code></pre>
-<p>El valor estimado de <span class="math inline">\(\hat{y}\)</span> para una sola hoja para la concentración, x = 150, es <strong>1.693</strong>.</p>
-<p>Ahora, bien también podemos querer crear una estimación de intervalo en lugar de una estimación puntual como la realizado anteriormente. Para hacer eso crearemos un intervalo de confianza para una media Y. Para esto utilizaremos la función <code>predict()</code></p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="kw">predict</span>(model1, </a>
-<a class="sourceLine" id="cb248-2" title="2">        <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Concentracion =</span> <span class="dv">150</span>), </a>
-<a class="sourceLine" id="cb248-3" title="3">        <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</a></code></pre></div>
-<pre><code>##        fit      lwr      upr
-## 1 1.699064 1.569723 1.828406</code></pre>
-<p>Estoy 95% seguro que la media de Absorción de CO2 de las hojas de trigo para aire con concentraciones de cO2 de 150 (cm2/dm2/hour) es entre 1.56 y 1.82</p>
+</div>
+<div id="realicemos-nuestra-prueba-de-t-1" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Realicemos nuestra prueba de t</h3>
+<p>Ahora analicemos nuestros datos a través de la prueba de t</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1">res_ttest_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">t.test</span>(Olivo<span class="op">~</span>Zona, <span class="dt">data =</span> datos_p9, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb218-2" title="2">res_ttest_<span class="dv">2</span></a></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Olivo by Zona
+## t = -0.15777, df = 117.89, p-value = 0.8749
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -32.68265  27.85932
+## sample estimates:
+## mean in group centro  mean in group norte 
+##             1497.470             1499.882</code></pre>
+</div>
+<div id="conclusión-del-test-2" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> Conclusión del test</h3>
+<p>No hemos detectado diferencias estadísticamente significativas en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. (t= -0.1577, P = 0.87), con un promedio de 1499±7222 hectáreas plantadas en la zona norte y un promedio de 1497±6797 hectáreas plantadas en la zona centro (promedio ± desvest).</p>
+</div>
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-no-se-cumplen" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> Analicemos nuestros datos (Cuando las condiciones NO se cumplen)</h3>
+<div id="normalidad-2" class="section level4">
+<h4><span class="header-section-number">8.2.6.1</span> Normalidad</h4>
+<p>######Método visual: Histograma de frecuencia</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Chirimoyo)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>La distribución normal no se cumple para las hectáreas plantadas con chirimoyos</p>
+</div>
+</div>
+<div id="prueba-de-mann-whitney-comparación-no-paramétrica-entre-dos-grupos" class="section level3">
+<h3><span class="header-section-number">8.2.7</span> Prueba de Mann-Whitney (comparación no-paramétrica entre dos grupos)</h3>
+<p>El test de Mann–Whitney, también conocido como Wilcoxon rank-sum test, es una prueba estadística no paramétrica que contrasta si dos muestras proceden de poblaciones equidistribuidas. Esta prueba estadística se fundamenta en que si las dos muestras comparadas proceden de la misma población, al juntar todas las observaciones y ordenarlas de menor a mayor, cabría esperar que las observaciones de una y otra muestra estuviesen intercaladas aleatoriamente. Por lo contrario, si una de las muestras pertenece a una población con valores mayores o menores que la otra población, al ordenar las observaciones estas tenderán a agruparse de modo que las de una muestra queden por encima de las de la otra.</p>
+</div>
+<div id="expresar-la-hipótesis-de-investigación-4" class="section level3">
+<h3><span class="header-section-number">8.2.8</span> Expresar la hipótesis de investigación</h3>
+<p>En este análisis se ponen a prueba las siguientes hipótesis:</p>
+<p>$$
+H_0: \
+H_A: </p>
+<p>$$</p>
+</div>
+<div id="realicemos-nuestra-prueba-de-mann-whitney" class="section level3">
+<h3><span class="header-section-number">8.2.9</span> Realicemos nuestra prueba de Mann-Whitney</h3>
+<p>La función wilcox.test está disponible en R para realizar una prueba de Mann-Whitney.</p>
+<p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">wilcox.test</span>(datos_p9<span class="op">$</span>Chirimoyo<span class="op">~</span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  datos_p9$Chirimoyo by datos_p9$Zona
+## W = 993.5, p-value = 2.33e-05
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+<div id="conclusión-del-test-3" class="section level3">
+<h3><span class="header-section-number">8.2.10</span> Conclusión del test</h3>
+<p>Los resultados se explican y reportan de la siguiente forma, existen diferencias estadísticamente significativas en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central. (W=993.5, p&lt;0.05).</p>
 
 </div>
 </div>
@@ -542,8 +524,8 @@ Absorcion = -2.042+0.0249\cdot\text{Concentración}  \\
           </div>
         </div>
       </div>
-<a href="estadística-inferencial-prueba-de-t-compración-paramétrica-entre-dos-grupos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="prueba-de-chi-cuadrado-chi2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estadística-inferencial-regresión-lineal-y-correlación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

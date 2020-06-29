@@ -3,6 +3,6 @@ chapter_name: "Capitulo "
 repo: https://github.com/fjfernandezj/GUIA-ME-2020
 output_dir: docs
 rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd",
-"03-lab.Rmd","04-lab.Rmd","05-lab.Rmd","06-lab.Rmd","07-lab.Rmd","08-lab.Rmd"]
+"03-lab.Rmd","04-lab.Rmd","05-lab.Rmd","06-lab.Rmd","07-lab.Rmd","08-lab.Rmd","09-lab.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

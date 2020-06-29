@@ -1,309 +1,249 @@
-# Estadística inferencial: Regresión lineal y correlación
+# Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos)
 
-Antes de comenzar con este práctico es importante tomarnos un tiempo para recordar que la estadística comienza con un problema, continúa con la toma de datos, sigue con la inspección y visualización de los datos y termina con el análisis de los mismos. Esto nos permitirá sacar conclusiones fundamentadas sobre nuestro problema inicial.
+Uno de los análisis estadísticos más comunes es la prueba de t, la cual se utiliza para comparar la media de dos muestras dadas. Una prueba t se utiliza cuando no se conocen los parámetros de la población (media y desviación estándar). 
 
-En el presente curso hemos establecido una receta de trabajo al momento de realizar inferencias estadísticas:
+La prueba t te dice cuán significativas son las diferencias entre los grupos, es decir, permite saber si esas diferencias (medidas en medias / promedios) podrían haber ocurrido por casualidad.
 
-* **Paso 1:** Analizar nuestros datos a través de gráficos o tablas. El objetivo es evaluar posibles tendencias en nuestros datos.
+Hay tres versiones de prueba t
 
-* **Paso 2:** Definir la hipótesis que queremos poner a prueba. Debemos establecer la hipótesis nula y la(s) alternativa(s).
+1. Prueba t de muestras independientes que compara la media de dos grupos
 
-* **Paso 3:** Transformar la hipótesis en un modelo (prueba) estadístico. El modelo estará determinado por nuestras variables (importante diferenciar entre variables continuas y categóricas).
+2. Prueba t de muestra pareada que compara medias del mismo grupo en diferentes momentos
+Ejemplo:
 
-* **Paso 4:** Evaluar los supuestos del modelo. Es relevante para saber si podemos (o no) utilizar métodos paramétricos.
 
-* **Paso 5:** Interpretar los resultados del modelo. Debemos evaluar el valor de probabilidad asociado a la prueba estadística.
+3. Una prueba t de muestra que prueba la media de un solo grupo contra una media conocida.
 
-## Modelos lineales generales
-
-En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.
-
-Los modelos lineales generales describen una variable respuesta ($Y$) en términos de todos sus factores contribuyentes ($xβ$) en una combinación lineal, mientras que también incorpora el aporte de error ($\epsilon$).
+El estadístico para esta prueba de hipótesis se denomina estadístico t y se calcula como:
 
 $$
-Y = \beta_0 + \beta_1x_1 + \epsilon 
+t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 $$
 
-Esta clase de modelos estadísticos incluye la regresión lineal, regresión múltiple, ANOVA y ANCOVA.
- 
-En R, todos los análisis univariados (una variable respuesta) de este tipo se ajustan utilizando una única función lm(). 
+donde: 
+$x_1$: es la media de muestra 1
 
-El análisis de regresión lineal se usa para explicar o modelar la relación entre una variable continua $Y$, llamada variable respuesta o variable dependiente, y otra variable continua $x_1$, llamada variable explicativa o independiente. Cuando hay más de una variable continua explicativa ($X_1$, $X_2$,… $X_p$) el análisis se denomina regresión múltiple.
+$x_2$: es la media de la muestra 2
 
-Si la variable explicativa es categórica en vez de continua,  entonces el análisis a realizar es un ANOVA (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina análisis de varianza de 2-vías. 
+$\sigma /\sqrt{n_1} + \sigma /\sqrt{n_2}$: es el error estandar de la diferencia de medias
 
-Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de covarianza o ANCOVA. 
+Recuerden que este método nos permite examinar la relación entre una **variable numérica** y una **variable explicativa categórica**
 
-## Correlación producto-momento de Pearson
-Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La **correlación producto-momento de Pearson** (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).
+En el siguiente laboratorio veremos 2 ejemplos para muestras independientes 
 
-El **coeficiente de correlación de Pearson (r)** es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.
+## Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades  (ejeplo de libro)
 
-Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.
+### Creemos nuestros datos
+ara ilustrar el uso de la prueba t, considere la muestra de seis rendimientos de una nueva variedad de trigo. Los rendimientos obtenidos fueron: 2.5, 2.1, 2.4, 2.0, 2.6 y 2.2 toneladas por hectárea. Suponga que, además de sus seis estimaciones de rendimiento con la nueva variedad, el agricultor tiene diez áreas similares con su variedad estándar con los siguientes rendimientos: 2.2, 1.9, 1.8, 2.1, 2.1, 1.7 también en toneladas por hectárea.
 
-Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente ($H_0$) o entonces, de forma alternativa, de forma conjunta ($H_1$). 
+Para este ejemplo asumiremos que se cumplen las condiciones para efectuar un análisis parámetrico (Normalidad, Hemoscedasticidad, Independencia)
 
-
-Para el laboratorio de Hoy ujtilizaremos el ejemplo 9.1 de Mead et al. (1993). El cual indica:
-
-El siguiente experimento busca establecer la absorción de $CO_2$  de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 $°C$ y se mide la absorción de $CO_2$ por parte de las hojas de estas. Los valores de absorción ($y$) para diecisiete hojas, a diferentes concentraciones ($x$) se obtienen y son los datos que se encuentran en el archivo "trigo_co2.csv".
-
-
-### Carguemos nuestros datos
 ```{r}
-data <- read.csv2("./datos/trigo_co2.csv")
+# Creemos el vector rendimiento
+# Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology
+rendimiento <- c(2.5, 2.1, 2.4, 2.0, 2.6, 2.2, 2.2, 1.9, 1.8, 2.1, 2.1, 1.7 )
+variedad <- c(rep("var1", 6), rep("var2", 6))
+
+datos <- data.frame(rendimiento, variedad)
 ```
 
-
-### Paso 1: Analicemos nuestros datos
-Generemos un gráfico exploratorio de nuestras variables con ggplot:
+### Analicemos nuestros datos
+Veamos un resumen de nuestros datos 
 
 ```{r}
 library(tidyverse)
-ggplot(data, aes(x= Concentracion, y= Absorcion))+
-        geom_point()+
-        ylab("Absorción de CO2 (cm2/dm2/hour)")+
-        xlab("Concentracion de CO2")+
-        theme_bw ()
+summary(datos)
 
+tabla <- datos %>% 
+  group_by(variedad) %>% 
+  summarise(rendimiento_promedio = mean(rendimiento))
+tabla
 ```
 
+### Expresar la hipótesis de investigación 
 
-A simple vista se ve una estrecha relación (relación positiva) entre nuestros datos de concentracion de $CO_2$ en el aire y la absorción de este por las hojas de trigo.
-
-### Paso 2: Definir la hipótesis que queremos poner a prueba. 
-
-Nuestro interés es conocer si las variables Concentracion y Absorción cambian de forma simultánea (están relacionados). Para ello establecemos las siguientes hipótesis:
+Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?
 
 $$
-H_0 = \text{Las variables Concentración y Absorción cambian de forma independiente} \\
-H_A = \text{Las variables Concentración y Absorción cambian de forma conjunta}
-$$
+H_0: \text{Las medias de dos grupos son iguales} \\
+H_a: \text{Las medias de dos grupos NO son iguales.} \\
 
-### Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico. 
-El siguiente paso involucra poner a prueba si existe relación estadísticamente significativa entre Concentración y Absorción. Para ello empleamos la **correlación de Pearson** para determinar si las dos variables cambian de forma independiente ($H_0$) o entonces, de forma alternativa, de forma conjunta ($H_A$).
-
-### Paso 4: Evaluar los supuestos del modelo. 
-R
-ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos subyacentes, y estos supuestos siempre deben confirmarse antes de utilizar estas pruebas. 
-
-Existen dos supuestos principales subyacentes a la correlación producto-momento de Pearson:
-
-* **Supuesto 1:** Los datos de cada una de las 2 variables siguen una distribución normal.
-
-Veamos para la variable Concentración
-
-```{r}
-shapiro.test(data$Concentracion)
-```
-
-El valor de probabilidad (p>0.05) asociado a nuestro análisis sugiere que los datos de Concentración siguen una distribución normal
-
-Veamos ahora para el caso de la variable Absorción
-
-```{r}
-shapiro.test(data$Absorcion)
-```
-
-El valor de probabilidad (p>0.05) asociado a nuestro análisis sugiere que los datos de la variable Absorción siguen una distribución normal.
-
-* **Supuesto 2:** las observaciones representan una muestra aleatoria de la población y las observaciones son independientes entre sí.
-
-### Paso 5: Interpretar los resultados del modelo. 
-
-Ahora que hemos comprobado que los supuestos requeridos se cumplen, vamos a proceder a realizar la correlación de Pearson para nuestras variables de interés:
-
-```{r}
-cor.test(data$Concentracion, data$Absorcion, method = "pearson")
-```
-
-En el resultado anterior:
-
-* `t`: es el valor estadístico de la prueba t (t = 21.108),
-
-* `df`: son los grados de libertad (df = 15),
-
-* `p-value`: es el nivel de significancia de la prueba t (p-value = 1.442e-12).
-
-* Sample estimates: es el coeficiente de correlación (r = 0.9835).
-
-Con este resultado, rechazamos la hipótesis de que estas dos variables varían de forma independiente y concluimos que hay una correlación entre las dos. Podemos describir este resultado de la siguiente forma: Hemos detectado una correlación entre la concentración de $CO_2$ en el aire y la absorción de este por las hojas de trigo ($r_15$ = 0.9835, P = 1.442e-12). 
-
-## Regresión Lineal Simple 
-Al igual que la correlación de Pearson, la regresión lineal explora la relación entre dos variables continuas. Mientras que la correlación analiza si dos variables continuas cambian de forma simultánea (están relacionadas), la regresión analiza la relación causal entre un predictor (variable independiente) y una variable de respuesta (dependiente). 
-
-La función básica para construir un modelo lineal (como la regresión lineal) en R es usar la función `lm()`, la que proporciona una fórmula en forma de `y ~ x`. 
-
-Trabajaremos con la misma información anterior. Recordemos que nunca debemos comenzar un análisis estadístico con una prueba estadística, siempre debemos comenzar con una figura de nuestros datos!!!
-
-### Paso 1: Graficar nuestros datos. 
-Ya que estamos trabajando con el mismo ejemplo anterior no es necesario volver a realizar el mismo gráfico anterior.
-
-### Paso 2: Definir la hipótesis que queremos poner a prueba. 
-Ahora si, el proceso cambia en compración con la correlación vista anteriormente.
-
-Nuestro interés es conocer si concentración de $co_2$ en el aire predice la absorción de este por parte de las hojas de trigo. 
-
-Para ello establecemos las siguientes hipótesis: 
-
-$$
-H_0 = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es igual a cero} \\  
-H_A = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es diferente de cero}  
-\\
 o \\
-β1  = 0 \\
-β1\neq 0
-$$
 
-### Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico. 
-
-El siguiente paso involucra poner a prueba si la variación en Concentración de CO2 predice absorción de este por parte de la planta. Para ello ajustaremos un modelo de regresión lineal para determinar si las dos variables cambian de forma independiente (H0) o entonces, de forma alternativa, de forma conjunta (H1). 
-
-Para ellos vamos a construir nuestro modelo de regresión lineal utilizando la función `lm()`:
-
-```{r}
-model1 <- lm(Absorcion ~ Concentracion, data = data)
-model1
-```
-
-En el resultado anterior podemos ver los siguientes coeficientes:
-* **Intercepto:** Valor predicho de la variable dependiente cuando la variable independiente es 0 
-* **Pendiente:** Entrega el aumento predicho en la variable dependiente para un aumento unitario en X
-
-Con estos resultados podríamos escribir la ecuación de esta linea 
+H_0: \mu_1 = \mu_2 \\
+H_a: \mu_1 \neq \mu_2 \\
 
 $$
-\hat{y} = -2.04267 + 0.02494\cdot\text{Concentracion}
-$$
-
-¿Cómo interpretaríamos el coeficiente $\beta_1$ (la pendiente)?
-
-Para una unidad adicional en la concentración de CO2 en el aire esperaríamos ver un aumento de 0.025 unidades adicionales de absorción de co2 por parte de las hojas de las plantas de trigo.
 
 
-### Paso 4: Evaluar los supuestos del modelo. 
-
-La regresión lineal hace varias suposiciones sobre los datos, tales como:
-
-* **Supuesto 1:** Linealidad de los datos.
-Se asume que la relación entre el predictor (x) y el resultado (y) es lineal.
-
-* **Supuesto 2:** Normalidad de los residuos.
-Se asume que los errores residuales están normalmente distribuidos.
-
-* **Supuesto 3:** Homogeneidad de la varianza de los residuos.
-Se asume que los residuos tienen una variación constante (homoscedasticidad)
-
-* **Supuesto 4:** Independencia de los términos de error de residuos.
-
-Todos estos supuestos y posibles problemas pueden verificarse generando algunos gráficos de diagnóstico que visualizan los residuales. El gráfico de “residuos versus valores ajustados" es un diagrama de dispersión de los residuos en el eje “y” y los valores ajustados (respuestas estimadas) en el eje “x”. La gráfica se utiliza
-
-para detectar la no linealidad, las variaciones de error desiguales y los valores atípicos (outliers).
-
-Estas son las características de un buen gráfico de “residuos versus ajustes" y lo que sugieren sobre la idoneidad del modelo de regresión lineal simple:
-
-a. Los residuos "se mueven al azar" alrededor de la línea 0. Esto sugiere que el supuesto de que la relación es lineal es razonable.
-
-b. Los residuos forman aproximadamente una "banda horizontal" alrededor de la línea 0. Esto sugiere que las variaciones de los términos de error son iguales.
-
-c. Ningún residuo "se destaca" del patrón aleatorio básico de residuos. Esto sugiere que no hay valores atípicos.
-
-Entonces, generemos un gráfico “residuos versus valores ajustados” con nuestros datos. Para ello, debemos generar dos objetos que contengan los valores ajustados (valores predichos por el modelo) y los residuos (valor observado - valor ajustado) a partir de nuestro modelo:
+### Realicemos nuestra prueba de t
+Ahora analicemos nuestros datos a través de la prueba de t
 
 ```{r}
-ajustados <- fitted(model1)
-
-residuos <- residuals(model1)
-
+res_ttest <- t.test(rendimiento~variedad, data = datos, mu=0, conf=0.95)
+res_ttest
 ```
 
-Ahora, generamos un diagrama de dispersión y agregamos una línea de intercepto = 0 y pendiente = 0:
+Nuestra prueba estadística fue de 2.6537 con un p-value de 0.0248
+
+### Conclusión del test
+Ya que nuestro valor de probabilidad (`p-value`) es menor a 0.05 se rechaza la hipotesis nula. Por lo tanto, encontramos que los datos de nuestro modelo proporcionan evidencia estadísticamente significativa para sugerir que la media de los rendimientos de ambas variedades no son iguales.  
+
+
+## Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen) 
+
+### Importemos nuestros datos
+En este práctico comenzaremos a trabajar
+ con una nueva base de datos que incluye las siguientes variables:
+ 
+* Zona: Se refiere a zonas geográficas de nuestro país.
+
+* Region: Se refiere a  divisiones territoriales oficiales de nuestro país.
+
+* Temporada: Año en que se realizan las mediciones.
+
+* Olivo: Superficie de territorio plantada con Olivos. Medida en hectáreas.
+
+* Chirimoyo: Superficie de territorio plantada con Chirimoyos. Medida en hectáreas 
+
+* Vid: Superficie de territorio plantada con Vid de mesa. Medida en hectáreas.
+
+* Temperatura: Temperatura promedio anual en los puntos de muestreos. Medida en ºC.
 
 ```{r}
-plot(ajustados,residuos)
-abline(0, 0)
-
+datos_p9 <- read.csv("./datos/datosnuevos.csv")
 ```
 
 
-En líneas generales, el análisis gráfico sugiere que nuestras variables tienden a cumplir con los supuestos establecidos para una regresión lineal. A modo de diagnostico podríamos decir que:
+### Analicemos nuestros datos (Cuando las condiciones se cumplen)
 
-a. Los residuos "se mueven al azar" alrededor de la línea 0. 
+#### Normalidad
 
-b. Los residuos forman aproximadamente una "banda horizontal" alrededor de la línea 0. 
+######Método visual: Histograma de frecuencia
 
-c. Existen algunos residuos  que  "se alejan" del patrón aleatorio básico de residuos. Esto sugiere que unos pocos valores atípicos.
-
-
-### Paso 5: Interpretar los resultados del modelo. 
-
-Usando la función summary () obtenemos toda la información sobre nuestro modelo: 
+Graficar un histograma de la variable de interés nos dará una idea de la forma de la distribución que siguen nuestros datos. Recordemos que la distribución normal alcanza su punto máximo en el medio y es simétrica respecto a la media. No es necesario que los datos se distribuyan de manera perfectamente normal para que las pruebas sean confiables.
 
 ```{r}
-summary(model1)
+hist(datos_p9$Olivo)
 ```
 
-En el resultado anterior nos entrega la siguiente información:
+Nuestro análisis visual sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal. Sin embargo, esto no se cumple para el número de hectáreas plantadas con chirimoyos.
 
-* La fórmula del modelo: lm(formula = Absorcion ~ Concentracion)
-* El valor del intercepto: Intercept = -2.042
-* El valor de la pendiente: data$Concentración  = 0.0249 
-*	df: son los grados de libertad (df = 5),
-* p-value: es el nivel de significancia de la pendiente (p-value = 1.442e-12).
-*	Coeficiente de determinación ($R^2$): Rendimiento general del modelo (R-squared = 0.9674). 
+A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contrastes de hipótesis
 
-Con esta información podemos hacer inferencia para la regresión. Para esto debemos tener claro ciertos aspectos. Por ejemplo:
-
-**¿Cuál es nuestro estadístico de Prueba? y ¿Cuál es el error estandar?**
-
-Nuestro estadístico de prueba es el valor de t, (el cual es el estadístico de prueba utilizado como una aproximación de distribución cuando havemos inferencia para regresión) y su valor es 21.11. Nuestro error estandar es 0.001182
-
-**¿Cuál es la conclusión general de nuestro test?**
-
-Nuestro valor de probabilidad es 1.442e-12, lo que significa que que es altamente significativo, por lo cual rechazamos la hipotesis nula. 
-
-**¿Como interpretamos esta conclusión general en el contexto de este experimento?**
-
-Tenemos fuerte evidencia para sugeriri que existe relación entre la Concentración de CO2 en el aire y los niveles de CO2 absorvidos por la hoja de la planta de trigo
-
-**¿Cuál es el valor de $R^2$?**
-
-Dado que el coeficiente de determinación representa la cantidad de variación en la variable y explicada por la variable x, el 96\% de la variación en la Absorción de CO2 por parte de las hojas de trigo puede explicarse por la Concentración de CO2 en el aire.
-
-Con base a los resultados, podemos concluir: De acuerdo a una regresión lineal, Abssorción de CO2 cambia con Concentración de CO2 en el aire de acuerdo a la siguiente función: 
+##### Pruebas estadísticas: Test de Shapiro-Wilk
+En estadística, el test de Shapiro–Wilk se usa para contrastar la normalidad de un conjunto de datos. Se pondrán a prueba las siguientes hipótesis:
 
 $$
-Absorcion = -2.042+0.0249\cdot\text{Concentración}  \\ 
-(R^2 = 0.96, t_{(1,15)} = 21.11, p < 0.05). 
+H_0 = \text{Los datos provienen de una distribución normal}\\
+H_A = \text{Los datos NO provienen de una distribución normal}
 $$
 
-Ahora podemos graficar los datos e incorporar la línea de regresión con geom_smooth (intercepto, pendiente):
+Recuerden si el valor de probabilidad es mayor a 0.05, no rechazamos la hipótesis nula y asumimos que los datos provienen de una distribución normal.
+
 
 ```{r}
-ggplot(data, aes(x=Concentracion, y=Absorcion))+
-        geom_point()+
-        geom_smooth(method="lm")+
-        ylab("Absorción de CO2 (cm2/dm2/hour)")+
-        xlab("Concentracion de CO2")+
-        theme_bw() 
+shapiro.test(datos_p9$Olivo)
+```
+
+El valor de probabilidad (p>0.05) asociado a nuestro análisis sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal. 
+
+#### Homocedasticidad
+Visualizar un gráfico de cajas de la variable de interés nos dará una idea de la dispersión de los datos en torno a una medida de tendencia central. Para ello podemos considerar el tamaño de los bigotes de nuestro gráfico de cajas.
+
+```{r}
+boxplot(datos_p9$Olivo ~ datos_p9$Zona)
 
 ```
 
-Finalmente, con estos datos podemos hacer estimaciones puntuales. Por ejemplo, El valor medio predicho de $\hat{y}$ para una concentración dada, digamos x = 150 es:
+Nuestro análisis visual muestra que los datos del número de hectáreas plantadas con olivos presentan niveles similares de dispersión entorno a la mediana.
+
+Otra opción es comparar directamente los valores de las varianza entre los grupos de interés. Para ello utilizaremos la función tapply:
 
 ```{r}
--2.042 + 0.0249 * 150  
+tapply(datos_p9$Olivo, datos_p9$Zona, var)
 ```
 
-El valor estimado de $\hat{y}$ para una sola hoja para la concentración, x = 150, es **1.693**.
+Los valores muestran que la varianza del número de hectáreas plantadas con olivos es 6\% mayor en plantaciones de la zona norte en comparación a la zona sur.
 
-Ahora, bien también podemos querer crear  una estimación de intervalo en lugar de una estimación puntual como la realizado anteriormente. Para hacer eso crearemos un intervalo de confianza para una media Y. Para esto utilizaremos la función `predict()` 
+A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de pruebas estadísticas basadas en contraste de hipótesis.
+
+##### Pruebas estadísticas: Test Levene
+En estadística, el test de Shapiro–Wilk se usa para evaluar la igualdad de las varianzas (homocedasticidad) para una variable calculada para dos o más grupos. Se pondrán a prueba las siguientes hipótesis:
+
+$$
+H_0 = \text{Las varianzas poblacionales de los grupos son iguales} \\
+H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
+$$
+
+Recuerden que el p-value asociado al análisis nos permitirá rechazar (p < 0.05) o no (p > 0.05)  nuestra hipótesis nula. 
+
+Recuerden que la función leveneTest es parte de la librería car. Es por ello que necesitamos instalar y cargar esta librería antes de hacer el análisis.
 
 ```{r}
-predict(model1, 
-        newdata = data.frame(Concentracion = 150), 
-        interval = "confidence")
+library(car)
+leveneTest(datos_p9$Olivo ~ datos_p9$Zona)
 
 ```
 
-Estoy 95\% seguro que la media de Absorción de CO2 de las hojas de trigo para aire con concentraciones de cO2  de 150 (cm2/dm2/hour) es entre 1.56 y 1.82 
+El valor de probabilidad (p>0.05) asociado a nuestro análisis sugiere que las varianzas poblacionales del número de hectáreas plantadas con olivos son estadísticamente iguales para las muestras de la zona norte y central.
+
+Dado que nuestra variable número de hectáreas plantadas con olivos cumple con los supuestos de normalidad  y homocedasticidad, podemos aplicar métodos estadísticos paramétricos sobre ella.
+
+### Expresar la hipótesis de investigación 
+Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. Podemos hacerlo con una prueba de t si y solo si se cumplen los supuestos de normalidad de homogeneidad de varianza.
+
+$$
+H_0: \text{Las medias en el número de hectáreas en ambas zonas son iguales} \\
+H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.} \\
+$$
+
+### Realicemos nuestra prueba de t
+Ahora analicemos nuestros datos a través de la prueba de t
+
+```{r}
+res_ttest_2 <- t.test(Olivo~Zona, data = datos_p9, mu=0, conf=0.95)
+res_ttest_2
+```
+
+### Conclusión del test
+No hemos detectado diferencias estadísticamente significativas en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. (t= -0.1577, P =  0.87), con un promedio de 1499±7222 hectáreas plantadas en la zona norte y un promedio de 1497±6797  hectáreas plantadas en la zona centro (promedio ± desvest).
+
+### Analicemos nuestros datos (Cuando las condiciones NO se cumplen)
+
+#### Normalidad
+
+######Método visual: Histograma de frecuencia
+```{r}
+hist(datos_p9$Chirimoyo)
+```
+
+La distribución normal no se cumple para las hectáreas plantadas con chirimoyos
+
+### Prueba de Mann-Whitney (comparación no-paramétrica entre dos grupos)
+
+El test de Mann–Whitney, también conocido como Wilcoxon rank-sum test, es una prueba estadística no paramétrica que contrasta si dos muestras proceden de poblaciones equidistribuidas. Esta prueba estadística se fundamenta en que si las dos muestras comparadas proceden de la misma población, al juntar todas las observaciones y ordenarlas de menor a mayor, cabría esperar que las observaciones de una y otra muestra estuviesen intercaladas aleatoriamente. Por lo contrario, si una de las muestras pertenece a una población con valores mayores o menores que la otra población, al ordenar las observaciones estas tenderán a agruparse de modo que las de una muestra queden por encima de las de la otra. 
+
+### Expresar la hipótesis de investigación 
+En este análisis se ponen a prueba las siguientes hipótesis:
+
+$$
+H_0: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y es igual a la probabilidad de que una observación de la población Y supere a una de la población X}\\
+H_A: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y NO es igual a la probabilidad de que una observación de la población Y supere a una de la población X}
+
+$$
+
+### Realicemos nuestra prueba de Mann-Whitney
+La función wilcox.test está disponible en R para realizar una prueba de Mann-Whitney. 
+
+Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central. 
+
+```{r}
+wilcox.test(datos_p9$Chirimoyo~datos_p9$Zona)
+
+```
+
+
+### Conclusión del test
+Los resultados se explican y reportan de la siguiente forma, existen diferencias estadísticamente significativas en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central. (W=993.5, p<0.05).
+
