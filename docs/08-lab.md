@@ -1,4 +1,4 @@
-# Estadística inferencial: Prueba de t (Compración paramétrica entre dos grupos)
+# Prueba de t (Compración paramétrica entre dos grupos)
 
 Uno de los análisis estadísticos más comunes es la prueba de t, la cual se utiliza para comparar la media de dos muestras dadas. Una prueba t se utiliza cuando no se conocen los parámetros de la población (media y desviación estándar). 
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 9 Análisis de varianza (ANOVA) | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 9 Análisis de varianza (ANOVA) | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 9 Análisis de varianza (ANOVA) | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualización-de-datos-en-rstudio.html"/>
-<link rel="next" href="estadística-inferencial-pruebas-estadísticas.html"/>
+<link rel="prev" href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"/>
+<link rel="next" href="regresión-lineal-y-correlación.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -276,167 +276,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión" class="section level1">
-<h1><span class="header-section-number">Capitulo 5</span> Estadística descriptiva: Medidas de tendencia central y dispersión</h1>
-<p>En el laboratorio anterior aprendimos a graficar la información contenida en nuestra base de datos. El paso siguiente es resumir la información contenida en nuestra base de datos mediante la estimación de medidas de tendencia central y dispersión.</p>
-<div id="medidas-de-tendencia-central" class="section level2">
-<h2><span class="header-section-number">5.1</span> Medidas de tendencia central</h2>
-<p>Las medidas de tendencia central son medidas estadísticas que permiten resumir en un solo valor a un conjunto de valores. Representan un centro en torno al cual se encuentra ubicado el conjunto de los datos.</p>
-<p>Las medidas de tendencia central más utilizadas son: media, mediana y moda.</p>
-<p><strong>Funciones:</strong></p>
+<div id="análisis-de-varianza-anova" class="section level1">
+<h1><span class="header-section-number">Capitulo 9</span> Análisis de varianza (ANOVA)</h1>
+<div id="anova-de-1-vía" class="section level2">
+<h2><span class="header-section-number">9.1</span> ANOVA de 1 Vía</h2>
+<p>El análisis de varianza de una vía es un análisis similar a la regresión lineal, pero presenta un cambio en las variables incluidas en el modelo: la variable predictora es una variable categórica (también llamada factor). Es importante considerar que el ANOVA de una vía es una extensión de la prueba t de dos muestras para comparar medias en una situación en la que hay más de dos grupos.</p>
+<p>La ecuación matemática general para el ANOVA de una vía es:</p>
+<p><span class="math display">\[
+Y=\mu + X_1 + \epsilon
+\]</span>
+donde,
+* <span class="math inline">\(Y\)</span> es la variable respuesta.
+• <span class="math inline">\(μ\)</span> es la gran media.
+• <span class="math inline">\(X_1\)</span> es la variable predictora categórica o factor.</p>
+<p>En este análisis la hipótesis nula (<span class="math inline">\(H_0\)</span>) es la igualdad en todas las medias de los grupos, mientras que la hipótesis alternativa (<span class="math inline">\(H_a\)</span>) será la diferencia en al menos una de las medias.</p>
+<p>La pregunta que estamos respondiendo con ANOVA es: ¿la variación observada en las medias de los grupos se debe a diferencias en las medias de las poblaciones o simplemente debido a la variabilidad de muestreo? Para responder a esta pregunta, ANOVA calcula un parámetro llamado <strong>estadístico <code>F</code></strong>, que compara la variación entre las medias de los grupos y la variación dentro de los grupos:</p>
+<p><span class="math display">\[
+F = \frac{\text{variación entre grupos}}{\text{variación dentro de los grupos}} 
+\]</span></p>
+<p>A través del estadístico F podemos ver si la variación entre los grupos domina sobre la variación dentro de los grupos, o no. En el primer caso tendremos evidencia sólida para rechazar la hipótesis nula (las medias de todos los grupos no son iguales), mientras que en el segundo caso tendríamos poca evidencia para rechazar la hipótesis nula.</p>
+<p>El ANOVA se basa en los siguientes supuestos:</p>
 <ul>
-<li><p><code>sum(x)</code>: Suma de los elementos en <code>x</code></p></li>
-<li><p><code>mean(x)</code>: Promedio de los elementos en <code>x</code></p></li>
-<li><p><code>median(x)</code>: Mediana de los elementos en <code>x</code></p></li>
-<li><p><code>length(x)</code>: Número de elementos en <code>x</code></p></li>
+<li><strong>Distribución normal</strong> de la población de la que se extraen las muestras.</li>
+<li><strong>Independencia</strong> de las muestras.</li>
+<li><strong>Homogeneidad de la varianza</strong> de la población.</li>
 </ul>
-<p>Calculemos el promedio y la mediana de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.74167</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.75</code></pre>
-<p>Estas estimaciones las hemos realizado sobre todas las observaciones contenidas en nuestra variable. Sin embargo, en algunas ocasiones, estaremos interesados en un subconjunto de las observaciones que cumplan con alguna condición de nuestro interés. Por ejemplo, podemos estar interesados en el promedio de la temperatura ambiental en aquellas muestras que provienen solamente de la región del Maule. Para seleccionar aquellas muestras que cumplen con esta restricción podemos generar un subconjunto o subset:</p>
-<p><code>"Nombre del objeto" &lt;- "base de datos"$ "columna de interés" == "restricción"</code></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb105-2" title="2">subset_data</a></code></pre></div>
-<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
-##  [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [56]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<p>Al revisar el contenido de nuestro objeto llamado <code>subset_data</code>, R nos dice cuál o cuáles de las observaciones cumplen (TRUE) o no cumplen (FALSE) con nuestro requerimiento. Ahora, podemos calcular el promedio de la temperatura ambiental promedio en aquellas muestras que provienen solamente de la región del Maule:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div id="operadores-lógicos" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Operadores lógicos</h3>
+</div>
+<div id="ejemplo" class="section level2">
+<h2><span class="header-section-number">9.2</span> Ejemplo</h2>
+<div id="los-datos" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Los datos</h3>
+<p>Para ilustrar el uso del análisis de Varianza (ANOVA) de una vía consideren el siguiente ejemplo: En un experimento para comparar variedades de melón, se cultivaron seis parcelas, cada una con cuatro variedades distintas, las parcelas se asignaron a las variedades de manera completamente aleatoria, y los resultados se dan a continuación:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="co"># Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology</span></a>
+<a class="sourceLine" id="cb223-2" title="2">melon &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;./datos/datos_melon.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb223-3" title="3"></a>
+<a class="sourceLine" id="cb223-4" title="4">melon</a></code></pre></div>
+<pre><code>##    Variedad Rendimiento
+## 1         A       25.12
+## 2         A       17.25
+## 3         A       26.42
+## 4         A       16.80
+## 5         A       22.15
+## 6         A       15.92
+## 7         B       40.25
+## 8         B       35.26
+## 9         B       31.98
+## 10        B       36.52
+## 11        B       43.32
+## 12        B       37.10
+## 13        C       18.30
+## 14        C       22.60
+## 15        C       25.90
+## 16        C       15.05
+## 17        C       11.42
+## 18        C       23.68
+## 19        D       28.05
+## 20        D       28.05
+## 21        D       33.20
+## 22        D       31.68
+## 23        D       30.32
+## 24        D       27.58</code></pre>
+</div>
+<div id="paso-1-analicemos-nuestros-datos" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Paso 1: Analicemos nuestros datos</h3>
+<p>Veamos un resumen de nuestros datos</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">tabla &lt;-<span class="st"> </span>melon <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb232-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(Variedad) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb232-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">rendimiento_promedio =</span> <span class="kw">mean</span>(Rendimiento))</a>
+<a class="sourceLine" id="cb232-4" title="4"></a>
+<a class="sourceLine" id="cb232-5" title="5">tabla</a></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##   Variedad rendimiento_promedio
+##   &lt;fct&gt;                   &lt;dbl&gt;
+## 1 A                        20.6
+## 2 B                        37.4
+## 3 C                        19.5
+## 4 D                        29.8</code></pre>
+<p>La tabla nos sugiere que las medias entre las diferentes variedades son distintas</p>
+<p>Ahora visualicemos nuestros datos</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="co">#Opcion 1</span></a>
+<a class="sourceLine" id="cb234-2" title="2">plot_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>(melon, <span class="kw">aes</span>(<span class="dt">x=</span>Variedad, <span class="dt">y=</span>Rendimiento)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a>
+<a class="sourceLine" id="cb234-4" title="4"></a>
+<a class="sourceLine" id="cb234-5" title="5">plot_<span class="dv">1</span></a></code></pre></div>
+<p><img src="09-lab_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="co">#Opcion 2</span></a>
+<a class="sourceLine" id="cb235-2" title="2">plot_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>(melon, <span class="kw">aes</span>(<span class="dt">x =</span> Variedad, <span class="dt">y =</span> Rendimiento)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">pch =</span> <span class="fl">1.0</span>,<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">w =</span> <span class="fl">0.1</span>, <span class="dt">h =</span> <span class="dv">0</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb235-4" title="4"><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> <span class="st">&#39;mean_se&#39;</span>, <span class="dt">geom =</span> <span class="st">&#39;errorbar&#39;</span>, <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-5" title="5"><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> <span class="st">&#39;mean_se&#39;</span>, <span class="dt">geom =</span> <span class="st">&#39;pointrange&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-6" title="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>tabla, <span class="kw">aes</span>(<span class="dt">x=</span>Variedad, <span class="dt">y=</span>rendimiento_promedio))</a>
+<a class="sourceLine" id="cb235-7" title="7"></a>
+<a class="sourceLine" id="cb235-8" title="8">plot_<span class="dv">2</span></a></code></pre></div>
+<p><img src="09-lab_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p>El gráfico de cajas nos sugiere que las medianas son diferentes entre las Variedades.</p>
+</div>
+<div id="paso-2-expresar-la-hipótesis-de-investigación" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Paso 2: Expresar la hipótesis de investigación</h3>
+<p>Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre las diferentes variedades de melón. ¿Cómo escribiríamos nuestras hipótesis?</p>
+<p><span class="math display">\[
+H_0: \mu_A = \mu_B = \mu_C = \mu_D  \\
+H_a: \mu_A \neq \mu_B \neq \mu_C \neq \mu_D 
+\]</span></p>
+</div>
+<div id="paso-3-análisis-de-varianza-anova-de-una-vía" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Paso 3: Análisis de Varianza (ANOVA de una vía)</h3>
+<p>Ahora analicemos nuestros datos a través del análisis de varianza</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1">res_anova &lt;-<span class="st"> </span><span class="kw">aov</span>(melon<span class="op">$</span>Rendimiento <span class="op">~</span><span class="st"> </span>melon<span class="op">$</span>Variedad) </a>
+<a class="sourceLine" id="cb236-2" title="2">res_anova</a></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = melon$Rendimiento ~ melon$Variedad)
+## 
+## Terms:
+##                 melon$Variedad Residuals
+## Sum of Squares       1279.6226  363.2468
+## Deg. of Freedom              3        20
+## 
+## Residual standard error: 4.26173
+## Estimated effects may be unbalanced</code></pre>
+<p>En el resultado anterior podemos ver el resumen de la tabla de ANOVA, la cual incluye:
+* Suma de cuadrados
+* Grados de libertad
+* Error residual</p>
+</div>
+<div id="paso-4-evaluar-los-supuestos-del-modelo." class="section level3">
+<h3><span class="header-section-number">9.2.5</span> Paso 4: Evaluar los supuestos del modelo.</h3>
+<p>Hasta ahora hemos visto diversas formas de evaluar los supuestos asociados a los modelos lineales generales, ya sea con prueba de hipótesis y/o gráficos. ¿Cuál de estas alternativas utilizarás? Ya es hora de empezar a aplicar lo aprendido, no?.</p>
+</div>
+<div id="paso-5-interpretar-los-resultados-del-modelo" class="section level3">
+<h3><span class="header-section-number">9.2.6</span> Paso 5: Interpretar los resultados del modelo</h3>
+<p>Usando la función summary () obtenemos toda la información sobre nuestro modelo:</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">summary</span>(res_anova)</a></code></pre></div>
+<pre><code>##                Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## melon$Variedad  3 1279.6   426.5   23.48 9.24e-07 ***
+## Residuals      20  363.2    18.2                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>En el resultado anterior nos entrega la siguiente información:</p>
 <ul>
-<li><p><code>==</code> Igual a…</p></li>
-<li><p><code>¡=</code> No es igual a…</p></li>
-<li><p><code>&gt;</code> Mayor que…</p></li>
-<li><p><code>&lt;</code> Menor que…</p></li>
-<li><p><code>&gt;=</code> Mayor o igual que…</p></li>
-<li><p><code>&lt;=</code> Menor o igual que…</p></li>
-<li><p><code>|</code> “o” (al menos una de las condiciones debe ser cierta)</p></li>
-<li><p><code>&amp;</code> “y” (ambas condiciones deben ser ciertas)</p></li>
+<li>Los grados de libertad: Entre variedades = 3 y dentro de las variedad (observaciones-n° de grupos) Residuals = 20</li>
+<li>Suma de cuadrados: Entre variedades = 1279 y dentro de grupos Residuals = 363.2</li>
+<li>Medias cuadradas: Entre variedades = 426.5 y dentro de grupos Residuals = 18.2</li>
+<li>El valor del estadístico F: F value = 23.48<br />
+</li>
+<li>El valor de probabilidad asociado al estadístico F: Pr(&gt;F) &lt;9.24e-07</li>
 </ul>
-<p>Para estimar el número de observaciones que cumplen con nuestra condición podemos utilizar la función <code>length()</code>:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 30</code></pre>
-<p>Regresemos a nuestra base de datos. Pasos atrás calculamos el promedio de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos. Eso es un gran paso para describir la variable temperatura ambiental. Sin embargo, la base de datos contiene mucha información adicional que nos permitirá describir de mejor forma la temperatura ambiental registrada en nuestro estudio. Por ejemplo, podríamos preguntarnos si la temperatura ambiental difiere según la región en la que fue medida. Para ello, debemos conocer el promedio de la variable Temperatura para las cuatro diferentes regiones contenidas en la variable Region. Una opción es generar cuatro diferentes “subset”:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
-<a class="sourceLine" id="cb111-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
-<pre><code>## [1] 15.25667</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb113-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
-<pre><code>## [1] 13.54667</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
-<a class="sourceLine" id="cb117-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
-<pre><code>## [1] 11.73667</code></pre>
-<p>Afortunadamente, R nos ofrece alternativas mucho más eficientes y elegantes para realizar la misma tarea. Por ejemplo, `tapply()``aplica una función (en este caso mean()) a cada grupo de observaciones de una variable definidos por los niveles de una segunda variable:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<p>Incluso, R nos permite guardar nuestros cálculos en forma de objeto:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
-<a class="sourceLine" id="cb121-2" title="2">Temperatura_regional</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
 </div>
+<div id="paso-6-conclusión-del-test" class="section level3">
+<h3><span class="header-section-number">9.2.7</span> Paso 6: Conclusión del test</h3>
+<p>Veamoslo desde el punto de vista de ambos criterios de rechazo
+Primero, si comparamos el Estadistico de probabilidad obtenido (F) con el valor crítico de F con un nivel de significancia de 0.05 y con 3 y 20 grados igual a 3.10 nos damos cuenta que el Estadistikco de prueba F es mayor al Valor Crítico, por lo tanto, existe una fuerte evidencia de que existen diferencias reales en la capacidad de rendimiento entre las variedades.</p>
+<p>Por otro lado si comparamos el valor de probabilidad asociado al valor de F obtenido (9.24e-07) vemos que este es mucho menor que 0.05 incluso que 0,001 por lo tanto, también a través de este criterio existe una fuerte evidencia de que existen diferencias reales en la capacidad de rendimiento entre las variedades.</p>
 </div>
-<div id="medidas-de-dispersión" class="section level2">
-<h2><span class="header-section-number">5.2</span> Medidas de dispersión</h2>
-<p>A diferencia de las medidas de tendencia central, las medidas de dispersión sirven como indicador de la variabilidad de los datos de la variable. Dicho en otros términos, las medidas de dispersión pretenden evaluar en qué medida los datos difieren entre sí. Las medidas de tendencia central más utilizadas son: desviación estándar, varianza y el coeficiente de variación.</p>
-<p><strong>Funciones:</strong></p>
-<ul>
-<li><p><code>var(x)</code> Varianza de los elementos en x</p></li>
-<li><p><code>sd(x)</code> Desviación estándar de los elementos en x</p></li>
-<li><p><code>range(x)</code> Rango de los elementos en x</p></li>
-<li><p><code>min(x)</code> Mínimo valor observado entre los elementos en x</p></li>
-<li><p><code>max(x)</code> Máximo valor observado entre los elementos en x</p></li>
-</ul>
-<p>Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">sd</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 1.736972</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">var</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 3.017073</code></pre>
-<p>Intentemos calcular manualmente la desviación estándar a partir de la varianza:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">desvest &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(data<span class="op">$</span>Temperatura))</a></code></pre></div>
-<p>Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">desvest_temperatura &lt;-<span class="st"> </span><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,sd)</a>
-<a class="sourceLine" id="cb128-2" title="2">desvest_temperatura</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.</p>
-<p>En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">cv_temperatura&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Temperatura)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Temperatura))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb130-2" title="2">cv_temperatura</a></code></pre></div>
-<pre><code>## [1] 12.64019</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">cv_superficie&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Hectareas)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Hectareas))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb132-2" title="2">cv_superficie</a></code></pre></div>
-<pre><code>## [1] 46.64448</code></pre>
-<p>De acuerdo a nuestros resultados, la variable superficie cultivada (<code>Hectareas</code>) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (<code>Temperatura</code>).</p>
-</div>
-<div id="tabla-resumen" class="section level2">
-<h2><span class="header-section-number">5.3</span> Tabla Resumen</h2>
-<p>Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando <code>cbind()</code>, el cual nos permite unir diferentes columnas. Por otro lado el comando <code>rbind()</code> nos permite unir diferentes filas.</p>
-<p>Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función <code>tapply()</code>.</p>
-<p>Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb134-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">mediana_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, median)</a>
-<a class="sourceLine" id="cb136-2" title="2">mediana_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##        13.75        11.60        14.50        15.15</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb138-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">coefvar_temp&lt;-<span class="st"> </span>(desvest_temperatura<span class="op">/</span>promedio_temp)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb140-2" title="2">coefvar_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     8.386979     9.070973     8.951012     7.271716</code></pre>
-<p>Podemos genera la tabla con el comando <code>cbind()</code>. Le especificaremos a R que cada uno de nuestros objetos será una columna en nuestra tabla:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">tabla_resumen&lt;-<span class="kw">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</a>
-<a class="sourceLine" id="cb142-2" title="2">tabla_resumen</a></code></pre></div>
-<pre><code>##              promedio_temp mediana_temp desvest_temp coefvar_temp
-## BioBio            13.54667        13.75     1.136156     8.386979
-## La_Araucania      11.73667        11.60     1.064630     9.070973
-## Maule             14.42667        14.50     1.291333     8.951012
-## Ohiggins          15.25667        15.15     1.109422     7.271716</code></pre>
-<p>Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!</p>
-</div>
-<div id="gráfico-de-barras" class="section level2">
-<h2><span class="header-section-number">5.4</span> Gráfico de Barras</h2>
-<p>Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje <code>y</code>) y una variable categórica (generalmente en el eje <code>x</code>). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida.</p>
-<p>Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb144-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb146-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<p>Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="kw">arrows</span>(GRAFICO, promedio_temp <span class="op">+</span><span class="st"> </span>desvest_temp, GRAFICO, promedio_temp <span class="op">-</span><span class="st"> </span>desvest_temp,</a>
-<a class="sourceLine" id="cb149-3" title="3">       <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">code =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div id="test-de-tukey-hsd-honestly-significance-difference" class="section level3">
+<h3><span class="header-section-number">9.2.8</span> Test de Tukey HSD (Honestly Significance Difference)</h3>
+<p>La prueba HSD de Tukey o la prueba de “diferencia honestamente significativa” se ppuede emplear una vez que la hipótesis nula general ha sido rechazada en ANOVA, la prueba HSD de Tukey se puede usar para probar todas las diferencias posibles entre pares de medias. Es decir, podemos ver cuales pares de grupos son distintos con una prueba a posteriori de Tukey. Tukey calcula la diferencia pareada entre promedios, el rango de 95% de confianza para esa diferencia y el valor de P asociado a cada comparación.</p>
+<p>Dado un estadístico F significativo para la hipótesis nula general, como en el experimento anterior de variedades de melones, la prueba de Tukey proporciona un único valor crítico, HSD, para evaluar la importancia de cada diferencia para cada posible par de medias, es decir, <span class="math inline">\(\bar{X_A} - \bar{X_B}\)</span>, <span class="math inline">\(\bar{X_A} - \bar{X_C}\)</span>, <span class="math inline">\(\bar{X_A} - \bar{X_D}\)</span>, <span class="math inline">\(\bar{X_B} - \bar{X_C}\)</span>, <span class="math inline">\(\bar{X_B} - \bar{X_D}\)</span>, <span class="math inline">\(\bar{X_C} - \bar{X_D}\)</span>. El efecto neto de este ajuste es hacer que sea más difícil rechazar la hipótesis nula para cualquier par particular de medios de población y aumentar la probabilidad de detectar solo diferencias honestamente significativos (o reales).</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">TukeyHSD</span>(res_anova)</a></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = melon$Rendimiento ~ melon$Variedad)
+## 
+## $`melon$Variedad`
+##           diff        lwr         upr     p adj
+## B-A  16.795000   9.908188  23.6818123 0.0000069
+## C-A  -1.118333  -8.005146   5.7684789 0.9679697
+## D-A   9.203333   2.316521  16.0901456 0.0065039
+## C-B -17.913333 -24.800146 -11.0265211 0.0000027
+## D-B  -7.591667 -14.478479  -0.7048544 0.0274772
+## D-C  10.321667   3.434854  17.2084789 0.0023198</code></pre>
+<p>Tenemos cinco pruebas pareadas estadísticamente significativas (P &lt; 0.05). Al estudiar estos resultados notamos que el rendimiento es significativamente mayor para la variedad B en comparación a las demás variedades (lo que también se nota en el boxplot) y es esta variedad la mayor responsable por las diferencias detectadas en el ANOVA. Podemos observar también que los rendimientos son significativamente mayores en las variedades B y D en comparación a las variedades A y C. Así mismo, se observa que no existen diferencias estadísticamente significativas entre las variedades A y C.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -444,8 +468,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualización-de-datos-en-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estadística-inferencial-pruebas-estadísticas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresión-lineal-y-correlación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

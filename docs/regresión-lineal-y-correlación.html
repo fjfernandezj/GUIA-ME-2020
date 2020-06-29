@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 10 Regresión lineal y correlación | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 10 Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 10 Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualización-de-datos-en-rstudio.html"/>
-<link rel="next" href="estadística-inferencial-pruebas-estadísticas.html"/>
+<link rel="prev" href="análisis-de-varianza-anova.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -276,167 +276,278 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión" class="section level1">
-<h1><span class="header-section-number">Capitulo 5</span> Estadística descriptiva: Medidas de tendencia central y dispersión</h1>
-<p>En el laboratorio anterior aprendimos a graficar la información contenida en nuestra base de datos. El paso siguiente es resumir la información contenida en nuestra base de datos mediante la estimación de medidas de tendencia central y dispersión.</p>
-<div id="medidas-de-tendencia-central" class="section level2">
-<h2><span class="header-section-number">5.1</span> Medidas de tendencia central</h2>
-<p>Las medidas de tendencia central son medidas estadísticas que permiten resumir en un solo valor a un conjunto de valores. Representan un centro en torno al cual se encuentra ubicado el conjunto de los datos.</p>
-<p>Las medidas de tendencia central más utilizadas son: media, mediana y moda.</p>
-<p><strong>Funciones:</strong></p>
+<div id="regresión-lineal-y-correlación" class="section level1">
+<h1><span class="header-section-number">Capitulo 10</span> Regresión lineal y correlación</h1>
+<p>Antes de comenzar con este práctico es importante tomarnos un tiempo para recordar que la estadística comienza con un problema, continúa con la toma de datos, sigue con la inspección y visualización de los datos y termina con el análisis de los mismos. Esto nos permitirá sacar conclusiones fundamentadas sobre nuestro problema inicial.</p>
+<p>En el presente curso hemos establecido una receta de trabajo al momento de realizar inferencias estadísticas:</p>
 <ul>
-<li><p><code>sum(x)</code>: Suma de los elementos en <code>x</code></p></li>
-<li><p><code>mean(x)</code>: Promedio de los elementos en <code>x</code></p></li>
-<li><p><code>median(x)</code>: Mediana de los elementos en <code>x</code></p></li>
-<li><p><code>length(x)</code>: Número de elementos en <code>x</code></p></li>
+<li><p><strong>Paso 1:</strong> Analizar nuestros datos a través de gráficos o tablas. El objetivo es evaluar posibles tendencias en nuestros datos.</p></li>
+<li><p><strong>Paso 2:</strong> Definir la hipótesis que queremos poner a prueba. Debemos establecer la hipótesis nula y la(s) alternativa(s).</p></li>
+<li><p><strong>Paso 3:</strong> Transformar la hipótesis en un modelo (prueba) estadístico. El modelo estará determinado por nuestras variables (importante diferenciar entre variables continuas y categóricas).</p></li>
+<li><p><strong>Paso 4:</strong> Evaluar los supuestos del modelo. Es relevante para saber si podemos (o no) utilizar métodos paramétricos.</p></li>
+<li><p><strong>Paso 5:</strong> Interpretar los resultados del modelo. Debemos evaluar el valor de probabilidad asociado a la prueba estadística.</p></li>
 </ul>
-<p>Calculemos el promedio y la mediana de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.74167</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.75</code></pre>
-<p>Estas estimaciones las hemos realizado sobre todas las observaciones contenidas en nuestra variable. Sin embargo, en algunas ocasiones, estaremos interesados en un subconjunto de las observaciones que cumplan con alguna condición de nuestro interés. Por ejemplo, podemos estar interesados en el promedio de la temperatura ambiental en aquellas muestras que provienen solamente de la región del Maule. Para seleccionar aquellas muestras que cumplen con esta restricción podemos generar un subconjunto o subset:</p>
-<p><code>"Nombre del objeto" &lt;- "base de datos"$ "columna de interés" == "restricción"</code></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb105-2" title="2">subset_data</a></code></pre></div>
-<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
-##  [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [56]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<p>Al revisar el contenido de nuestro objeto llamado <code>subset_data</code>, R nos dice cuál o cuáles de las observaciones cumplen (TRUE) o no cumplen (FALSE) con nuestro requerimiento. Ahora, podemos calcular el promedio de la temperatura ambiental promedio en aquellas muestras que provienen solamente de la región del Maule:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div id="operadores-lógicos" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Operadores lógicos</h3>
+<div id="modelos-lineales-generales" class="section level2">
+<h2><span class="header-section-number">10.1</span> Modelos lineales generales</h2>
+<p>En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.</p>
+<p>Los modelos lineales generales describen una variable respuesta (<span class="math inline">\(Y\)</span>) en términos de todos sus factores contribuyentes (<span class="math inline">\(xβ\)</span>) en una combinación lineal, mientras que también incorpora el aporte de error (<span class="math inline">\(\epsilon\)</span>).</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1x_1 + \epsilon 
+\]</span></p>
+<p>Esta clase de modelos estadísticos incluye la regresión lineal, regresión múltiple, ANOVA y ANCOVA.</p>
+<p>En R, todos los análisis univariados (una variable respuesta) de este tipo se ajustan utilizando una única función lm().</p>
+<p>El análisis de regresión lineal se usa para explicar o modelar la relación entre una variable continua <span class="math inline">\(Y\)</span>, llamada variable respuesta o variable dependiente, y otra variable continua <span class="math inline">\(x_1\)</span>, llamada variable explicativa o independiente. Cuando hay más de una variable continua explicativa (<span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>,… <span class="math inline">\(X_p\)</span>) el análisis se denomina regresión múltiple.</p>
+<p>Si la variable explicativa es categórica en vez de continua, entonces el análisis a realizar es un ANOVA (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina análisis de varianza de 2-vías.</p>
+<p>Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de covarianza o ANCOVA.</p>
+</div>
+<div id="correlación-producto-momento-de-pearson" class="section level2">
+<h2><span class="header-section-number">10.2</span> Correlación producto-momento de Pearson</h2>
+<p>Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La <strong>correlación producto-momento de Pearson</strong> (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).</p>
+<p>El <strong>coeficiente de correlación de Pearson (r)</strong> es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.</p>
+<p>Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.</p>
+<p>Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_1\)</span>).</p>
+<p>Para el laboratorio de Hoy ujtilizaremos el ejemplo 9.1 de Mead et al. (1993). El cual indica:</p>
+<p>El siguiente experimento busca establecer la absorción de <span class="math inline">\(CO_2\)</span> de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 <span class="math inline">\(°C\)</span> y se mide la absorción de <span class="math inline">\(CO_2\)</span> por parte de las hojas de estas. Los valores de absorción (<span class="math inline">\(y\)</span>) para diecisiete hojas, a diferentes concentraciones (<span class="math inline">\(x\)</span>) se obtienen y son los datos que se encuentran en el archivo “trigo_co2.csv”.</p>
+<div id="carguemos-nuestros-datos" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Carguemos nuestros datos</h3>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;./datos/trigo_co2.csv&quot;</span>)</a></code></pre></div>
+</div>
+<div id="paso-1-analicemos-nuestros-datos-1" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Paso 1: Analicemos nuestros datos</h3>
+<p>Generemos un gráfico exploratorio de nuestras variables con ggplot:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span> Concentracion, <span class="dt">y=</span> Absorcion))<span class="op">+</span></a>
+<a class="sourceLine" id="cb250-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb250-3" title="3"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb250-4" title="4"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb250-5" title="5"><span class="st">        </span><span class="kw">theme_bw</span> ()</a></code></pre></div>
+<p><img src="10-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>A simple vista se ve una estrecha relación (relación positiva) entre nuestros datos de concentracion de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo.</p>
+</div>
+<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba." class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
+<p>Nuestro interés es conocer si las variables Concentracion y Absorción cambian de forma simultánea (están relacionados). Para ello establecemos las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0 = \text{Las variables Concentración y Absorción cambian de forma independiente} \\
+H_A = \text{Las variables Concentración y Absorción cambian de forma conjunta}
+\]</span></p>
+</div>
+<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico." class="section level3">
+<h3><span class="header-section-number">10.2.4</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
+<p>El siguiente paso involucra poner a prueba si existe relación estadísticamente significativa entre Concentración y Absorción. Para ello empleamos la <strong>correlación de Pearson</strong> para determinar si las dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_A\)</span>).</p>
+</div>
+<div id="paso-4-evaluar-los-supuestos-del-modelo.-1" class="section level3">
+<h3><span class="header-section-number">10.2.5</span> Paso 4: Evaluar los supuestos del modelo.</h3>
+<p>R
+ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos subyacentes, y estos supuestos siempre deben confirmarse antes de utilizar estas pruebas.</p>
+<p>Existen dos supuestos principales subyacentes a la correlación producto-momento de Pearson:</p>
 <ul>
-<li><p><code>==</code> Igual a…</p></li>
-<li><p><code>¡=</code> No es igual a…</p></li>
-<li><p><code>&gt;</code> Mayor que…</p></li>
-<li><p><code>&lt;</code> Menor que…</p></li>
-<li><p><code>&gt;=</code> Mayor o igual que…</p></li>
-<li><p><code>&lt;=</code> Menor o igual que…</p></li>
-<li><p><code>|</code> “o” (al menos una de las condiciones debe ser cierta)</p></li>
-<li><p><code>&amp;</code> “y” (ambas condiciones deben ser ciertas)</p></li>
+<li><strong>Supuesto 1:</strong> Los datos de cada una de las 2 variables siguen una distribución normal.</li>
 </ul>
-<p>Para estimar el número de observaciones que cumplen con nuestra condición podemos utilizar la función <code>length()</code>:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 30</code></pre>
-<p>Regresemos a nuestra base de datos. Pasos atrás calculamos el promedio de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos. Eso es un gran paso para describir la variable temperatura ambiental. Sin embargo, la base de datos contiene mucha información adicional que nos permitirá describir de mejor forma la temperatura ambiental registrada en nuestro estudio. Por ejemplo, podríamos preguntarnos si la temperatura ambiental difiere según la región en la que fue medida. Para ello, debemos conocer el promedio de la variable Temperatura para las cuatro diferentes regiones contenidas en la variable Region. Una opción es generar cuatro diferentes “subset”:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
-<a class="sourceLine" id="cb111-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
-<pre><code>## [1] 15.25667</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb113-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
-<pre><code>## [1] 13.54667</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
-<a class="sourceLine" id="cb117-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
-<pre><code>## [1] 11.73667</code></pre>
-<p>Afortunadamente, R nos ofrece alternativas mucho más eficientes y elegantes para realizar la misma tarea. Por ejemplo, `tapply()``aplica una función (en este caso mean()) a cada grupo de observaciones de una variable definidos por los niveles de una segunda variable:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<p>Incluso, R nos permite guardar nuestros cálculos en forma de objeto:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
-<a class="sourceLine" id="cb121-2" title="2">Temperatura_regional</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-</div>
-</div>
-<div id="medidas-de-dispersión" class="section level2">
-<h2><span class="header-section-number">5.2</span> Medidas de dispersión</h2>
-<p>A diferencia de las medidas de tendencia central, las medidas de dispersión sirven como indicador de la variabilidad de los datos de la variable. Dicho en otros términos, las medidas de dispersión pretenden evaluar en qué medida los datos difieren entre sí. Las medidas de tendencia central más utilizadas son: desviación estándar, varianza y el coeficiente de variación.</p>
-<p><strong>Funciones:</strong></p>
+<p>Veamos para la variable Concentración</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Concentracion)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  data$Concentracion
+## W = 0.94734, p-value = 0.4158</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de Concentración siguen una distribución normal</p>
+<p>Veamos ahora para el caso de la variable Absorción</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Absorcion)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  data$Absorcion
+## W = 0.95391, p-value = 0.5212</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de la variable Absorción siguen una distribución normal.</p>
 <ul>
-<li><p><code>var(x)</code> Varianza de los elementos en x</p></li>
-<li><p><code>sd(x)</code> Desviación estándar de los elementos en x</p></li>
-<li><p><code>range(x)</code> Rango de los elementos en x</p></li>
-<li><p><code>min(x)</code> Mínimo valor observado entre los elementos en x</p></li>
-<li><p><code>max(x)</code> Máximo valor observado entre los elementos en x</p></li>
+<li><strong>Supuesto 2:</strong> las observaciones representan una muestra aleatoria de la población y las observaciones son independientes entre sí.</li>
 </ul>
-<p>Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">sd</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 1.736972</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">var</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 3.017073</code></pre>
-<p>Intentemos calcular manualmente la desviación estándar a partir de la varianza:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">desvest &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(data<span class="op">$</span>Temperatura))</a></code></pre></div>
-<p>Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">desvest_temperatura &lt;-<span class="st"> </span><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,sd)</a>
-<a class="sourceLine" id="cb128-2" title="2">desvest_temperatura</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.</p>
-<p>En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">cv_temperatura&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Temperatura)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Temperatura))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb130-2" title="2">cv_temperatura</a></code></pre></div>
-<pre><code>## [1] 12.64019</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">cv_superficie&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Hectareas)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Hectareas))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb132-2" title="2">cv_superficie</a></code></pre></div>
-<pre><code>## [1] 46.64448</code></pre>
-<p>De acuerdo a nuestros resultados, la variable superficie cultivada (<code>Hectareas</code>) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (<code>Temperatura</code>).</p>
 </div>
-<div id="tabla-resumen" class="section level2">
-<h2><span class="header-section-number">5.3</span> Tabla Resumen</h2>
-<p>Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando <code>cbind()</code>, el cual nos permite unir diferentes columnas. Por otro lado el comando <code>rbind()</code> nos permite unir diferentes filas.</p>
-<p>Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función <code>tapply()</code>.</p>
-<p>Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb134-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">mediana_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, median)</a>
-<a class="sourceLine" id="cb136-2" title="2">mediana_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##        13.75        11.60        14.50        15.15</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb138-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">coefvar_temp&lt;-<span class="st"> </span>(desvest_temperatura<span class="op">/</span>promedio_temp)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb140-2" title="2">coefvar_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     8.386979     9.070973     8.951012     7.271716</code></pre>
-<p>Podemos genera la tabla con el comando <code>cbind()</code>. Le especificaremos a R que cada uno de nuestros objetos será una columna en nuestra tabla:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">tabla_resumen&lt;-<span class="kw">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</a>
-<a class="sourceLine" id="cb142-2" title="2">tabla_resumen</a></code></pre></div>
-<pre><code>##              promedio_temp mediana_temp desvest_temp coefvar_temp
-## BioBio            13.54667        13.75     1.136156     8.386979
-## La_Araucania      11.73667        11.60     1.064630     9.070973
-## Maule             14.42667        14.50     1.291333     8.951012
-## Ohiggins          15.25667        15.15     1.109422     7.271716</code></pre>
-<p>Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!</p>
+<div id="paso-5-interpretar-los-resultados-del-modelo." class="section level3">
+<h3><span class="header-section-number">10.2.6</span> Paso 5: Interpretar los resultados del modelo.</h3>
+<p>Ahora que hemos comprobado que los supuestos requeridos se cumplen, vamos a proceder a realizar la correlación de Pearson para nuestras variables de interés:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" title="1"><span class="kw">cor.test</span>(data<span class="op">$</span>Concentracion, data<span class="op">$</span>Absorcion, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  data$Concentracion and data$Absorcion
+## t = 21.108, df = 15, p-value = 1.442e-12
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9538904 0.9942099
+## sample estimates:
+##       cor 
+## 0.9835807</code></pre>
+<p>En el resultado anterior:</p>
+<ul>
+<li><p><code>t</code>: es el valor estadístico de la prueba t (t = 21.108),</p></li>
+<li><p><code>df</code>: son los grados de libertad (df = 15),</p></li>
+<li><p><code>p-value</code>: es el nivel de significancia de la prueba t (p-value = 1.442e-12).</p></li>
+<li><p>Sample estimates: es el coeficiente de correlación (r = 0.9835).</p></li>
+</ul>
+<p>Con este resultado, rechazamos la hipótesis de que estas dos variables varían de forma independiente y concluimos que hay una correlación entre las dos. Podemos describir este resultado de la siguiente forma: Hemos detectado una correlación entre la concentración de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo (<span class="math inline">\(r_15\)</span> = 0.9835, P = 1.442e-12).</p>
 </div>
-<div id="gráfico-de-barras" class="section level2">
-<h2><span class="header-section-number">5.4</span> Gráfico de Barras</h2>
-<p>Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje <code>y</code>) y una variable categórica (generalmente en el eje <code>x</code>). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida.</p>
-<p>Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb144-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb146-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<p>Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="kw">arrows</span>(GRAFICO, promedio_temp <span class="op">+</span><span class="st"> </span>desvest_temp, GRAFICO, promedio_temp <span class="op">-</span><span class="st"> </span>desvest_temp,</a>
-<a class="sourceLine" id="cb149-3" title="3">       <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">code =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+<div id="regresión-lineal-simple" class="section level2">
+<h2><span class="header-section-number">10.3</span> Regresión Lineal Simple</h2>
+<p>Al igual que la correlación de Pearson, la regresión lineal explora la relación entre dos variables continuas. Mientras que la correlación analiza si dos variables continuas cambian de forma simultánea (están relacionadas), la regresión analiza la relación causal entre un predictor (variable independiente) y una variable de respuesta (dependiente).</p>
+<p>La función básica para construir un modelo lineal (como la regresión lineal) en R es usar la función <code>lm()</code>, la que proporciona una fórmula en forma de <code>y ~ x</code>.</p>
+<p>Trabajaremos con la misma información anterior. Recordemos que nunca debemos comenzar un análisis estadístico con una prueba estadística, siempre debemos comenzar con una figura de nuestros datos!!!</p>
+<div id="paso-1-graficar-nuestros-datos." class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Paso 1: Graficar nuestros datos.</h3>
+<p>Ya que estamos trabajando con el mismo ejemplo anterior no es necesario volver a realizar el mismo gráfico anterior.</p>
+</div>
+<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
+<p>Ahora si, el proceso cambia en compración con la correlación vista anteriormente.</p>
+<p>Nuestro interés es conocer si concentración de <span class="math inline">\(co_2\)</span> en el aire predice la absorción de este por parte de las hojas de trigo.</p>
+<p>Para ello establecemos las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0 = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es igual a cero} \\  
+H_A = \text{La pendiente de la asociación entre Concentración de CO2 y absorción es diferente de cero}  
+\\
+o \\
+β1  = 0 \\
+β1\neq 0
+\]</span></p>
+</div>
+<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
+<p>El siguiente paso involucra poner a prueba si la variación en Concentración de CO2 predice absorción de este por parte de la planta. Para ello ajustaremos un modelo de regresión lineal para determinar si las dos variables cambian de forma independiente (H0) o entonces, de forma alternativa, de forma conjunta (H1).</p>
+<p>Para ellos vamos a construir nuestro modelo de regresión lineal utilizando la función <code>lm()</code>:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Absorcion <span class="op">~</span><span class="st"> </span>Concentracion, <span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb257-2" title="2">model1</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Absorcion ~ Concentracion, data = data)
+## 
+## Coefficients:
+##   (Intercept)  Concentracion  
+##      -2.04267        0.02494</code></pre>
+<p>En el resultado anterior podemos ver los siguientes coeficientes:
+* <strong>Intercepto:</strong> Valor predicho de la variable dependiente cuando la variable independiente es 0
+* <strong>Pendiente:</strong> Entrega el aumento predicho en la variable dependiente para un aumento unitario en X</p>
+<p>Con estos resultados podríamos escribir la ecuación de esta linea</p>
+<p><span class="math display">\[
+\hat{y} = -2.04267 + 0.02494\cdot\text{Concentracion}
+\]</span></p>
+<p>¿Cómo interpretaríamos el coeficiente <span class="math inline">\(\beta_1\)</span> (la pendiente)?</p>
+<p>Para una unidad adicional en la concentración de CO2 en el aire esperaríamos ver un aumento de 0.025 unidades adicionales de absorción de co2 por parte de las hojas de las plantas de trigo.</p>
+</div>
+<div id="paso-4-evaluar-los-supuestos-del-modelo.-2" class="section level3">
+<h3><span class="header-section-number">10.3.4</span> Paso 4: Evaluar los supuestos del modelo.</h3>
+<p>La regresión lineal hace varias suposiciones sobre los datos, tales como:</p>
+<ul>
+<li><p><strong>Supuesto 1:</strong> Linealidad de los datos.
+Se asume que la relación entre el predictor (x) y el resultado (y) es lineal.</p></li>
+<li><p><strong>Supuesto 2:</strong> Normalidad de los residuos.
+Se asume que los errores residuales están normalmente distribuidos.</p></li>
+<li><p><strong>Supuesto 3:</strong> Homogeneidad de la varianza de los residuos.
+Se asume que los residuos tienen una variación constante (homoscedasticidad)</p></li>
+<li><p><strong>Supuesto 4:</strong> Independencia de los términos de error de residuos.</p></li>
+</ul>
+<p>Todos estos supuestos y posibles problemas pueden verificarse generando algunos gráficos de diagnóstico que visualizan los residuales. El gráfico de “residuos versus valores ajustados” es un diagrama de dispersión de los residuos en el eje “y” y los valores ajustados (respuestas estimadas) en el eje “x”. La gráfica se utiliza</p>
+<p>para detectar la no linealidad, las variaciones de error desiguales y los valores atípicos (outliers).</p>
+<p>Estas son las características de un buen gráfico de “residuos versus ajustes” y lo que sugieren sobre la idoneidad del modelo de regresión lineal simple:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Los residuos “se mueven al azar” alrededor de la línea 0. Esto sugiere que el supuesto de que la relación es lineal es razonable.</p></li>
+<li><p>Los residuos forman aproximadamente una “banda horizontal” alrededor de la línea 0. Esto sugiere que las variaciones de los términos de error son iguales.</p></li>
+<li><p>Ningún residuo “se destaca” del patrón aleatorio básico de residuos. Esto sugiere que no hay valores atípicos.</p></li>
+</ol>
+<p>Entonces, generemos un gráfico “residuos versus valores ajustados” con nuestros datos. Para ello, debemos generar dos objetos que contengan los valores ajustados (valores predichos por el modelo) y los residuos (valor observado - valor ajustado) a partir de nuestro modelo:</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" title="1">ajustados &lt;-<span class="st"> </span><span class="kw">fitted</span>(model1)</a>
+<a class="sourceLine" id="cb259-2" title="2"></a>
+<a class="sourceLine" id="cb259-3" title="3">residuos &lt;-<span class="st"> </span><span class="kw">residuals</span>(model1)</a></code></pre></div>
+<p>Ahora, generamos un diagrama de dispersión y agregamos una línea de intercepto = 0 y pendiente = 0:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="kw">plot</span>(ajustados,residuos)</a>
+<a class="sourceLine" id="cb260-2" title="2"><span class="kw">abline</span>(<span class="dv">0</span>, <span class="dv">0</span>)</a></code></pre></div>
+<p><img src="10-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>En líneas generales, el análisis gráfico sugiere que nuestras variables tienden a cumplir con los supuestos establecidos para una regresión lineal. A modo de diagnostico podríamos decir que:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Los residuos “se mueven al azar” alrededor de la línea 0.</p></li>
+<li><p>Los residuos forman aproximadamente una “banda horizontal” alrededor de la línea 0.</p></li>
+<li><p>Existen algunos residuos que “se alejan” del patrón aleatorio básico de residuos. Esto sugiere que unos pocos valores atípicos.</p></li>
+</ol>
+</div>
+<div id="paso-5-interpretar-los-resultados-del-modelo.-1" class="section level3">
+<h3><span class="header-section-number">10.3.5</span> Paso 5: Interpretar los resultados del modelo.</h3>
+<p>Usando la función summary () obtenemos toda la información sobre nuestro modelo:</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Absorcion ~ Concentracion, data = data)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.49631 -0.14851  0.04928  0.15149  0.35590 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   -2.042668   0.197917  -10.32 3.29e-08 ***
+## Concentracion  0.024945   0.001182   21.11 1.44e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2457 on 15 degrees of freedom
+## Multiple R-squared:  0.9674, Adjusted R-squared:  0.9653 
+## F-statistic: 445.6 on 1 and 15 DF,  p-value: 1.442e-12</code></pre>
+<p>En el resultado anterior nos entrega la siguiente información:</p>
+<ul>
+<li>La fórmula del modelo: lm(formula = Absorcion ~ Concentracion)</li>
+<li>El valor del intercepto: Intercept = -2.042</li>
+<li>El valor de la pendiente: data$Concentración = 0.0249</li>
+<li>df: son los grados de libertad (df = 5),</li>
+<li>p-value: es el nivel de significancia de la pendiente (p-value = 1.442e-12).</li>
+<li>Coeficiente de determinación (<span class="math inline">\(R^2\)</span>): Rendimiento general del modelo (R-squared = 0.9674).</li>
+</ul>
+<p>Con esta información podemos hacer inferencia para la regresión. Para esto debemos tener claro ciertos aspectos. Por ejemplo:</p>
+<p><strong>¿Cuál es nuestro estadístico de Prueba? y ¿Cuál es el error estandar?</strong></p>
+<p>Nuestro estadístico de prueba es el valor de t, (el cual es el estadístico de prueba utilizado como una aproximación de distribución cuando havemos inferencia para regresión) y su valor es 21.11. Nuestro error estandar es 0.001182</p>
+<p><strong>¿Cuál es la conclusión general de nuestro test?</strong></p>
+<p>Nuestro valor de probabilidad es 1.442e-12, lo que significa que que es altamente significativo, por lo cual rechazamos la hipotesis nula.</p>
+<p><strong>¿Como interpretamos esta conclusión general en el contexto de este experimento?</strong></p>
+<p>Tenemos fuerte evidencia para sugeriri que existe relación entre la Concentración de CO2 en el aire y los niveles de CO2 absorvidos por la hoja de la planta de trigo</p>
+<p><strong>¿Cuál es el valor de <span class="math inline">\(R^2\)</span>?</strong></p>
+<p>Dado que el coeficiente de determinación representa la cantidad de variación en la variable y explicada por la variable x, el 96% de la variación en la Absorción de CO2 por parte de las hojas de trigo puede explicarse por la Concentración de CO2 en el aire.</p>
+<p>Con base a los resultados, podemos concluir: De acuerdo a una regresión lineal, Abssorción de CO2 cambia con Concentración de CO2 en el aire de acuerdo a la siguiente función:</p>
+<p><span class="math display">\[
+Absorcion = -2.042+0.0249\cdot\text{Concentración}  \\ 
+(R^2 = 0.96, t_{(1,15)} = 21.11, p &lt; 0.05). 
+\]</span></p>
+<p>Ahora podemos graficar los datos e incorporar la línea de regresión con geom_smooth (intercepto, pendiente):</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span>Concentracion, <span class="dt">y=</span>Absorcion))<span class="op">+</span></a>
+<a class="sourceLine" id="cb263-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb263-3" title="3"><span class="st">        </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb263-4" title="4"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb263-5" title="5"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb263-6" title="6"><span class="st">        </span><span class="kw">theme_bw</span>() </a></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="10-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Finalmente, con estos datos podemos hacer estimaciones puntuales. Por ejemplo, El valor medio predicho de <span class="math inline">\(\hat{y}\)</span> para una concentración dada, digamos x = 150 es:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="fl">-2.042</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0249</span> <span class="op">*</span><span class="st"> </span><span class="dv">150</span>  </a></code></pre></div>
+<pre><code>## [1] 1.693</code></pre>
+<p>El valor estimado de <span class="math inline">\(\hat{y}\)</span> para una sola hoja para la concentración, x = 150, es <strong>1.693</strong>.</p>
+<p>Ahora, bien también podemos querer crear una estimación de intervalo en lugar de una estimación puntual como la realizado anteriormente. Para hacer eso crearemos un intervalo de confianza para una media Y. Para esto utilizaremos la función <code>predict()</code></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="kw">predict</span>(model1, </a>
+<a class="sourceLine" id="cb267-2" title="2">        <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Concentracion =</span> <span class="dv">150</span>), </a>
+<a class="sourceLine" id="cb267-3" title="3">        <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</a></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 1.699064 1.569723 1.828406</code></pre>
+<p>Estoy 95% seguro que la media de Absorción de CO2 de las hojas de trigo para aire con concentraciones de cO2 de 150 (cm2/dm2/hour) es entre 1.56 y 1.82</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -444,8 +555,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualización-de-datos-en-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estadística-inferencial-pruebas-estadísticas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="análisis-de-varianza-anova.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

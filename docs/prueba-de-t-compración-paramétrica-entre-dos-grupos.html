@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020</title>
+  <title>Capitulo 8 Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta property="og:title" content="Capitulo 8 Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="fjfernandezj/GUIA-ME-2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
+  <meta name="twitter:title" content="Capitulo 8 Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020" />
   
   <meta name="twitter:description" content="Guía de Laboratorio para Métodos Estadísticos" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualización-de-datos-en-rstudio.html"/>
-<link rel="next" href="estadística-inferencial-pruebas-estadísticas.html"/>
+<link rel="prev" href="prueba-de-chi-cuadrado-chi2.html"/>
+<link rel="next" href="análisis-de-varianza-anova.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -276,167 +276,260 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión" class="section level1">
-<h1><span class="header-section-number">Capitulo 5</span> Estadística descriptiva: Medidas de tendencia central y dispersión</h1>
-<p>En el laboratorio anterior aprendimos a graficar la información contenida en nuestra base de datos. El paso siguiente es resumir la información contenida en nuestra base de datos mediante la estimación de medidas de tendencia central y dispersión.</p>
-<div id="medidas-de-tendencia-central" class="section level2">
-<h2><span class="header-section-number">5.1</span> Medidas de tendencia central</h2>
-<p>Las medidas de tendencia central son medidas estadísticas que permiten resumir en un solo valor a un conjunto de valores. Representan un centro en torno al cual se encuentra ubicado el conjunto de los datos.</p>
-<p>Las medidas de tendencia central más utilizadas son: media, mediana y moda.</p>
-<p><strong>Funciones:</strong></p>
+<div id="prueba-de-t-compración-paramétrica-entre-dos-grupos" class="section level1">
+<h1><span class="header-section-number">Capitulo 8</span> Prueba de t (Compración paramétrica entre dos grupos)</h1>
+<p>Uno de los análisis estadísticos más comunes es la prueba de t, la cual se utiliza para comparar la media de dos muestras dadas. Una prueba t se utiliza cuando no se conocen los parámetros de la población (media y desviación estándar).</p>
+<p>La prueba t te dice cuán significativas son las diferencias entre los grupos, es decir, permite saber si esas diferencias (medidas en medias / promedios) podrían haber ocurrido por casualidad.</p>
+<p>Hay tres versiones de prueba t</p>
+<ol style="list-style-type: decimal">
+<li><p>Prueba t de muestras independientes que compara la media de dos grupos</p></li>
+<li><p>Prueba t de muestra pareada que compara medias del mismo grupo en diferentes momentos
+Ejemplo:</p></li>
+<li><p>Una prueba t de muestra que prueba la media de un solo grupo contra una media conocida.</p></li>
+</ol>
+<p>El estadístico para esta prueba de hipótesis se denomina estadístico t y se calcula como:</p>
+<p><span class="math display">\[
+t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
+\]</span></p>
+<p>donde:
+<span class="math inline">\(x_1\)</span>: es la media de muestra 1</p>
+<p><span class="math inline">\(x_2\)</span>: es la media de la muestra 2</p>
+<p><span class="math inline">\(\sigma /\sqrt{n_1} + \sigma /\sqrt{n_2}\)</span>: es el error estandar de la diferencia de medias</p>
+<p>Recuerden que este método nos permite examinar la relación entre una <strong>variable numérica</strong> y una <strong>variable explicativa categórica</strong></p>
+<p>En el siguiente laboratorio veremos 2 ejemplos para muestras independientes</p>
+<div id="ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro" class="section level2">
+<h2><span class="header-section-number">8.1</span> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</h2>
+<div id="creemos-nuestros-datos-1" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Creemos nuestros datos</h3>
+<p>ara ilustrar el uso de la prueba t, considere la muestra de seis rendimientos de una nueva variedad de trigo. Los rendimientos obtenidos fueron: 2.5, 2.1, 2.4, 2.0, 2.6 y 2.2 toneladas por hectárea. Suponga que, además de sus seis estimaciones de rendimiento con la nueva variedad, el agricultor tiene diez áreas similares con su variedad estándar con los siguientes rendimientos: 2.2, 1.9, 1.8, 2.1, 2.1, 1.7 también en toneladas por hectárea.</p>
+<p>Para este ejemplo asumiremos que se cumplen las condiciones para efectuar un análisis parámetrico (Normalidad, Hemoscedasticidad, Independencia)</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1"><span class="co"># Creemos el vector rendimiento</span></a>
+<a class="sourceLine" id="cb190-2" title="2"><span class="co"># Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology</span></a>
+<a class="sourceLine" id="cb190-3" title="3">rendimiento &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.5</span>, <span class="fl">2.1</span>, <span class="fl">2.4</span>, <span class="fl">2.0</span>, <span class="fl">2.6</span>, <span class="fl">2.2</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.1</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span> )</a>
+<a class="sourceLine" id="cb190-4" title="4">variedad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;var1&quot;</span>, <span class="dv">6</span>), <span class="kw">rep</span>(<span class="st">&quot;var2&quot;</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb190-5" title="5"></a>
+<a class="sourceLine" id="cb190-6" title="6">datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(rendimiento, variedad)</a></code></pre></div>
+</div>
+<div id="analicemos-nuestros-datos-2" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Analicemos nuestros datos</h3>
+<p>Veamos un resumen de nuestros datos</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">summary</span>(datos)</a></code></pre></div>
+<pre><code>##   rendimiento    variedad
+##  Min.   :1.700   var1:6  
+##  1st Qu.:1.975   var2:6  
+##  Median :2.100           
+##  Mean   :2.133           
+##  3rd Qu.:2.250           
+##  Max.   :2.600</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">tabla &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb200-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(variedad) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb200-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">rendimiento_promedio =</span> <span class="kw">mean</span>(rendimiento))</a>
+<a class="sourceLine" id="cb200-4" title="4">tabla</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   variedad rendimiento_promedio
+##   &lt;fct&gt;                   &lt;dbl&gt;
+## 1 var1                     2.3 
+## 2 var2                     1.97</code></pre>
+</div>
+<div id="expresar-la-hipótesis-de-investigación-2" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Expresar la hipótesis de investigación</h3>
+<p>Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?</p>
+<p>$$
+H_0:  \
+H_a:  \</p>
+<p>o \</p>
+<p>H_0: _1 = _2 \
+H_a: _1 _2 \</p>
+<p>$$</p>
+</div>
+<div id="realicemos-nuestra-prueba-de-t" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Realicemos nuestra prueba de t</h3>
+<p>Ahora analicemos nuestros datos a través de la prueba de t</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">res_ttest &lt;-<span class="st"> </span><span class="kw">t.test</span>(rendimiento<span class="op">~</span>variedad, <span class="dt">data =</span> datos, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb202-2" title="2">res_ttest</a></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  rendimiento by variedad
+## t = 2.6537, df = 9.6756, p-value = 0.0248
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.05218059 0.61448608
+## sample estimates:
+## mean in group var1 mean in group var2 
+##           2.300000           1.966667</code></pre>
+<p>Nuestra prueba estadística fue de 2.6537 con un p-value de 0.0248</p>
+</div>
+<div id="conclusión-del-test-1" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Conclusión del test</h3>
+<p>Ya que nuestro valor de probabilidad (<code>p-value</code>) es menor a 0.05 se rechaza la hipotesis nula. Por lo tanto, encontramos que los datos de nuestro modelo proporcionan evidencia estadísticamente significativa para sugerir que la media de los rendimientos de ambas variedades no son iguales.</p>
+</div>
+</div>
+<div id="ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen" class="section level2">
+<h2><span class="header-section-number">8.2</span> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</h2>
+<div id="importemos-nuestros-datos" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Importemos nuestros datos</h3>
+<p>En este práctico comenzaremos a trabajar
+con una nueva base de datos que incluye las siguientes variables:</p>
 <ul>
-<li><p><code>sum(x)</code>: Suma de los elementos en <code>x</code></p></li>
-<li><p><code>mean(x)</code>: Promedio de los elementos en <code>x</code></p></li>
-<li><p><code>median(x)</code>: Mediana de los elementos en <code>x</code></p></li>
-<li><p><code>length(x)</code>: Número de elementos en <code>x</code></p></li>
+<li><p>Zona: Se refiere a zonas geográficas de nuestro país.</p></li>
+<li><p>Region: Se refiere a divisiones territoriales oficiales de nuestro país.</p></li>
+<li><p>Temporada: Año en que se realizan las mediciones.</p></li>
+<li><p>Olivo: Superficie de territorio plantada con Olivos. Medida en hectáreas.</p></li>
+<li><p>Chirimoyo: Superficie de territorio plantada con Chirimoyos. Medida en hectáreas</p></li>
+<li><p>Vid: Superficie de territorio plantada con Vid de mesa. Medida en hectáreas.</p></li>
+<li><p>Temperatura: Temperatura promedio anual en los puntos de muestreos. Medida en ºC.</p></li>
 </ul>
-<p>Calculemos el promedio y la mediana de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.74167</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 13.75</code></pre>
-<p>Estas estimaciones las hemos realizado sobre todas las observaciones contenidas en nuestra variable. Sin embargo, en algunas ocasiones, estaremos interesados en un subconjunto de las observaciones que cumplan con alguna condición de nuestro interés. Por ejemplo, podemos estar interesados en el promedio de la temperatura ambiental en aquellas muestras que provienen solamente de la región del Maule. Para seleccionar aquellas muestras que cumplen con esta restricción podemos generar un subconjunto o subset:</p>
-<p><code>"Nombre del objeto" &lt;- "base de datos"$ "columna de interés" == "restricción"</code></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb105-2" title="2">subset_data</a></code></pre></div>
-<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
-##  [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [56]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<p>Al revisar el contenido de nuestro objeto llamado <code>subset_data</code>, R nos dice cuál o cuáles de las observaciones cumplen (TRUE) o no cumplen (FALSE) con nuestro requerimiento. Ahora, podemos calcular el promedio de la temperatura ambiental promedio en aquellas muestras que provienen solamente de la región del Maule:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div id="operadores-lógicos" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Operadores lógicos</h3>
-<ul>
-<li><p><code>==</code> Igual a…</p></li>
-<li><p><code>¡=</code> No es igual a…</p></li>
-<li><p><code>&gt;</code> Mayor que…</p></li>
-<li><p><code>&lt;</code> Menor que…</p></li>
-<li><p><code>&gt;=</code> Mayor o igual que…</p></li>
-<li><p><code>&lt;=</code> Menor o igual que…</p></li>
-<li><p><code>|</code> “o” (al menos una de las condiciones debe ser cierta)</p></li>
-<li><p><code>&amp;</code> “y” (ambas condiciones deben ser ciertas)</p></li>
-</ul>
-<p>Para estimar el número de observaciones que cumplen con nuestra condición podemos utilizar la función <code>length()</code>:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
-<pre><code>## [1] 30</code></pre>
-<p>Regresemos a nuestra base de datos. Pasos atrás calculamos el promedio de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos. Eso es un gran paso para describir la variable temperatura ambiental. Sin embargo, la base de datos contiene mucha información adicional que nos permitirá describir de mejor forma la temperatura ambiental registrada en nuestro estudio. Por ejemplo, podríamos preguntarnos si la temperatura ambiental difiere según la región en la que fue medida. Para ello, debemos conocer el promedio de la variable Temperatura para las cuatro diferentes regiones contenidas en la variable Region. Una opción es generar cuatro diferentes “subset”:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
-<a class="sourceLine" id="cb111-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
-<pre><code>## [1] 15.25667</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb113-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
-<pre><code>## [1] 14.42667</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
-<pre><code>## [1] 13.54667</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
-<a class="sourceLine" id="cb117-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
-<pre><code>## [1] 11.73667</code></pre>
-<p>Afortunadamente, R nos ofrece alternativas mucho más eficientes y elegantes para realizar la misma tarea. Por ejemplo, `tapply()``aplica una función (en este caso mean()) a cada grupo de observaciones de una variable definidos por los niveles de una segunda variable:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<p>Incluso, R nos permite guardar nuestros cálculos en forma de objeto:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
-<a class="sourceLine" id="cb121-2" title="2">Temperatura_regional</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">datos_p9 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/datosnuevos.csv&quot;</span>)</a></code></pre></div>
+</div>
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Analicemos nuestros datos (Cuando las condiciones se cumplen)</h3>
+<div id="normalidad-1" class="section level4">
+<h4><span class="header-section-number">8.2.2.1</span> Normalidad</h4>
+<p>######Método visual: Histograma de frecuencia</p>
+<p>Graficar un histograma de la variable de interés nos dará una idea de la forma de la distribución que siguen nuestros datos. Recordemos que la distribución normal alcanza su punto máximo en el medio y es simétrica respecto a la media. No es necesario que los datos se distribuyan de manera perfectamente normal para que las pruebas sean confiables.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Nuestro análisis visual sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal. Sin embargo, esto no se cumple para el número de hectáreas plantadas con chirimoyos.</p>
+<p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contrastes de hipótesis</p>
+<div id="pruebas-estadísticas-test-de-shapiro-wilk" class="section level5">
+<h5><span class="header-section-number">8.2.2.1.1</span> Pruebas estadísticas: Test de Shapiro-Wilk</h5>
+<p>En estadística, el test de Shapiro–Wilk se usa para contrastar la normalidad de un conjunto de datos. Se pondrán a prueba las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0 = \text{Los datos provienen de una distribución normal}\\
+H_A = \text{Los datos NO provienen de una distribución normal}
+\]</span></p>
+<p>Recuerden si el valor de probabilidad es mayor a 0.05, no rechazamos la hipótesis nula y asumimos que los datos provienen de una distribución normal.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">shapiro.test</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  datos_p9$Olivo
+## W = 0.98212, p-value = 0.112</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal.</p>
 </div>
 </div>
-<div id="medidas-de-dispersión" class="section level2">
-<h2><span class="header-section-number">5.2</span> Medidas de dispersión</h2>
-<p>A diferencia de las medidas de tendencia central, las medidas de dispersión sirven como indicador de la variabilidad de los datos de la variable. Dicho en otros términos, las medidas de dispersión pretenden evaluar en qué medida los datos difieren entre sí. Las medidas de tendencia central más utilizadas son: desviación estándar, varianza y el coeficiente de variación.</p>
-<p><strong>Funciones:</strong></p>
-<ul>
-<li><p><code>var(x)</code> Varianza de los elementos en x</p></li>
-<li><p><code>sd(x)</code> Desviación estándar de los elementos en x</p></li>
-<li><p><code>range(x)</code> Rango de los elementos en x</p></li>
-<li><p><code>min(x)</code> Mínimo valor observado entre los elementos en x</p></li>
-<li><p><code>max(x)</code> Máximo valor observado entre los elementos en x</p></li>
-</ul>
-<p>Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">sd</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 1.736972</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">var</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
-<pre><code>## [1] 3.017073</code></pre>
-<p>Intentemos calcular manualmente la desviación estándar a partir de la varianza:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">desvest &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(data<span class="op">$</span>Temperatura))</a></code></pre></div>
-<p>Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">desvest_temperatura &lt;-<span class="st"> </span><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,sd)</a>
-<a class="sourceLine" id="cb128-2" title="2">desvest_temperatura</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.</p>
-<p>En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">cv_temperatura&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Temperatura)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Temperatura))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb130-2" title="2">cv_temperatura</a></code></pre></div>
-<pre><code>## [1] 12.64019</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">cv_superficie&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Hectareas)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Hectareas))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb132-2" title="2">cv_superficie</a></code></pre></div>
-<pre><code>## [1] 46.64448</code></pre>
-<p>De acuerdo a nuestros resultados, la variable superficie cultivada (<code>Hectareas</code>) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (<code>Temperatura</code>).</p>
+<div id="homocedasticidad-1" class="section level4">
+<h4><span class="header-section-number">8.2.2.2</span> Homocedasticidad</h4>
+<p>Visualizar un gráfico de cajas de la variable de interés nos dará una idea de la dispersión de los datos en torno a una medida de tendencia central. Para ello podemos considerar el tamaño de los bigotes de nuestro gráfico de cajas.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">boxplot</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Nuestro análisis visual muestra que los datos del número de hectáreas plantadas con olivos presentan niveles similares de dispersión entorno a la mediana.</p>
+<p>Otra opción es comparar directamente los valores de las varianza entre los grupos de interés. Para ello utilizaremos la función tapply:</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">tapply</span>(datos_p9<span class="op">$</span>Olivo, datos_p9<span class="op">$</span>Zona, var)</a></code></pre></div>
+<pre><code>##   centro    norte 
+## 6797.021 7222.925</code></pre>
+<p>Los valores muestran que la varianza del número de hectáreas plantadas con olivos es 6% mayor en plantaciones de la zona norte en comparación a la zona sur.</p>
+<p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de pruebas estadísticas basadas en contraste de hipótesis.</p>
+<div id="pruebas-estadísticas-test-levene" class="section level5">
+<h5><span class="header-section-number">8.2.2.2.1</span> Pruebas estadísticas: Test Levene</h5>
+<p>En estadística, el test de Shapiro–Wilk se usa para evaluar la igualdad de las varianzas (homocedasticidad) para una variable calculada para dos o más grupos. Se pondrán a prueba las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0 = \text{Las varianzas poblacionales de los grupos son iguales} \\
+H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
+\]</span></p>
+<p>Recuerden que el p-value asociado al análisis nos permitirá rechazar (p &lt; 0.05) o no (p &gt; 0.05) nuestra hipótesis nula.</p>
+<p>Recuerden que la función leveneTest es parte de la librería car. Es por ello que necesitamos instalar y cargar esta librería antes de hacer el análisis.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">library</span>(car)</a></code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
+<pre><code>## 
+## Attaching package: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     recode</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     some</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="kw">leveneTest</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(&gt;F)
+## group   1  0.0169 0.8969
+##       118</code></pre>
+<p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que las varianzas poblacionales del número de hectáreas plantadas con olivos son estadísticamente iguales para las muestras de la zona norte y central.</p>
+<p>Dado que nuestra variable número de hectáreas plantadas con olivos cumple con los supuestos de normalidad y homocedasticidad, podemos aplicar métodos estadísticos paramétricos sobre ella.</p>
 </div>
-<div id="tabla-resumen" class="section level2">
-<h2><span class="header-section-number">5.3</span> Tabla Resumen</h2>
-<p>Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando <code>cbind()</code>, el cual nos permite unir diferentes columnas. Por otro lado el comando <code>rbind()</code> nos permite unir diferentes filas.</p>
-<p>Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función <code>tapply()</code>.</p>
-<p>Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb134-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">mediana_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, median)</a>
-<a class="sourceLine" id="cb136-2" title="2">mediana_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##        13.75        11.60        14.50        15.15</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb138-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">coefvar_temp&lt;-<span class="st"> </span>(desvest_temperatura<span class="op">/</span>promedio_temp)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb140-2" title="2">coefvar_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     8.386979     9.070973     8.951012     7.271716</code></pre>
-<p>Podemos genera la tabla con el comando <code>cbind()</code>. Le especificaremos a R que cada uno de nuestros objetos será una columna en nuestra tabla:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">tabla_resumen&lt;-<span class="kw">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</a>
-<a class="sourceLine" id="cb142-2" title="2">tabla_resumen</a></code></pre></div>
-<pre><code>##              promedio_temp mediana_temp desvest_temp coefvar_temp
-## BioBio            13.54667        13.75     1.136156     8.386979
-## La_Araucania      11.73667        11.60     1.064630     9.070973
-## Maule             14.42667        14.50     1.291333     8.951012
-## Ohiggins          15.25667        15.15     1.109422     7.271716</code></pre>
-<p>Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!</p>
 </div>
-<div id="gráfico-de-barras" class="section level2">
-<h2><span class="header-section-number">5.4</span> Gráfico de Barras</h2>
-<p>Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje <code>y</code>) y una variable categórica (generalmente en el eje <code>x</code>). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida.</p>
-<p>Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb144-2" title="2">promedio_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb146-2" title="2">desvest_temp</a></code></pre></div>
-<pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
-##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<p>Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<p>Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="kw">arrows</span>(GRAFICO, promedio_temp <span class="op">+</span><span class="st"> </span>desvest_temp, GRAFICO, promedio_temp <span class="op">-</span><span class="st"> </span>desvest_temp,</a>
-<a class="sourceLine" id="cb149-3" title="3">       <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">code =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</a></code></pre></div>
-<p><img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+<div id="expresar-la-hipótesis-de-investigación-3" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Expresar la hipótesis de investigación</h3>
+<p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. Podemos hacerlo con una prueba de t si y solo si se cumplen los supuestos de normalidad de homogeneidad de varianza.</p>
+<p><span class="math display">\[
+H_0: \text{Las medias en el número de hectáreas en ambas zonas son iguales} \\
+H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.} \\
+\]</span></p>
+</div>
+<div id="realicemos-nuestra-prueba-de-t-1" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Realicemos nuestra prueba de t</h3>
+<p>Ahora analicemos nuestros datos a través de la prueba de t</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1">res_ttest_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">t.test</span>(Olivo<span class="op">~</span>Zona, <span class="dt">data =</span> datos_p9, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb218-2" title="2">res_ttest_<span class="dv">2</span></a></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Olivo by Zona
+## t = -0.15777, df = 117.89, p-value = 0.8749
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -32.68265  27.85932
+## sample estimates:
+## mean in group centro  mean in group norte 
+##             1497.470             1499.882</code></pre>
+</div>
+<div id="conclusión-del-test-2" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> Conclusión del test</h3>
+<p>No hemos detectado diferencias estadísticamente significativas en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. (t= -0.1577, P = 0.87), con un promedio de 1499±7222 hectáreas plantadas en la zona norte y un promedio de 1497±6797 hectáreas plantadas en la zona centro (promedio ± desvest).</p>
+</div>
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-no-se-cumplen" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> Analicemos nuestros datos (Cuando las condiciones NO se cumplen)</h3>
+<div id="normalidad-2" class="section level4">
+<h4><span class="header-section-number">8.2.6.1</span> Normalidad</h4>
+<p>######Método visual: Histograma de frecuencia</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Chirimoyo)</a></code></pre></div>
+<p><img src="08-lab_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>La distribución normal no se cumple para las hectáreas plantadas con chirimoyos</p>
+</div>
+</div>
+<div id="prueba-de-mann-whitney-comparación-no-paramétrica-entre-dos-grupos" class="section level3">
+<h3><span class="header-section-number">8.2.7</span> Prueba de Mann-Whitney (comparación no-paramétrica entre dos grupos)</h3>
+<p>El test de Mann–Whitney, también conocido como Wilcoxon rank-sum test, es una prueba estadística no paramétrica que contrasta si dos muestras proceden de poblaciones equidistribuidas. Esta prueba estadística se fundamenta en que si las dos muestras comparadas proceden de la misma población, al juntar todas las observaciones y ordenarlas de menor a mayor, cabría esperar que las observaciones de una y otra muestra estuviesen intercaladas aleatoriamente. Por lo contrario, si una de las muestras pertenece a una población con valores mayores o menores que la otra población, al ordenar las observaciones estas tenderán a agruparse de modo que las de una muestra queden por encima de las de la otra.</p>
+</div>
+<div id="expresar-la-hipótesis-de-investigación-4" class="section level3">
+<h3><span class="header-section-number">8.2.8</span> Expresar la hipótesis de investigación</h3>
+<p>En este análisis se ponen a prueba las siguientes hipótesis:</p>
+<p>$$
+H_0: \
+H_A: </p>
+<p>$$</p>
+</div>
+<div id="realicemos-nuestra-prueba-de-mann-whitney" class="section level3">
+<h3><span class="header-section-number">8.2.9</span> Realicemos nuestra prueba de Mann-Whitney</h3>
+<p>La función wilcox.test está disponible en R para realizar una prueba de Mann-Whitney.</p>
+<p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">wilcox.test</span>(datos_p9<span class="op">$</span>Chirimoyo<span class="op">~</span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  datos_p9$Chirimoyo by datos_p9$Zona
+## W = 993.5, p-value = 2.33e-05
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+<div id="conclusión-del-test-3" class="section level3">
+<h3><span class="header-section-number">8.2.10</span> Conclusión del test</h3>
+<p>Los resultados se explican y reportan de la siguiente forma, existen diferencias estadísticamente significativas en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central. (W=993.5, p&lt;0.05).</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -444,8 +537,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualización-de-datos-en-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estadística-inferencial-pruebas-estadísticas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prueba-de-chi-cuadrado-chi2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="análisis-de-varianza-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
