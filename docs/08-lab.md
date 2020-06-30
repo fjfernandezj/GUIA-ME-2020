@@ -57,7 +57,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------- tidyverse 1.2.1 --
+## -- Attaching packages -------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -80,7 +80,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------- tidyverse_conflicts() --
+## -- Conflicts ----------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -120,13 +120,10 @@ Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos so
 
 $$
 H_0: \text{Las medias de dos grupos son iguales} \\
-H_a: \text{Las medias de dos grupos NO son iguales.} \\
-
+H_a: \text{Las medias de dos grupos NO son iguales} \\
 o \\
-
 H_0: \mu_1 = \mu_2 \\
 H_a: \mu_1 \neq \mu_2 \\
-
 $$
 
 
@@ -369,7 +366,6 @@ En este análisis se ponen a prueba las siguientes hipótesis:
 $$
 H_0: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y es igual a la probabilidad de que una observación de la población Y supere a una de la población X}\\
 H_A: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y NO es igual a la probabilidad de que una observación de la población Y supere a una de la población X}
-
 $$
 
 ### Realicemos nuestra prueba de Mann-Whitney

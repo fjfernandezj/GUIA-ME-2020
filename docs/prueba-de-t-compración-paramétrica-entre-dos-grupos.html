@@ -314,7 +314,7 @@ t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 <h3><span class="header-section-number">8.1.2</span> Analicemos nuestros datos</h3>
 <p>Veamos un resumen de nuestros datos</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
 ## v tibble  2.1.3     v dplyr   0.8.3
 ## v tidyr   1.1.0     v stringr 1.4.0
@@ -322,7 +322,7 @@ t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">summary</span>(datos)</a></code></pre></div>
@@ -346,13 +346,13 @@ t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 <div id="expresar-la-hipótesis-de-investigación-2" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Expresar la hipótesis de investigación</h3>
 <p>Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?</p>
-<p>$$
-H_0:  \
-H_a:  \</p>
-<p>o \</p>
-<p>H_0: _1 = _2 \
-H_a: _1 _2 \</p>
-<p>$$</p>
+<p><span class="math display">\[
+H_0: \text{Las medias de dos grupos son iguales} \\
+H_a: \text{Las medias de dos grupos NO son iguales} \\
+o \\
+H_0: \mu_1 = \mu_2 \\
+H_a: \mu_1 \neq \mu_2 \\
+\]</span></p>
 </div>
 <div id="realicemos-nuestra-prueba-de-t" class="section level3">
 <h3><span class="header-section-number">8.1.4</span> Realicemos nuestra prueba de t</h3>
@@ -508,10 +508,10 @@ H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.
 <div id="expresar-la-hipótesis-de-investigación-4" class="section level3">
 <h3><span class="header-section-number">8.2.8</span> Expresar la hipótesis de investigación</h3>
 <p>En este análisis se ponen a prueba las siguientes hipótesis:</p>
-<p>$$
-H_0: \
-H_A: </p>
-<p>$$</p>
+<p><span class="math display">\[
+H_0: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y es igual a la probabilidad de que una observación de la población Y supere a una de la población X}\\
+H_A: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y NO es igual a la probabilidad de que una observación de la población Y supere a una de la población X}
+\]</span></p>
 </div>
 <div id="realicemos-nuestra-prueba-de-mann-whitney" class="section level3">
 <h3><span class="header-section-number">8.2.9</span> Realicemos nuestra prueba de Mann-Whitney</h3>

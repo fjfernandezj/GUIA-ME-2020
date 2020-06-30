@@ -316,7 +316,7 @@ Y = \beta_0 + \beta_1x_1 + \epsilon
 <h3><span class="header-section-number">10.2.2</span> Paso 1: Analicemos nuestros datos</h3>
 <p>Generemos un gráfico exploratorio de nuestras variables con ggplot:</p>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages ----------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
 ## v tibble  2.1.3     v dplyr   0.8.3
 ## v tidyr   1.1.0     v stringr 1.4.0
@@ -324,7 +324,7 @@ Y = \beta_0 + \beta_1x_1 + \epsilon
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## -- Conflicts -------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span> Concentracion, <span class="dt">y=</span> Absorcion))<span class="op">+</span></a>
