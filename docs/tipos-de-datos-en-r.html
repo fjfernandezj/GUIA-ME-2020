@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 2 Tipos de datos en R | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 2 Tipos de datos en R | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2021-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="lectura-y-manipulación-de-datos-en-rstudio.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,25 +55,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,8 +118,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
-<link rel="stylesheet" href="css\box.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/box.css" type="text/css" />
 </head>
 
 <body>
@@ -134,27 +136,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
-<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
@@ -162,41 +172,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
 <li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
-<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
 <li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
 <li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
 <li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
 <li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
-<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
 <li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
 <li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -204,15 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a><ul>
-<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a><ul>
+<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#creemos-nuestros-datos-1"><i class="fa fa-check"></i><b>8.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-2"><i class="fa fa-check"></i><b>8.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-2"><i class="fa fa-check"></i><b>8.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="8.1.4" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#realicemos-nuestra-prueba-de-t"><i class="fa fa-check"></i><b>8.1.4</b> Realicemos nuestra prueba de t</a></li>
 <li class="chapter" data-level="8.1.5" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-1"><i class="fa fa-check"></i><b>8.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a><ul>
+<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#importemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Importemos nuestros datos</a></li>
 <li class="chapter" data-level="8.2.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen"><i class="fa fa-check"></i><b>8.2.2</b> Analicemos nuestros datos (Cuando las condiciones se cumplen)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-3"><i class="fa fa-check"></i><b>8.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -225,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.10" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-3"><i class="fa fa-check"></i><b>8.2.10</b> Conclusión del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a><ul>
+<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#anova-de-1-vía"><i class="fa fa-check"></i><b>9.1</b> ANOVA de 1 Vía</a></li>
-<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a><ul>
+<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
 <li class="chapter" data-level="9.2.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>9.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="9.2.3" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-2-expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>9.2.3</b> Paso 2: Expresar la hipótesis de investigación</a></li>
@@ -238,9 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.8" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#test-de-tukey-hsd-honestly-significance-difference"><i class="fa fa-check"></i><b>9.2.8</b> Test de Tukey HSD (Honestly Significance Difference)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>10.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2.1</b> Carguemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>10.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
@@ -248,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.5" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>10.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
 <li class="chapter" data-level="10.2.6" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>10.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
 <li class="chapter" data-level="10.3.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>10.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
 <li class="chapter" data-level="10.3.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>10.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
@@ -276,14 +303,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tipos-de-datos-en-r" class="section level1">
+<div id="tipos-de-datos-en-r" class="section level1" number="2">
 <h1><span class="header-section-number">Capitulo 2</span> Tipos de datos en R</h1>
-<div id="objetos-en-r" class="section level2">
+<div id="objetos-en-r" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Objetos en R</h2>
 <p>Hasta ahora nos hemos dedicado a escribir algunas instrucciones para que R las ejecute. A lo largo del curso aprenderemos muchas funciones, sin embargo existen aspectos críticos que debemos saber antes de seguir avanzando.</p>
 <p>Lo primero que debemos saber (y que nos evitará que surjan en la consola los nunca agradables errores) es que todos los elementos que maneja R son <strong>objetos</strong>: un valor numérico es un objeto, un vector es un objeto, una base de datos es un objeto, una función es un objeto, un gráfico es… un objeto.</p>
 <p>En este laboratorio exploraremos algunos tipos de objetos y sus propiedades básicas para trabajar en R.</p>
-<div id="propiedades-de-los-objetos" class="section level3">
+<div id="propiedades-de-los-objetos" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Propiedades de los objetos</h3>
 <ol style="list-style-type: decimal">
 <li><p>Los objetos están compuestos por uno o más elementos. Los elementos pueden ser caracteres alfabéticos y/o numéricos. En este curso, los elementos serán considerados datos.</p></li>
@@ -291,7 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 un valor a un objeto mediante el uso del operador <code>&lt;-</code>.</p></li>
 </ol>
 <p>Generemos un objeto de nombre Asignatura que contendrá las palabras <em>Metodos</em> y <em>estadisticos</em>. En el script de RStudio debemos escribir lo siguiente y luego presionar &lt;Ctrl + enter&gt;:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">Asignatura&lt;-<span class="kw">c</span>(<span class="st">&quot;Metodos&quot;</span>, <span class="st">&quot;estadisticos&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tipos-de-datos-en-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a>Asignatura<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Metodos&quot;</span>, <span class="st">&quot;estadisticos&quot;</span>)</span></code></pre></div>
 <p>Ahora escribamos <em>asignatura</em> y veamos que sucede. En tu script y consola debería aparecer lo siguiente:</p>
 <div class="figure" style="text-align: center"><span id="fig:rmark3"></span>
 <img src="imagenes/imagen3_asignatura.png" alt="Pantalla principal Rstudio" width="70%" />
@@ -301,104 +328,104 @@ Figure 2.1: Pantalla principal Rstudio
 </div>
 <p>Es momento de felicitarnos a nosotros mismos, ya que acabamos de cometer uno de los errores más recurrentes y básicos que se cometen al trabajar en R. ¿Qué fue lo que sucedió?. R discrimina entre letras mayúsculas y minúsculas para el nombre de un objeto, por lo cual no es lo mismo escribir <em>asignatura</em> que <em>Asignatura</em>.</p>
 <p>Ahora escribamos <em>Asignatura</em> y veamos que sucede:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">Asignatura</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tipos-de-datos-en-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Asignatura</span></code></pre></div>
 <pre><code>## [1] &quot;Metodos&quot;      &quot;estadisticos&quot;</code></pre>
 <p><strong>IMPORTANTE</strong>: Los datos de caracteres siempre deben estar encerrados entre comillas (<code>""</code>) y los datos son concatenados (combinados) utilizando el comando <code>c()</code></p>
 </div>
 </div>
-<div id="tipos-de-objetos" class="section level2">
+<div id="tipos-de-objetos" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Tipos de Objetos</h2>
 <p>En este curso nos ocuparemos de aquellos objetos que R utiliza para representar datos: valores, vectores, y dataframes.</p>
-<div id="objetos-de-valores-numéricos" class="section level3">
+<div id="objetos-de-valores-numéricos" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Objetos de valores numéricos</h3>
 <p>El objeto mas simple que podemos crear es aquel con contiene solamente un numero real. Generaremos un objeto de nombre <code>x</code> con el valor <code>5</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">x&lt;-<span class="dv">5</span></a>
-<a class="sourceLine" id="cb4-2" title="2">x</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tipos-de-datos-en-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">5</span></span>
+<span id="cb4-2"><a href="tipos-de-datos-en-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>R permite realizar un sin número de operaciones algebraicas con nuestros objetos. Dichos operaciones
 incluyen la adición (<code>+</code>), sustracción (<code>-</code>), multiplicación (<code>*</code>), división (<code>/</code>) y potenciación (<code>^</code>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># crear objeto a</span></a>
-<a class="sourceLine" id="cb6-2" title="2">a&lt;-<span class="dv">15</span></a>
-<a class="sourceLine" id="cb6-3" title="3">a</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tipos-de-datos-en-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># crear objeto a</span></span>
+<span id="cb6-2"><a href="tipos-de-datos-en-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">15</span></span>
+<span id="cb6-3"><a href="tipos-de-datos-en-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># crear objeto b</span></a>
-<a class="sourceLine" id="cb8-2" title="2">b&lt;-<span class="dv">2</span></a>
-<a class="sourceLine" id="cb8-3" title="3">b</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tipos-de-datos-en-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># crear objeto b</span></span>
+<span id="cb8-2"><a href="tipos-de-datos-en-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb8-3"><a href="tipos-de-datos-en-r.html#cb8-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># sumar a + b</span></a>
-<a class="sourceLine" id="cb10-2" title="2">a<span class="op">+</span>b</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tipos-de-datos-en-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sumar a + b</span></span>
+<span id="cb10-2"><a href="tipos-de-datos-en-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
 <pre><code>## [1] 17</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># restar b-a</span></a>
-<a class="sourceLine" id="cb12-2" title="2">b<span class="op">-</span>a</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tipos-de-datos-en-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># restar b-a</span></span>
+<span id="cb12-2"><a href="tipos-de-datos-en-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>b<span class="sc">-</span>a</span></code></pre></div>
 <pre><code>## [1] -13</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># restar a - b</span></a>
-<a class="sourceLine" id="cb14-2" title="2">a<span class="op">-</span>b</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tipos-de-datos-en-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># restar a - b</span></span>
+<span id="cb14-2"><a href="tipos-de-datos-en-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">-</span>b</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># otras operaciones</span></a>
-<a class="sourceLine" id="cb16-2" title="2">(a<span class="op">+</span>b)<span class="op">/</span>a</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tipos-de-datos-en-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># otras operaciones</span></span>
+<span id="cb16-2"><a href="tipos-de-datos-en-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>(a<span class="sc">+</span>b)<span class="sc">/</span>a</span></code></pre></div>
 <pre><code>## [1] 1.133333</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">(a<span class="op">*</span>b)<span class="op">/</span>(b<span class="op">^</span>b)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tipos-de-datos-en-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>(a<span class="sc">*</span>b)<span class="sc">/</span>(b<span class="sc">^</span>b)</span></code></pre></div>
 <pre><code>## [1] 7.5</code></pre>
 <p>Otras funciones matemáticas de importancia para nuestro curso son: la raíz cuadrada (<code>sqrt</code>), función
 exponencial (<code>exp</code>) y función logarítmica natural (<code>log</code>).</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co"># Raíz cuadrada</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tipos-de-datos-en-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raíz cuadrada</span></span>
+<span id="cb20-2"><a href="tipos-de-datos-en-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># exponencial</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="kw">exp</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tipos-de-datos-en-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exponencial</span></span>
+<span id="cb22-2"><a href="tipos-de-datos-en-r.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 7.389056</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co"># logaritmo</span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="kw">log</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tipos-de-datos-en-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logaritmo</span></span>
+<span id="cb24-2"><a href="tipos-de-datos-en-r.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 2.302585</code></pre>
 </div>
-<div id="vectores" class="section level3">
+<div id="vectores" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Vectores</h3>
 <p>Un vector representa una secuencia ordenada de elementos (datos) del mismo tipo. Es posible construir vectores de tipo numérico y caracteres. Para nuestros propósitos, los vectores podrán ser considerados como variables.</p>
 <p>Generaremos un vector de nombre <code>vector1</code> que contenga tres datos numéricos:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">vector1&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb26-2" title="2">vector1</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tipos-de-datos-en-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>vector1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>)</span>
+<span id="cb26-2"><a href="tipos-de-datos-en-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a>vector1</span></code></pre></div>
 <pre><code>## [1] 1 5 7</code></pre>
 <p>Ahora, generaremos un vector de nombre <code>vector2</code> que contenga tres caracteres:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">vector2&lt;-<span class="kw">c</span>(<span class="st">&quot;cerezo&quot;</span>,<span class="st">&quot;peral&quot;</span>,<span class="st">&quot;vid&quot;</span>) </a>
-<a class="sourceLine" id="cb28-2" title="2">vector2   </a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tipos-de-datos-en-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a>vector2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;cerezo&quot;</span>,<span class="st">&quot;peral&quot;</span>,<span class="st">&quot;vid&quot;</span>) </span>
+<span id="cb28-2"><a href="tipos-de-datos-en-r.html#cb28-2" aria-hidden="true" tabindex="-1"></a>vector2   </span></code></pre></div>
 <pre><code>## [1] &quot;cerezo&quot; &quot;peral&quot;  &quot;vid&quot;</code></pre>
 <p>Intentemos generar un vector de nombre vector3 a partir de los vectores creados:</p>
 <iframe src="DCL/intro_1.html" frameborder="0" scrolling="no" style="width:100%;height:360px">
 </iframe>
 <p><strong>IMPORTANTE</strong>: Los datos son concatenados (combinados) utilizando el comando <code>c()</code></p>
-<div id="funciones-para-generar-vectores" class="section level4">
+<div id="funciones-para-generar-vectores" class="section level4" number="2.2.2.1">
 <h4><span class="header-section-number">2.2.2.1</span> Funciones para generar vectores</h4>
 <p>Las funciones <code>seq</code> y <code>rep</code> nos permiten crear patrones de elementos. <code>seq</code> Crea una secuencia de números equiespaciados. Dentro del comando <code>seq</code> el comienzo (<code>from</code>), el fin (<code>to</code>), el espacio entre dos números consecutivos (<code>by</code>) o la cantidad de números en la secuencia (<code>length</code>) pueden ser especificados.</p>
 <p>Por ejemplo:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span> <span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>, <span class="dt">by=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tipos-de-datos-en-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span> <span class="dv">2</span>, <span class="at">to=</span> <span class="dv">8</span>, <span class="at">by=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 2 4 6 8</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span> <span class="dv">8</span>,<span class="dt">length=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tipos-de-datos-en-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">2</span>, <span class="at">to=</span> <span class="dv">8</span>,<span class="at">length=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 2 5 8</code></pre>
 <p>Por otra parte, el comando <code>rep</code> repite un elemento (<code>x</code>) una cantidad determinada de veces (<code>times</code>) o hasta lograr una longitud especificada (<code>length.out</code>).</p>
 <p>Por ejemplo:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">rep</span> (<span class="dv">0</span>,<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tipos-de-datos-en-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span> (<span class="dv">0</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">rep</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tipos-de-datos-en-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0 1 2 0 1 2 0 1 2</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">length.out=</span><span class="dv">7</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tipos-de-datos-en-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="at">length.out=</span><span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] 1 2 1 2 1 2 1</code></pre>
 </div>
 </div>
-<div id="data-frames" class="section level3">
+<div id="data-frames" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Data frames</h3>
 <p>Un <code>data.frame</code> es un tipo especial de objeto que permite organizar diferentes tipos de vectores
 (alfanuméricos). La estructura de un <code>data.frame</code> es muy similar a una hoja de datos, en donde la información
 se organiza en filas (observaciones de cada vector) y columnas (vector).</p>
 <p>El siguiente ejemplo nos muestra como crear un <code>data.frame</code> llamado <code>Notas</code> a partir de los datos obtenidos de una muestra a 8 alumnos, para cada una de las cuales se ha registrado su edad, género y nota obtenida en la primera prueba parcial del curso Métodos Estadísticos.</p>
 <p>Primero, debemos generar los 3 vectores (variables) que utilizaremos para crear nuestro <code>data.frame</code>:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">edad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</a>
-<a class="sourceLine" id="cb40-2" title="2">genero &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</a>
-<a class="sourceLine" id="cb40-3" title="3">nota&lt;-<span class="kw">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="fl">4.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tipos-de-datos-en-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</span>
+<span id="cb40-2"><a href="tipos-de-datos-en-r.html#cb40-2" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb40-3"><a href="tipos-de-datos-en-r.html#cb40-3" aria-hidden="true" tabindex="-1"></a>nota<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="fl">4.5</span>)</span></code></pre></div>
 <p>A continuación, generaremos el <code>data.frame</code> llamado <code>Notas</code>. Es importante tener presente que el lenguaje de R es bastante intuitivo, a tal punto que la función que permite generar un data.frame es <code>data.frame ()</code></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">Notas &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad,genero,nota)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="tipos-de-datos-en-r.html#cb41-1" aria-hidden="true" tabindex="-1"></a>Notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(edad,genero,nota)</span></code></pre></div>
 <p>Un fuerte aplauso para nosotros mismos, acabamos de generar nuestro primer <code>data.frame</code>. Para corroborar si
 lo hicimos bien, y al mismo tiempo ver su contenido, simplemente tenemos que llamarlo su nombre:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">Notas</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="tipos-de-datos-en-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a>Notas</span></code></pre></div>
 <pre><code>##   edad genero nota
 ## 1   22      M  3.4
 ## 2   21      F  6.0
@@ -410,20 +437,20 @@ lo hicimos bien, y al mismo tiempo ver su contenido, simplemente tenemos que lla
 ## 8   24      M  4.5</code></pre>
 <p>En caso de que quisiéramos saber la estructura de nuestro data.frame, podemos utilizar la función:
 <code>str()</code></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">str</span>(Notas)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="tipos-de-datos-en-r.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Notas)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    8 obs. of  3 variables:
 ##  $ edad  : num  22 21 21 25 19 22 23 24
-##  $ genero: Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 1 2 2 1 1 2
+##  $ genero: chr  &quot;M&quot; &quot;F&quot; &quot;F&quot; &quot;M&quot; ...
 ##  $ nota  : num  3.4 6 5.1 4.5 4.6 6.1 4 4.5</code></pre>
 <p>R nos acaba de confirmar que Notas es un data.frame de tres variables con 8 observaciones cada una. R
 también nos informa además de que dos variables son numéricas y la tercera, el genero, es un factor con dos
-valores, “F” y “M”.</p>
+valores, “F” y “M.”</p>
 <p>En caso de que quisiéramos que R nos entregue el nombre de las variables contenidas en el Notas podemos
 utilizar la función <code>names()</code>:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">names</span>(Notas)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="tipos-de-datos-en-r.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Notas)</span></code></pre></div>
 <pre><code>## [1] &quot;edad&quot;   &quot;genero&quot; &quot;nota&quot;</code></pre>
 </div>
-<div id="valores-perdidos" class="section level3">
+<div id="valores-perdidos" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> Valores Perdidos</h3>
 <p>En algunos casos los elementos que componen un objeto son desconocidos. En estos casos, debemos
 especificar que el elemento desconocido se encuentra “not available” (<code>NA</code>) , entonces a esa observación le
@@ -431,19 +458,19 @@ asignamos el valor especial <code>NA</code>. Es importante tener presente que un
 <code>NA</code>, ya que por defecto R no incluyen la especificación que omite o remueve las observaciones faltantes.
 Para estar seguros de esto, podemos generar un nuevo <code>data.frame</code> llamado <code>Notas1</code> a partir de los datos
 obtenidos de una muestra a 8 alumnos.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">edad1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</a>
-<a class="sourceLine" id="cb48-2" title="2">genero1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</a>
-<a class="sourceLine" id="cb48-3" title="3">nota1&lt;-<span class="kw">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb48-4" title="4">Notas1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad1,genero1,nota1)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tipos-de-datos-en-r.html#cb48-1" aria-hidden="true" tabindex="-1"></a>edad1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">23</span>,<span class="dv">24</span>)</span>
+<span id="cb48-2"><a href="tipos-de-datos-en-r.html#cb48-2" aria-hidden="true" tabindex="-1"></a>genero1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb48-3"><a href="tipos-de-datos-en-r.html#cb48-3" aria-hidden="true" tabindex="-1"></a>nota1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.4</span>,<span class="fl">6.0</span>,<span class="fl">5.1</span>,<span class="fl">4.5</span>,<span class="fl">4.6</span>,<span class="fl">6.1</span>,<span class="fl">4.0</span>,<span class="cn">NA</span>)</span>
+<span id="cb48-4"><a href="tipos-de-datos-en-r.html#cb48-4" aria-hidden="true" tabindex="-1"></a>Notas1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(edad1,genero1,nota1)</span></code></pre></div>
 <p>Apliquemos una operación básica a la información contenida en Notas1. Podemos estimar la nota promedio
 de los 8 alumnos, para ello utilizaremos la función <code>mean()</code>, la cual exploraremos más adelante en nuestro
 curso:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">mean</span>(Notas1<span class="op">$</span>nota1)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="tipos-de-datos-en-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Notas1<span class="sc">$</span>nota1)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Lo que obtuvimos como resultado fue <code>NA</code>. Esto se debe a que no le especificamos a R que debe omitir los
 NAs en nuestro data.frame. Una forma de solucionar este problema es utilizar la operación <code>na.rm=TRUE</code>, la
 cual especifica que la operación se efectué con los datos válidos excluyendo los NAs:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">mean</span>(Notas1<span class="op">$</span>nota1, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="tipos-de-datos-en-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Notas1<span class="sc">$</span>nota1, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 4.814286</code></pre>
 <p>Magia! Con una simple orden acabamos de solucionar un simple pero doloroso problema.</p>
 

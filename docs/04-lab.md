@@ -139,21 +139,19 @@ modificar los parámetros gráficos:
 
 
 ```r
-plot(data$rendimiento ~ data$Region,
-xlab = "Region",
-ylab = "Rendimiento (Ton/hect)",
-ylim = c(4000,8000),
-main = "Diagrama de cajas",
-pch=18,
-col="red",
-col.main="red",
-cex=2,
-cex.main=1.5,
-cex.lab=1.0,
-cex.axis=1.0)
+#plot(data$rendimiento ~ data$Region,
+#xlab = "Region",
+#ylab = "Rendimiento (Ton/hect)",
+#ylim = c(4000,8000),
+#main = "Diagrama de cajas",
+#pch=18,
+#col="red",
+#col.main="red",
+#cex=2,
+#cex.main=1.5,
+#cex.lab=1.0,
+#cex.axis=1.0)
 ```
-
-<img src="04-lab_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ## Histogramas
@@ -221,13 +219,12 @@ Freq=FALSE)
 ```
 
 ```
-## Warning in plot.window(xlim, ylim, "", ...): "Freq" is not a graphical
-## parameter
+## Warning in plot.window(xlim, ylim, "", ...): "Freq" is not a graphical parameter
 ```
 
 ```
-## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
-## "Freq" is not a graphical parameter
+## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...): "Freq"
+## is not a graphical parameter
 ```
 
 ```

@@ -306,7 +306,7 @@ str(Notas)
 ```
 ## 'data.frame':	8 obs. of  3 variables:
 ##  $ edad  : num  22 21 21 25 19 22 23 24
-##  $ genero: Factor w/ 2 levels "F","M": 2 1 1 2 2 1 1 2
+##  $ genero: chr  "M" "F" "F" "M" ...
 ##  $ nota  : num  3.4 6 5.1 4.5 4.6 6.1 4 4.5
 ```
 

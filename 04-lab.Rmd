@@ -123,18 +123,18 @@ En caso de que quisiéramos enchular nuestro gráfico de cajas con dos variables
 modificar los parámetros gráficos:
 
 ```{r}
-plot(data$rendimiento ~ data$Region,
-xlab = "Region",
-ylab = "Rendimiento (Ton/hect)",
-ylim = c(4000,8000),
-main = "Diagrama de cajas",
-pch=18,
-col="red",
-col.main="red",
-cex=2,
-cex.main=1.5,
-cex.lab=1.0,
-cex.axis=1.0)
+#plot(data$rendimiento ~ data$Region,
+#xlab = "Region",
+#ylab = "Rendimiento (Ton/hect)",
+#ylim = c(4000,8000),
+#main = "Diagrama de cajas",
+#pch=18,
+#col="red",
+#col.main="red",
+#cex=2,
+#cex.main=1.5,
+#cex.lab=1.0,
+#cex.axis=1.0)
 ```
 
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 8 Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 8 Prueba de t (Compración paramétrica entre dos grupos) | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2021-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="prueba-de-chi-cuadrado-chi2.html"/>
 <link rel="next" href="análisis-de-varianza-anova.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,25 +55,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,8 +118,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
-<link rel="stylesheet" href="css\box.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/box.css" type="text/css" />
 </head>
 
 <body>
@@ -134,27 +136,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
-<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
@@ -162,41 +172,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
 <li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
-<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
 <li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
 <li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
 <li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
 <li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
-<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
 <li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
 <li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -204,15 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a><ul>
-<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a><ul>
+<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#creemos-nuestros-datos-1"><i class="fa fa-check"></i><b>8.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-2"><i class="fa fa-check"></i><b>8.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-2"><i class="fa fa-check"></i><b>8.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="8.1.4" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#realicemos-nuestra-prueba-de-t"><i class="fa fa-check"></i><b>8.1.4</b> Realicemos nuestra prueba de t</a></li>
 <li class="chapter" data-level="8.1.5" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-1"><i class="fa fa-check"></i><b>8.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a><ul>
+<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#importemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Importemos nuestros datos</a></li>
 <li class="chapter" data-level="8.2.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen"><i class="fa fa-check"></i><b>8.2.2</b> Analicemos nuestros datos (Cuando las condiciones se cumplen)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-3"><i class="fa fa-check"></i><b>8.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -225,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.10" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-3"><i class="fa fa-check"></i><b>8.2.10</b> Conclusión del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a><ul>
+<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#anova-de-1-vía"><i class="fa fa-check"></i><b>9.1</b> ANOVA de 1 Vía</a></li>
-<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a><ul>
+<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
 <li class="chapter" data-level="9.2.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>9.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="9.2.3" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-2-expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>9.2.3</b> Paso 2: Expresar la hipótesis de investigación</a></li>
@@ -238,9 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.8" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#test-de-tukey-hsd-honestly-significance-difference"><i class="fa fa-check"></i><b>9.2.8</b> Test de Tukey HSD (Honestly Significance Difference)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>10.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2.1</b> Carguemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>10.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
@@ -248,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.5" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>10.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
 <li class="chapter" data-level="10.2.6" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>10.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
 <li class="chapter" data-level="10.3.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>10.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
 <li class="chapter" data-level="10.3.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>10.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
@@ -276,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prueba-de-t-compración-paramétrica-entre-dos-grupos" class="section level1">
+<div id="prueba-de-t-compración-paramétrica-entre-dos-grupos" class="section level1" number="8">
 <h1><span class="header-section-number">Capitulo 8</span> Prueba de t (Compración paramétrica entre dos grupos)</h1>
 <p>Uno de los análisis estadísticos más comunes es la prueba de t, la cual se utiliza para comparar la media de dos muestras dadas. Una prueba t se utiliza cuando no se conocen los parámetros de la población (media y desviación estándar).</p>
 <p>La prueba t te dice cuán significativas son las diferencias entre los grupos, es decir, permite saber si esas diferencias (medidas en medias / promedios) podrían haber ocurrido por casualidad.</p>
@@ -297,53 +324,55 @@ t=\frac{(x_1 - x_2)}{\frac{σ}{\sqrt{n_1}} + \frac{σ}{\sqrt{n_2}}} \\
 <p><span class="math inline">\(\sigma /\sqrt{n_1} + \sigma /\sqrt{n_2}\)</span>: es el error estandar de la diferencia de medias</p>
 <p>Recuerden que este método nos permite examinar la relación entre una <strong>variable numérica</strong> y una <strong>variable explicativa categórica</strong></p>
 <p>En el siguiente laboratorio veremos 2 ejemplos para muestras independientes</p>
-<div id="ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro" class="section level2">
+<div id="ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</h2>
-<div id="creemos-nuestros-datos-1" class="section level3">
+<div id="creemos-nuestros-datos-1" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Creemos nuestros datos</h3>
 <p>ara ilustrar el uso de la prueba t, considere la muestra de seis rendimientos de una nueva variedad de trigo. Los rendimientos obtenidos fueron: 2.5, 2.1, 2.4, 2.0, 2.6 y 2.2 toneladas por hectárea. Suponga que, además de sus seis estimaciones de rendimiento con la nueva variedad, el agricultor tiene diez áreas similares con su variedad estándar con los siguientes rendimientos: 2.2, 1.9, 1.8, 2.1, 2.1, 1.7 también en toneladas por hectárea.</p>
 <p>Para este ejemplo asumiremos que se cumplen las condiciones para efectuar un análisis parámetrico (Normalidad, Hemoscedasticidad, Independencia)</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1"><span class="co"># Creemos el vector rendimiento</span></a>
-<a class="sourceLine" id="cb190-2" title="2"><span class="co"># Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology</span></a>
-<a class="sourceLine" id="cb190-3" title="3">rendimiento &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.5</span>, <span class="fl">2.1</span>, <span class="fl">2.4</span>, <span class="fl">2.0</span>, <span class="fl">2.6</span>, <span class="fl">2.2</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.1</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span> )</a>
-<a class="sourceLine" id="cb190-4" title="4">variedad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;var1&quot;</span>, <span class="dv">6</span>), <span class="kw">rep</span>(<span class="st">&quot;var2&quot;</span>, <span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb190-5" title="5"></a>
-<a class="sourceLine" id="cb190-6" title="6">datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(rendimiento, variedad)</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creemos el vector rendimiento</span></span>
+<span id="cb201-2"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos extraidos de Mead et al. (1993). Statistical Methods in Agriculture and Experimental Biology</span></span>
+<span id="cb201-3"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-3" aria-hidden="true" tabindex="-1"></a>rendimiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">2.1</span>, <span class="fl">2.4</span>, <span class="fl">2.0</span>, <span class="fl">2.6</span>, <span class="fl">2.2</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.1</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span> )</span>
+<span id="cb201-4"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-4" aria-hidden="true" tabindex="-1"></a>variedad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;var1&quot;</span>, <span class="dv">6</span>), <span class="fu">rep</span>(<span class="st">&quot;var2&quot;</span>, <span class="dv">6</span>))</span>
+<span id="cb201-5"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-6"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb201-6" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(rendimiento, variedad)</span></code></pre></div>
 </div>
-<div id="analicemos-nuestros-datos-2" class="section level3">
+<div id="analicemos-nuestros-datos-2" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Analicemos nuestros datos</h3>
 <p>Veamos un resumen de nuestros datos</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.1.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Attaching packages ----------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">summary</span>(datos)</a></code></pre></div>
-<pre><code>##   rendimiento    variedad
-##  Min.   :1.700   var1:6  
-##  1st Qu.:1.975   var2:6  
-##  Median :2.100           
-##  Mean   :2.133           
-##  3rd Qu.:2.250           
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code></pre></div>
+<pre><code>##   rendimiento      variedad        
+##  Min.   :1.700   Length:12         
+##  1st Qu.:1.975   Class :character  
+##  Median :2.100   Mode  :character  
+##  Mean   :2.133                     
+##  3rd Qu.:2.250                     
 ##  Max.   :2.600</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">tabla &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb200-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(variedad) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb200-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">rendimiento_promedio =</span> <span class="kw">mean</span>(rendimiento))</a>
-<a class="sourceLine" id="cb200-4" title="4">tabla</a></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb212-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb212-2"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variedad) <span class="sc">%&gt;%</span> </span>
+<span id="cb212-3"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">rendimiento_promedio =</span> <span class="fu">mean</span>(rendimiento))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb214-1" aria-hidden="true" tabindex="-1"></a>tabla</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   variedad rendimiento_promedio
-##   &lt;fct&gt;                   &lt;dbl&gt;
+##   &lt;chr&gt;                   &lt;dbl&gt;
 ## 1 var1                     2.3 
 ## 2 var2                     1.97</code></pre>
 </div>
-<div id="expresar-la-hipótesis-de-investigación-2" class="section level3">
+<div id="expresar-la-hipótesis-de-investigación-2" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> Expresar la hipótesis de investigación</h3>
 <p>Ahora realicemos una prueba de hipótesis. Queremos saber si los rendimientos son significativamente diferentes entre sí. ¿Cómo escribiríamos nuestras hipótesis?</p>
 <p><span class="math display">\[
@@ -354,11 +383,11 @@ H_0: \mu_1 = \mu_2 \\
 H_a: \mu_1 \neq \mu_2 \\
 \]</span></p>
 </div>
-<div id="realicemos-nuestra-prueba-de-t" class="section level3">
+<div id="realicemos-nuestra-prueba-de-t" class="section level3" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Realicemos nuestra prueba de t</h3>
 <p>Ahora analicemos nuestros datos a través de la prueba de t</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">res_ttest &lt;-<span class="st"> </span><span class="kw">t.test</span>(rendimiento<span class="op">~</span>variedad, <span class="dt">data =</span> datos, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb202-2" title="2">res_ttest</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb216-1" aria-hidden="true" tabindex="-1"></a>res_ttest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(rendimiento<span class="sc">~</span>variedad, <span class="at">data =</span> datos, <span class="at">mu=</span><span class="dv">0</span>, <span class="at">conf=</span><span class="fl">0.95</span>)</span>
+<span id="cb216-2"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb216-2" aria-hidden="true" tabindex="-1"></a>res_ttest</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -372,14 +401,14 @@ H_a: \mu_1 \neq \mu_2 \\
 ##           2.300000           1.966667</code></pre>
 <p>Nuestra prueba estadística fue de 2.6537 con un p-value de 0.0248</p>
 </div>
-<div id="conclusión-del-test-1" class="section level3">
+<div id="conclusión-del-test-1" class="section level3" number="8.1.5">
 <h3><span class="header-section-number">8.1.5</span> Conclusión del test</h3>
 <p>Ya que nuestro valor de probabilidad (<code>p-value</code>) es menor a 0.05 se rechaza la hipotesis nula. Por lo tanto, encontramos que los datos de nuestro modelo proporcionan evidencia estadísticamente significativa para sugerir que la media de los rendimientos de ambas variedades no son iguales.</p>
 </div>
 </div>
-<div id="ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen" class="section level2">
+<div id="ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</h2>
-<div id="importemos-nuestros-datos" class="section level3">
+<div id="importemos-nuestros-datos" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Importemos nuestros datos</h3>
 <p>En este práctico comenzaremos a trabajar
 con una nueva base de datos que incluye las siguientes variables:</p>
@@ -392,19 +421,19 @@ con una nueva base de datos que incluye las siguientes variables:</p>
 <li><p>Vid: Superficie de territorio plantada con Vid de mesa. Medida en hectáreas.</p></li>
 <li><p>Temperatura: Temperatura promedio anual en los puntos de muestreos. Medida en ºC.</p></li>
 </ul>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">datos_p9 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/datosnuevos.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb218-1" aria-hidden="true" tabindex="-1"></a>datos_p9 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./datos/datosnuevos.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen" class="section level3">
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen" class="section level3" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Analicemos nuestros datos (Cuando las condiciones se cumplen)</h3>
-<div id="normalidad-1" class="section level4">
+<div id="normalidad-1" class="section level4" number="8.2.2.1">
 <h4><span class="header-section-number">8.2.2.1</span> Normalidad</h4>
 <p>######Método visual: Histograma de frecuencia</p>
 <p>Graficar un histograma de la variable de interés nos dará una idea de la forma de la distribución que siguen nuestros datos. Recordemos que la distribución normal alcanza su punto máximo en el medio y es simétrica respecto a la media. No es necesario que los datos se distribuyan de manera perfectamente normal para que las pruebas sean confiables.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos_p9<span class="sc">$</span>Olivo)</span></code></pre></div>
 <p><img src="08-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Nuestro análisis visual sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal. Sin embargo, esto no se cumple para el número de hectáreas plantadas con chirimoyos.</p>
 <p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de análisis estadísticos basados en contrastes de hipótesis</p>
-<div id="pruebas-estadísticas-test-de-shapiro-wilk" class="section level5">
+<div id="pruebas-estadísticas-test-de-shapiro-wilk" class="section level5" number="8.2.2.1.1">
 <h5><span class="header-section-number">8.2.2.1.1</span> Pruebas estadísticas: Test de Shapiro-Wilk</h5>
 <p>En estadística, el test de Shapiro–Wilk se usa para contrastar la normalidad de un conjunto de datos. Se pondrán a prueba las siguientes hipótesis:</p>
 <p><span class="math display">\[
@@ -412,7 +441,7 @@ H_0 = \text{Los datos provienen de una distribución normal}\\
 H_A = \text{Los datos NO provienen de una distribución normal}
 \]</span></p>
 <p>Recuerden si el valor de probabilidad es mayor a 0.05, no rechazamos la hipótesis nula y asumimos que los datos provienen de una distribución normal.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">shapiro.test</span>(datos_p9<span class="op">$</span>Olivo)</a></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos_p9<span class="sc">$</span>Olivo)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -421,19 +450,19 @@ H_A = \text{Los datos NO provienen de una distribución normal}
 <p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos del número de hectáreas plantadas con olivos siguen una distribución normal.</p>
 </div>
 </div>
-<div id="homocedasticidad-1" class="section level4">
+<div id="homocedasticidad-1" class="section level4" number="8.2.2.2">
 <h4><span class="header-section-number">8.2.2.2</span> Homocedasticidad</h4>
 <p>Visualizar un gráfico de cajas de la variable de interés nos dará una idea de la dispersión de los datos en torno a una medida de tendencia central. Para ello podemos considerar el tamaño de los bigotes de nuestro gráfico de cajas.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">boxplot</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(datos_p9<span class="sc">$</span>Olivo <span class="sc">~</span> datos_p9<span class="sc">$</span>Zona)</span></code></pre></div>
 <p><img src="08-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Nuestro análisis visual muestra que los datos del número de hectáreas plantadas con olivos presentan niveles similares de dispersión entorno a la mediana.</p>
 <p>Otra opción es comparar directamente los valores de las varianza entre los grupos de interés. Para ello utilizaremos la función tapply:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">tapply</span>(datos_p9<span class="op">$</span>Olivo, datos_p9<span class="op">$</span>Zona, var)</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(datos_p9<span class="sc">$</span>Olivo, datos_p9<span class="sc">$</span>Zona, var)</span></code></pre></div>
 <pre><code>##   centro    norte 
 ## 6797.021 7222.925</code></pre>
 <p>Los valores muestran que la varianza del número de hectáreas plantadas con olivos es 6% mayor en plantaciones de la zona norte en comparación a la zona sur.</p>
 <p>A pesar de ser informativo, el análisis visual es subjetivo porque dependemos de la interpretación de los gráficos. Una alternativa objetiva es el uso de pruebas estadísticas basadas en contraste de hipótesis.</p>
-<div id="pruebas-estadísticas-test-levene" class="section level5">
+<div id="pruebas-estadísticas-test-levene" class="section level5" number="8.2.2.2.1">
 <h5><span class="header-section-number">8.2.2.2.1</span> Pruebas estadísticas: Test Levene</h5>
 <p>En estadística, el test de Shapiro–Wilk se usa para evaluar la igualdad de las varianzas (homocedasticidad) para una variable calculada para dos o más grupos. Se pondrán a prueba las siguientes hipótesis:</p>
 <p><span class="math display">\[
@@ -442,7 +471,7 @@ H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
 \]</span></p>
 <p>Recuerden que el p-value asociado al análisis nos permitirá rechazar (p &lt; 0.05) o no (p &gt; 0.05) nuestra hipótesis nula.</p>
 <p>Recuerden que la función leveneTest es parte de la librería car. Es por ello que necesitamos instalar y cargar esta librería antes de hacer el análisis.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1"><span class="kw">library</span>(car)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <pre><code>## Loading required package: carData</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;car&#39;</code></pre>
@@ -452,7 +481,9 @@ H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     some</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="kw">leveneTest</span>(datos_p9<span class="op">$</span>Olivo <span class="op">~</span><span class="st"> </span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(datos_p9<span class="sc">$</span>Olivo <span class="sc">~</span> datos_p9<span class="sc">$</span>Zona)</span></code></pre></div>
+<pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.</code></pre>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1  0.0169 0.8969
@@ -462,7 +493,7 @@ H_A = \text{Las varianzas poblacionales de los grupos NO son iguales}
 </div>
 </div>
 </div>
-<div id="expresar-la-hipótesis-de-investigación-3" class="section level3">
+<div id="expresar-la-hipótesis-de-investigación-3" class="section level3" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Expresar la hipótesis de investigación</h3>
 <p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. Podemos hacerlo con una prueba de t si y solo si se cumplen los supuestos de normalidad de homogeneidad de varianza.</p>
 <p><span class="math display">\[
@@ -470,11 +501,11 @@ H_0: \text{Las medias en el número de hectáreas en ambas zonas son iguales} \\
 H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.} \\
 \]</span></p>
 </div>
-<div id="realicemos-nuestra-prueba-de-t-1" class="section level3">
+<div id="realicemos-nuestra-prueba-de-t-1" class="section level3" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Realicemos nuestra prueba de t</h3>
 <p>Ahora analicemos nuestros datos a través de la prueba de t</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1">res_ttest_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">t.test</span>(Olivo<span class="op">~</span>Zona, <span class="dt">data =</span> datos_p9, <span class="dt">mu=</span><span class="dv">0</span>, <span class="dt">conf=</span><span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb218-2" title="2">res_ttest_<span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb233-1" aria-hidden="true" tabindex="-1"></a>res_ttest_2 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Olivo<span class="sc">~</span>Zona, <span class="at">data =</span> datos_p9, <span class="at">mu=</span><span class="dv">0</span>, <span class="at">conf=</span><span class="fl">0.95</span>)</span>
+<span id="cb233-2"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb233-2" aria-hidden="true" tabindex="-1"></a>res_ttest_2</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -487,25 +518,25 @@ H_a: \text{Las medias en el número de hectáreas en ambas zonas NO son iguales.
 ## mean in group centro  mean in group norte 
 ##             1497.470             1499.882</code></pre>
 </div>
-<div id="conclusión-del-test-2" class="section level3">
+<div id="conclusión-del-test-2" class="section level3" number="8.2.5">
 <h3><span class="header-section-number">8.2.5</span> Conclusión del test</h3>
 <p>No hemos detectado diferencias estadísticamente significativas en el número de hectáreas plantadas con olivos entre la zona norte y la zona central. (t= -0.1577, P = 0.87), con un promedio de 1499±7222 hectáreas plantadas en la zona norte y un promedio de 1497±6797 hectáreas plantadas en la zona centro (promedio ± desvest).</p>
 </div>
-<div id="analicemos-nuestros-datos-cuando-las-condiciones-no-se-cumplen" class="section level3">
+<div id="analicemos-nuestros-datos-cuando-las-condiciones-no-se-cumplen" class="section level3" number="8.2.6">
 <h3><span class="header-section-number">8.2.6</span> Analicemos nuestros datos (Cuando las condiciones NO se cumplen)</h3>
-<div id="normalidad-2" class="section level4">
+<div id="normalidad-2" class="section level4" number="8.2.6.1">
 <h4><span class="header-section-number">8.2.6.1</span> Normalidad</h4>
 <p>######Método visual: Histograma de frecuencia</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">hist</span>(datos_p9<span class="op">$</span>Chirimoyo)</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos_p9<span class="sc">$</span>Chirimoyo)</span></code></pre></div>
 <p><img src="08-lab_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>La distribución normal no se cumple para las hectáreas plantadas con chirimoyos</p>
 </div>
 </div>
-<div id="prueba-de-mann-whitney-comparación-no-paramétrica-entre-dos-grupos" class="section level3">
+<div id="prueba-de-mann-whitney-comparación-no-paramétrica-entre-dos-grupos" class="section level3" number="8.2.7">
 <h3><span class="header-section-number">8.2.7</span> Prueba de Mann-Whitney (comparación no-paramétrica entre dos grupos)</h3>
 <p>El test de Mann–Whitney, también conocido como Wilcoxon rank-sum test, es una prueba estadística no paramétrica que contrasta si dos muestras proceden de poblaciones equidistribuidas. Esta prueba estadística se fundamenta en que si las dos muestras comparadas proceden de la misma población, al juntar todas las observaciones y ordenarlas de menor a mayor, cabría esperar que las observaciones de una y otra muestra estuviesen intercaladas aleatoriamente. Por lo contrario, si una de las muestras pertenece a una población con valores mayores o menores que la otra población, al ordenar las observaciones estas tenderán a agruparse de modo que las de una muestra queden por encima de las de la otra.</p>
 </div>
-<div id="expresar-la-hipótesis-de-investigación-4" class="section level3">
+<div id="expresar-la-hipótesis-de-investigación-4" class="section level3" number="8.2.8">
 <h3><span class="header-section-number">8.2.8</span> Expresar la hipótesis de investigación</h3>
 <p>En este análisis se ponen a prueba las siguientes hipótesis:</p>
 <p><span class="math display">\[
@@ -513,11 +544,11 @@ H_0: \text{La probabilidad de que una observación de la población X supere a u
 H_A: \text{La probabilidad de que una observación de la población X supere a una observación de la población Y NO es igual a la probabilidad de que una observación de la población Y supere a una de la población X}
 \]</span></p>
 </div>
-<div id="realicemos-nuestra-prueba-de-mann-whitney" class="section level3">
+<div id="realicemos-nuestra-prueba-de-mann-whitney" class="section level3" number="8.2.9">
 <h3><span class="header-section-number">8.2.9</span> Realicemos nuestra prueba de Mann-Whitney</h3>
 <p>La función wilcox.test está disponible en R para realizar una prueba de Mann-Whitney.</p>
 <p>Pongamos ahora a prueba si existen diferencias en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">wilcox.test</span>(datos_p9<span class="op">$</span>Chirimoyo<span class="op">~</span>datos_p9<span class="op">$</span>Zona)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(datos_p9<span class="sc">$</span>Chirimoyo<span class="sc">~</span>datos_p9<span class="sc">$</span>Zona)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -525,7 +556,7 @@ H_A: \text{La probabilidad de que una observación de la población X supere a u
 ## W = 993.5, p-value = 2.33e-05
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
-<div id="conclusión-del-test-3" class="section level3">
+<div id="conclusión-del-test-3" class="section level3" number="8.2.10">
 <h3><span class="header-section-number">8.2.10</span> Conclusión del test</h3>
 <p>Los resultados se explican y reportan de la siguiente forma, existen diferencias estadísticamente significativas en el número de hectáreas plantadas con chirimoyos entre la zona norte y la zona central. (W=993.5, p&lt;0.05).</p>
 

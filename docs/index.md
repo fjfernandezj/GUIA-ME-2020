@@ -1,7 +1,7 @@
 --- 
 title: "Guía de Métodos Estadísticos 2020"
 author: ["Pablo Cortes", "Francisco Fernández"]    
-date: "2020-06-29"  
+date: "2021-02-11"  
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 10 Regresión lineal y correlación | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 10 Regresión lineal y correlación | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2021-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="análisis-de-varianza-anova.html"/>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,25 +55,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,8 +118,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
-<link rel="stylesheet" href="css\box.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/box.css" type="text/css" />
 </head>
 
 <body>
@@ -134,27 +136,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
-<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
@@ -162,41 +172,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
 <li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
-<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
 <li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
 <li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
 <li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
 <li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
-<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
 <li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
 <li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -204,15 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a><ul>
-<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a><ul>
+<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#creemos-nuestros-datos-1"><i class="fa fa-check"></i><b>8.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-2"><i class="fa fa-check"></i><b>8.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-2"><i class="fa fa-check"></i><b>8.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="8.1.4" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#realicemos-nuestra-prueba-de-t"><i class="fa fa-check"></i><b>8.1.4</b> Realicemos nuestra prueba de t</a></li>
 <li class="chapter" data-level="8.1.5" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-1"><i class="fa fa-check"></i><b>8.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a><ul>
+<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#importemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Importemos nuestros datos</a></li>
 <li class="chapter" data-level="8.2.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen"><i class="fa fa-check"></i><b>8.2.2</b> Analicemos nuestros datos (Cuando las condiciones se cumplen)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-3"><i class="fa fa-check"></i><b>8.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -225,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.10" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-3"><i class="fa fa-check"></i><b>8.2.10</b> Conclusión del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a><ul>
+<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#anova-de-1-vía"><i class="fa fa-check"></i><b>9.1</b> ANOVA de 1 Vía</a></li>
-<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a><ul>
+<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
 <li class="chapter" data-level="9.2.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>9.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="9.2.3" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-2-expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>9.2.3</b> Paso 2: Expresar la hipótesis de investigación</a></li>
@@ -238,9 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.8" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#test-de-tukey-hsd-honestly-significance-difference"><i class="fa fa-check"></i><b>9.2.8</b> Test de Tukey HSD (Honestly Significance Difference)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>10.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2.1</b> Carguemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>10.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
@@ -248,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.5" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>10.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
 <li class="chapter" data-level="10.2.6" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>10.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
 <li class="chapter" data-level="10.3.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>10.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
 <li class="chapter" data-level="10.3.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>10.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
@@ -276,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresión-lineal-y-correlación" class="section level1">
+<div id="regresión-lineal-y-correlación" class="section level1" number="10">
 <h1><span class="header-section-number">Capitulo 10</span> Regresión lineal y correlación</h1>
 <p>Antes de comenzar con este práctico es importante tomarnos un tiempo para recordar que la estadística comienza con un problema, continúa con la toma de datos, sigue con la inspección y visualización de los datos y termina con el análisis de los mismos. Esto nos permitirá sacar conclusiones fundamentadas sobre nuestro problema inicial.</p>
 <p>En el presente curso hemos establecido una receta de trabajo al momento de realizar inferencias estadísticas:</p>
@@ -287,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Paso 4:</strong> Evaluar los supuestos del modelo. Es relevante para saber si podemos (o no) utilizar métodos paramétricos.</p></li>
 <li><p><strong>Paso 5:</strong> Interpretar los resultados del modelo. Debemos evaluar el valor de probabilidad asociado a la prueba estadística.</p></li>
 </ul>
-<div id="modelos-lineales-generales" class="section level2">
+<div id="modelos-lineales-generales" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Modelos lineales generales</h2>
 <p>En muchas oportunidades estaremos interesados en saber como el comportamiento de una variable, o un conjunto de variables, impacta sobre otra. El objetivo es entender el grado de asociatividad y/o la posible relación funcional entre las variables.</p>
 <p>Los modelos lineales generales describen una variable respuesta (<span class="math inline">\(Y\)</span>) en términos de todos sus factores contribuyentes (<span class="math inline">\(xβ\)</span>) en una combinación lineal, mientras que también incorpora el aporte de error (<span class="math inline">\(\epsilon\)</span>).</p>
@@ -300,42 +327,43 @@ Y = \beta_0 + \beta_1x_1 + \epsilon
 <p>Si la variable explicativa es categórica en vez de continua, entonces el análisis a realizar es un ANOVA (en inglés) o análisis de varianza de 1-vía. Cuando hay dos variables categóricas explicativas, el análisis se denomina análisis de varianza de 2-vías.</p>
 <p>Por ultimo, es posible que en un mismo análisis aparezcan variables explicativas tanto continuas como categóricas, y en este caso el análisis pasaría a denominarse análisis de covarianza o ANCOVA.</p>
 </div>
-<div id="correlación-producto-momento-de-pearson" class="section level2">
+<div id="correlación-producto-momento-de-pearson" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Correlación producto-momento de Pearson</h2>
 <p>Antes de comenzar la construcción de modelos lineales complejos, es importante observar la relación de datos para comprender cómo interactúan las diferentes variables. La <strong>correlación producto-momento de Pearson</strong> (para simplificarnos la vida hablaremos de correlación de Pearson) determina si existe asociación entre dos variables continuas. Dicho de otra forma, la correlación de Pearson analiza si dos variables continuas cambian de forma simultánea (están relacionadas).</p>
 <p>El <strong>coeficiente de correlación de Pearson (r)</strong> es una medida de la fuerza de una asociación lineal entre dos variables continuas. El coeficiente de correlación de Pearson puede tomar un rango de valores de +1 a -1. Un valor de 0 indica que no hay asociación entre las dos variables. Un valor mayor que 0 indica una asociación positiva; es decir, a medida que aumenta el valor de una variable, también lo hace el valor de la otra variable. Un valor menor que 0 indica una asociación negativa; es decir, a medida que aumenta el valor de una variable, el valor de la otra variable disminuye.</p>
 <p>Es importante destacar que la correlación de Pearson no tiene en cuenta si una variable se ha clasificado como una dependiente o independiente. Trata a todas las variables por igual. Incluso, las variables pueden estar medidas en diferentes unidades.</p>
 <p>Empleamos la correlación de Pearson para determinar si dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_1\)</span>).</p>
 <p>Para el laboratorio de Hoy ujtilizaremos el ejemplo 9.1 de Mead et al. (1993). El cual indica:</p>
-<p>El siguiente experimento busca establecer la absorción de <span class="math inline">\(CO_2\)</span> de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 <span class="math inline">\(°C\)</span> y se mide la absorción de <span class="math inline">\(CO_2\)</span> por parte de las hojas de estas. Los valores de absorción (<span class="math inline">\(y\)</span>) para diecisiete hojas, a diferentes concentraciones (<span class="math inline">\(x\)</span>) se obtienen y son los datos que se encuentran en el archivo “trigo_co2.csv”.</p>
-<div id="carguemos-nuestros-datos" class="section level3">
+<p>El siguiente experimento busca establecer la absorción de <span class="math inline">\(CO_2\)</span> de plantas de trigo en base a la concentración de este en el aire. Para esto se pasa aire con concentraciones variables de CO2 sobre plantas de trigo a una temperatura de 35 <span class="math inline">\(°C\)</span> y se mide la absorción de <span class="math inline">\(CO_2\)</span> por parte de las hojas de estas. Los valores de absorción (<span class="math inline">\(y\)</span>) para diecisiete hojas, a diferentes concentraciones (<span class="math inline">\(x\)</span>) se obtienen y son los datos que se encuentran en el archivo “trigo_co2.csv.”</p>
+<div id="carguemos-nuestros-datos" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Carguemos nuestros datos</h3>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;./datos/trigo_co2.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regresión-lineal-y-correlación.html#cb260-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;./datos/trigo_co2.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="paso-1-analicemos-nuestros-datos-1" class="section level3">
+<div id="paso-1-analicemos-nuestros-datos-1" class="section level3" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Paso 1: Analicemos nuestros datos</h3>
 <p>Generemos un gráfico exploratorio de nuestras variables con ggplot:</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.1     v purrr   0.3.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.1.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.6.3</code></pre>
-<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="regresión-lineal-y-correlación.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Attaching packages ----------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span> Concentracion, <span class="dt">y=</span> Absorcion))<span class="op">+</span></a>
-<a class="sourceLine" id="cb250-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb250-3" title="3"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb250-4" title="4"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb250-5" title="5"><span class="st">        </span><span class="kw">theme_bw</span> ()</a></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="regresión-lineal-y-correlación.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span> Concentracion, <span class="at">y=</span> Absorcion))<span class="sc">+</span></span>
+<span id="cb269-2"><a href="regresión-lineal-y-correlación.html#cb269-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb269-3"><a href="regresión-lineal-y-correlación.html#cb269-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb269-4"><a href="regresión-lineal-y-correlación.html#cb269-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="sc">+</span></span>
+<span id="cb269-5"><a href="regresión-lineal-y-correlación.html#cb269-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_bw</span> ()</span></code></pre></div>
 <p><img src="10-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>A simple vista se ve una estrecha relación (relación positiva) entre nuestros datos de concentracion de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo.</p>
 </div>
-<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba." class="section level3">
+<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba." class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
 <p>Nuestro interés es conocer si las variables Concentracion y Absorción cambian de forma simultánea (están relacionados). Para ello establecemos las siguientes hipótesis:</p>
 <p><span class="math display">\[
@@ -343,11 +371,11 @@ H_0 = \text{Las variables Concentración y Absorción cambian de forma independi
 H_A = \text{Las variables Concentración y Absorción cambian de forma conjunta}
 \]</span></p>
 </div>
-<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico." class="section level3">
+<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico." class="section level3" number="10.2.4">
 <h3><span class="header-section-number">10.2.4</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
 <p>El siguiente paso involucra poner a prueba si existe relación estadísticamente significativa entre Concentración y Absorción. Para ello empleamos la <strong>correlación de Pearson</strong> para determinar si las dos variables cambian de forma independiente (<span class="math inline">\(H_0\)</span>) o entonces, de forma alternativa, de forma conjunta (<span class="math inline">\(H_A\)</span>).</p>
 </div>
-<div id="paso-4-evaluar-los-supuestos-del-modelo.-1" class="section level3">
+<div id="paso-4-evaluar-los-supuestos-del-modelo.-1" class="section level3" number="10.2.5">
 <h3><span class="header-section-number">10.2.5</span> Paso 4: Evaluar los supuestos del modelo.</h3>
 <p>R
 ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos subyacentes, y estos supuestos siempre deben confirmarse antes de utilizar estas pruebas.</p>
@@ -356,7 +384,7 @@ ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos
 <li><strong>Supuesto 1:</strong> Los datos de cada una de las 2 variables siguen una distribución normal.</li>
 </ul>
 <p>Veamos para la variable Concentración</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Concentracion)</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="regresión-lineal-y-correlación.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data<span class="sc">$</span>Concentracion)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -364,7 +392,7 @@ ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos
 ## W = 0.94734, p-value = 0.4158</code></pre>
 <p>El valor de probabilidad (p&gt;0.05) asociado a nuestro análisis sugiere que los datos de Concentración siguen una distribución normal</p>
 <p>Veamos ahora para el caso de la variable Absorción</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1"><span class="kw">shapiro.test</span>(data<span class="op">$</span>Absorcion)</a></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="regresión-lineal-y-correlación.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data<span class="sc">$</span>Absorcion)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -375,10 +403,10 @@ ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos
 <li><strong>Supuesto 2:</strong> las observaciones representan una muestra aleatoria de la población y las observaciones son independientes entre sí.</li>
 </ul>
 </div>
-<div id="paso-5-interpretar-los-resultados-del-modelo." class="section level3">
+<div id="paso-5-interpretar-los-resultados-del-modelo." class="section level3" number="10.2.6">
 <h3><span class="header-section-number">10.2.6</span> Paso 5: Interpretar los resultados del modelo.</h3>
 <p>Ahora que hemos comprobado que los supuestos requeridos se cumplen, vamos a proceder a realizar la correlación de Pearson para nuestras variables de interés:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" title="1"><span class="kw">cor.test</span>(data<span class="op">$</span>Concentracion, data<span class="op">$</span>Absorcion, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="regresión-lineal-y-correlación.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(data<span class="sc">$</span>Concentracion, data<span class="sc">$</span>Absorcion, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -400,16 +428,16 @@ ecordemos que todos los análisis paramétricos tienen supuestos sobre los datos
 <p>Con este resultado, rechazamos la hipótesis de que estas dos variables varían de forma independiente y concluimos que hay una correlación entre las dos. Podemos describir este resultado de la siguiente forma: Hemos detectado una correlación entre la concentración de <span class="math inline">\(CO_2\)</span> en el aire y la absorción de este por las hojas de trigo (<span class="math inline">\(r_15\)</span> = 0.9835, P = 1.442e-12).</p>
 </div>
 </div>
-<div id="regresión-lineal-simple" class="section level2">
+<div id="regresión-lineal-simple" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Regresión Lineal Simple</h2>
 <p>Al igual que la correlación de Pearson, la regresión lineal explora la relación entre dos variables continuas. Mientras que la correlación analiza si dos variables continuas cambian de forma simultánea (están relacionadas), la regresión analiza la relación causal entre un predictor (variable independiente) y una variable de respuesta (dependiente).</p>
 <p>La función básica para construir un modelo lineal (como la regresión lineal) en R es usar la función <code>lm()</code>, la que proporciona una fórmula en forma de <code>y ~ x</code>.</p>
 <p>Trabajaremos con la misma información anterior. Recordemos que nunca debemos comenzar un análisis estadístico con una prueba estadística, siempre debemos comenzar con una figura de nuestros datos!!!</p>
-<div id="paso-1-graficar-nuestros-datos." class="section level3">
+<div id="paso-1-graficar-nuestros-datos." class="section level3" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Paso 1: Graficar nuestros datos.</h3>
 <p>Ya que estamos trabajando con el mismo ejemplo anterior no es necesario volver a realizar el mismo gráfico anterior.</p>
 </div>
-<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1" class="section level3">
+<div id="paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1" class="section level3" number="10.3.2">
 <h3><span class="header-section-number">10.3.2</span> Paso 2: Definir la hipótesis que queremos poner a prueba.</h3>
 <p>Ahora si, el proceso cambia en compración con la correlación vista anteriormente.</p>
 <p>Nuestro interés es conocer si concentración de <span class="math inline">\(co_2\)</span> en el aire predice la absorción de este por parte de las hojas de trigo.</p>
@@ -423,12 +451,12 @@ o \\
 β1\neq 0
 \]</span></p>
 </div>
-<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1" class="section level3">
+<div id="paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1" class="section level3" number="10.3.3">
 <h3><span class="header-section-number">10.3.3</span> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</h3>
 <p>El siguiente paso involucra poner a prueba si la variación en Concentración de CO2 predice absorción de este por parte de la planta. Para ello ajustaremos un modelo de regresión lineal para determinar si las dos variables cambian de forma independiente (H0) o entonces, de forma alternativa, de forma conjunta (H1).</p>
 <p>Para ellos vamos a construir nuestro modelo de regresión lineal utilizando la función <code>lm()</code>:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Absorcion <span class="op">~</span><span class="st"> </span>Concentracion, <span class="dt">data =</span> data)</a>
-<a class="sourceLine" id="cb257-2" title="2">model1</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="regresión-lineal-y-correlación.html#cb276-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Absorcion <span class="sc">~</span> Concentracion, <span class="at">data =</span> data)</span>
+<span id="cb276-2"><a href="regresión-lineal-y-correlación.html#cb276-2" aria-hidden="true" tabindex="-1"></a>model1</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Absorcion ~ Concentracion, data = data)
@@ -446,7 +474,7 @@ o \\
 <p>¿Cómo interpretaríamos el coeficiente <span class="math inline">\(\beta_1\)</span> (la pendiente)?</p>
 <p>Para una unidad adicional en la concentración de CO2 en el aire esperaríamos ver un aumento de 0.025 unidades adicionales de absorción de co2 por parte de las hojas de las plantas de trigo.</p>
 </div>
-<div id="paso-4-evaluar-los-supuestos-del-modelo.-2" class="section level3">
+<div id="paso-4-evaluar-los-supuestos-del-modelo.-2" class="section level3" number="10.3.4">
 <h3><span class="header-section-number">10.3.4</span> Paso 4: Evaluar los supuestos del modelo.</h3>
 <p>La regresión lineal hace varias suposiciones sobre los datos, tales como:</p>
 <ul>
@@ -458,7 +486,7 @@ Se asume que los errores residuales están normalmente distribuidos.</p></li>
 Se asume que los residuos tienen una variación constante (homoscedasticidad)</p></li>
 <li><p><strong>Supuesto 4:</strong> Independencia de los términos de error de residuos.</p></li>
 </ul>
-<p>Todos estos supuestos y posibles problemas pueden verificarse generando algunos gráficos de diagnóstico que visualizan los residuales. El gráfico de “residuos versus valores ajustados” es un diagrama de dispersión de los residuos en el eje “y” y los valores ajustados (respuestas estimadas) en el eje “x”. La gráfica se utiliza</p>
+<p>Todos estos supuestos y posibles problemas pueden verificarse generando algunos gráficos de diagnóstico que visualizan los residuales. El gráfico de “residuos versus valores ajustados” es un diagrama de dispersión de los residuos en el eje “y” y los valores ajustados (respuestas estimadas) en el eje “x.” La gráfica se utiliza</p>
 <p>para detectar la no linealidad, las variaciones de error desiguales y los valores atípicos (outliers).</p>
 <p>Estas son las características de un buen gráfico de “residuos versus ajustes” y lo que sugieren sobre la idoneidad del modelo de regresión lineal simple:</p>
 <ol style="list-style-type: lower-alpha">
@@ -467,12 +495,12 @@ Se asume que los residuos tienen una variación constante (homoscedasticidad)</p
 <li><p>Ningún residuo “se destaca” del patrón aleatorio básico de residuos. Esto sugiere que no hay valores atípicos.</p></li>
 </ol>
 <p>Entonces, generemos un gráfico “residuos versus valores ajustados” con nuestros datos. Para ello, debemos generar dos objetos que contengan los valores ajustados (valores predichos por el modelo) y los residuos (valor observado - valor ajustado) a partir de nuestro modelo:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" title="1">ajustados &lt;-<span class="st"> </span><span class="kw">fitted</span>(model1)</a>
-<a class="sourceLine" id="cb259-2" title="2"></a>
-<a class="sourceLine" id="cb259-3" title="3">residuos &lt;-<span class="st"> </span><span class="kw">residuals</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="regresión-lineal-y-correlación.html#cb278-1" aria-hidden="true" tabindex="-1"></a>ajustados <span class="ot">&lt;-</span> <span class="fu">fitted</span>(model1)</span>
+<span id="cb278-2"><a href="regresión-lineal-y-correlación.html#cb278-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-3"><a href="regresión-lineal-y-correlación.html#cb278-3" aria-hidden="true" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(model1)</span></code></pre></div>
 <p>Ahora, generamos un diagrama de dispersión y agregamos una línea de intercepto = 0 y pendiente = 0:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="kw">plot</span>(ajustados,residuos)</a>
-<a class="sourceLine" id="cb260-2" title="2"><span class="kw">abline</span>(<span class="dv">0</span>, <span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="regresión-lineal-y-correlación.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajustados,residuos)</span>
+<span id="cb279-2"><a href="regresión-lineal-y-correlación.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span></code></pre></div>
 <p><img src="10-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>En líneas generales, el análisis gráfico sugiere que nuestras variables tienden a cumplir con los supuestos establecidos para una regresión lineal. A modo de diagnostico podríamos decir que:</p>
 <ol style="list-style-type: lower-alpha">
@@ -481,10 +509,10 @@ Se asume que los residuos tienen una variación constante (homoscedasticidad)</p
 <li><p>Existen algunos residuos que “se alejan” del patrón aleatorio básico de residuos. Esto sugiere que unos pocos valores atípicos.</p></li>
 </ol>
 </div>
-<div id="paso-5-interpretar-los-resultados-del-modelo.-1" class="section level3">
+<div id="paso-5-interpretar-los-resultados-del-modelo.-1" class="section level3" number="10.3.5">
 <h3><span class="header-section-number">10.3.5</span> Paso 5: Interpretar los resultados del modelo.</h3>
 <p>Usando la función summary () obtenemos toda la información sobre nuestro modelo:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="regresión-lineal-y-correlación.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Absorcion ~ Concentracion, data = data)
@@ -527,22 +555,22 @@ Absorcion = -2.042+0.0249\cdot\text{Concentración}  \\
 (R^2 = 0.96, t_{(1,15)} = 21.11, p &lt; 0.05). 
 \]</span></p>
 <p>Ahora podemos graficar los datos e incorporar la línea de regresión con geom_smooth (intercepto, pendiente):</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span>Concentracion, <span class="dt">y=</span>Absorcion))<span class="op">+</span></a>
-<a class="sourceLine" id="cb263-2" title="2"><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb263-3" title="3"><span class="st">        </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb263-4" title="4"><span class="st">        </span><span class="kw">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb263-5" title="5"><span class="st">        </span><span class="kw">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb263-6" title="6"><span class="st">        </span><span class="kw">theme_bw</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="regresión-lineal-y-correlación.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>Concentracion, <span class="at">y=</span>Absorcion))<span class="sc">+</span></span>
+<span id="cb282-2"><a href="regresión-lineal-y-correlación.html#cb282-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb282-3"><a href="regresión-lineal-y-correlación.html#cb282-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span></span>
+<span id="cb282-4"><a href="regresión-lineal-y-correlación.html#cb282-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Absorción de CO2 (cm2/dm2/hour)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb282-5"><a href="regresión-lineal-y-correlación.html#cb282-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Concentracion de CO2&quot;</span>)<span class="sc">+</span></span>
+<span id="cb282-6"><a href="regresión-lineal-y-correlación.html#cb282-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_bw</span>() </span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="10-lab_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Finalmente, con estos datos podemos hacer estimaciones puntuales. Por ejemplo, El valor medio predicho de <span class="math inline">\(\hat{y}\)</span> para una concentración dada, digamos x = 150 es:</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="fl">-2.042</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0249</span> <span class="op">*</span><span class="st"> </span><span class="dv">150</span>  </a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="regresión-lineal-y-correlación.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.042</span> <span class="sc">+</span> <span class="fl">0.0249</span> <span class="sc">*</span> <span class="dv">150</span>  </span></code></pre></div>
 <pre><code>## [1] 1.693</code></pre>
 <p>El valor estimado de <span class="math inline">\(\hat{y}\)</span> para una sola hoja para la concentración, x = 150, es <strong>1.693</strong>.</p>
 <p>Ahora, bien también podemos querer crear una estimación de intervalo en lugar de una estimación puntual como la realizado anteriormente. Para hacer eso crearemos un intervalo de confianza para una media Y. Para esto utilizaremos la función <code>predict()</code></p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="kw">predict</span>(model1, </a>
-<a class="sourceLine" id="cb267-2" title="2">        <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Concentracion =</span> <span class="dv">150</span>), </a>
-<a class="sourceLine" id="cb267-3" title="3">        <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="regresión-lineal-y-correlación.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model1, </span>
+<span id="cb286-2"><a href="regresión-lineal-y-correlación.html#cb286-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentracion =</span> <span class="dv">150</span>), </span>
+<span id="cb286-3"><a href="regresión-lineal-y-correlación.html#cb286-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
 ## 1 1.699064 1.569723 1.828406</code></pre>
 <p>Estoy 95% seguro que la media de Absorción de CO2 de las hojas de trigo para aire con concentraciones de cO2 de 150 (cm2/dm2/hour) es entre 1.56 y 1.82</p>

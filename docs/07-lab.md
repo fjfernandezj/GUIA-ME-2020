@@ -61,30 +61,34 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------- tidyverse 1.2.1 --
+## Warning: package 'tidyverse' was built under R version 4.0.3
 ```
 
 ```
-## v ggplot2 3.3.1     v purrr   0.3.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.1.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0
+## -- Attaching packages ----------------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.6.3
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0
 ```
 
 ```
-## Warning: package 'tidyr' was built under R version 3.6.3
+## Warning: package 'tidyr' was built under R version 4.0.3
 ```
 
 ```
-## Warning: package 'purrr' was built under R version 3.6.3
+## Warning: package 'readr' was built under R version 4.0.3
 ```
 
 ```
-## -- Conflicts ----------- tidyverse_conflicts() --
+## Warning: package 'dplyr' was built under R version 4.0.3
+```
+
+```
+## -- Conflicts -------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -94,14 +98,20 @@ tabla <- data_1 %>%
   group_by(sexo_nacimientos) %>% 
   summarise(n=n()) %>% 
   mutate(proporcion = n/sum(n))
+```
 
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 tabla
 ```
 
 ```
 ## # A tibble: 2 x 3
 ##   sexo_nacimientos     n proporcion
-##   <fct>            <int>      <dbl>
+##   <chr>            <int>      <dbl>
 ## 1 Hembra              41      0.562
 ## 2 Macho               32      0.438
 ```
@@ -196,9 +206,9 @@ str(data)
 
 ```
 ## 'data.frame':	120 obs. of  9 variables:
-##  $ Cultivo      : Factor w/ 1 level "Arandanos": 1 1 1 1 1 1 1 1 1 1 ...
-##  $ Region       : Factor w/ 4 levels "BioBio","La_Araucania",..: 4 4 4 4 4 4 4 4 4 4 ...
-##  $ Variedad     : Factor w/ 2 levels "V1","V2": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Cultivo      : chr  "Arandanos" "Arandanos" "Arandanos" "Arandanos" ...
+##  $ Region       : chr  "Ohiggins" "Ohiggins" "Ohiggins" "Ohiggins" ...
+##  $ Variedad     : chr  "V1" "V1" "V1" "V1" ...
 ##  $ Hectareas    : num  1030 999 1118 1007 1078 ...
 ##  $ Temperatura  : num  16.8 16.9 15 15.7 15.1 15.9 16.1 15.6 17.4 14.7 ...
 ##  $ costo_jh     : int  13059 13026 12933 13027 13045 12949 13002 12968 12978 13056 ...
@@ -212,27 +222,20 @@ summary(data)
 ```
 
 ```
-##       Cultivo             Region   Variedad   Hectareas     
-##  Arandanos:120   BioBio      :30   V1:60    Min.   : 998.9  
-##                  La_Araucania:30   V2:60    1st Qu.:1477.7  
-##                  Maule       :30            Median :1797.0  
-##                  Ohiggins    :30            Mean   :2090.7  
-##                                             3rd Qu.:2352.7  
-##                                             Max.   :3788.0  
-##   Temperatura       costo_jh      rendimiento   Perdida_plaga  
-##  Min.   :10.00   Min.   :11893   Min.   :4166   Min.   :24.70  
-##  1st Qu.:12.50   1st Qu.:11997   1st Qu.:4765   1st Qu.:32.95  
-##  Median :13.75   Median :12490   Median :5457   Median :34.60  
-##  Mean   :13.74   Mean   :12500   Mean   :5617   Mean   :34.66  
-##  3rd Qu.:15.10   3rd Qu.:13002   3rd Qu.:6285   3rd Qu.:37.30  
-##  Max.   :17.40   Max.   :13121   Max.   :7247   Max.   :42.80  
-##   mano_de_obra 
-##  Min.   :2609  
-##  1st Qu.:3092  
-##  Median :3312  
-##  Mean   :3384  
-##  3rd Qu.:3645  
-##  Max.   :4274
+##    Cultivo             Region            Variedad           Hectareas     
+##  Length:120         Length:120         Length:120         Min.   : 998.9  
+##  Class :character   Class :character   Class :character   1st Qu.:1477.7  
+##  Mode  :character   Mode  :character   Mode  :character   Median :1797.0  
+##                                                           Mean   :2090.7  
+##                                                           3rd Qu.:2352.7  
+##                                                           Max.   :3788.0  
+##   Temperatura       costo_jh      rendimiento   Perdida_plaga    mano_de_obra 
+##  Min.   :10.00   Min.   :11893   Min.   :4166   Min.   :24.70   Min.   :2609  
+##  1st Qu.:12.50   1st Qu.:11997   1st Qu.:4765   1st Qu.:32.95   1st Qu.:3092  
+##  Median :13.75   Median :12490   Median :5457   Median :34.60   Median :3312  
+##  Mean   :13.74   Mean   :12500   Mean   :5617   Mean   :34.66   Mean   :3384  
+##  3rd Qu.:15.10   3rd Qu.:13002   3rd Qu.:6285   3rd Qu.:37.30   3rd Qu.:3645  
+##  Max.   :17.40   Max.   :13121   Max.   :7247   Max.   :42.80   Max.   :4274
 ```
 
 #### Agreguemos nuevas variables
@@ -265,9 +268,9 @@ str(data)
 
 ```
 ## 'data.frame':	120 obs. of  11 variables:
-##  $ Cultivo      : Factor w/ 1 level "Arandanos": 1 1 1 1 1 1 1 1 1 1 ...
-##  $ Region       : Factor w/ 4 levels "BioBio","La_Araucania",..: 4 4 4 4 4 4 4 4 4 4 ...
-##  $ Variedad     : Factor w/ 2 levels "V1","V2": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Cultivo      : chr  "Arandanos" "Arandanos" "Arandanos" "Arandanos" ...
+##  $ Region       : chr  "Ohiggins" "Ohiggins" "Ohiggins" "Ohiggins" ...
+##  $ Variedad     : chr  "V1" "V1" "V1" "V1" ...
 ##  $ Hectareas    : num  1030 999 1118 1007 1078 ...
 ##  $ Temperatura  : num  16.8 16.9 15 15.7 15.1 15.9 16.1 15.6 17.4 14.7 ...
 ##  $ costo_jh     : int  13059 13026 12933 13027 13045 12949 13002 12968 12978 13056 ...
@@ -291,7 +294,13 @@ tabla_ind <- data %>%
   group_by(Uso_herbicida,Estado_salud) %>% 
   summarise(n=n()) %>% 
   spread(Estado_salud,n)
+```
 
+```
+## `summarise()` regrouping output by 'Uso_herbicida' (override with `.groups` argument)
+```
+
+```r
 tabla_ind
 ```
 

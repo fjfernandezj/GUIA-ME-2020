@@ -1,5 +1,5 @@
 --- 
-title: "Guía de Métodos Estadísticos 2020"
+title: "Guía de Métodos Estadísticos 2021"
 author: ["Pablo Cortes", "Francisco Fernández"]    
 date: "`r Sys.Date()`"  
 site: bookdown::bookdown_site

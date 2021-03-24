@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 5 Estadística descriptiva: Medidas de tendencia central y dispersión | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2021-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="visualización-de-datos-en-rstudio.html"/>
 <link rel="next" href="estadística-inferencial-pruebas-estadísticas.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,25 +55,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,8 +118,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
-<link rel="stylesheet" href="css\box.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/box.css" type="text/css" />
 </head>
 
 <body>
@@ -134,27 +136,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
-<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
@@ -162,41 +172,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
 <li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
-<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
 <li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
 <li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
 <li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
 <li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
-<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
 <li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
 <li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -204,15 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a><ul>
-<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a><ul>
+<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#creemos-nuestros-datos-1"><i class="fa fa-check"></i><b>8.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-2"><i class="fa fa-check"></i><b>8.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-2"><i class="fa fa-check"></i><b>8.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="8.1.4" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#realicemos-nuestra-prueba-de-t"><i class="fa fa-check"></i><b>8.1.4</b> Realicemos nuestra prueba de t</a></li>
 <li class="chapter" data-level="8.1.5" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-1"><i class="fa fa-check"></i><b>8.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a><ul>
+<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#importemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Importemos nuestros datos</a></li>
 <li class="chapter" data-level="8.2.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen"><i class="fa fa-check"></i><b>8.2.2</b> Analicemos nuestros datos (Cuando las condiciones se cumplen)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-3"><i class="fa fa-check"></i><b>8.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -225,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.10" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-3"><i class="fa fa-check"></i><b>8.2.10</b> Conclusión del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a><ul>
+<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#anova-de-1-vía"><i class="fa fa-check"></i><b>9.1</b> ANOVA de 1 Vía</a></li>
-<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a><ul>
+<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
 <li class="chapter" data-level="9.2.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>9.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="9.2.3" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-2-expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>9.2.3</b> Paso 2: Expresar la hipótesis de investigación</a></li>
@@ -238,9 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.8" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#test-de-tukey-hsd-honestly-significance-difference"><i class="fa fa-check"></i><b>9.2.8</b> Test de Tukey HSD (Honestly Significance Difference)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>10.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2.1</b> Carguemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>10.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
@@ -248,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.5" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>10.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
 <li class="chapter" data-level="10.2.6" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>10.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
 <li class="chapter" data-level="10.3.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>10.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
 <li class="chapter" data-level="10.3.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>10.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
@@ -276,10 +303,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión" class="section level1">
+<div id="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión" class="section level1" number="5">
 <h1><span class="header-section-number">Capitulo 5</span> Estadística descriptiva: Medidas de tendencia central y dispersión</h1>
 <p>En el laboratorio anterior aprendimos a graficar la información contenida en nuestra base de datos. El paso siguiente es resumir la información contenida en nuestra base de datos mediante la estimación de medidas de tendencia central y dispersión.</p>
-<div id="medidas-de-tendencia-central" class="section level2">
+<div id="medidas-de-tendencia-central" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Medidas de tendencia central</h2>
 <p>Las medidas de tendencia central son medidas estadísticas que permiten resumir en un solo valor a un conjunto de valores. Representan un centro en torno al cual se encuentra ubicado el conjunto de los datos.</p>
 <p>Las medidas de tendencia central más utilizadas son: media, mediana y moda.</p>
@@ -291,29 +318,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>length(x)</code>: Número de elementos en <code>x</code></p></li>
 </ul>
 <p>Calculemos el promedio y la mediana de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.3</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura)</span></code></pre></div>
 <pre><code>## [1] 13.74167</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">median</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>Temperatura)</span></code></pre></div>
 <pre><code>## [1] 13.75</code></pre>
 <p>Estas estimaciones las hemos realizado sobre todas las observaciones contenidas en nuestra variable. Sin embargo, en algunas ocasiones, estaremos interesados en un subconjunto de las observaciones que cumplan con alguna condición de nuestro interés. Por ejemplo, podemos estar interesados en el promedio de la temperatura ambiental en aquellas muestras que provienen solamente de la región del Maule. Para seleccionar aquellas muestras que cumplen con esta restricción podemos generar un subconjunto o subset:</p>
 <p><code>"Nombre del objeto" &lt;- "base de datos"$ "columna de interés" == "restricción"</code></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">subset_data &lt;-<span class="st"> </span>data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb105-2" title="2">subset_data</a></code></pre></div>
-<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
-##  [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [56]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb108-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> data<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">&quot;Maule&quot;</span></span>
+<span id="cb108-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb108-2" aria-hidden="true" tabindex="-1"></a>subset_data</span></code></pre></div>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [25] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p>Al revisar el contenido de nuestro objeto llamado <code>subset_data</code>, R nos dice cuál o cuáles de las observaciones cumplen (TRUE) o no cumplen (FALSE) con nuestro requerimiento. Ahora, podemos calcular el promedio de la temperatura ambiental promedio en aquellas muestras que provienen solamente de la región del Maule:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura[subset_data])</span></code></pre></div>
 <pre><code>## [1] 14.42667</code></pre>
-<div id="operadores-lógicos" class="section level3">
+<div id="operadores-lógicos" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Operadores lógicos</h3>
 <ul>
 <li><p><code>==</code> Igual a…</p></li>
@@ -326,33 +353,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>&amp;</code> “y” (ambas condiciones deben ser ciertas)</p></li>
 </ul>
 <p>Para estimar el número de observaciones que cumplen con nuestra condición podemos utilizar la función <code>length()</code>:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">length</span>(data<span class="op">$</span>Temperatura[subset_data])</a></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(data<span class="sc">$</span>Temperatura[subset_data])</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>Regresemos a nuestra base de datos. Pasos atrás calculamos el promedio de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos. Eso es un gran paso para describir la variable temperatura ambiental. Sin embargo, la base de datos contiene mucha información adicional que nos permitirá describir de mejor forma la temperatura ambiental registrada en nuestro estudio. Por ejemplo, podríamos preguntarnos si la temperatura ambiental difiere según la región en la que fue medida. Para ello, debemos conocer el promedio de la variable Temperatura para las cuatro diferentes regiones contenidas en la variable Region. Una opción es generar cuatro diferentes “subset”:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">subset1&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Ohiggins&quot;</span></a>
-<a class="sourceLine" id="cb111-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset1])</a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb114-1" aria-hidden="true" tabindex="-1"></a>subset1<span class="ot">&lt;-</span>data<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">&quot;Ohiggins&quot;</span></span>
+<span id="cb114-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura[subset1])</span></code></pre></div>
 <pre><code>## [1] 15.25667</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">subset2&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;Maule&quot;</span></a>
-<a class="sourceLine" id="cb113-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset2])</a></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb116-1" aria-hidden="true" tabindex="-1"></a>subset2<span class="ot">&lt;-</span>data<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">&quot;Maule&quot;</span></span>
+<span id="cb116-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura[subset2])</span></code></pre></div>
 <pre><code>## [1] 14.42667</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">subset3&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;BioBio&quot;</span></a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset3])</a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb118-1" aria-hidden="true" tabindex="-1"></a>subset3<span class="ot">&lt;-</span>data<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">&quot;BioBio&quot;</span></span>
+<span id="cb118-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura[subset3])</span></code></pre></div>
 <pre><code>## [1] 13.54667</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">subset4&lt;-data<span class="op">$</span>Region <span class="op">==</span><span class="st"> &quot;La_Araucania&quot;</span></a>
-<a class="sourceLine" id="cb117-2" title="2"><span class="kw">mean</span>(data<span class="op">$</span>Temperatura[subset4])</a></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb120-1" aria-hidden="true" tabindex="-1"></a>subset4<span class="ot">&lt;-</span>data<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">&quot;La_Araucania&quot;</span></span>
+<span id="cb120-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura[subset4])</span></code></pre></div>
 <pre><code>## [1] 11.73667</code></pre>
 <p>Afortunadamente, R nos ofrece alternativas mucho más eficientes y elegantes para realizar la misma tarea. Por ejemplo, `tapply()``aplica una función (en este caso mean()) a cada grupo de observaciones de una variable definidos por los niveles de una segunda variable:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region,mean)</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
 <p>Incluso, R nos permite guardar nuestros cálculos en forma de objeto:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">Temperatura_regional&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,mean)</a>
-<a class="sourceLine" id="cb121-2" title="2">Temperatura_regional</a></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb124-1" aria-hidden="true" tabindex="-1"></a>Temperatura_regional<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region,mean)</span>
+<span id="cb124-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb124-2" aria-hidden="true" tabindex="-1"></a>Temperatura_regional</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
 </div>
 </div>
-<div id="medidas-de-dispersión" class="section level2">
+<div id="medidas-de-dispersión" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Medidas de dispersión</h2>
 <p>A diferencia de las medidas de tendencia central, las medidas de dispersión sirven como indicador de la variabilidad de los datos de la variable. Dicho en otros términos, las medidas de dispersión pretenden evaluar en qué medida los datos difieren entre sí. Las medidas de tendencia central más utilizadas son: desviación estándar, varianza y el coeficiente de variación.</p>
 <p><strong>Funciones:</strong></p>
@@ -364,51 +391,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>max(x)</code> Máximo valor observado entre los elementos en x</p></li>
 </ul>
 <p>Calculemos la desviación estándar y la varianza de la temperatura ambiental en todas las muestras incluidas en nuestra base de datos:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="kw">sd</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>Temperatura)</span></code></pre></div>
 <pre><code>## [1] 1.736972</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">var</span>(data<span class="op">$</span>Temperatura)</a></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>Temperatura)</span></code></pre></div>
 <pre><code>## [1] 3.017073</code></pre>
 <p>Intentemos calcular manualmente la desviación estándar a partir de la varianza:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">desvest &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">var</span>(data<span class="op">$</span>Temperatura))</a></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb130-1" aria-hidden="true" tabindex="-1"></a>desvest <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(data<span class="sc">$</span>Temperatura))</span></code></pre></div>
 <p>Ahora, evaluemos si la desviación estándar de la temperatura ambiental difiere según la región en la que fue medida:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">desvest_temperatura &lt;-<span class="st"> </span><span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region,sd)</a>
-<a class="sourceLine" id="cb128-2" title="2">desvest_temperatura</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb131-1" aria-hidden="true" tabindex="-1"></a>desvest_temperatura <span class="ot">&lt;-</span> <span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region,sd)</span>
+<span id="cb131-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb131-2" aria-hidden="true" tabindex="-1"></a>desvest_temperatura</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     1.136156     1.064630     1.291333     1.109422</code></pre>
 <p>El Coeficiente de variación (C.V.) es un índice adimensional de variabilidad especialmente útil para comparar variabilidades de características de diferente naturaleza o de la misma naturaleza en diferentes grupos. El C.V. se obtiene al dividir la desviación estándar por la media aritmética, y multiplicado este cuociente por 100. A mayor valor del C.V. mayor heterogeneidad (variabilidad) de los valores de la variable; y a menor C.V. mayor homogeneidad en los valores de la variable.</p>
 <p>En caso de que estuviésemos interesados en comparar la variabilidad existente en las variables temperatura ambiental y superficie cultivada (dos variables de naturaleza diferente), el coeficiente de variación es de gran utilidad:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">cv_temperatura&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Temperatura)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Temperatura))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb130-2" title="2">cv_temperatura</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb133-1" aria-hidden="true" tabindex="-1"></a>cv_temperatura<span class="ot">&lt;-</span> (<span class="fu">sd</span>(data<span class="sc">$</span>Temperatura)<span class="sc">/</span><span class="fu">mean</span>(data<span class="sc">$</span>Temperatura))<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb133-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb133-2" aria-hidden="true" tabindex="-1"></a>cv_temperatura</span></code></pre></div>
 <pre><code>## [1] 12.64019</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">cv_superficie&lt;-<span class="st"> </span>(<span class="kw">sd</span>(data<span class="op">$</span>Hectareas)<span class="op">/</span><span class="kw">mean</span>(data<span class="op">$</span>Hectareas))<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb132-2" title="2">cv_superficie</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb135-1" aria-hidden="true" tabindex="-1"></a>cv_superficie<span class="ot">&lt;-</span> (<span class="fu">sd</span>(data<span class="sc">$</span>Hectareas)<span class="sc">/</span><span class="fu">mean</span>(data<span class="sc">$</span>Hectareas))<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb135-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb135-2" aria-hidden="true" tabindex="-1"></a>cv_superficie</span></code></pre></div>
 <pre><code>## [1] 46.64448</code></pre>
 <p>De acuerdo a nuestros resultados, la variable superficie cultivada (<code>Hectareas</code>) presenta mayor variabilidad (casi 3 veces) que la variable temperatura ambiental (<code>Temperatura</code>).</p>
 </div>
-<div id="tabla-resumen" class="section level2">
+<div id="tabla-resumen" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Tabla Resumen</h2>
 <p>Las medidas de tendencia central y dispersión las podemos presentar por medio de una tabla resumen. Una tabla representa un medio para organizar datos en filas y columnas. Para crear nuestra tabla resumen, podemos generar un objeto utilizando el comando <code>cbind()</code>, el cual nos permite unir diferentes columnas. Por otro lado el comando <code>rbind()</code> nos permite unir diferentes filas.</p>
 <p>Ahora, generaremos una tabla que resuma la información contenida en la variable temperatura ambiental. Esta tabla nos especificará como el promedio, mediana, desviación estándar y coeficiente de variación difiere entre las diferentes regiones. Para ello utilizaremos la función <code>tapply()</code>.</p>
 <p>Lo primero que haremos será generar 4 objetos que contengan las medidas que nos interesan:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb134-2" title="2">promedio_temp</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb137-1" aria-hidden="true" tabindex="-1"></a>promedio_temp<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region, mean)</span>
+<span id="cb137-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb137-2" aria-hidden="true" tabindex="-1"></a>promedio_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">mediana_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, median)</a>
-<a class="sourceLine" id="cb136-2" title="2">mediana_temp</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb139-1" aria-hidden="true" tabindex="-1"></a>mediana_temp<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region, median)</span>
+<span id="cb139-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb139-2" aria-hidden="true" tabindex="-1"></a>mediana_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##        13.75        11.60        14.50        15.15</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb138-2" title="2">desvest_temp</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb141-1" aria-hidden="true" tabindex="-1"></a>desvest_temp<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region, sd)</span>
+<span id="cb141-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb141-2" aria-hidden="true" tabindex="-1"></a>desvest_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     1.136156     1.064630     1.291333     1.109422</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">coefvar_temp&lt;-<span class="st"> </span>(desvest_temperatura<span class="op">/</span>promedio_temp)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb140-2" title="2">coefvar_temp</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb143-1" aria-hidden="true" tabindex="-1"></a>coefvar_temp<span class="ot">&lt;-</span> (desvest_temperatura<span class="sc">/</span>promedio_temp)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb143-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb143-2" aria-hidden="true" tabindex="-1"></a>coefvar_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     8.386979     9.070973     8.951012     7.271716</code></pre>
 <p>Podemos genera la tabla con el comando <code>cbind()</code>. Le especificaremos a R que cada uno de nuestros objetos será una columna en nuestra tabla:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">tabla_resumen&lt;-<span class="kw">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</a>
-<a class="sourceLine" id="cb142-2" title="2">tabla_resumen</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb145-1" aria-hidden="true" tabindex="-1"></a>tabla_resumen<span class="ot">&lt;-</span><span class="fu">cbind</span>(promedio_temp,mediana_temp, desvest_temp, coefvar_temp)</span>
+<span id="cb145-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb145-2" aria-hidden="true" tabindex="-1"></a>tabla_resumen</span></code></pre></div>
 <pre><code>##              promedio_temp mediana_temp desvest_temp coefvar_temp
 ## BioBio            13.54667        13.75     1.136156     8.386979
 ## La_Araucania      11.73667        11.60     1.064630     9.070973
@@ -416,25 +443,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Ohiggins          15.25667        15.15     1.109422     7.271716</code></pre>
 <p>Aunque una tabla resumen encierra toda la información disponible, siempre es recomendable realizar un análisis visual de los datos. Para ello debemos…graficar!</p>
 </div>
-<div id="gráfico-de-barras" class="section level2">
+<div id="gráfico-de-barras" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Gráfico de Barras</h2>
 <p>Un gráfico de barras (barplot) es uno de los gráficos más comunes. Nos muestra la relación entre una variable numérica (generalmente en el eje <code>y</code>) y una variable categórica (generalmente en el eje <code>x</code>). A continuación, generaremos un gráfico de barras para evaluar si la temperatura ambiental difiere según la región en la que fue medida.</p>
 <p>Lo primero que haremos será generar (otra vez!) 2 objetos que contengan el promedio y la desviación estándar de la temperatura ambiental medida en cada una de las regiones.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">promedio_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, mean)</a>
-<a class="sourceLine" id="cb144-2" title="2">promedio_temp</a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb147-1" aria-hidden="true" tabindex="-1"></a>promedio_temp<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region, mean)</span>
+<span id="cb147-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb147-2" aria-hidden="true" tabindex="-1"></a>promedio_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     13.54667     11.73667     14.42667     15.25667</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">desvest_temp&lt;-<span class="kw">tapply</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>Region, sd)</a>
-<a class="sourceLine" id="cb146-2" title="2">desvest_temp</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb149-1" aria-hidden="true" tabindex="-1"></a>desvest_temp<span class="ot">&lt;-</span><span class="fu">tapply</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>Region, sd)</span>
+<span id="cb149-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb149-2" aria-hidden="true" tabindex="-1"></a>desvest_temp</span></code></pre></div>
 <pre><code>##       BioBio La_Araucania        Maule     Ohiggins 
 ##     1.136156     1.064630     1.291333     1.109422</code></pre>
 <p>Ahora, utilizaremos el primero de los objetos creados para graficar el promedio de la temperatura según la región en la que fue medida. Pare ello generaremos un objeto que contenga los comandos necesarios para generar nuestro gráfico de barras:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb151-1" aria-hidden="true" tabindex="-1"></a>GRAFICO<span class="ot">&lt;-</span> <span class="fu">barplot</span>(promedio_temp, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="at">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="at">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</span></code></pre></div>
 <p><img src="05-lab_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>Solo nos falta agregar las respectivas desviaciones estándar asociadas a cada promedio. Pare ello utilizaremos el comando arrows y así agregar las líneas con las desviaciones estándar al objeto que contiene nuestro gráfico:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">GRAFICO&lt;-<span class="st"> </span><span class="kw">barplot</span>(promedio_temp, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="dt">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="dt">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</a>
-<a class="sourceLine" id="cb149-2" title="2"><span class="kw">arrows</span>(GRAFICO, promedio_temp <span class="op">+</span><span class="st"> </span>desvest_temp, GRAFICO, promedio_temp <span class="op">-</span><span class="st"> </span>desvest_temp,</a>
-<a class="sourceLine" id="cb149-3" title="3">       <span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">code =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="fl">0.1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb152-1" aria-hidden="true" tabindex="-1"></a>GRAFICO<span class="ot">&lt;-</span> <span class="fu">barplot</span>(promedio_temp, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>), <span class="at">xlab=</span><span class="st">&quot;Region&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Temperatura ambiental&quot;</span>,<span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>), <span class="at">main=</span> <span class="st">&quot;promedio y desviacion estandar&quot;</span>)</span>
+<span id="cb152-2"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(GRAFICO, promedio_temp <span class="sc">+</span> desvest_temp, GRAFICO, promedio_temp <span class="sc">-</span> desvest_temp,</span>
+<span id="cb152-3"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#cb152-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">code =</span> <span class="dv">1</span>, <span class="at">length =</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;indianred&quot;</span>,<span class="st">&quot;red3&quot;</span>,<span class="st">&quot;red4&quot;</span>,<span class="st">&quot;orangered&quot;</span>))</span></code></pre></div>
 <p><img src="05-lab_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 
 </div>

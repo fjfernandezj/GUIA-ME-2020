@@ -37,6 +37,9 @@ Graficar un histograma de la variable de interés nos dará una idea de la forma
 Evaluemos visualmente si los datos del número de personas contratadas para realizar las labores asociadas a la temporada de cosecha en cada sitio de muestreo se distribuyen de forma normal:
 
 
+```
+## Warning: package 'readxl' was built under R version 4.0.3
+```
 
 
 
@@ -131,6 +134,14 @@ library(car)
 
 ```r
 ltest <- leveneTest(data$mano_de_obra~data$Region)
+```
+
+```
+## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.
+```
+
+```r
 ltest
 ```
 

@@ -57,30 +57,34 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------- tidyverse 1.2.1 --
+## Warning: package 'tidyverse' was built under R version 4.0.3
 ```
 
 ```
-## v ggplot2 3.3.1     v purrr   0.3.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.1.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0
+## -- Attaching packages ----------------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.6.3
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0
 ```
 
 ```
-## Warning: package 'tidyr' was built under R version 3.6.3
+## Warning: package 'tidyr' was built under R version 4.0.3
 ```
 
 ```
-## Warning: package 'purrr' was built under R version 3.6.3
+## Warning: package 'readr' was built under R version 4.0.3
 ```
 
 ```
-## -- Conflicts ----------- tidyverse_conflicts() --
+## Warning: package 'dplyr' was built under R version 4.0.3
+```
+
+```
+## -- Conflicts -------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -90,12 +94,12 @@ summary(datos)
 ```
 
 ```
-##   rendimiento    variedad
-##  Min.   :1.700   var1:6  
-##  1st Qu.:1.975   var2:6  
-##  Median :2.100           
-##  Mean   :2.133           
-##  3rd Qu.:2.250           
+##   rendimiento      variedad        
+##  Min.   :1.700   Length:12         
+##  1st Qu.:1.975   Class :character  
+##  Median :2.100   Mode  :character  
+##  Mean   :2.133                     
+##  3rd Qu.:2.250                     
 ##  Max.   :2.600
 ```
 
@@ -103,13 +107,20 @@ summary(datos)
 tabla <- datos %>% 
   group_by(variedad) %>% 
   summarise(rendimiento_promedio = mean(rendimiento))
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```r
 tabla
 ```
 
 ```
 ## # A tibble: 2 x 2
 ##   variedad rendimiento_promedio
-##   <fct>                   <dbl>
+##   <chr>                   <dbl>
 ## 1 var1                     2.3 
 ## 2 var2                     1.97
 ```
@@ -295,6 +306,11 @@ library(car)
 
 ```r
 leveneTest(datos_p9$Olivo ~ datos_p9$Zona)
+```
+
+```
+## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.
 ```
 
 ```

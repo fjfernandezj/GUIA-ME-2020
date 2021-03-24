@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 4 Visualización de datos en RStudio | Guía de Métodos Estadísticos 2020</title>
   <meta name="description" content="Guía de Laboratorio para Métodos Estadísticos" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 4 Visualización de datos en RStudio | Guía de Métodos Estadísticos 2020" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Francisco Fernández" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2021-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="lectura-y-manipulación-de-datos-en-rstudio.html"/>
 <link rel="next" href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,25 +55,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,8 +118,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
-<link rel="stylesheet" href="css\box.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/box.css" type="text/css" />
 </head>
 
 <body>
@@ -134,27 +136,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción a R y Rstudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#software-estadístico-r"><i class="fa fa-check"></i><b>1.1</b> Software estadístico R</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#aspectos-básicos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> Aspectos básicos de R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a><ul>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#r-studio"><i class="fa fa-check"></i><b>1.2</b> R Studio</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conociendo-a-rstudio"><i class="fa fa-check"></i><b>1.2.1</b> Conociendo a Rstudio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a><ul>
-<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a><ul>
+<li class="chapter" data-level="2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html"><i class="fa fa-check"></i><b>2</b> Tipos de datos en R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-en-r"><i class="fa fa-check"></i><b>2.1</b> Objetos en R</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#propiedades-de-los-objetos"><i class="fa fa-check"></i><b>2.1.1</b> Propiedades de los objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a><ul>
+<li class="chapter" data-level="2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#tipos-de-objetos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Objetos</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#objetos-de-valores-numéricos"><i class="fa fa-check"></i><b>2.2.1</b> Objetos de valores numéricos</a></li>
 <li class="chapter" data-level="2.2.2" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#vectores"><i class="fa fa-check"></i><b>2.2.2</b> Vectores</a></li>
 <li class="chapter" data-level="2.2.3" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data frames</a></li>
 <li class="chapter" data-level="2.2.4" data-path="tipos-de-datos-en-r.html"><a href="tipos-de-datos-en-r.html#valores-perdidos"><i class="fa fa-check"></i><b>2.2.4</b> Valores Perdidos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a><ul>
+<li class="chapter" data-level="3" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>3</b> Lectura y manipulación de datos en RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#preparemos-los-datos-para-r"><i class="fa fa-check"></i><b>3.1</b> Preparemos los datos para R</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#qué-formato-de-archivos-reconoce-r"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué formato de archivos reconoce R?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#importemos-los-datos-a-r"><i class="fa fa-check"></i><b>3.2</b> Importemos los datos a R</a></li>
@@ -162,41 +172,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#exploremos-los-datos-r-con-la-libreria-dplyr"><i class="fa fa-check"></i><b>3.4</b> Exploremos los datos R con la libreria dplyr</a></li>
 <li class="chapter" data-level="3.5" data-path="lectura-y-manipulación-de-datos-en-rstudio.html"><a href="lectura-y-manipulación-de-datos-en-rstudio.html#reducción-de-una-base-de-datos"><i class="fa fa-check"></i><b>3.5</b> Reducción de una base de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a><ul>
+<li class="chapter" data-level="4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html"><i class="fa fa-check"></i><b>4</b> Visualización de datos en RStudio</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#gráfico-de-dispersión-o-scatterplot"><i class="fa fa-check"></i><b>4.1</b> Gráfico de dispersión o <em>Scatterplot</em></a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#diagrama-de-cajas-o-boxplot"><i class="fa fa-check"></i><b>4.2</b> Diagrama de cajas o <em>Boxplot</em></a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#histogramas"><i class="fa fa-check"></i><b>4.3</b> Histogramas</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-de-datos-en-rstudio.html"><a href="visualización-de-datos-en-rstudio.html#ejercicios-para-la-casa"><i class="fa fa-check"></i><b>4.4</b> Ejercicios para la casa</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a><ul>
-<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a><ul>
+<li class="chapter" data-level="5" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><i class="fa fa-check"></i><b>5</b> Estadística descriptiva: Medidas de tendencia central y dispersión</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-tendencia-central"><i class="fa fa-check"></i><b>5.1</b> Medidas de tendencia central</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.1.1</b> Operadores lógicos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>5.2</b> Medidas de dispersión</a></li>
 <li class="chapter" data-level="5.3" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#tabla-resumen"><i class="fa fa-check"></i><b>5.3</b> Tabla Resumen</a></li>
 <li class="chapter" data-level="5.4" data-path="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html"><a href="estadística-descriptiva-medidas-de-tendencia-central-y-dispersión.html#gráfico-de-barras"><i class="fa fa-check"></i><b>5.4</b> Gráfico de Barras</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a><ul>
+<li class="chapter" data-level="6" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html"><i class="fa fa-check"></i><b>6</b> Estadística inferencial: Pruebas estadísticas</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-paramétricas."><i class="fa fa-check"></i><b>6.1</b> Pruebas paramétricas.</a></li>
 <li class="chapter" data-level="6.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-no-paramétricas"><i class="fa fa-check"></i><b>6.2</b> Pruebas no-paramétricas</a></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a><ul>
+<li class="chapter" data-level="6.3" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#normalidad"><i class="fa fa-check"></i><b>6.3</b> Normalidad</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-histograma-de-frecuencia"><i class="fa fa-check"></i><b>6.3.1</b> Método visual: histograma de frecuencia</a></li>
 <li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-shapiro-wilk"><i class="fa fa-check"></i><b>6.3.2</b> Pruebas estadísticas: prueba de Shapiro-Wilk</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a><ul>
+<li class="chapter" data-level="6.4" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#homocedasticidad"><i class="fa fa-check"></i><b>6.4</b> Homocedasticidad</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#método-visual-boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Método visual: boxplot</a></li>
 <li class="chapter" data-level="6.4.2" data-path="estadística-inferencial-pruebas-estadísticas.html"><a href="estadística-inferencial-pruebas-estadísticas.html#pruebas-estadísticas-prueba-de-levene"><i class="fa fa-check"></i><b>6.4.2</b> Pruebas estadísticas: Prueba de Levene</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a><ul>
-<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a><ul>
+<li class="chapter" data-level="7" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html"><i class="fa fa-check"></i><b>7</b> Prueba de chi-cuadrado (<span class="math inline">\(\chi^2\)</span>)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>7.1</b> Prueba de bondad de ajuste</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#creemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos"><i class="fa fa-check"></i><b>7.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.1.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>7.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="7.1.4" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#calculemos-chi2-y-el-p-value"><i class="fa fa-check"></i><b>7.1.4</b> Calculemos <span class="math inline">\(\chi^2\)</span> y el p-value</a></li>
 <li class="chapter" data-level="7.1.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusión-del-test"><i class="fa fa-check"></i><b>7.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a><ul>
+<li class="chapter" data-level="7.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#prueba-de-independencia"><i class="fa fa-check"></i><b>7.2</b> Prueba de Independencia</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#cargar-nuestros-datos"><i class="fa fa-check"></i><b>7.2.1</b> Cargar nuestros datos</a></li>
 <li class="chapter" data-level="7.2.2" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>7.2.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="7.2.3" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#expresar-la-hipótesis-de-investigación-1"><i class="fa fa-check"></i><b>7.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -204,15 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="prueba-de-chi-cuadrado-chi2.html"><a href="prueba-de-chi-cuadrado-chi2.html#conclusion-del-test"><i class="fa fa-check"></i><b>7.2.5</b> Conclusion del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a><ul>
-<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a><ul>
+<li class="chapter" data-level="8" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><i class="fa fa-check"></i><b>8</b> Prueba de t (Compración paramétrica entre dos grupos)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-1-prueba-de-t-para-muestras-independientes-de-diferentes-variedades-ejeplo-de-libro"><i class="fa fa-check"></i><b>8.1</b> Ejemplo 1: Prueba de t para muestras independientes de diferentes variedades (ejeplo de libro)</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#creemos-nuestros-datos-1"><i class="fa fa-check"></i><b>8.1.1</b> Creemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-2"><i class="fa fa-check"></i><b>8.1.2</b> Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="8.1.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-2"><i class="fa fa-check"></i><b>8.1.3</b> Expresar la hipótesis de investigación</a></li>
 <li class="chapter" data-level="8.1.4" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#realicemos-nuestra-prueba-de-t"><i class="fa fa-check"></i><b>8.1.4</b> Realicemos nuestra prueba de t</a></li>
 <li class="chapter" data-level="8.1.5" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-1"><i class="fa fa-check"></i><b>8.1.5</b> Conclusión del test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a><ul>
+<li class="chapter" data-level="8.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#ejemplo-2-superficie-de-cultivos-por-zonas-cuando-las-condiciones-se-cumplen-y-no-se-cumplen"><i class="fa fa-check"></i><b>8.2</b> Ejemplo 2: Superficie de cultivos por zonas (Cuando las condiciones se cumplen y no se cumplen)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#importemos-nuestros-datos"><i class="fa fa-check"></i><b>8.2.1</b> Importemos nuestros datos</a></li>
 <li class="chapter" data-level="8.2.2" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#analicemos-nuestros-datos-cuando-las-condiciones-se-cumplen"><i class="fa fa-check"></i><b>8.2.2</b> Analicemos nuestros datos (Cuando las condiciones se cumplen)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#expresar-la-hipótesis-de-investigación-3"><i class="fa fa-check"></i><b>8.2.3</b> Expresar la hipótesis de investigación</a></li>
@@ -225,9 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.10" data-path="prueba-de-t-compración-paramétrica-entre-dos-grupos.html"><a href="prueba-de-t-compración-paramétrica-entre-dos-grupos.html#conclusión-del-test-3"><i class="fa fa-check"></i><b>8.2.10</b> Conclusión del test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a><ul>
+<li class="chapter" data-level="9" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html"><i class="fa fa-check"></i><b>9</b> Análisis de varianza (ANOVA)</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#anova-de-1-vía"><i class="fa fa-check"></i><b>9.1</b> ANOVA de 1 Vía</a></li>
-<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a><ul>
+<li class="chapter" data-level="9.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#ejemplo"><i class="fa fa-check"></i><b>9.2</b> Ejemplo</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
 <li class="chapter" data-level="9.2.2" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-1-analicemos-nuestros-datos"><i class="fa fa-check"></i><b>9.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="9.2.3" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#paso-2-expresar-la-hipótesis-de-investigación"><i class="fa fa-check"></i><b>9.2.3</b> Paso 2: Expresar la hipótesis de investigación</a></li>
@@ -238,9 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.8" data-path="análisis-de-varianza-anova.html"><a href="análisis-de-varianza-anova.html#test-de-tukey-hsd-honestly-significance-difference"><i class="fa fa-check"></i><b>9.2.8</b> Test de Tukey HSD (Honestly Significance Difference)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a><ul>
+<li class="chapter" data-level="10" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html"><i class="fa fa-check"></i><b>10</b> Regresión lineal y correlación</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#modelos-lineales-generales"><i class="fa fa-check"></i><b>10.1</b> Modelos lineales generales</a></li>
-<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a><ul>
+<li class="chapter" data-level="10.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#correlación-producto-momento-de-pearson"><i class="fa fa-check"></i><b>10.2</b> Correlación producto-momento de Pearson</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#carguemos-nuestros-datos"><i class="fa fa-check"></i><b>10.2.1</b> Carguemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-analicemos-nuestros-datos-1"><i class="fa fa-check"></i><b>10.2.2</b> Paso 1: Analicemos nuestros datos</a></li>
 <li class="chapter" data-level="10.2.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba."><i class="fa fa-check"></i><b>10.2.3</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
@@ -248,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.5" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-4-evaluar-los-supuestos-del-modelo.-1"><i class="fa fa-check"></i><b>10.2.5</b> Paso 4: Evaluar los supuestos del modelo.</a></li>
 <li class="chapter" data-level="10.2.6" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-5-interpretar-los-resultados-del-modelo."><i class="fa fa-check"></i><b>10.2.6</b> Paso 5: Interpretar los resultados del modelo.</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a><ul>
+<li class="chapter" data-level="10.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>10.3</b> Regresión Lineal Simple</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-1-graficar-nuestros-datos."><i class="fa fa-check"></i><b>10.3.1</b> Paso 1: Graficar nuestros datos.</a></li>
 <li class="chapter" data-level="10.3.2" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-2-definir-la-hipótesis-que-queremos-poner-a-prueba.-1"><i class="fa fa-check"></i><b>10.3.2</b> Paso 2: Definir la hipótesis que queremos poner a prueba.</a></li>
 <li class="chapter" data-level="10.3.3" data-path="regresión-lineal-y-correlación.html"><a href="regresión-lineal-y-correlación.html#paso-3-transformar-la-hipótesis-en-un-modelo-prueba-estadístico.-1"><i class="fa fa-check"></i><b>10.3.3</b> Paso 3: Transformar la hipótesis en un modelo (prueba) estadístico.</a></li>
@@ -276,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualización-de-datos-en-rstudio" class="section level1">
+<div id="visualización-de-datos-en-rstudio" class="section level1" number="4">
 <h1><span class="header-section-number">Capitulo 4</span> Visualización de datos en RStudio</h1>
 <p>En el laboratorio anterior aprendimos a importar una base de datos a R y a realizar una exploración básica de
 la información contenida en nuestra base de datos. Ahora, ha llegado del momento de seguir explorando
@@ -284,33 +311,33 @@ nuestros datos pero de una manera diferente. En este laboratorio realizaremos un
 nuestros datos. Para ello aprenderemos una serie de gráficos básicos en R y luego los <em>“enchularemos”</em>. Al
 realizar gráficos podremos ver posibles patrones en nuestros datos, formas de las distribuciones de nuestras
 variables y posibles valores <em>“extraños”</em> o fuera de rango ( <em>outliers</em> ).</p>
-<div id="gráfico-de-dispersión-o-scatterplot" class="section level2">
+<div id="gráfico-de-dispersión-o-scatterplot" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Gráfico de dispersión o <em>Scatterplot</em></h2>
 <p>Un gráfico de dispersión es una visualización de datos bidimensionales que usa puntos para representar los
 valores obtenidos para dos variables diferentes: una graficada a lo largo del eje x y la otra graficada a lo
 largo del eje y.</p>
 <p>Existen muchas maneras de crear un gráfico de dispersión en R. La función básica es <code>plot(x,y)</code>.</p>
 <p>Por ejemplo visualicemos las variables Temperatura (eje x) y rendimiento (eje y) de la base de datos utilizada en el laboratorio 3:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./datos/dataset.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb88-2" title="2"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura, data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="visualización-de-datos-en-rstudio.html#cb90-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./datos/dataset.csv&quot;</span>)</span>
+<span id="cb90-2"><a href="visualización-de-datos-en-rstudio.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>Temperatura, data<span class="sc">$</span>rendimiento)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Felicitaciones, acaban de generar el primero de muchos gráficos que aprenderán en este curso. Sin embargo,
-la tarea no está completa. Como podemos apreciar, el gráfico que nos entregó R es bastante “rústico”.
+la tarea no está completa. Como podemos apreciar, el gráfico que nos entregó R es bastante “rústico.”
 Siempre intenten presentar sus datos de una forma atractiva. Esto puede marcar la diferencia entre un buen
 trabajo y un trabajo sobresaliente.</p>
 <p>Afortunadamente, R nos permite “enchular” nuestros gráficos. Para ello debemos ingresar comandos
 específicos para cada una de las características que queremos modificar:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb89-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
-<a class="sourceLine" id="cb89-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb89-4" title="4"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
-<a class="sourceLine" id="cb89-5" title="5"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb89-6" title="6"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
-<a class="sourceLine" id="cb89-7" title="7"><span class="dt">pch=</span><span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb89-8" title="8"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb89-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb89-10" title="10"><span class="dt">cex.lab=</span><span class="fl">1.2</span>,</a>
-<a class="sourceLine" id="cb89-11" title="11"><span class="dt">cex.axis=</span><span class="fl">1.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="visualización-de-datos-en-rstudio.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>rendimiento,</span>
+<span id="cb91-2"><a href="visualización-de-datos-en-rstudio.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</span>
+<span id="cb91-3"><a href="visualización-de-datos-en-rstudio.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="at">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</span>
+<span id="cb91-4"><a href="visualización-de-datos-en-rstudio.html#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</span>
+<span id="cb91-5"><a href="visualización-de-datos-en-rstudio.html#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</span>
+<span id="cb91-6"><a href="visualización-de-datos-en-rstudio.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</span>
+<span id="cb91-7"><a href="visualización-de-datos-en-rstudio.html#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="at">pch=</span><span class="dv">20</span>,</span>
+<span id="cb91-8"><a href="visualización-de-datos-en-rstudio.html#cb91-8" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">&quot;red&quot;</span>,</span>
+<span id="cb91-9"><a href="visualización-de-datos-en-rstudio.html#cb91-9" aria-hidden="true" tabindex="-1"></a><span class="at">cex=</span><span class="dv">2</span>,</span>
+<span id="cb91-10"><a href="visualización-de-datos-en-rstudio.html#cb91-10" aria-hidden="true" tabindex="-1"></a><span class="at">cex.lab=</span><span class="fl">1.2</span>,</span>
+<span id="cb91-11"><a href="visualización-de-datos-en-rstudio.html#cb91-11" aria-hidden="true" tabindex="-1"></a><span class="at">cex.axis=</span><span class="fl">1.1</span>)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>A simple vista, son múltiples los parámetros gráficos que hemos cambiado. A continuación, se detalla la
 lista de los parámetros utilizados y sus definiciones:</p>
@@ -333,55 +360,54 @@ comandos necesarios para ver más de un gráfico de forma simultánea. Con la fu
 incluir la opción <code>mfrow=c()</code> para crear una matriz de filas y columnas.</p>
 <p>Utilicemos los dos scatterplot anteriores para generar una matriz gráfica que contenga dos gráficos
 ordenados en una fila y con dos columnas:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb90-2" title="2"></a>
-<a class="sourceLine" id="cb90-3" title="3"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento)</a>
-<a class="sourceLine" id="cb90-4" title="4"></a>
-<a class="sourceLine" id="cb90-5" title="5"><span class="kw">plot</span>(data<span class="op">$</span>Temperatura,data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb90-6" title="6"><span class="dt">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</a>
-<a class="sourceLine" id="cb90-7" title="7"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb90-8" title="8"><span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</a>
-<a class="sourceLine" id="cb90-9" title="9"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb90-10" title="10"><span class="dt">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</a>
-<a class="sourceLine" id="cb90-11" title="11"><span class="dt">pch=</span><span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb90-12" title="12"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb90-13" title="13"><span class="dt">cex=</span><span class="fl">1.5</span>,</a>
-<a class="sourceLine" id="cb90-14" title="14"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb90-15" title="15"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="visualización-de-datos-en-rstudio.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb92-2"><a href="visualización-de-datos-en-rstudio.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="visualización-de-datos-en-rstudio.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>rendimiento)</span>
+<span id="cb92-4"><a href="visualización-de-datos-en-rstudio.html#cb92-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="visualización-de-datos-en-rstudio.html#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>Temperatura,data<span class="sc">$</span>rendimiento,</span>
+<span id="cb92-6"><a href="visualización-de-datos-en-rstudio.html#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;Temperatura ambiental (Celcius)&quot;</span>,</span>
+<span id="cb92-7"><a href="visualización-de-datos-en-rstudio.html#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="at">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</span>
+<span id="cb92-8"><a href="visualización-de-datos-en-rstudio.html#cb92-8" aria-hidden="true" tabindex="-1"></a><span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">18</span>),</span>
+<span id="cb92-9"><a href="visualización-de-datos-en-rstudio.html#cb92-9" aria-hidden="true" tabindex="-1"></a><span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</span>
+<span id="cb92-10"><a href="visualización-de-datos-en-rstudio.html#cb92-10" aria-hidden="true" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Mi primer grafico en R&quot;</span>,</span>
+<span id="cb92-11"><a href="visualización-de-datos-en-rstudio.html#cb92-11" aria-hidden="true" tabindex="-1"></a><span class="at">pch=</span><span class="dv">20</span>,</span>
+<span id="cb92-12"><a href="visualización-de-datos-en-rstudio.html#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">&quot;red&quot;</span>,</span>
+<span id="cb92-13"><a href="visualización-de-datos-en-rstudio.html#cb92-13" aria-hidden="true" tabindex="-1"></a><span class="at">cex=</span><span class="fl">1.5</span>,</span>
+<span id="cb92-14"><a href="visualización-de-datos-en-rstudio.html#cb92-14" aria-hidden="true" tabindex="-1"></a><span class="at">cex.lab=</span><span class="fl">1.0</span>,</span>
+<span id="cb92-15"><a href="visualización-de-datos-en-rstudio.html#cb92-15" aria-hidden="true" tabindex="-1"></a><span class="at">cex.axis=</span><span class="fl">1.0</span>)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Fantástico! Tenemos ambos scatterplot graficados al mismo tiempo, uno al lado del otro. Ahora bien, en
 caso de que quisiéramos que estén un scatterplot sobre el otro, ¿¿como lo harían??</p>
 </div>
-<div id="diagrama-de-cajas-o-boxplot" class="section level2">
+<div id="diagrama-de-cajas-o-boxplot" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Diagrama de cajas o <em>Boxplot</em></h2>
 <p>Un diagrama de cajas es un gráfico que está basado en cuartiles y mediante el cual se visualiza la</p>
 <p>distribución de un conjunto de datos. Está compuesto por un rectángulo (la «caja») y dos brazos (los
 «bigotes»). Los diagramas de caja se pueden crear para variables individuales o para grupos de variables.</p>
 <p>La función es <code>boxplot(x)</code>, donde <code>x</code> es nuestra variable a graficar:</p>
 <p>Generemos un gráfico de cajas para la información contenida en la variable rendimiento:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="visualización-de-datos-en-rstudio.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>rendimiento)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Ahora, generemos el diagrama para la información contenida en la variable rendimiento según la región en la
 cual se realizó el muestreo (grupo de variable):</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">boxplot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="visualización-de-datos-en-rstudio.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>rendimiento <span class="sc">~</span> data<span class="sc">$</span>Region)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>En caso de que quisiéramos enchular nuestro gráfico de cajas con dos variables, solamente debemos
 modificar los parámetros gráficos:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">plot</span>(data<span class="op">$</span>rendimiento <span class="op">~</span><span class="st"> </span>data<span class="op">$</span>Region,</a>
-<a class="sourceLine" id="cb93-2" title="2"><span class="dt">xlab =</span> <span class="st">&quot;Region&quot;</span>,</a>
-<a class="sourceLine" id="cb93-3" title="3"><span class="dt">ylab =</span> <span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb93-4" title="4"><span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">4000</span>,<span class="dv">8000</span>),</a>
-<a class="sourceLine" id="cb93-5" title="5"><span class="dt">main =</span> <span class="st">&quot;Diagrama de cajas&quot;</span>,</a>
-<a class="sourceLine" id="cb93-6" title="6"><span class="dt">pch=</span><span class="dv">18</span>,</a>
-<a class="sourceLine" id="cb93-7" title="7"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb93-8" title="8"><span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb93-9" title="9"><span class="dt">cex=</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb93-10" title="10"><span class="dt">cex.main=</span><span class="fl">1.5</span>,</a>
-<a class="sourceLine" id="cb93-11" title="11"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb93-12" title="12"><span class="dt">cex.axis=</span><span class="fl">1.0</span>)</a></code></pre></div>
-<p><img src="04-lab_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="visualización-de-datos-en-rstudio.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(data$rendimiento ~ data$Region,</span></span>
+<span id="cb95-2"><a href="visualización-de-datos-en-rstudio.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="co">#xlab = &quot;Region&quot;,</span></span>
+<span id="cb95-3"><a href="visualización-de-datos-en-rstudio.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ylab = &quot;Rendimiento (Ton/hect)&quot;,</span></span>
+<span id="cb95-4"><a href="visualización-de-datos-en-rstudio.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="co">#ylim = c(4000,8000),</span></span>
+<span id="cb95-5"><a href="visualización-de-datos-en-rstudio.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="co">#main = &quot;Diagrama de cajas&quot;,</span></span>
+<span id="cb95-6"><a href="visualización-de-datos-en-rstudio.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="co">#pch=18,</span></span>
+<span id="cb95-7"><a href="visualización-de-datos-en-rstudio.html#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="co">#col=&quot;red&quot;,</span></span>
+<span id="cb95-8"><a href="visualización-de-datos-en-rstudio.html#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="co">#col.main=&quot;red&quot;,</span></span>
+<span id="cb95-9"><a href="visualización-de-datos-en-rstudio.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="co">#cex=2,</span></span>
+<span id="cb95-10"><a href="visualización-de-datos-en-rstudio.html#cb95-10" aria-hidden="true" tabindex="-1"></a><span class="co">#cex.main=1.5,</span></span>
+<span id="cb95-11"><a href="visualización-de-datos-en-rstudio.html#cb95-11" aria-hidden="true" tabindex="-1"></a><span class="co">#cex.lab=1.0,</span></span>
+<span id="cb95-12"><a href="visualización-de-datos-en-rstudio.html#cb95-12" aria-hidden="true" tabindex="-1"></a><span class="co">#cex.axis=1.0)</span></span></code></pre></div>
 </div>
-<div id="histogramas" class="section level2">
+<div id="histogramas" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Histogramas</h2>
 <p>Un histograma es una representación visual de la distribución de un conjunto de datos. Como tal, la forma de
 un histograma es su característica más obvia e informativa: nos permite ver fácilmente dónde está el medio
@@ -390,17 +416,17 @@ valores atípicos.</p>
 <p>El histograma consiste en un eje x, un eje y, además de varias barras de diferentes alturas. El eje y muestra
 con qué frecuencia (número de veces que se repite una observación) se producen los valores en el eje,
 mientras que las barras agrupan rangos de valores o categorías continuas en el eje x (intervalos). Esto explica
-por qué los histogramas se llaman “histograma de frecuencia”.</p>
+por qué los histogramas se llaman “histograma de frecuencia.”</p>
 <p>La función es <code>hist(x)</code>, donde <code>x</code> es nuestra variable a graficar.</p>
 <p>Generemos un histograma de frecuencias para la información contenida en la variable rendimiento:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="visualización-de-datos-en-rstudio.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>rendimiento)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Al igual que los gráficos anteriores, R nos permite modificar parámetros gráficos de los histograma de
 frecuencia. Por ejemplo, podemos especificar el número de intervalos en las cuales queremos que se agrupen
 nuestros datos. Para ello utilizamos el comando <code>breaks=</code>.</p>
 <p>Generemos un histograma de frecuencias para la información contenida en la variable rendimiento pero que
 esté agrupada solamente en 4 intervalos:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,<span class="dt">breaks=</span><span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="visualización-de-datos-en-rstudio.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>rendimiento,<span class="at">breaks=</span><span class="dv">4</span>)</span></code></pre></div>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Intentemos algo más que nos servirá para los próximos laboratorios. En algunas ocasiones, estaremos más
 interesados en la densidad (probabilidad relativa de un dato) que en la frecuencia de nuestros datos. En lugar
@@ -409,29 +435,28 @@ opción <code>freq= FALSE</code>, lo cual nos permite normalizar el histograma d
 Ahora el eje y está etiquetado como densidad en lugar de frecuencia.</p>
 <p>Modifiquemos nuestro histograma de frecuencia anterior por un histograma de densidad y grafiquemos uno
 al lado del otro:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb96-2" title="2"></a>
-<a class="sourceLine" id="cb96-3" title="3"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento)</a>
-<a class="sourceLine" id="cb96-4" title="4"></a>
-<a class="sourceLine" id="cb96-5" title="5"><span class="kw">hist</span>(data<span class="op">$</span>rendimiento,</a>
-<a class="sourceLine" id="cb96-6" title="6"><span class="dt">main=</span><span class="st">&quot;Histograma de densidad&quot;</span>,</a>
-<a class="sourceLine" id="cb96-7" title="7"><span class="dt">xlab=</span><span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</a>
-<a class="sourceLine" id="cb96-8" title="8"><span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">3500</span>,<span class="dv">8500</span>),</a>
-<a class="sourceLine" id="cb96-9" title="9"><span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb96-10" title="10"><span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb96-11" title="11"><span class="dt">cex.main=</span><span class="fl">1.2</span>,</a>
-<a class="sourceLine" id="cb96-12" title="12"><span class="dt">cex.lab=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb96-13" title="13"><span class="dt">cex.axis=</span><span class="fl">1.0</span>,</a>
-<a class="sourceLine" id="cb96-14" title="14"><span class="dt">Freq=</span><span class="ot">FALSE</span>)</a></code></pre></div>
-<pre><code>## Warning in plot.window(xlim, ylim, &quot;&quot;, ...): &quot;Freq&quot; is not a graphical
-## parameter</code></pre>
-<pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
-## &quot;Freq&quot; is not a graphical parameter</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="visualización-de-datos-en-rstudio.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb98-2"><a href="visualización-de-datos-en-rstudio.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="visualización-de-datos-en-rstudio.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>rendimiento)</span>
+<span id="cb98-4"><a href="visualización-de-datos-en-rstudio.html#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="visualización-de-datos-en-rstudio.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>rendimiento,</span>
+<span id="cb98-6"><a href="visualización-de-datos-en-rstudio.html#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="at">main=</span><span class="st">&quot;Histograma de densidad&quot;</span>,</span>
+<span id="cb98-7"><a href="visualización-de-datos-en-rstudio.html#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">&quot;Rendimiento (Ton/hect)&quot;</span>,</span>
+<span id="cb98-8"><a href="visualización-de-datos-en-rstudio.html#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">3500</span>,<span class="dv">8500</span>),</span>
+<span id="cb98-9"><a href="visualización-de-datos-en-rstudio.html#cb98-9" aria-hidden="true" tabindex="-1"></a><span class="at">col=</span><span class="st">&quot;red&quot;</span>,</span>
+<span id="cb98-10"><a href="visualización-de-datos-en-rstudio.html#cb98-10" aria-hidden="true" tabindex="-1"></a><span class="at">freq=</span><span class="cn">FALSE</span>,</span>
+<span id="cb98-11"><a href="visualización-de-datos-en-rstudio.html#cb98-11" aria-hidden="true" tabindex="-1"></a><span class="at">cex.main=</span><span class="fl">1.2</span>,</span>
+<span id="cb98-12"><a href="visualización-de-datos-en-rstudio.html#cb98-12" aria-hidden="true" tabindex="-1"></a><span class="at">cex.lab=</span><span class="fl">1.0</span>,</span>
+<span id="cb98-13"><a href="visualización-de-datos-en-rstudio.html#cb98-13" aria-hidden="true" tabindex="-1"></a><span class="at">cex.axis=</span><span class="fl">1.0</span>,</span>
+<span id="cb98-14"><a href="visualización-de-datos-en-rstudio.html#cb98-14" aria-hidden="true" tabindex="-1"></a><span class="at">Freq=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning in plot.window(xlim, ylim, &quot;&quot;, ...): &quot;Freq&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...): &quot;Freq&quot;
+## is not a graphical parameter</code></pre>
 <pre><code>## Warning in axis(1, ...): &quot;Freq&quot; is not a graphical parameter</code></pre>
 <pre><code>## Warning in axis(2, ...): &quot;Freq&quot; is not a graphical parameter</code></pre>
 <p><img src="04-lab_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
-<div id="ejercicios-para-la-casa" class="section level2">
+<div id="ejercicios-para-la-casa" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Ejercicios para la casa</h2>
 <iframe src="DCL/intro_2.html" frameborder="0" scrolling="no" style="width:100%;height:360px">
 </iframe>
